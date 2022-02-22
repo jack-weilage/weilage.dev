@@ -26,7 +26,7 @@
         {#if import.meta.env.DEV}
             <pre>{error.stack}</pre>
         {:else}
-            <p>If this error persists, try reloading the page.</p>
+            <p>If this error persists, please contact me with a description of how to reproduce the error.</p>
         {/if}
     {:else}
         <h1>You're currently offline!</h1>
