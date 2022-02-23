@@ -8,7 +8,9 @@
     "package": "svelte-kit package",
     "preview": "svelte-kit preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch"
+    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+    "heroku:deploy": "git push heroku master",
+    "heroku:logs": "heroku logs --tail"
   },
   "devDependencies": {
     "@sveltejs/adapter-node": "^1.0.0-next.69",
