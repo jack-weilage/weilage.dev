@@ -18,12 +18,15 @@ main {
 }
 
 a {
+    color: #0066cc;
     text-decoration: none;
 }
 a:hover {
+    color: #0066cc;
     text-decoration: underline;
 }
 a:focus {
+    color: #0066cc;
     outline: none;
 }
 a:visited {
