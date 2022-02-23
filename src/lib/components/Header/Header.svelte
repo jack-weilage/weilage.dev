@@ -1,6 +1,6 @@
 <script>
     import { fly } from 'svelte/transition'
-    const offset = 30
+    const offset = 100
     const tolerance = 3
 
     let y = 0
@@ -8,12 +8,12 @@
     let isShown = true
 
     $: {
-        // if the we're right at the top of the page, we should pin the header
-        if (y < offset) isShown = true
-        
         const scrolled = lastY - y
+        // if the we're right at the top of the page, we should pin the header
+        if (y < offset) {
+            isShown = true
         // if we've scrolled fast enough to change the state of the header
-        if (Math.abs(scrolled) >= tolerance) {
+        } else if (Math.abs(scrolled) >= tolerance) {
             // if we're scrolling down, unpin the header
             // if we're scrolling up, pin the header
             isShown = scrolled > 0
