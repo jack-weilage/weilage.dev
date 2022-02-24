@@ -1,5 +1,5 @@
 <svelte:head>
-    <title>homepage</title>
+    <title>Home - Jack Weilage</title>
 </svelte:head>
 
 <main>

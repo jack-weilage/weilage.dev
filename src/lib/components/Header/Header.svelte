@@ -28,7 +28,7 @@
 {#if isShown}
     <!-- use |local to prevent transition on page change -->
     <header transition:fly|local={{y: -100, delay: 200}}>
-        <a href="/" sveltekit:prefetch>weilage</a>
+        <a href="/" sveltekit:prefetch>Jack Weilage</a>
         <ul>
             <li><a href="/about" sveltekit:prefetch>About</a></li>
             <li><a href="/contact" sveltekit:prefetch>Contact</a></li>
