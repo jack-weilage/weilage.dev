@@ -8,8 +8,8 @@
         <p>Hello there.</p>
     </div>
     <div>
-        <h1>Hello World!</h1>
-        <p>Hello there.</p>
+        <h1>Hello There!</h1>
+        <p>Hello world.</p>
     </div>
 </main>
 
