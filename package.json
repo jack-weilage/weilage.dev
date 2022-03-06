@@ -10,7 +10,11 @@
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
     "heroku:deploy": "git push heroku master",
-    "heroku:logs": "heroku logs --tail"
+    "deploy": "git push heroku master",
+    "heroku:logs": "heroku logs --tail",
+    "logs": "heroku logs --tail",
+    "heroku:open": "heroku open",
+    "open": "heroku open"
   },
   "devDependencies": {
     "@sveltejs/adapter-node": "^1.0.0-next.69",
