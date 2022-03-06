@@ -18,16 +18,23 @@
             I enjoy taking ideas and turning them into reality.
         </p>
     </section>
+    <aside>
+        <p>Contact me on:</p>
+        <address>
+            <a href="mailto:jack@weilage.dev">Email (jack@weilage.dev)</a>
+        </address>
+    </aside>
 </main>
 
 <style>
     main {
         box-sizing: border-box;
 
-        width: 100%;
-        height: 100%;
-        max-height: 100dvh;
-        max-height: 100vh;
+        width: 100dvw;
+        width: 100vw;
+
+        height: 100dvh;
+        height: 100vh;
 
         display: flex;
         flex-flow: column wrap;
@@ -35,9 +42,17 @@
         justify-content: center;
 
         padding: 1rem;
-
-        /* overflow-y: auto;
-        scroll-snap-type: y proximity; */
+    }
+    /* section {
+        
+    } */
+    aside {
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
+    }
+    address {
+        line-height: 1.1;
     }
     h1 {
         font-size: 1.8rem;
