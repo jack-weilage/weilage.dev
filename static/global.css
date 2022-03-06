@@ -17,6 +17,7 @@ body, html {
     min-height: 100vh;
 
     font-family: 'Libre Franklin', sans-serif;
+    /* text-rendering: optimizeLegibility; */
 
     scrollbar-color: #ccc #fff;
     scrollbar-width: thin;

@@ -89,6 +89,7 @@
         color: #00B84D;
     }
     p {
+        line-height: 1.1;
         max-width: 25rem;
     }
     /* div.degen {
