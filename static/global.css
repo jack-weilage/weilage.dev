@@ -17,7 +17,6 @@ body, html {
     min-height: 100vh;
 
     font-family: 'Libre Franklin', sans-serif;
-    /* text-rendering: optimizeLegibility; */
 
     background-color: var(--theme-background, initial);
     color: var(--theme-text, initial);
