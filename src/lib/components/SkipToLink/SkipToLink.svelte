@@ -12,7 +12,8 @@
         margin: 0.5rem;
         padding: 0.5rem;
         
-        background: #fff;
+        color: #000;
+        background-color: #fff;
         
         border-radius: 0.25rem;
         border: 1px solid #ccc;
