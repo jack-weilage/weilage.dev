@@ -61,8 +61,8 @@
         height: 100%;
         max-height: 100vh;
 
-        overflow-y: auto;
-        scroll-snap-type: y proximity;
+        /* overflow-y: auto;
+        scroll-snap-type: y proximity; */
     }
     div.main {
         box-sizing: border-box;
@@ -77,7 +77,7 @@
 
         padding: 1rem;
 
-        scroll-snap-align: start;
+        /* scroll-snap-align: start; */
     }
     h1 {
         font-size: 1.8rem;
