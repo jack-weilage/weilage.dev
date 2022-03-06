@@ -21,7 +21,7 @@
         z-index: 999;
         transform: translateY(calc(-100% - 1px - 0.5rem - 0.5rem));
 
-        transition: transform 0.5s;
+        transition: transform 0.5s ease-in-out;
     }
     a:focus {
         transform: translateY(0);
