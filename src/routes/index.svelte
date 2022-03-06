@@ -1,4 +1,5 @@
-<!-- <script lang="ts">
+<script lang="ts">
+    /*
     let text: HTMLInputElement
     let info: HTMLParagraphElement
 
@@ -17,7 +18,8 @@
             }
         })
     }
-</script> -->
+    */
+</script>
 
 <svelte:head>
     <title>Home - Jack Weilage</title>
