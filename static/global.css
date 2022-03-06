@@ -1,3 +1,15 @@
+:root {
+    --theme-background: #fff;
+    --theme-text: #000;
+    --theme-anchor: #06c;
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --theme-background: #000;
+        --theme-text: #fff;
+        --theme-anchor: #51d6ff;
+    }
+}
 body, html {
     width: 100%;
     max-width: 100vw;
@@ -8,25 +20,24 @@ body, html {
 
     scrollbar-color: #ccc #fff;
     scrollbar-width: thin;
+
+    background-color: var(--theme-background, initial);
+    color: var(--theme-text, initial);
 }
 main {
     flex-grow: 1;
 }
 
 a {
-    color: #0066cc;
+    color: var(--theme-anchor, initial);
     text-decoration: none;
 }
 a:hover {
-    color: #0066cc;
     text-decoration: underline;
 }
 a:focus {
-    color: #0066cc;
     outline: none;
-}
-a:visited {
-    color: #0066cc;
+    text-decoration: underline;
 }
 
 ::-webkit-scrollbar {
