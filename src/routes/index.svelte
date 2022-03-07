@@ -40,12 +40,11 @@
         padding: 1rem;
     }
     aside {
+        line-height: 1.1;
+
         position: absolute;
         bottom: 1rem;
         right: 1rem;
-    }
-    address {
-        line-height: 1.1;
     }
     h1 {
         font-size: 1.8rem;
@@ -58,8 +57,8 @@
         color: #00B84D;
     }
     p {
-        max-width: 25rem;
-
         line-height: 1.1;
+
+        max-width: 25rem;
     }
 </style>
