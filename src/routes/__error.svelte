@@ -27,7 +27,7 @@
             {#if import.meta.env.DEV}
                 <pre>{error.stack}</pre>
             {:else}
-                <p>If this error persists, please contact me with a description of how to reproduce the error.</p>
+                <p>If this error persists when it seems like it really shouldn't, please contact me at <a href="mailto:jack@weilage.dev?subject=Recurring Error {status}: {error.message}">jack@weilage.dev</a> with a description of how to reproduce the error.</p>
             {/if}
         {:else}
             <h1>You're currently offline!</h1>
