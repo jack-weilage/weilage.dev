@@ -5,8 +5,7 @@
 <main id="main-content">
     <section>
         <h1>
-            Hello! I'm
-            <br>
+            Hello! I'm<br>
             <span id="name">Jack&nbsp;Weilage</span>
         </h1>
         <p>
@@ -30,11 +29,8 @@
     main {
         box-sizing: border-box;
 
-        width: 100dvw;
-        width: 100vw;
-
-        height: 100dvh;
-        height: 100vh;
+        width: 100%;
+        height: 100%;
 
         display: flex;
         flex-flow: column wrap;
@@ -43,9 +39,6 @@
 
         padding: 1rem;
     }
-    /* section {
-        
-    } */
     aside {
         position: absolute;
         bottom: 1rem;
