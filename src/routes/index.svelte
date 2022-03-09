@@ -1,5 +1,6 @@
 <svelte:head>
     <title>Home - Jack Weilage</title>
+    <link rel="canonical" href="https://weilage.dev">
 </svelte:head>
 
 <main id="main-content">
