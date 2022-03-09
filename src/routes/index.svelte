@@ -1,23 +1,9 @@
-<script>
-    import { onMount } from 'svelte'
-    import { slide, fade } from 'svelte/transition'
-
-    let mounted = false
-    let reducedMotion = false
-    $: slideReducedMotion = reducedMotion ? fade : slide
-
-    onMount(() => {
-        mounted = true
-        reducedMotion = window.matchMedia('(prefers-reduced-motion)').matches
-    })
-</script>
 <svelte:head>
     <title>Home - Jack Weilage</title>
 </svelte:head>
 
-{#if mounted}
 <main id="main-content">
-    <section transition:fade={{ duration: 750, delay: 100 }}>
+    <section>
         <h2>Hello! I'm</h2>
         <h1>Jack&nbsp;Weilage</h1>
         <p>
@@ -29,14 +15,13 @@
             I enjoy taking ideas and turning them into reality.
         </p>
     </section>
-    <aside transition:slideReducedMotion={{ duration: 500, delay: 750 + 250 + 100 }}>
+    <aside>
         <p>Contact me on:</p>
         <address>
             <a href="mailto:jack@weilage.dev">Email (jack@weilage.dev)</a>
         </address>
     </aside>
 </main>
-{/if}
 
 <style>
     main {
