@@ -9,11 +9,11 @@
         <h1>Jack&nbsp;Weilage</h1>
         <p>
             I'm a web developer currently using
-            <a rel="external" target="_blank" href="https://svelte.dev/">Svelte</a>, 
-            <a rel="external" target="_blank" href="https://kit.svelte.dev/">SvelteKit</a>,
+            <a rel="external" target="_blank" href="https://svelte.dev/">Svelte</a> / <a rel="external" target="_blank" href="https://kit.svelte.dev/">SvelteKit</a>,
             <a rel="external" target="_blank" href="https://nodejs.org/">Node.js</a> and 
-            <a rel="external" target="_blank" href="https://www.typescriptlang.org/">TypeScript</a>.
-            I enjoy taking ideas and turning them into reality.
+            <a rel="external" target="_blank" href="https://www.typescriptlang.org/">TypeScript</a> to build highly accessible and fully semantic websites.
+            <!-- I love taking abstract ideas for projects and creating <abbr title="Minimum Viable Product">MVP</abbr>s for them. -->
+            <!-- My main focus is currently on HTML5 semantics and accessibility, but I want to branch out to reactive components and libraries. -->
         </p>
     </section>
     <aside>
@@ -52,7 +52,7 @@
     }
     h1 {
         font-family: 'Fira Sans Condensed', sans-serif;
-        font-size: 4rem;
+        font-size: 5rem;
         font-weight: bold;
 
         color: #00B84D;
