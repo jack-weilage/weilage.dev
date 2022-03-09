@@ -1,20 +1,11 @@
 <script>
     import { onMount } from 'svelte'
-    import { fly, fade } from 'svelte/transition'
-
-    /** @see [original function](https://easings.net/#easeOutBack) */
-    function easeOutBack(t) {
-        const c1 = 1.70158;
-        const c3 = c1 + 1;
-
-        return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2);
-    }
+    import { slide, fade } from 'svelte/transition'
 
     let mounted = false
     let reducedMotion = false
-    $: transition = reducedMotion ? (node, options) => fade(node, {
-        delay: options?.delay, duration: options?.duration, easing: options?.easing
-    }) : fly
+    $: slideReducedMotion = reducedMotion ? fade : slide
+
     onMount(() => {
         mounted = true
         reducedMotion = window.matchMedia('(prefers-reduced-motion)').matches
@@ -26,9 +17,9 @@
 
 {#if mounted}
 <main id="main-content">
-    <section in:transition={{ y: -100, duration: 1000, delay: 250 }}>
+    <section transition:fade={{ duration: 750, delay: 100 }}>
         <h2>Hello! I'm</h2>
-        <h1 in:transition={{ x: -100, duration: 500, delay: 750, easing: easeOutBack }}>Jack&nbsp;Weilage</h1>
+        <h1>Jack&nbsp;Weilage</h1>
         <p>
             I'm a web developer currently using
             <a rel="external" target="_blank" href="https://svelte.dev/">Svelte</a>, 
@@ -38,7 +29,7 @@
             I enjoy taking ideas and turning them into reality.
         </p>
     </section>
-    <aside in:transition={{ y: -50, duration: 500, delay: 1100 }}>
+    <aside transition:slideReducedMotion={{ duration: 500, delay: 750 + 250 + 100 }}>
         <p>Contact me on:</p>
         <address>
             <a href="mailto:jack@weilage.dev">Email (jack@weilage.dev)</a>
