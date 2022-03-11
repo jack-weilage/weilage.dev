@@ -13,8 +13,6 @@
             <a rel="external" target="_blank" href="https://nodejs.org/">Node.js</a> and 
             <a rel="external" target="_blank" href="https://www.typescriptlang.org/">TypeScript</a>
             to build highly accessible and fully semantic websites.
-            <!-- I love taking abstract ideas for projects and creating <abbr title="Minimum Viable Product">MVP</abbr>s for them. -->
-            <!-- My main focus is currently on HTML5 semantics and accessibility, but I want to branch out to reactive components and libraries. -->
         </p>
     </section>
     <aside>
