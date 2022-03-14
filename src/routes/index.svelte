@@ -16,9 +16,13 @@
         </p>
     </section>
     <aside>
-        <p>Contact me on:</p>
+        <h3>Contact me:</h3>
         <address>
-            <a href="mailto:jack@weilage.dev">Email (jack@weilage.dev)</a>
+            <ul>
+                <li>
+                    <a href="mailto:jack@weilage.dev">jack@weilage.dev</a>
+                </li>
+            </ul>
         </address>
     </aside>
 </main>
@@ -44,11 +48,6 @@
         bottom: 1rem;
         right: 1rem;
     }
-    h2 {
-        font-family: 'Oxygen', sans-serif;
-        font-size: 1.8rem;
-        font-weight: bold;
-    }
     h1 {
         /* force style to italic and bold while the font is loading */
         font-style: italic;
@@ -58,6 +57,16 @@
         color: #00B84D;
 
         margin-bottom: 0.25rem;
+    }
+    h2 {
+        font-family: 'Oxygen', sans-serif;
+        font-size: 1.8rem;
+        font-weight: bold;
+    }
+    h3 {
+        /* font-family: 'Oxygen', sans-serif; */
+        font-size: 1.4rem;
+        /* font-weight: bold; */
     }
     p {
         line-height: 1.1;
