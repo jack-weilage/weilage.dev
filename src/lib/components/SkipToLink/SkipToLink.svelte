@@ -19,7 +19,7 @@
         border: 1px solid #ccc;
 
         z-index: 999;
-        transform: translateY(calc(-100% - 1px - 0.5rem - 0.5rem));
+        transform: translateY(-1000%);
 
         transition: transform 0.5s ease-in-out;
     }
