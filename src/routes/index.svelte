@@ -3,7 +3,7 @@
     import GradientText from '$lib/components/GradientText'
 </script>
 
-<SEO 
+<SEO
     title="Home - Jack Weilage"
     description="weilage.dev is a personal website for Jack Weilage, a web developer and designer."
     keywords={[ 'weilage', 'jack weilage', 'weilage.dev', 'weilage dev', 'portfolio', 'jack weilage portfolio' ]}
@@ -19,7 +19,7 @@
             <a rel="external" target="_blank" href="https://svelte.dev/">Svelte</a>&nbsp;/&nbsp;<a rel="external" target="_blank" href="https://kit.svelte.dev/">SvelteKit</a>,
             <a rel="external" target="_blank" href="https://nodejs.org/">Node.js</a> and 
             <a rel="external" target="_blank" href="https://www.typescriptlang.org/">TypeScript</a>
-            to build highly accessible and <GradientText --fill="linear-gradient(to right, red, orange, #f0f)">fully semantic</GradientText> websites.
+            to build highly accessible and <GradientText --fill="linear-gradient(to bottom right, red, orange, #f0f)">fully semantic</GradientText> websites.
         </p>
     </section>
     <aside>
