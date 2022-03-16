@@ -1,13 +1,31 @@
+/* default & light mode */
 :root {
-    --theme-background: #fff;
-    --theme-text: #000;
-    --theme-anchor: #06c;
+    --theme-background-light: #fbfbfb;
+    --theme-background-dark: #0d0d15;
+    
+    --theme-text-light: #161716;
+    --theme-text-dark: #fbfbfb;
+    
+    --theme-anchor-light: #06c;
+    --theme-anchor-dark: #51d6ff;
+    
+    --theme-anchor-hover-light: #06c;
+    --theme-anchor-hover-dark: #51d6ff;
+
+
+    /* light mode */
+    --theme-background:     var(--theme-background-light);
+    --theme-text:           var(--theme-text-light);
+    --theme-anchor:         var(--theme-anchor-light);
+    --theme-anchor-hover:   var(--theme-anchor-hover-light);
 }
 @media (prefers-color-scheme: dark) {
     :root {
-        --theme-background: #000;
-        --theme-text: #fff;
-        --theme-anchor: #51d6ff;
+        /* dark mode */
+        --theme-background:     var(--theme-background-dark);
+        --theme-text:           var(--theme-text-dark);
+        --theme-anchor:         var(--theme-anchor-dark);
+        --theme-anchor-hover:   var(--theme-anchor-hover-dark);
     }
 }
 body, html {
@@ -25,5 +43,6 @@ a {
     text-decoration: none;
 }
 a:hover {
+    color: var(--theme-anchor-hover, initial);
     text-decoration: underline;
 }
