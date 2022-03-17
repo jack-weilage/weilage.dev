@@ -1,5 +1,6 @@
 <script>
     import SEO from '$lib/components/SEO'
+    import Link from '$lib/components/Link'
     import GradientText from '$lib/components/GradientText'
 </script>
 
@@ -16,9 +17,9 @@
         <h1>Jack&nbsp;Weilage</h1>
         <p>
             I'm a web developer currently using
-            <a rel="external" target="_blank" href="https://svelte.dev/">Svelte</a>&nbsp;/&nbsp;<a rel="external" target="_blank" href="https://kit.svelte.dev/">SvelteKit</a>,
-            <a rel="external" target="_blank" href="https://nodejs.org/">Node.js</a> and 
-            <a rel="external" target="_blank" href="https://www.typescriptlang.org/">TypeScript</a>
+            <Link href="https://svelte.dev">Svelte</Link>&nbsp;/&nbsp;<Link href="https://kit.svelte.dev">SvelteKit</Link>,
+            <Link href="https://nodejs.org">Node.js</Link> and
+            <Link href="https://www.typescriptlang.org/">TypeScript</Link>
             to build highly accessible and <GradientText>fully semantic</GradientText> websites.
         </p>
     </section>
