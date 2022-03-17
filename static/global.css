@@ -12,6 +12,10 @@
     --theme-anchor-hover-light: #06c;
     --theme-anchor-hover-dark: #51d6ff;
 
+    --theme-green: #00b84d;
+    --theme-orange: #ee6c4d;
+    --theme-light-orange: #f38d68;
+    --theme-blue: #51d6ff;
 
     /* light mode */
     --theme-background:     var(--theme-background-light);
