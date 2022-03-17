@@ -23,7 +23,7 @@
         </p>
     </section>
     <aside>
-        <h3>Contact me:</h3>
+        <p class="contact">Contact me:</p>
         <address>
             <ul>
                 <li>
@@ -72,11 +72,12 @@
         font-size: 1.8rem;
         font-weight: bold;
     }
-    h3 {
-        font-size: 1.4rem;
+    p.contact {
+        font-size: 1.2rem;
+        font-weight: bold;
     }
     p {
-        line-height: 1.1;
+        line-height: 1.15;
 
         max-width: 25rem;
     }
@@ -86,9 +87,6 @@
         }
         h2 {
             font-size: 1.3rem;
-        }
-        h3 {
-            font-size: 1.2rem;
         }
         p {
             max-width: 20rem;
