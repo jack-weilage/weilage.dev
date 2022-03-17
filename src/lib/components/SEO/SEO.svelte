@@ -29,7 +29,9 @@
     <meta name="author" content={author}>
     <meta name="keywords" content={keywords.join(',')}>
     <link rel="canonical" href={canonical}>
+    {#if robots.length > 0}
     <meta name="robots" content={robots.join(',')}>
+    {/if}
 
     <meta name="og:title" content={opengraph.title || title}>
     <meta name="og:description" content={opengraph.description || description}>
