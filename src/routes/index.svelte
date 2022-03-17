@@ -10,7 +10,6 @@
     author="Jack Weilage"
     keywords={[ 'weilage', 'jack weilage', 'weilage.dev', 'weilage dev', 'jack weilage dev', 'jack weilage developer', 'portfolio', 'jack weilage portfolio' ]}
     canonical="https://weilage.dev/"
-    index follow archive
 />
 
 <main id="main-content">

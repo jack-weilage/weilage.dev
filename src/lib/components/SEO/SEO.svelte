@@ -1,9 +1,23 @@
 <script lang="ts">
-    export let title: string, description: string, author: string
+    /** the title for both the browser and search engines */
+    export let title: string
+    /** the description for search engines */
+    export let description: string
+    /** the author for search engines */
+    export let author: string
+    /** keywords for search engines */
     export let keywords: string[]
+    /** the "real"/permanent version of the url */
     export let canonical: string
-    export let index = true, follow = true, archive = true
 
+    /** should search engines not index this page */
+    export let noindex = true
+    /** should search engines not follow links on this page */
+    export let nofollow = true
+    /** should search engines not archive this page */
+    export let noarchive = true
+
+    /** opengraph (for social media) */
     export let opengraph: {
         title: string
         description: string
@@ -17,9 +31,9 @@
     }
 
     const robots = [
-        !index && 'noindex',
-        !follow && 'nofollow',
-        !archive && 'noarchive',
+        noindex && 'noindex',
+        nofollow && 'nofollow',
+        noarchive && 'noarchive',
     ].filter(Boolean)
 </script>
 
@@ -29,9 +43,7 @@
     <meta name="author" content={author}>
     <meta name="keywords" content={keywords.join(',')}>
     <link rel="canonical" href={canonical}>
-    {#if robots.length > 0}
     <meta name="robots" content={robots.join(',')}>
-    {/if}
 
     <meta name="og:title" content={opengraph.title || title}>
     <meta name="og:description" content={opengraph.description || description}>
