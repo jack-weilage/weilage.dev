@@ -8,7 +8,7 @@
     title="Home - Jack Weilage"
     description="weilage.dev is a personal website for Jack Weilage, a web developer and designer."
     keywords={[ 'weilage', 'jack weilage', 'weilage.dev', 'weilage dev', 'portfolio', 'jack weilage portfolio' ]}
-    canonical="https://weilage.dev"
+    canonical="https://weilage.dev/"
 />
 
 <main id="main-content">
