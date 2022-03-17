@@ -19,7 +19,7 @@
             <a rel="external" target="_blank" href="https://svelte.dev/">Svelte</a>&nbsp;/&nbsp;<a rel="external" target="_blank" href="https://kit.svelte.dev/">SvelteKit</a>,
             <a rel="external" target="_blank" href="https://nodejs.org/">Node.js</a> and 
             <a rel="external" target="_blank" href="https://www.typescriptlang.org/">TypeScript</a>
-            to build highly accessible and <GradientText --fill="linear-gradient(to bottom right, red, orange, #f0f)">fully semantic</GradientText> websites.
+            to build highly accessible and <GradientText>fully semantic</GradientText> websites.
         </p>
     </section>
     <aside>
@@ -48,9 +48,6 @@
 
         padding: 1rem;
     }
-    section {
-        padding: 1rem;
-    }
     aside {
         line-height: 1.1;
 
@@ -66,9 +63,9 @@
         font-family: 'Fira Sans Condensed', sans-serif;
         font-size: 5rem;
 
-        color: #00B84D;
+        color: var(--theme-green);
 
-        margin-bottom: 0.25rem;
+        margin-bottom: 0.5rem;
     }
     h2 {
         font-family: 'Oxygen', sans-serif;
@@ -84,11 +81,14 @@
         max-width: 25rem;
     }
     @media (max-width: 600px) {
-        h2 {
-            font-size: 1.5rem;
-        }
         h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
+        }
+        h2 {
+            font-size: 1.3rem;
+        }
+        h3 {
+            font-size: 1.2rem;
         }
         p {
             max-width: 20rem;
