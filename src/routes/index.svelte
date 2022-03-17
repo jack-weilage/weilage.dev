@@ -7,7 +7,7 @@
 <SEO
     title="Home - Jack Weilage"
     description="weilage.dev is a personal website for Jack Weilage, a web developer and designer."
-    keywords={[ 'weilage', 'jack weilage', 'weilage.dev', 'weilage dev', 'portfolio', 'jack weilage portfolio' ]}
+    keywords={[ 'weilage', 'jack weilage', 'weilage.dev', 'weilage dev', 'jack weilage dev', 'jack weilage developer', 'portfolio', 'jack weilage portfolio' ]}
     canonical="https://weilage.dev/"
 />
 
@@ -20,7 +20,7 @@
             <Link href="https://svelte.dev">Svelte</Link>&nbsp;/&nbsp;<Link href="https://kit.svelte.dev">SvelteKit</Link>,
             <Link href="https://nodejs.org">Node.js</Link> and
             <Link href="https://www.typescriptlang.org/">TypeScript</Link>
-            to build highly accessible and <GradientText>fully semantic</GradientText> websites.
+            to build highly&nbsp;accessible and <GradientText>fully semantic</GradientText> websites.
         </p>
     </section>
     <aside>
