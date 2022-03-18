@@ -22,6 +22,8 @@
         display: flex;
         flex-flow: row wrap;
         justify-content: space-between;
+
+        overflow: hidden;
     }
     div.underline {
         width: calc(var(--type) + 0.45rem);
