@@ -1,6 +1,6 @@
 <script>
-    import SEO from '$lib/components/SEO'
-    import Link from '$lib/components/Link'
+    import SEO          from '$lib/components/SEO'
+    import Link         from '$lib/components/Link'
     import GradientText from '$lib/components/GradientText'
 </script>
 
@@ -25,11 +25,16 @@
         </p>
     </section>
     <aside>
-        <p class="contact">Contact me:</p>
-        <address>
+        <p class="contact">Contact me</p>
+        <address> 
             <ul>
                 <li>
+                    <span>Email:</span>
                     <a href="mailto:jack@weilage.dev">jack@weilage.dev</a>
+                </li>
+                <li>
+                    <span>Github:</span>
+                    <Link href="https://github.com/jack-weilage">jack-weilage</Link>
                 </li>
             </ul>
         </address>
@@ -51,13 +56,17 @@
         padding: 1rem;
     }
     aside {
+        width: 14rem;
         line-height: 1.1;
 
         position: absolute;
         bottom: 0;
         right: 0;
+
+        display: flex;
+        flex-flow: column wrap;
         
-        margin: 1rem;
+        margin: 2rem;
     }
     h1 {
         /* force style to italic and bold while the font is loading */
@@ -77,11 +86,25 @@
     p.contact {
         font-size: 1.2rem;
         font-weight: bold;
+
+        width: 100%;
+        text-align: center;
+
+        padding-bottom: 0.05rem;
+        margin-bottom: 0.25rem;
+        border-bottom: 1px solid #ccc;
     }
     p {
         line-height: 1.15;
 
         max-width: 25rem;
+    }
+    li {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+
+        padding: 0.25rem;
     }
     @media (max-width: 600px) {
         h1 {
