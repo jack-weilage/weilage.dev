@@ -9,13 +9,12 @@
     "preview": "svelte-kit preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-    "heroku:deploy": "git push heroku master",
-    "deploy": "git push heroku master",
+    "heroku:deploy": "git push origin main",
+    "deploy": "git push origin main",
     "heroku:logs": "heroku logs --tail",
     "logs": "heroku logs --tail",
     "heroku:open": "heroku open",
-    "open": "heroku open",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "open": "heroku open"
   },
   "devDependencies": {
     "@sveltejs/adapter-node": "next",
