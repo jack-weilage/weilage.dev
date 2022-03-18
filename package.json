@@ -14,7 +14,8 @@
     "heroku:logs": "heroku logs --tail",
     "logs": "heroku logs --tail",
     "heroku:open": "heroku open",
-    "open": "heroku open"
+    "open": "heroku open",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
     "@sveltejs/adapter-node": "next",
