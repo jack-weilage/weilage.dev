@@ -33,7 +33,7 @@
                     <a href="mailto:jack@weilage.dev">jack@weilage.dev</a>
                 </li>
                 <li>
-                    <span>Github:</span>
+                    <span>GitHub:</span>
                     <Link href="https://github.com/jack-weilage">jack-weilage</Link>
                 </li>
             </ul>
