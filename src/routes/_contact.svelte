@@ -5,8 +5,8 @@
     export let href
     export let text
 
-    let typeWidth = 0
-    let textWidth = 0
+    let typeWidth = 10
+    let textWidth = 10
 </script>
 
 <Wrapper --type="{typeWidth}px" --text="{textWidth}px">
