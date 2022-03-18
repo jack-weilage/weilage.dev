@@ -21,7 +21,6 @@
     div {
         display: flex;
         flex-flow: row wrap;
-        justify-content: space-between;
 
         overflow: hidden;
     }
@@ -38,6 +37,9 @@
         width: calc(var(--text) + 0.45rem);
         margin: 0.25rem 0 0.25rem calc(100% - var(--text) - 0.45rem);
         background-color: var(--theme-anchor);
+
+        /* delay going to right */
+        transition-delay: 0.1s;
     }
     span {
         display: inline-block;
