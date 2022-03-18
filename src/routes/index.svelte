@@ -56,7 +56,7 @@
         padding: 1rem;
     }
     aside {
-        width: 14rem;
+        width: 14.5rem;
         line-height: 1.1;
 
         position: absolute;
@@ -66,7 +66,10 @@
         display: flex;
         flex-flow: column wrap;
         
-        margin: 2rem;
+        margin: 1rem;
+    }
+    address {
+        padding: 0 0.25rem;
     }
     h1 {
         /* force style to italic and bold while the font is loading */
@@ -114,7 +117,7 @@
             max-width: 20rem;
         }
         p.contact {
-            padding-bottom: 0.25rem;
+            padding-bottom: 0.5rem;
         }
         ul {
             padding: 0.5rem;
