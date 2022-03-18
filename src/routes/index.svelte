@@ -2,6 +2,8 @@
     import SEO          from '$lib/components/SEO'
     import Link         from '$lib/components/Link'
     import GradientText from '$lib/components/GradientText'
+
+    import Contact from './_contact.svelte'
 </script>
 
 <SEO
@@ -16,7 +18,7 @@
     <section>
         <h2>Hello! I'm</h2>
         <h1>Jack&nbsp;Weilage</h1>
-        <p>
+        <p class="description">
             I'm a web developer currently using
             <Link href="https://svelte.dev">Svelte</Link>&nbsp;/&nbsp;<Link href="https://kit.svelte.dev">SvelteKit</Link>,
             <Link href="https://nodejs.org">Node.js</Link> and
@@ -29,12 +31,10 @@
         <address> 
             <ul>
                 <li>
-                    <span>Email:</span>
-                    <a href="mailto:jack@weilage.dev">jack@weilage.dev</a>
+                    <Contact type="Email" href="mailto:jack@weilage.dev" text="jack@weilage.dev" />
                 </li>
                 <li>
-                    <span>GitHub:</span>
-                    <Link href="https://github.com/jack-weilage">jack-weilage</Link>
+                    <Contact type="GitHub" href="https://github.com/jack-weilage" text="jack-weilage" />
                 </li>
             </ul>
         </address>
@@ -83,6 +83,11 @@
         font-size: 1.8rem;
         font-weight: bold;
     }
+    p.description {
+        line-height: 1.15;
+
+        max-width: 25rem;
+    }
     p.contact {
         font-size: 1.2rem;
         font-weight: bold;
@@ -94,27 +99,25 @@
         margin-bottom: 0.25rem;
         border-bottom: 1px solid #ccc;
     }
-    p {
-        line-height: 1.15;
-
-        max-width: 25rem;
-    }
-    li {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-between;
-
-        padding: 0.25rem;
-    }
     @media (max-width: 600px) {
+        aside {
+            width: 100%;
+            margin: 0;
+        }
         h1 {
             font-size: 3.5rem;
         }
         h2 {
             font-size: 1.3rem;
         }
-        p {
+        p.description {
             max-width: 20rem;
+        }
+        p.contact {
+            padding-bottom: 0.25rem;
+        }
+        ul {
+            padding: 0.5rem;
         }
     }
 </style>
