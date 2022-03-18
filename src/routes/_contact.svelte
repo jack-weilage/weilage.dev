@@ -12,7 +12,7 @@
 <Wrapper --type="{typeWidth}px" --text="{textWidth}px">
     <div>
         <span bind:clientWidth={typeWidth}>{type}:</span>
-        <a {href} bind:clientWidth={textWidth}>{text}</a>
+        <a rel="external" target="_blank" {href} bind:clientWidth={textWidth}>{text}</a>
         <div class="underline" />
     </div>
 </Wrapper>
@@ -24,17 +24,18 @@
         justify-content: space-between;
     }
     div.underline {
-        width: calc(var(--type) * 1.1);
+        width: calc(var(--type) + 0.45rem);
         height: 0.5px;
 
-        margin: 0.25rem calc(100% - var(--type) * 1.1) 0.25rem 0;
+        margin: 0.25rem calc(100% - var(--type) - 0.45rem) 0.25rem 0;
         background-color: #ccc;
 
-        transition: width 0.5s, margin 0.5s;
+        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     div:hover div.underline {
-        width: calc(var(--text) * 1.1);
-        margin: 0.25rem 0 0.25rem calc(100% - var(--text) * 1.1);
+        width: calc(var(--text) + 0.45rem);
+        margin: 0.25rem 0 0.25rem calc(100% - var(--text) - 0.45rem);
+        background-color: var(--theme-anchor);
     }
     span {
         display: inline-block;
