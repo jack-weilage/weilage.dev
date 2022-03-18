@@ -12,9 +12,9 @@
 
         background-size: 200% 100%;
         
-        animation: move-background 2.5s linear infinite;
+        animation: gradient-shift 2.5s linear infinite;
     }
-    @keyframes move-background {
+    @keyframes gradient-shift {
         from {
             background-position: 100% 0;
         }
