@@ -37,6 +37,7 @@ body, html {
     height: 100%;
 
     font-family: 'Libre Franklin', sans-serif;
+    font-size: 1.075rem;
 
     background-color: var(--theme-background, initial);
     color: var(--theme-text, initial);
