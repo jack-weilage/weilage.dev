@@ -22,20 +22,22 @@
         display: flex;
         flex-flow: row wrap;
 
+        margin-top: 0.35rem;
+
         overflow: hidden;
     }
     div.underline {
         width: calc(var(--type) + 0.45rem);
         height: 0.5px;
 
-        margin: 0.25rem calc(100% - var(--type) - 0.45rem) 0.25rem 0;
+        margin: 0.1rem calc(100% - var(--type) - 0.45rem) 0.1rem 0;
         background-color: #ccc;
 
         transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     div:hover div.underline {
         width: calc(var(--text) + 0.45rem);
-        margin: 0.25rem 0 0.25rem calc(100% - var(--text) - 0.45rem);
+        margin: 0.1rem 0 0.1rem calc(100% - var(--text) - 0.45rem);
         background-color: var(--theme-anchor);
 
         /* delay going to right */
