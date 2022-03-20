@@ -11,11 +11,11 @@
     export let canonical: string
 
     /** should search engines not index this page */
-    export let noindex = true
+    export let noindex = false
     /** should search engines not follow links on this page */
-    export let nofollow = true
+    export let nofollow = false
     /** should search engines not archive this page */
-    export let noarchive = true
+    export let noarchive = false
 
     /** opengraph (for social media) */
     export let opengraph: {
