@@ -4,7 +4,7 @@
     /** the description for search engines */
     export let description: string
     /** the author for search engines */
-    export let author: string
+    export let author: string | null = null
     /** keywords for search engines */
     export let keywords: string[]
     /** the "real"/permanent version of the url */
@@ -30,7 +30,7 @@
         type: 'website'
     }
 
-    const robots = [
+    $: robots = [
         noindex && 'noindex',
         nofollow && 'nofollow',
         noarchive && 'noarchive',
@@ -38,15 +38,17 @@
 </script>
 
 <svelte:head>
+    <!-- required -->
     <title>{title}</title>
     <meta name="description" content={description}>
-    <meta name="author" content={author}>
-    <meta name="keywords" content={keywords.join(',')}>
-    <link rel="canonical" href={canonical}>
-    <meta name="robots" content={robots.join(',')}>
-
-    <meta name="og:title" content={opengraph.title || title}>
+    <meta name="keywords"    content={keywords.join(',')}>
+    <link rel="canonical"    href={canonical}>
+    <!-- ehhh, not really required, only use if you want -->
+    {#if author}       <meta name="author" content={author}>          {/if}
+    {#if robots.length}<meta name="robots" content={robots.join(',')}>{/if}
+    <!-- useful for social media -->
+    <meta name="og:title"       content={opengraph.title || title}>
     <meta name="og:description" content={opengraph.description || description}>
-    <meta name="og:url" content={opengraph.description || canonical}>
-    <meta name="og:type" content={opengraph.type || 'website'}>
+    <meta name="og:url"         content={opengraph.description || canonical}>
+    <meta name="og:type"        content={opengraph.type || 'website'}>
 </svelte:head>
