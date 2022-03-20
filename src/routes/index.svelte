@@ -31,7 +31,7 @@
         <address> 
             <ul>
                 <li><Contact type="Email"  href="mailto:jack@weilage.dev"         text="jack@weilage.dev" /></li>
-                <li><Contact type="GitHub" href="https://github.com/jack-weilage" text="jack-weilage" /></li>
+                <li><Contact type="GitHub" href="https://github.com/jack-weilage" text="jack-weilage"     /></li>
             </ul>
         </address>
     </aside>
