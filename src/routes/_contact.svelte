@@ -1,5 +1,5 @@
 <script>
-    import Wrapper from '$lib/components/Wrapper'
+    import vars from '$lib/actions/cssVars'
 
     export let type
     export let href
@@ -7,15 +7,15 @@
 
     let typeWidth = 10
     let textWidth = 10
+
+    $: varsList = { typeWidth, textWidth }
 </script>
 
-<Wrapper --type="{typeWidth}px" --text="{textWidth}px">
-    <div>
-        <span bind:clientWidth={typeWidth}>{type}:</span>
-        <a rel="external" target="_blank" {href} bind:clientWidth={textWidth}>{text}</a>
-        <div class="underline" />
-    </div>
-</Wrapper>
+<div use:vars={varsList}>
+    <span bind:clientWidth={typeWidth}>{type}:</span>
+    <a rel="external" target="_blank" {href} bind:clientWidth={textWidth}>{text}</a>
+    <div class="underline" />
+</div>
 
 <style>
     div {
@@ -27,17 +27,17 @@
         overflow: hidden;
     }
     div.underline {
-        width: calc(var(--type) + 0.45rem);
+        width: calc(var(--typeWidth) + 0.45rem);
         height: 0.5px;
 
-        margin: 0.1rem calc(100% - var(--type) - 0.45rem) 0.1rem 0;
+        margin: 0.1rem calc(100% - var(--typeWidth) - 0.45rem) 0.1rem 0;
         background-color: #ccc;
 
         transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     div:hover div.underline {
-        width: calc(var(--text) + 0.45rem);
-        margin: 0.1rem 0 0.1rem calc(100% - var(--text) - 0.45rem);
+        width: calc(var(--textWidth) + 0.45rem);
+        margin: 0.1rem 0 0.1rem calc(100% - var(--textWidth) - 0.45rem);
         background-color: var(--theme-anchor);
 
         /* delay going to right */
