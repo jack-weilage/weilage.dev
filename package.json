@@ -5,16 +5,13 @@
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
     "start": "node build",
-    "package": "svelte-kit package",
     "preview": "svelte-kit preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-    "heroku:deploy": "git push origin main",
-    "deploy": "git push origin main",
-    "heroku:logs": "heroku logs --tail",
     "logs": "heroku logs --tail",
-    "heroku:open": "heroku open",
-    "open": "heroku open"
+    "logs:api": "heroku logs -t -d api",
+    "logs:router": "heroku logs -t -d router",
+    "logs:app": "heroku logs -t -s app"
   },
   "devDependencies": {
     "@sveltejs/adapter-node": "next",
