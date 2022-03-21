@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "svelte-kit dev",
-    "build": "svelte-kit build && pnpm run postbuild",
+    "build": "svelte-kit build",
     "postbuild": "node ./scripts/createSiteMap.js",
     "start": "node build",
     "preview": "svelte-kit preview",
