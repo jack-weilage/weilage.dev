@@ -17,6 +17,7 @@
   "devDependencies": {
     "@sveltejs/adapter-node": "next",
     "@sveltejs/kit": "next",
+    "boxicons": "^2.1.2",
     "svelte": "^3.46.4",
     "svelte-check": "^2.4.6",
     "svelte-preprocess": "^4.10.4",
