@@ -1,4 +1,6 @@
 <script>
+    import 'boxicons/css/boxicons.min.css'
+
     import SEO          from '$lib/components/SEO'
     import Link         from '$lib/components/Link'
     import GradientText from '$lib/components/GradientText'
@@ -32,12 +34,14 @@
             <ul>
                 <li>
                     <Contact>
+                        <i slot="icon" class='bx bx-envelope contact-icon' />
                         <span slot="type" class="contact-type">Email</span>
                         <a slot="link" class="contact-link" rel="external" target="_blank" href="mailto:jack@weilage.dev">jack@weilage.dev</a>
                     </Contact>
                 </li>
                 <li>
                     <Contact>
+                        <i slot="icon" class='bx bxl-github contact-icon' />
                         <span slot="type" class="contact-type">GitHub</span>
                         <a slot="link" class="contact-link" rel="external" target="_blank" href="https://github.com/jack-weilage">jack-weilage</a>
                     </Contact>
@@ -62,7 +66,7 @@
         padding: 1rem;
     }
     aside {
-        width: 14.5rem;
+        width: 16.5rem;
         line-height: 1.1;
 
         position: absolute;
@@ -107,6 +111,10 @@
         padding-bottom: 0.05rem;
         margin-bottom: 0.25rem;
         border-bottom: 1px solid #ccc;
+    }
+    i.contact-icon {
+        font-size: 1.2rem;
+        margin-right: 0.25rem;
     }
     a.contact-link:hover {
         text-decoration: none;
