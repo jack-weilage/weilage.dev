@@ -27,19 +27,19 @@
         </p>
     </section>
     <aside>
-        <p class="contact">Contact me</p>
+        <p class="contacts">Contact me</p>
         <address> 
             <ul>
                 <li>
-                    <Contact href="mailto:jack@weilage.dev">
-                        <svelte:fragment slot="type">Email</svelte:fragment>
-                        <svelte:fragment slot="text">jack@weilage.dev</svelte:fragment>
+                    <Contact>
+                        <span slot="type" class="contact-type">Email</span>
+                        <a slot="link" class="contact-link" rel="external" target="_blank" href="mailto:jack@weilage.dev">jack@weilage.dev</a>
                     </Contact>
                 </li>
                 <li>
-                    <Contact href="https://github.com/jack-weilage">
-                        <svelte:fragment slot="type">GitHub</svelte:fragment>
-                        <svelte:fragment slot="text">jack-weilage</svelte:fragment>
+                    <Contact>
+                        <span slot="type" class="contact-type">GitHub</span>
+                        <a slot="link" class="contact-link" rel="external" target="_blank" href="https://github.com/jack-weilage">jack-weilage</a>
                     </Contact>
                 </li>
             </ul>
@@ -97,7 +97,7 @@
 
         max-width: 25rem;
     }
-    p.contact {
+    p.contacts {
         font-size: 1.2rem;
         font-weight: bold;
 
@@ -107,6 +107,9 @@
         padding-bottom: 0.05rem;
         margin-bottom: 0.25rem;
         border-bottom: 1px solid #ccc;
+    }
+    a.contact-link:hover {
+        text-decoration: none;
     }
     @media (max-width: 600px) {
         aside {
@@ -122,7 +125,7 @@
         p.description {
             max-width: 20rem;
         }
-        p.contact {
+        p.contacts {
             padding-bottom: 0.5rem;
         }
         ul {

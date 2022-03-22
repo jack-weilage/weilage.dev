@@ -1,26 +1,25 @@
 <script>
     import vars from '$lib/actions/cssVars'
 
-    export let href
-
     let typeWidth = 75
-    let textWidth = 75
+    let linkWidth = 75
     
-    $: varsList = { type: `${typeWidth}px`, text: `${textWidth}px` }
+    $: varsList = { type: `${typeWidth}px`, link: `${linkWidth}px` }
 </script>
 
-<div>
-    <span bind:clientWidth={typeWidth}>
-        <slot name="type" />:
-    </span>
-    <a rel="external" target="_blank" {href} bind:clientWidth={textWidth}>
-        <slot name="text" />
-    </a>
+<div class="wrapper">
+    <div class="type" bind:clientWidth={typeWidth}>
+        <slot name="type" />
+    </div>
+    <div class="link" bind:clientWidth={linkWidth}>
+        <slot name="link" />
+    </div>
+
     <div class="underline" use:vars={varsList} />
 </div>
 
 <style>
-    div {
+    div.wrapper {
         display: flex;
         flex-flow: row wrap;
 
@@ -37,24 +36,15 @@
 
         transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
-    div:hover div.underline {
-        width: calc(var(--text) + 0.45rem);
-        margin: 0.1rem 0 0.1rem calc(100% - var(--text) - 0.45rem);
+    div.wrapper:hover div.underline {
+        width: calc(var(--link) + 0.45rem);
+        margin: 0.1rem 0 0.1rem calc(100% - var(--link) - 0.45rem);
         background-color: var(--theme-anchor);
 
         /* delay going to right */
         transition-delay: 0.1s;
     }
-    span {
-        /* elements must be block for svelte to calculate clientWidth */
-        display: inline-block; 
+    div.type {
         margin-right: auto;
-    }
-    a {
-        /* elements must be block for svelte to calculate clientWidth */
-        display: inline-block;
-    }
-    a:hover {
-        text-decoration: none;
     }
 </style>
