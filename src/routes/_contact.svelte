@@ -1,21 +1,21 @@
 <script>
     import vars from '$lib/actions/cssVars'
 
-    export let type
     export let href
-    export let text
 
     let typeWidth = 10
     let textWidth = 10
-
+    
     $: varsList = { type: `${typeWidth}px`, text: `${textWidth}px` }
 </script>
 
-<!-- this could be refactored with slots -->
-<!-- how can we get the width of a slot? -->
 <div>
-    <span bind:clientWidth={typeWidth}>{type}:</span>
-    <a rel="external" target="_blank" {href} bind:clientWidth={textWidth}>{text}</a>
+    <span bind:clientWidth={typeWidth}>
+        <slot name="type" />:
+    </span>
+    <a rel="external" target="_blank" {href} bind:clientWidth={textWidth}>
+        <slot name="text" />
+    </a>
     <div class="underline" use:vars={varsList} />
 </div>
 
@@ -46,10 +46,12 @@
         transition-delay: 0.1s;
     }
     span {
-        display: inline-block;
+        /* elements must be block for svelte to calculate clientWidth */
+        display: inline-block; 
         margin-right: auto;
     }
     a {
+        /* elements must be block for svelte to calculate clientWidth */
         display: inline-block;
     }
     a:hover {
