@@ -3,8 +3,8 @@
 
     export let href
 
-    let typeWidth = 10
-    let textWidth = 10
+    let typeWidth = 75
+    let textWidth = 75
     
     $: varsList = { type: `${typeWidth}px`, text: `${textWidth}px` }
 </script>
