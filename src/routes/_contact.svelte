@@ -9,6 +9,7 @@
 
 <div class="wrapper">
     <div class="type" bind:clientWidth={typeWidth}>
+        <slot name="icon" />
         <slot name="type" />
     </div>
     <div class="link" bind:clientWidth={linkWidth}>
@@ -46,5 +47,10 @@
     }
     div.type {
         margin-right: auto;
+    }
+    @media(max-width: 600px) {
+        div.underline {
+            transition-duration: 0.65s;
+        }
     }
 </style>
