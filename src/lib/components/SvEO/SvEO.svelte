@@ -16,25 +16,25 @@
     export let nofollow = false
     /** should search engines not archive this page */
     export let noarchive = false
+    /** robots text */
+    $: robots = [ noindex && 'noindex', nofollow && 'nofollow', noarchive && 'noarchive', ].filter(Boolean)
 
     /** opengraph (for social media) */
-    export let opengraph: {
-        title: string
-        description: string
-        url: string
-        type: string
-    } = {
-        title: '',
-        description: '',
-        url: '',
+    export let opengraph = {
+        title,
+        description,
+        url: canonical,
         type: 'website'
     }
+    /** twitter card (for twitter lmao) */
+    export let twitter = {
+        card: 'summary',
+        site: null,
+        creator: null,
+        description,
+        title
+    }
 
-    $: robots = [
-        noindex && 'noindex',
-        nofollow && 'nofollow',
-        noarchive && 'noarchive',
-    ].filter(Boolean)
 </script>
 
 <svelte:head>
@@ -43,12 +43,18 @@
     <meta name="description" content={description}>
     <meta name="keywords"    content={keywords.join(',')}>
     <link rel="canonical"    href={canonical}>
+
     <!-- ehhh, not really required, only use if you want -->
-    {#if author}       <meta name="author" content={author}>          {/if}
-    {#if robots.length}<meta name="robots" content={robots.join(',')}>{/if}
+    {#if author}<meta name="author" content={author}>          {/if}
+    {#if robots}<meta name="robots" content={robots.join(',')}>{/if}
+
     <!-- useful for social media -->
-    <meta name="og:title"       content={opengraph.title || title}>
-    <meta name="og:description" content={opengraph.description || description}>
-    <meta name="og:url"         content={opengraph.description || canonical}>
-    <meta name="og:type"        content={opengraph.type || 'website'}>
+    {#each Object.entries(opengraph) as [key, value]}
+        {#if value}<meta property="og:{key}" content={value}>{/if}
+    {/each}
+
+    <!-- twitter card -->
+    {#each Object.entries(twitter) as [key, value]}
+        {#if value}<meta name="twitter:{key}" content={value}>{/if}
+    {/each}
 </svelte:head>

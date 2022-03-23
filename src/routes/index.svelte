@@ -1,14 +1,14 @@
 <script>
     import 'boxicons/css/boxicons.min.css'
 
-    import SEO          from '$lib/components/SEO'
+    import SvEO         from '$lib/components/SvEO'
     import Link         from '$lib/components/Link'
     import GradientText from '$lib/components/GradientText'
 
     import Contact from './_contact.svelte'
 </script>
 
-<SEO
+<SvEO
     title="Home - Jack Weilage"
     description="weilage.dev is a personal website for Jack Weilage, a web developer and designer."
     author="Jack Weilage"
@@ -30,7 +30,7 @@
     </section>
     <aside>
         <p class="contacts">Contact me</p>
-        <address> 
+        <address>
             <ul>
                 <li>
                     <Contact>
