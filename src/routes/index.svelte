@@ -13,7 +13,7 @@
     description="weilage.dev is a personal website for Jack Weilage, a web developer and designer."
     author="Jack Weilage"
     keywords={[ 'weilage', 'jack weilage', 'jack weilage dev', 'jack weilage developer', 'portfolio', 'developer', 'developer portfolio', 'jack weilage portfolio' ]}
-    canonical="https://weilage.dev/"
+    canonical="https://weilage.dev"
 />
 
 <main id="main-content">
@@ -36,14 +36,14 @@
                     <Contact>
                         <i slot="icon" class='bx bx-envelope contact-icon' />
                         <span slot="type" class="contact-type">Email</span>
-                        <a slot="link" class="contact-link" rel="external" target="_blank" href="mailto:jack@weilage.dev">jack@weilage.dev</a>
+                        <a slot="link" class="contact-link" rel="external" target="_blank" title="Email me" href="mailto:jack@weilage.dev">jack@weilage.dev</a>
                     </Contact>
                 </li>
                 <li>
                     <Contact>
                         <i slot="icon" class='bx bxl-github contact-icon' />
                         <span slot="type" class="contact-type">GitHub</span>
-                        <a slot="link" class="contact-link" rel="external" target="_blank" href="https://github.com/jack-weilage">jack-weilage</a>
+                        <a slot="link" class="contact-link" rel="external" target="_blank" title="Check out my GitHub" href="https://github.com/jack-weilage">jack-weilage</a>
                     </Contact>
                 </li>
             </ul>
