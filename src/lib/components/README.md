@@ -14,6 +14,16 @@ This folder contains all reusable components used on [weilage.dev](https://weila
 ### `SvEO`
 SvEO populates the `<head>` with SEO related `<meta>` tags.
 
+Example usage:
+```html
+<SvEO
+    title="Example Page"
+    description="This is an example page, used to display components."
+    keywords={['test', 'example', 'svelte']}
+    canonical="https://example.com/examples"
+    noindex nofollow noarchive
+/>
+```
 | Attribute | Description | Required |
 | --- | --- | :---: |
 | `title` | The title of the current page. | **Yes** |
