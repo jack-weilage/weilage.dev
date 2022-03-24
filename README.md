@@ -1,6 +1,4 @@
-<div align="center">
-    <h1>weilage.dev</h1>
-</div>
+<h1 align="center"><pre><a href="https://weilage.dev">weilage.dev</a></pre></h1>
 
 ## Plans
 This website is __*very*__ early in development, so many many items simply haven't been implemented.
