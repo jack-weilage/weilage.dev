@@ -1,4 +1,5 @@
 <script lang="ts">
+    import defaults from 'lodash/defaults.js'
     /** the title for both the browser and search engines */
     export let title: string
     /** the description for search engines */
@@ -20,21 +21,24 @@
     $: robots = [ noindex && 'noindex', nofollow && 'nofollow', noarchive && 'noarchive', ].filter(Boolean)
 
     /** opengraph (for social media) */
-    export let opengraph = {
-        title,
-        description,
-        url: canonical,
-        type: 'website'
-    }
+    export let opengraph: {
+        title?: string
+        description?: string
+        url?: string
+        type?: string
+    } | false = {}
+    // if opengraph is false, don't output anything
+    opengraph = opengraph !== false ? defaults(opengraph, { title, description, url: canonical, type: 'website' }) : {}
+    
     /** twitter card (for twitter lmao) */
-    export let twitter = {
-        card: 'summary',
-        site: null,
-        creator: null,
-        description,
-        title
-    }
-
+    export let twitter: {
+        card?: string
+        site?: string
+        creator?: string
+        description?: string
+        title?: string
+    } | false = {}
+    twitter = twitter !== false ? defaults(twitter, { card: 'summary', site: null, creator: null, description, title }) : {}
 </script>
 
 <svelte:head>
