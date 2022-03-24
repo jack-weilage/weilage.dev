@@ -18,6 +18,8 @@
     description="An error occurred while loading this page."
     keywords={[]}
     canonical=""
+    opengraph={false}
+    twitter={false}
     noindex noarchive
 />
 
@@ -43,6 +45,7 @@
 <style>
     main {
         display: flex;
+        flex-flow: column wrap;
         padding: 2rem;
     }
     h1 {
