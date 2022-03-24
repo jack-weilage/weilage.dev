@@ -4,15 +4,14 @@
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
-    "postbuild": "node ./scripts/createSiteMap.js",
     "start": "node build",
     "preview": "svelte-kit preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
     "logs": "heroku logs --tail",
-    "logs:api": "heroku logs -t -d api",
-    "logs:router": "heroku logs -t -d router",
-    "logs:app": "heroku logs -t -s app"
+    "logs:api": "heroku logs --tail --dyno api",
+    "logs:router": "heroku logs --tail --dyno router",
+    "logs:app": "heroku logs --tail --source app"
   },
   "devDependencies": {
     "@sveltejs/adapter-node": "next",
