@@ -8,7 +8,12 @@ const config = {
 	preprocess: preprocess(),
 	kit: {
 		trailingSlash: 'always',
-		adapter: adapter()
+		adapter: adapter(),
+		vite: {
+			ssr: {
+				noExternal: ['lodash.defaults']
+			}
+		}
 	}
 }
 
