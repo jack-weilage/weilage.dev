@@ -1,5 +1,6 @@
 <script lang="ts">
-    import defaults from 'lodash.defaults'
+    /** ??? lodash just doesn't work ??? */
+    // import defaults from 'lodash.defaults'
     /** the title for both the browser and search engines */
     export let title: string
     /** the description for search engines */
@@ -28,7 +29,7 @@
         type?: string
     } | false = {}
     // if opengraph is false, don't output anything
-    opengraph = opengraph !== false ? defaults(opengraph, { title, description, url: canonical, type: 'website' }) : {}
+    // opengraph = opengraph !== false ? defaults(opengraph, { title, description, url: canonical, type: 'website' }) : {}
     
     /** twitter card (for twitter lmao) */
     export let twitter: {
@@ -38,7 +39,7 @@
         description?: string
         title?: string
     } | false = {}
-    twitter = twitter !== false ? defaults(twitter, { card: 'summary', site: null, creator: null, description, title }) : {}
+    // twitter = twitter !== false ? defaults(twitter, { card: 'summary', site: null, creator: null, description, title }) : {}
 </script>
 
 <svelte:head>
