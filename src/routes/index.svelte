@@ -1,11 +1,10 @@
 <script>
-    import 'boxicons/css/boxicons.min.css'
-
     import SvEO         from '$lib/components/SvEO'
     import Link         from '$lib/components/Link'
     import GradientText from '$lib/components/GradientText'
 
     import Contact from './_contact.svelte'
+    import FeatherIcon from '$lib/components/FeatherIcon'
 </script>
 
 <SvEO
@@ -13,7 +12,7 @@
     description="weilage.dev is a personal website for Jack Weilage, a web developer and designer."
     author="Jack Weilage"
     keywords={[ 'weilage', 'jack weilage', 'jack weilage dev', 'jack weilage developer', 'portfolio', 'developer', 'developer portfolio', 'jack weilage portfolio' ]}
-    canonical="https://weilage.dev"
+    canonical="https://weilage.dev/"
 />
 
 <main id="main-content">
@@ -34,14 +33,14 @@
             <ul>
                 <li>
                     <Contact>
-                        <i slot="icon" class='bx bx-envelope contact-icon' />
+                        <FeatherIcon slot="icon" name="send" width="18px" height="18px"  />
                         <span slot="type" class="contact-type">Email</span>
                         <a slot="link" class="contact-link" rel="external" target="_blank" title="Email me" href="mailto:jack@weilage.dev">jack@weilage.dev</a>
                     </Contact>
                 </li>
                 <li>
                     <Contact>
-                        <i slot="icon" class='bx bxl-github contact-icon' />
+                        <FeatherIcon slot="icon" name="github" width="18px" height="18px" />
                         <span slot="type" class="contact-type">GitHub</span>
                         <a slot="link" class="contact-link" rel="external" target="_blank" title="Check out my GitHub" href="https://github.com/jack-weilage">jack-weilage</a>
                     </Contact>
@@ -112,9 +111,8 @@
         margin-bottom: 0.25rem;
         border-bottom: 1px solid #ccc;
     }
-    i.contact-icon {
-        font-size: 1.2rem;
-        margin-right: 0.25rem;
+    span.contact-type {
+        margin-left: 0.25rem;
     }
     a.contact-link:hover {
         text-decoration: none;
