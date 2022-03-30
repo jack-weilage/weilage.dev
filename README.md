@@ -1,4 +1,4 @@
-<h1 align="center"><pre><a href="https://weilage.dev">weilage.dev</a></pre></h1>
+<h1 align="center"><pre><a target="_blank" href="https://weilage.dev">weilage.dev</a></pre></h1>
 
 ## Plans
 This website is __*very*__ early in development, so many many items simply haven't been implemented.
@@ -12,7 +12,7 @@ This website is __*very*__ early in development, so many many items simply haven
     - [ ] Actually create blog articles
 
 ## Development
-This website is built with <a href="https://kit.svelte.dev">SvelteKit</a>, so a development server is built in.
+This website is built with <a target="blank" href="https://kit.svelte.dev">SvelteKit</a>, so a development server is built in.
 <br><br>
 Use:
 - `pnpm dev` to start a development server at <a target="_blank" href="http://localhost:3000">localhost:3000</a>.
