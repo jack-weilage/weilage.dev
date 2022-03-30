@@ -3,8 +3,10 @@
     import Link         from '$lib/components/Link'
     import GradientText from '$lib/components/GradientText'
 
+    import Email20      from 'carbon-icons-svelte/lib/Email20'
+    import LogoGithub20 from 'carbon-icons-svelte/lib/LogoGithub20'
+
     import Contact from './_contact.svelte'
-    import FeatherIcon from '$lib/components/FeatherIcon'
 </script>
 
 <SvEO
@@ -33,14 +35,14 @@
             <ul>
                 <li>
                     <Contact>
-                        <FeatherIcon slot="icon" name="send" width="18px" height="18px"  />
+                        <Email20 slot="icon" />
                         <span slot="type" class="contact-type">Email</span>
                         <a slot="link" class="contact-link" rel="external" target="_blank" title="Email me" href="mailto:jack@weilage.dev">jack@weilage.dev</a>
                     </Contact>
                 </li>
                 <li>
                     <Contact>
-                        <FeatherIcon slot="icon" name="github" width="18px" height="18px" />
+                        <LogoGithub20 slot="icon" />
                         <span slot="type" class="contact-type">GitHub</span>
                         <a slot="link" class="contact-link" rel="external" target="_blank" title="Check out my GitHub" href="https://github.com/jack-weilage">jack-weilage</a>
                     </Contact>

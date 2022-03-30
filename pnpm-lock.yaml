@@ -4,7 +4,7 @@ specifiers:
   '@sveltejs/adapter-node': next
   '@sveltejs/kit': next
   '@types/feather-icons': ^4.7.0
-  feather-icons: ^4.28.0
+  carbon-icons-svelte: ^10.45.1
   lodash.defaults: ^4.2.0
   svelte: ^3.46.4
   svelte-check: ^2.4.6
@@ -17,7 +17,7 @@ devDependencies:
   '@sveltejs/adapter-node': 1.0.0-next.73
   '@sveltejs/kit': 1.0.0-next.303_svelte@3.46.4
   '@types/feather-icons': 4.7.0
-  feather-icons: 4.28.0
+  carbon-icons-svelte: 10.45.1
   lodash.defaults: 4.2.0
   svelte: 3.46.4
   svelte-check: 2.4.6_svelte@3.46.4
@@ -197,6 +197,10 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
+  /carbon-icons-svelte/10.45.1:
+    resolution: {integrity: sha512-Uz3byPkSBzjpvLmjt/ZWYJkQG1omfqKh1vzF1FeFYOYqbGOCwc4sHbyF8oet2CseT2cECn1BbEyY4yWvlWYd/w==}
+    dev: true
+
   /chokidar/3.5.3:
     resolution: {integrity: sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==}
     engines: {node: '>= 8.10.0'}
@@ -212,17 +216,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /classnames/2.3.1:
-    resolution: {integrity: sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==}
-    dev: true
-
   /concat-map/0.0.1:
     resolution: {integrity: sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=}
-    dev: true
-
-  /core-js/3.21.1:
-    resolution: {integrity: sha512-FRq5b/VMrWlrmCzwRrpDYNxyHP9BcAZC+xHJaqTgIE5091ZV1NTmyh0sGOg5XqpnHvR0svdy0sv1gWA1zmhxig==}
-    requiresBuild: true
     dev: true
 
   /debug/4.3.4:
@@ -479,13 +474,6 @@ packages:
     resolution: {integrity: sha512-YpkpUnK8od0o1hmeSc7UUs/eB/vIPWJYjKck2QKIzAf71Vm1AAQ3EbuZB3g2JIy+pg+ERD0vqI79KyZiB2e2Nw==}
     dependencies:
       reusify: 1.0.4
-    dev: true
-
-  /feather-icons/4.28.0:
-    resolution: {integrity: sha512-gRdqKESXRBUZn6Nl0VBq2wPHKRJgZz7yblrrc2lYsS6odkNFDnA4bqvrlEVRUPjE1tFax+0TdbJKZ31ziJuzjg==}
-    dependencies:
-      classnames: 2.3.1
-      core-js: 3.21.1
     dev: true
 
   /fill-range/7.0.1:

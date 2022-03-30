@@ -17,7 +17,7 @@
     "@sveltejs/adapter-node": "next",
     "@sveltejs/kit": "next",
     "@types/feather-icons": "^4.7.0",
-    "feather-icons": "^4.28.0",
+    "carbon-icons-svelte": "^10.45.1",
     "lodash.defaults": "^4.2.0",
     "svelte": "^3.46.4",
     "svelte-check": "^2.4.6",
