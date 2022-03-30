@@ -1,13 +1,11 @@
 {
-  "name": "personal-website",
+  "name": "weilage.dev",
   "version": "0.0.1",
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
     "start": "node build",
     "preview": "svelte-kit preview",
-    "check": "svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
     "logs": "heroku logs --tail",
     "logs:api": "heroku logs --tail --dyno api",
     "logs:router": "heroku logs --tail --dyno router",
@@ -16,15 +14,12 @@
   "devDependencies": {
     "@sveltejs/adapter-node": "next",
     "@sveltejs/kit": "next",
-    "@types/feather-icons": "^4.7.0",
     "carbon-icons-svelte": "^10.45.1",
     "lodash.defaults": "^4.2.0",
-    "svelte": "^3.46.4",
-    "svelte-check": "^2.4.6",
+    "svelte": "^3.46.5",
     "svelte-preprocess": "^4.10.4",
     "tslib": "^2.3.1",
-    "typescript": "~4.5.5",
-    "xmlbuilder2": "^3.0.2"
+    "typescript": "~4.5.5"
   },
   "engines": {
     "node": ">=17.7.2"
