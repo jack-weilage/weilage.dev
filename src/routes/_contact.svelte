@@ -1,4 +1,5 @@
 <script>
+    //TODO: fix firefox compatibility
     import vars from '$lib/actions/cssVars'
 
     let typeWidth = 75
@@ -29,23 +30,29 @@
         overflow: hidden;
     }
     div.underline {
-        width: calc(var(--type) + 0.45rem);
-        height: 0.5px;
+        width: calc(var(--type) + 0.5rem);
+        height: 1px;
 
-        margin: 0.1rem calc(100% - var(--type) - 0.45rem) 0.1rem 0;
-        background-color: #ccc;
+        margin: 0.1rem calc(100% - var(--type) - 0.5rem) 0.1rem 0;
+        border-bottom: 1px solid #ccc;
 
         transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     div.wrapper:hover div.underline {
-        width: calc(var(--link) + 0.45rem);
-        margin: 0.1rem 0 0.1rem calc(100% - var(--link) - 0.45rem);
-        background-color: var(--theme-anchor);
-
+        width: calc(var(--link) + 0.5rem);
+        margin: 0.1rem 0 0.1rem calc(100% - var(--link) - 0.5rem);
+        
+        border-bottom-color: var(--theme-anchor);
         /* delay going to right */
         transition-delay: 0.1s;
     }
     div.type {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+
+        gap: 0.25rem;
+
         margin-right: auto;
     }
     @media(max-width: 600px) {
