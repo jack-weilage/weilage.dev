@@ -11,14 +11,14 @@
 
 <SvEO
     title="Home - Jack Weilage"
-    description="weilage.dev is a personal website for Jack Weilage, a web developer and designer."
+    description="Welcome to weilage.dev, a personal website for Jack Weilage, a web developer and designer."
     author="Jack Weilage"
     keywords={[ 'weilage', 'jack weilage', 'jack weilage dev', 'jack weilage developer', 'portfolio', 'developer', 'developer portfolio', 'jack weilage portfolio' ]}
     canonical="https://weilage.dev/"
 />
 
 <main id="main-content">
-    <section>
+    <div>
         <h2>Hello! I'm</h2>
         <h1>Jack&nbsp;Weilage</h1>
         <p class="description">
@@ -28,7 +28,7 @@
             <Link href="https://www.typescriptlang.org/">TypeScript</Link>
             to build highly&nbsp;accessible and <GradientText>fully semantic</GradientText> websites.
         </p>
-    </section>
+    </div>
     <aside>
         <p class="contacts">Contact me</p>
         <address>

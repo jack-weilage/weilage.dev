@@ -11,7 +11,7 @@ const config = {
 		adapter: adapter(),
 		vite: {
 			ssr: {
-				noExternal: [ 'lodash.defaults' ]
+				noExternal: [  ]
 			}
 		}
 	}
