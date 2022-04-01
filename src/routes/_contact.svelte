@@ -30,6 +30,9 @@
         overflow: hidden;
     }
     div.underline {
+        --transition-time: 0.5s;
+        --transition-curve: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
         width: calc(var(--type, 5rem) + 0.5rem);
         height: 1px;
 
@@ -37,9 +40,10 @@
         border-bottom: 1px solid #ccc;
 
         transition: 
-            width 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-            margin-right 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-            margin-left 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            width               var(--transition-time) var(--transition-curve), 
+            margin-right        var(--transition-time) var(--transition-curve),
+            margin-left         var(--transition-time) var(--transition-curve),
+            border-bottom-color var(--transition-time) var(--transition-curve);
     }
     div.wrapper:hover div.underline {
         width: calc(var(--link, 1rem) + 0.5rem);
