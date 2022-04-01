@@ -30,17 +30,20 @@
         overflow: hidden;
     }
     div.underline {
-        width: calc(var(--type) + 0.5rem);
+        width: calc(var(--type, 5rem) + 0.5rem);
         height: 1px;
 
-        margin: 0.1rem calc(100% - var(--type) - 0.5rem) 0.1rem 0;
+        margin: 0.1rem calc(100% - var(--type, 5rem) - 0.5rem) 0.1rem 0;
         border-bottom: 1px solid #ccc;
 
-        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: 
+            width 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+            margin-right 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+            margin-left 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     div.wrapper:hover div.underline {
-        width: calc(var(--link) + 0.5rem);
-        margin: 0.1rem 0 0.1rem calc(100% - var(--link) - 0.5rem);
+        width: calc(var(--link, 1rem) + 0.5rem);
+        margin: 0.1rem 0 0.1rem calc(100% - var(--link, 1rem) - 0.5rem);
         
         border-bottom-color: var(--theme-anchor);
         /* delay going to right */
