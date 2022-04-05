@@ -7,6 +7,8 @@
     "start": "node build",
     "preview": "svelte-kit preview",
     "prepare": "svelte-kit sync",
+    "check": "svelte-check",
+    "test": "jest",
     "logs": "heroku logs --tail",
     "logs:api": "heroku logs --tail --dyno api",
     "logs:router": "heroku logs --tail --dyno router",
@@ -15,7 +17,15 @@
   "devDependencies": {
     "@sveltejs/adapter-node": "next",
     "@sveltejs/kit": "next",
+    "@types/expect-puppeteer": "^4.4.7",
+    "@types/jest": "^27.4.1",
+    "@types/jest-environment-puppeteer": "^5.0.0",
+    "@types/node": "^17.0.23",
+    "@types/puppeteer": "^5.4.5",
     "carbon-icons-svelte": "^10.45.1",
+    "jest": "^27.5.1",
+    "jest-puppeteer": "^6.1.0",
+    "puppeteer": "^13.5.2",
     "svelte": "^3.46.6",
     "svelte-preprocess": "^4.10.4",
     "tslib": "^2.3.1",
@@ -24,5 +34,8 @@
   "engines": {
     "node": ">=17.7.2"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "svelte-check": "^2.4.6"
+  }
 }
