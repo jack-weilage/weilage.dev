@@ -2,7 +2,7 @@
 const shell = require('shelljs')
 
 
-describe('dev', () => {
+describe.only('dev', () => {
     beforeAll(() => new Promise((resolve, reject) => {
         // kill all processes on port 3000
         shell.exec('kill $(lsof -t -i:3000)')
