@@ -15,13 +15,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-
+      - uses: pnpm/action-setup@v2.2.1
+      
       - name: Use Node.js
         uses: actions/setup-node@v3.1.0
         with:
           node-version: '>=17.7.2'
-          cache: npm
+          cache: pnpm
       - name: install and check
         run: |
-          npm run install
-          npm run check
+          pnpm install
+          pnpm check
