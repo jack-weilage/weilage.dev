@@ -1,26 +1,30 @@
-// const { exec } = require('child_process')
+// import shell from 'shelljs'
+const shell = require('shelljs')
 
-// let server = null
 
-// describe('dev', () => {
-//     beforeAll(async () => await new Promise(resolve => {
-//         server = exec('npm run build && npm run preview')
-//         server.stdout.on('data', data => {
-//             if (data.includes('localhost')) resolve(1)
-//             if (data.includes('is occupied')) throw new Error('Port is occupied')
-//         })
-//     }))
+describe('dev', () => {
+    beforeAll(() => new Promise((resolve, reject) => {
+        // kill all processes on port 3000
+        shell.exec('kill $(lsof -t -i:3000)')
+        // build the website
+        shell.exec('pnpm build', { silent: true })
+        // start the server
+        const server = shell.exec('pnpm preview', { async: true, silent: true })
 
-//     describe('/', () => {
-//         beforeAll(async () => await page.goto('http://localhost:3000/'))
+        server.stdout.on('data', (data) => {
+            if (data.includes('localhost')) resolve(1)
+            if (data.includes('is occupied')) reject(1)
+        })
+    }))
 
-//         it('should have a correct title', async () => {
-//             expect(await page.title()).toBe('Home - Jack Weilage')
-//         })
-//     })
+    describe('/', () => {
+        beforeAll(async () => await page.goto('http://localhost:3000/'))
 
-//     afterAll(() => server.kill())
-// })
+        it('should have a correct title', async () => {
+            expect(await page.title()).toBe('Home - Jack Weilage')
+        })
+    })
+})
 describe('prod', () => {
     describe('/', () => {
         beforeAll(async () => await page.goto('https://weilage.dev/'))
