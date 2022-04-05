@@ -20,8 +20,8 @@ jobs:
         uses: actions/setup-node@v3.1.0
         with:
           node-version: '>=17.7.2'
-          cache: pnpm
+          cache: npm
       - name: install and check
         run: |
-          pnpm install
-          pnpm check
+          npm run install
+          npm run check
