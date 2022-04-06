@@ -1,6 +1,4 @@
-// import shell from 'shelljs'
 const shell = require('shelljs')
-
 
 describe.only('dev', () => {
     beforeAll(() => new Promise((resolve, reject) => {
