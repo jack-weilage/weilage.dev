@@ -125,8 +125,8 @@
         width: 100%;
         text-align: center;
 
-        padding-bottom: 0.05rem;
-        margin-bottom: 0.25rem;
+        padding: 0.25rem 0;
+        margin: 0.25rem 0;
         border-bottom: 1px solid #ccc;
     }
     span.contact-type {
