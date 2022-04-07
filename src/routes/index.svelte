@@ -150,7 +150,7 @@
             max-width: 20rem;
         }
         p.contacts {
-            padding-bottom: 0.5rem;
+            padding: 0.5rem 0;
         }
         ul {
             padding: 0 0.5rem 0.5rem;
