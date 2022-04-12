@@ -1,6 +1,6 @@
+<!-- TODO: fix firefox compatibility -->
 <script>
-    //TODO: fix firefox compatibility
-    import vars from '$lib/actions/cssVars'
+    import { cssVars } from '$lib/actions'
 
     let typeWidth = 75
     let linkWidth = 75
@@ -17,7 +17,7 @@
         <slot name="link" />
     </div>
 
-    <div class="underline" use:vars={varsList} />
+    <div class="underline" use:cssVars={varsList} />
 </div>
 
 <style>

@@ -1,24 +1,26 @@
-<script>
-    import { slide }     from 'svelte/transition'
-    import SvEO         from '$lib/components/SvEO'
-    import Link         from '$lib/components/Link'
+<script lang="ts">
+    import { slide }    from 'svelte/transition'
+
+    import { SvEO, Link } from '$lib/components'
 
     import Email20      from 'carbon-icons-svelte/lib/Email20'
     import LogoGithub20 from 'carbon-icons-svelte/lib/LogoGithub20'
 
     import Contact from './_contact.svelte'
 
-    let contactText = 'Contact me'
+    const contactTextList = {
+        default: 'Contact me',
+        email:   'Email me',
+        github:  'Read my code',
+    }
+    let contactText = contactTextList.default
 </script>
 
 <SvEO
     title="Home - Jack Weilage"
     description="Welcome to weilage.dev, a personal website for Jack Weilage, a web developer and designer."
     author="Jack Weilage"
-    keywords={[
-        'weilage', 'jack weilage', 'jack weilage dev', 'jack weilage developer',
-        'portfolio', 'developer', 'developer portfolio', 'jack weilage portfolio' 
-    ]}
+    keywords={[ 'jack weilage', 'portfolio', 'developer' ]}
     canonical="https://weilage.dev/"
 />
 <main id="main-content">
@@ -39,13 +41,13 @@
             <p class="contacts" transition:slide={{ delay: 100 }}>{contactText}</p>
         {/key}
         <address
-            on:mouseleave={() => contactText = 'Contact me'}
-            on:blur={      () => contactText = 'Contact me'}
+            on:mouseleave={() => contactText = contactTextList.default}
+            on:blur={      () => contactText = contactTextList.default}
         >
             <ul>
                 <li
-                    on:mouseover={() => contactText = 'Email me'}
-                    on:focus={    () => contactText = 'Email me'}
+                    on:mouseover={() => contactText = contactTextList.email}
+                    on:focus={    () => contactText = contactTextList.email}
                 >
                     <Contact>
                         <Email20 slot="icon" />
@@ -54,8 +56,8 @@
                     </Contact>
                 </li>
                 <li 
-                    on:mouseover={() => contactText = 'Read my code'}
-                    on:focus={    () => contactText = 'Read my code'}
+                    on:mouseover={() => contactText = contactTextList.github}
+                    on:focus={    () => contactText = contactTextList.github}
                 >
                     <Contact>
                         <LogoGithub20 slot="icon" />

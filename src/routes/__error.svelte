@@ -7,7 +7,7 @@
     }
 </script>
 <script lang="ts">
-    import SvEO from '$lib/components/SvEO'
+    import { SvEO } from '$lib/components'
 
     export let error: { stack: string, name: string, message: string}, status: number
     const online = typeof navigator !== 'undefined' ? navigator.onLine : true
