@@ -3,7 +3,7 @@ const shell = require('shelljs')
 describe.only('dev', () => {
     beforeAll(() => new Promise((resolve, reject) => {
         // kill all processes on port 3000
-        shell.exec('kill $(lsof -t -i:3000)')
+        shell.exec('kill $(lsof -t -i:3000)', { silent: true })
         // build the website
         shell.exec('pnpm build', { silent: true })
         // start the server
