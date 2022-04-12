@@ -9,17 +9,14 @@ cssVars populates the target element with css vars related to the object passed 
 Example usage:
 ```html
 <script>
-    import cssVars from '$lib/components/cssVars'
+    import { cssVars } from '$lib/components'
 
-    $: vars = {
-        width: '10px',
-        height: '20px'
-    }
+    export let width, height
+
+    $: vars = { width, height }
 </script>
 
-<div use:cssVars={vars}>
-
-</div>
+<div use:cssVars={vars}></div>
 
 <style>
     div {
