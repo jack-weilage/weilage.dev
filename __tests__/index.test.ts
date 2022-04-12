@@ -1,5 +1,6 @@
 const shell = require('shelljs')
 
+jest.setTimeout(15000)
 describe.only('dev', () => {
     beforeAll(() => new Promise((resolve, reject) => {
         // kill all processes on port 3000
