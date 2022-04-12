@@ -10,6 +10,11 @@ const config = {
 		trailingSlash: 'always',
 		adapter: adapter(),
 		vite: {
+			resolve: {
+				alias: {
+					
+				}
+			},
 			ssr: {
 				noExternal: [  ]
 			}
