@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { SvEO, Link } from '$lib/components'
+    import { SvEO, SkipToLink, Link } from '$lib/components'
 
     import Email24      from 'carbon-icons-svelte/lib/Email24'
     import LogoGithub24 from 'carbon-icons-svelte/lib/LogoGithub24'
@@ -29,7 +29,7 @@
 />
 
 <header>
-
+    <SkipToLink href="#main-content" />
 </header>
 
 <main id="main-content">
