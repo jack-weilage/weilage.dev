@@ -1,4 +1,3 @@
-export { default as GradientText }      from './GradientText.svelte'
 export { default as Link }              from './Link.svelte'
 export { default as LoadingIndicator }  from './LoadingIndicator.svelte'
 export { default as SkipToLink }        from './SkipToLink.svelte'
