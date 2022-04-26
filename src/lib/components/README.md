@@ -6,7 +6,6 @@ This folder contains all reusable components used on [weilage.dev](https://weila
 ### Simple Components
 | Name  | Description | Attributes | Slots |
 | :---  | :---        |    :---   | :---: |
-| `GradientText` | Creates a horizontally scrolling background behind the text specified. | N/A | `default` |
 | `Link` | Creates an external link with the specified href and text. | `href` | `default` |
 | `LoadingIndicator` | Creates a fake loading indicator to scroll across the screen while the page is waiting. | N/A | N/A |
 | `SkipToLink` | Creates an offscreen link which moves into view when focused. | `href` | N/A |
