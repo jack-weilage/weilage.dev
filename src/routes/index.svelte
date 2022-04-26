@@ -59,8 +59,8 @@
 
 <style>
     :root {
-        --header-height: 4rem;
-        --footer-height: 4rem;
+        --header-height: 6rem;
+        --footer-height: 6rem;
     }
     header {
         width: 100%;
