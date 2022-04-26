@@ -1,12 +1,14 @@
 <script>
-    import { LoadingIndicator, SkipToLink } from '$lib/components'
+    import '$lib/css/reset.css'
+    import '$lib/css/global.css'
+
+    import { LoadingIndicator } from '$lib/components'
 
     import { navigating } from '$app/stores'
 </script>
 
-{#if $navigating}
+{#if $navigating && $navigating.to}
     <LoadingIndicator />
 {/if}
 
-<SkipToLink />
 <slot />
