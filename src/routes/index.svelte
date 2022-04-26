@@ -1,32 +1,41 @@
 <script lang="ts">
-    import { slide }    from 'svelte/transition'
-
     import { SvEO, Link } from '$lib/components'
 
-    import Email20      from 'carbon-icons-svelte/lib/Email20'
-    import LogoGithub20 from 'carbon-icons-svelte/lib/LogoGithub20'
+    import Email24      from 'carbon-icons-svelte/lib/Email24'
+    import LogoGithub24 from 'carbon-icons-svelte/lib/LogoGithub24'
 
-    import Contact from './_contact.svelte'
-
-    const contactTextList = {
-        default: 'Contact me',
-        email:   'Email me',
-        github:  'Read my code',
+    const contacts = {
+        email: {
+            title: 'Email me',
+            href: 'mailto:jack@weilage.dev',
+            username: 'jack@weilage.dev',
+            icon: Email24
+        },
+        github: {
+            title: 'Read my code',
+            href: 'https://github.com/jack-weilage',
+            username: 'jack-weilage',
+            icon: LogoGithub24
+        }
     }
-    let contactText = contactTextList.default
 </script>
 
 <SvEO
     title="Home - Jack Weilage"
     description="Welcome to weilage.dev, a personal website for Jack Weilage, a web developer and designer."
     author="Jack Weilage"
-    keywords={[ 'jack weilage', 'portfolio', 'developer' ]}
+    keywords={[ 'weilage.dev', 'jack weilage', 'portfolio', 'developer', 'designer' ]}
     canonical="https://weilage.dev/"
 />
+
+<header>
+
+</header>
+
 <main id="main-content">
     <div>
         <h2>Hello! I'm</h2>
-        <h1>Jack Weilage</h1>
+        <h1>Jack&nbsp;Weilage</h1>
         <p class="description">
             I'm a web developer currently using
             <Link href="https://svelte.dev">Svelte</Link>&nbsp;/&nbsp;<Link href="https://kit.svelte.dev">SvelteKit</Link>,
@@ -35,47 +44,33 @@
             to build highly accessible and fully semantic websites.
         </p>
     </div>
-    <aside>
-        {#key contactText}
-            <!-- transitions currently create a memory leak (svelte pls fix) -->
-            <p class="contacts" transition:slide={{ delay: 100 }}>{contactText}</p>
-        {/key}
-        <address
-            on:mouseleave={() => contactText = contactTextList.default}
-            on:blur={      () => contactText = contactTextList.default}
-        >
-            <ul>
-                <li
-                    on:mouseover={() => contactText = contactTextList.email}
-                    on:focus={    () => contactText = contactTextList.email}
-                >
-                    <Contact>
-                        <Email20 slot="icon" />
-                        <span slot="type" class="contact-type">Email</span>
-                        <a slot="link" class="contact-link" rel="external" target="_blank" title="Email me" href="mailto:jack@weilage.dev">jack@weilage.dev</a>
-                    </Contact>
-                </li>
-                <li 
-                    on:mouseover={() => contactText = contactTextList.github}
-                    on:focus={    () => contactText = contactTextList.github}
-                >
-                    <Contact>
-                        <LogoGithub20 slot="icon" />
-                        <span slot="type" class="contact-type">GitHub</span>
-                        <a slot="link" class="contact-link" rel="external" target="_blank" title="Check out my GitHub" href="https://github.com/jack-weilage">jack-weilage</a>
-                    </Contact>
-                </li>
-            </ul>
-        </address>
-    </aside>
 </main>
 
+<footer>
+    <ul class="contacts-list">
+    {#each Object.values(contacts) as { title, icon, href, username }}
+        <li {title}>
+            <svelte:component this={icon} />
+            <a {href} rel="external" target="_blank">{username}</a>
+        </li>
+    {/each}
+    </ul>
+</footer>
+
 <style>
+    :root {
+        --header-height: 4rem;
+        --footer-height: 4rem;
+    }
+    header {
+        width: 100%;
+        height: var(--header-height);
+    }
     main {
         box-sizing: border-box;
 
         width: 100%;
-        height: 100%;
+        height: calc(100% - var(--header-height) - var(--footer-height));
 
         display: flex;
         flex-flow: column wrap;
@@ -84,21 +79,24 @@
 
         padding: 1rem;
     }
-    aside {
-        width: 16.5rem;
-        line-height: 1.1;
-
-        position: absolute;
-        bottom: 0;
-        right: 0;
+    footer {
+        width: calc(100% - 1rem * 2);
+        height: calc(var(--footer-height) - 2 * 1rem);
 
         display: flex;
-        flex-flow: column wrap;
-        
-        margin: 1rem;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: flex-end;
+
+        padding: 1rem;
     }
-    address {
-        padding: 0 0.25rem;
+    ul.contacts-list li {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+
+        gap: 0.75rem;
+        padding: 0.2rem
     }
     h1 {
         /* force style to italic and bold while the font is loading */
@@ -120,28 +118,7 @@
 
         max-width: 25rem;
     }
-    p.contacts {
-        font-size: 1.2rem;
-        font-weight: bold;
-
-        width: 100%;
-        text-align: center;
-
-        padding: 0.25rem 0;
-        margin: 0.25rem 0;
-        border-bottom: 1px solid #ccc;
-    }
-    span.contact-type {
-        margin-left: 0.25rem;
-    }
-    a.contact-link:hover {
-        text-decoration: none;
-    }
     @media (max-width: 600px) {
-        aside {
-            width: 100%;
-            margin: 0;
-        }
         h1 {
             font-size: 3.5rem;
         }
@@ -150,9 +127,6 @@
         }
         p.description {
             max-width: 20rem;
-        }
-        p.contacts {
-            padding: 0.5rem 0;
         }
         ul {
             padding: 0 0.5rem 0.5rem;
