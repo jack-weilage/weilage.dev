@@ -1,6 +1,4 @@
 <script lang="ts">
-    /** ??? lodash just doesn't work ??? */
-    // import defaults from 'lodash.defaults'
     /** the title for both the browser and search engines */
     export let title: string
     /** the description for search engines */
