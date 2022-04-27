@@ -1,5 +1,5 @@
 <script>
-    export let href = '#main-content'
+    export let href
 </script>
 
 <a {href}>Skip To Main Content</a>
@@ -19,11 +19,11 @@
         border: 1px solid #ccc;
 
         z-index: 999;
-        transform: translateY(-1000%);
+        transform: translateX(-200%);
 
         transition: transform 0.5s ease-in-out;
     }
     a:focus {
-        transform: translateY(0);
+        transform: translateX(0);
     }
 </style>
