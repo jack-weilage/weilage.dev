@@ -7,15 +7,15 @@
     const contacts = {
         email: {
             title: 'Email me',
-            href: 'mailto:jack@weilage.dev',
-            username: 'jack@weilage.dev',
-            icon: Email24
+            icon: Email24,
+            href: 'mailto:jack@weilage.dev', 
+            username: 'jack@weilage.dev'
         },
         github: {
             title: 'Read my code',
+            icon: LogoGithub24,
             href: 'https://github.com/jack-weilage',
-            username: 'jack-weilage',
-            icon: LogoGithub24
+            username: 'jack-weilage'
         }
     }
 </script>
