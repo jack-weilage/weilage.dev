@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { SvEO, SkipToLink, Link } from '$lib/components'
+    import { SvEO, SkipToLink } from '$lib/components'
 
     import Email24      from 'carbon-icons-svelte/lib/Email24'
     import LogoGithub24 from 'carbon-icons-svelte/lib/LogoGithub24'
@@ -34,13 +34,15 @@
 
 <main id="main-content">
     <div>
-        <h2>Hello! I'm</h2>
-        <h1>Jack&nbsp;Weilage</h1>
+        <h1>
+            <span>Hello! I'm</span>
+            Jack&nbsp;Weilage
+        </h1>
         <p class="description">
             I'm a web developer currently using
-            <Link href="https://svelte.dev">Svelte</Link>&nbsp;/&nbsp;<Link href="https://kit.svelte.dev">SvelteKit</Link>,
-            <Link href="https://nodejs.org">Node.js</Link> and
-            <Link href="https://www.typescriptlang.org">TypeScript</Link>
+            <a href="https://svelte.dev" rel="external" target="_blank">Svelte</a>&nbsp;/&nbsp;<a href="https://kit.svelte.dev" rel="external" target="_blank">SvelteKit</a>,
+            <a href="https://nodejs.org" rel="external" target="_blank">Node.js</a> and
+            <a href="https://www.typescriptlang.org" rel="external" target="_blank">TypeScript</a>
             to build highly accessible and fully semantic websites.
         </p>
     </div>
@@ -108,10 +110,15 @@
 
         margin-bottom: 0.5rem;
     }
-    h2 {
+    h1 span {
+        display: block;
+
+        font-style: normal;
         font-family: 'Oxygen', sans-serif;
         font-size: 1.8rem;
         font-weight: bold;
+
+        color: var(--theme-text)
     }
     p.description {
         line-height: 1.15;
@@ -122,7 +129,7 @@
         h1 {
             font-size: 3.5rem;
         }
-        h2 {
+        h1 span {
             font-size: 1.3rem;
         }
         p.description {
