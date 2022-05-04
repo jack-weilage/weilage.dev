@@ -1,4 +1,3 @@
-/* default & light mode */
 :root {
     --theme-background-light: #fbfbfb;
     --theme-background-dark: #0d0d15;
@@ -17,7 +16,7 @@
     --theme-light-orange: #f38d68;
     --theme-blue: #51d6ff;
 
-    /* light mode */
+    /* Light-mode colors */
     --theme-background:     var(--theme-background-light);
     --theme-text:           var(--theme-text-light);
     --theme-anchor:         var(--theme-anchor-light);
@@ -25,7 +24,7 @@
 }
 @media (prefers-color-scheme: dark) {
     :root {
-        /* dark mode */
+        /* Dark-mode colors */
         --theme-background:     var(--theme-background-dark);
         --theme-text:           var(--theme-text-dark);
         --theme-anchor:         var(--theme-anchor-dark);
@@ -34,7 +33,7 @@
 }
 body, html {
     width: 100%;
-    height: 100%;
+    height: var(--auto-height, 100%);
 
     font-family: 'Libre Franklin', sans-serif;
     font-size: 1.075rem;
@@ -50,4 +49,8 @@ a {
 a:hover {
     color: var(--theme-anchor-hover, initial);
     text-decoration: underline;
+}
+
+input {
+    color: var(--theme-text, initial);
 }
