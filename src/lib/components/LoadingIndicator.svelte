@@ -3,17 +3,21 @@
     
     let width = 0
     onMount(() => {
-        const update = () => {
+        function update()
+        {
             width += 5
 
-            if (width < 80) setTimeout(update, 10 * width)
+            if (width < 80)
+            {
+                setTimeout(update, 10 * width)
+            }
         }
         setTimeout(update, 250)
     })
 </script>
 
 {#if width > 0}
-<div style:width="{width}%" />
+    <div style:width="{width}%" />
 {/if}
 
 <style>

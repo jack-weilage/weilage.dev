@@ -4,6 +4,7 @@
     import Email24      from 'carbon-icons-svelte/lib/Email24'
     import LogoGithub24 from 'carbon-icons-svelte/lib/LogoGithub24'
 
+    //TODO: Use an internal endpoint to fetch a json file with the following data. Maybe dynamically fetch the icons?
     const contacts = {
         email: {
             title: 'Email me',

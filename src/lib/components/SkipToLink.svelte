@@ -1,5 +1,6 @@
-<script>
-    export let href
+<script lang="ts">
+    /** href to skip the header. */
+    export let href: string
 </script>
 
 <a {href}>Skip To Main Content</a>
