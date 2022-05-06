@@ -7,7 +7,7 @@
     "start": "node build",
     "preview": "svelte-kit preview",
     "prepare": "svelte-kit sync && husky install",
-    "check": "svelte-check",
+    "check": "svelte-check --fail-on-warnings",
     "logs": "heroku logs --tail",
     "logs:api": "heroku logs --tail --dyno api",
     "logs:router": "heroku logs --tail --dyno router",
