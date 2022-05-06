@@ -31,17 +31,21 @@
         --theme-anchor-hover:   var(--theme-anchor-hover-dark);
     }
 }
+
+html,
 body {
     box-sizing: border-box;
 
     width: 100%;
-    height: var(--auto-height, 100%);
-
-    font-family: 'Libre Franklin', sans-serif;
-    font-size: 1.15rem;
+    height: 100%;
 
     background-color: var(--theme-background, initial);
     color: var(--theme-text, initial);
+}
+
+body {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 1.17rem;
 
     display: flex;
     flex-direction: column;
