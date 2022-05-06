@@ -102,9 +102,9 @@
     }
     h1 {
         /* force style to italic and bold while the font is loading */
+        font-family: 'Fira Sans Condensed', sans-serif;
         font-style: italic;
         font-weight: bold;
-        font-family: 'Fira Sans Condensed', sans-serif;
         font-size: 5.5rem;
 
         color: var(--theme-green);
@@ -114,10 +114,10 @@
     h1 span {
         display: block;
 
+        font-family: 'Libre Franklin', sans-serif;
         font-style: normal;
         font-size: 2rem;
         font-weight: bold;
-        letter-spacing: 0.03em;
 
         color: var(--theme-text)
     }
