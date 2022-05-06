@@ -31,15 +31,24 @@
         --theme-anchor-hover:   var(--theme-anchor-hover-dark);
     }
 }
-body, html {
+body {
+    box-sizing: border-box;
+
     width: 100%;
     height: var(--auto-height, 100%);
 
     font-family: 'Libre Franklin', sans-serif;
-    font-size: 1.075rem;
+    font-size: 1.15rem;
 
     background-color: var(--theme-background, initial);
     color: var(--theme-text, initial);
+
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1;
 }
 
 a {
@@ -49,8 +58,4 @@ a {
 a:hover {
     color: var(--theme-anchor-hover, initial);
     text-decoration: underline;
-}
-
-input {
-    color: var(--theme-text, initial);
 }
