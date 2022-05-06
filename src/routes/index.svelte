@@ -114,9 +114,9 @@
         display: block;
 
         font-style: normal;
-        font-family: 'Oxygen', sans-serif;
         font-size: 2rem;
         font-weight: bold;
+        letter-spacing: 0.03em;
 
         color: var(--theme-text)
     }
