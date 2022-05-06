@@ -1,6 +1,6 @@
-<script context="module">
+<script lang="ts" context="module">
     /** @type {import('@sveltejs/kit').ErrorLoad} */
-    export function load({ error, status }) {
+    export function load({ error, status }: { error: Error; status: number }) {
         return {
             props: { error, status }
         }
@@ -9,7 +9,7 @@
 <script lang="ts">
     import { SvEO } from '$lib/components'
 
-    export let error: { stack: string, name: string, message: string}, status: number
+    export let error: Error, status: number
     const online = typeof navigator !== 'undefined' ? navigator.onLine : true
 </script>
 
