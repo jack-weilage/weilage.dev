@@ -104,7 +104,7 @@
         /* force style to italic and bold while the font is loading */
         font-style: italic;
         font-family: 'Fira Sans Condensed', sans-serif;
-        font-size: 5rem;
+        font-size: 5.5rem;
 
         color: var(--theme-green);
 
@@ -115,7 +115,7 @@
 
         font-style: normal;
         font-family: 'Oxygen', sans-serif;
-        font-size: 1.8rem;
+        font-size: 2rem;
         font-weight: bold;
 
         color: var(--theme-text)
