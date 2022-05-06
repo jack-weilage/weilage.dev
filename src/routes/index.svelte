@@ -72,9 +72,6 @@
     main {
         box-sizing: border-box;
 
-        width: 100%;
-        height: calc(100% - var(--header-height) - var(--footer-height));
-
         display: flex;
         flex-flow: column wrap;
         align-content: center;
@@ -83,8 +80,10 @@
         padding: 1rem;
     }
     footer {
-        width: calc(100% - 1rem * 2);
-        height: calc(var(--footer-height) - 2 * 1rem);
+        box-sizing: border-box;
+
+        width: 100%;
+        height: var(--footer-height);
 
         display: flex;
         flex-flow: row nowrap;
@@ -124,7 +123,7 @@
     p.description {
         line-height: 1.15;
 
-        max-width: 25rem;
+        max-width: 27rem;
     }
     @media (max-width: 600px) {
         h1 {
