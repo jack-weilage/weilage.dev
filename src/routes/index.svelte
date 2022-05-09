@@ -34,9 +34,9 @@
 </header>
 
 <main id="main-content">
-    <div>
-        <h1>
-            <span>Hello! I'm</span>
+    <div class="container">
+        <h1 class="greeting">
+            <span class="small-greeting">Hello! I'm</span>
             Jack&nbsp;Weilage
         </h1>
         <p class="description">
@@ -50,7 +50,7 @@
 </main>
 
 <footer>
-    <ul class="contacts-list">
+    <ul class="contact-list">
     {#each Object.values(contacts) as { title, icon, href, username }}
         <li {title}>
             <svelte:component this={icon} size={24} />
@@ -60,15 +60,17 @@
     </ul>
 </footer>
 
-<style>
+<style lang="scss">
     :root {
-        --header-height: 6rem;
-        --footer-height: 6rem;
+        --header-height: 8rem;
+        --footer-height: 8rem
     }
+    
     header {
         width: 100%;
         height: var(--header-height);
     }
+
     main {
         box-sizing: border-box;
 
@@ -78,7 +80,38 @@
         justify-content: center;
 
         padding: 1rem;
+
+        div.container {
+            h1.greeting {
+                /* force style to italic and bold while the font is loading */
+                font-family: 'Fira Sans Condensed', sans-serif;
+                font-style: italic;
+                font-weight: bold;
+                font-size: 5.5rem;
+
+                color: var(--theme-green);
+
+                margin-bottom: 0.5rem;
+
+                span.small-greeting {
+                    display: block;
+
+                    font-family: 'Libre Franklin', sans-serif;
+                    font-style: normal;
+                    font-size: 2rem;
+                    font-weight: bold;
+
+                    color: var(--theme-text);
+                }
+            }
+            p.description {
+                line-height: 1.15;
+    
+                max-width: 27rem;
+            }
+        }
     }
+
     footer {
         box-sizing: border-box;
 
@@ -91,53 +124,40 @@
         justify-content: flex-end;
 
         padding: 1rem;
+
+        ul.contact-list {
+            align-self: flex-end;
+
+            li {
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: center;
+        
+                gap: 0.75rem;
+                padding: 0.2rem;
+            }
+        }
     }
-    ul.contacts-list li {
-        display: flex;
-        flex-flow: row nowrap;
-        align-items: center;
 
-        gap: 0.75rem;
-        padding: 0.2rem
-    }
-    h1 {
-        /* force style to italic and bold while the font is loading */
-        font-family: 'Fira Sans Condensed', sans-serif;
-        font-style: italic;
-        font-weight: bold;
-        font-size: 5.5rem;
-
-        color: var(--theme-green);
-
-        margin-bottom: 0.5rem;
-    }
-    h1 span {
-        display: block;
-
-        font-family: 'Libre Franklin', sans-serif;
-        font-style: normal;
-        font-size: 2rem;
-        font-weight: bold;
-
-        color: var(--theme-text)
-    }
-    p.description {
-        line-height: 1.15;
-
-        max-width: 27rem;
-    }
     @media (max-width: 600px) {
-        h1 {
-            font-size: 3.5rem;
+        main {
+            div.container {
+                h1.greeting {
+                    font-size: 3.5rem;
+
+                    span.small-greeting {
+                        font-size: 1.3rem;
+                    }
+                }
+
+                p.description {
+                    max-width: 20rem;
+                }
+            }
         }
-        h1 span {
-            font-size: 1.3rem;
-        }
-        p.description {
-            max-width: 20rem;
-        }
-        ul {
-            padding: 0 0.5rem 0.5rem;
-        }
+
+        // footer ul.contact-list {
+        //     padding: 0 0.5rem 0.5rem
+        // }
     }
 </style>
