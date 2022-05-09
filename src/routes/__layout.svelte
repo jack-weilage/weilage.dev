@@ -8,7 +8,7 @@
      * Just manually importing each file seems to work best.
     */
 
-    import '$lib/css/reset.css'
+    import 'normalize.css'
     import '$lib/css/vars.css'
     import '$lib/css/global.css'
 

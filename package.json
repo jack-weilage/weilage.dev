@@ -20,6 +20,7 @@
     "carbon-icons-svelte": "^11.0.1",
     "husky": "^7.0.4",
     "node-sass": "^7.0.1",
+    "normalize.css": "^8.0.1",
     "svelte": "^3.48.0",
     "svelte-check": "^2.7.0",
     "svelte-preprocess": "^4.10.6",

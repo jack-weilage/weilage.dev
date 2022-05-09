@@ -83,6 +83,9 @@
 
         div.container {
             h1.greeting {
+                margin: 0;
+                
+                line-height: 1;
                 /* force style to italic and bold while the font is loading */
                 font-family: 'Fira Sans Condensed', sans-serif;
                 font-style: italic;
@@ -105,8 +108,8 @@
                 }
             }
             p.description {
-                line-height: 1.15;
-    
+                margin: 0;
+
                 max-width: 27rem;
             }
         }
@@ -126,6 +129,8 @@
         padding: 1rem;
 
         ul.contact-list {
+            margin: 0;
+            padding: 0;
             align-self: flex-end;
 
             li {

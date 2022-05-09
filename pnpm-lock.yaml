@@ -7,6 +7,7 @@ specifiers:
   carbon-icons-svelte: ^11.0.1
   husky: ^7.0.4
   node-sass: ^7.0.1
+  normalize.css: ^8.0.1
   svelte: ^3.48.0
   svelte-check: ^2.7.0
   svelte-preprocess: ^4.10.6
@@ -20,6 +21,7 @@ devDependencies:
   carbon-icons-svelte: 11.0.1
   husky: 7.0.4
   node-sass: 7.0.1
+  normalize.css: 8.0.1
   svelte: 3.48.0
   svelte-check: 2.7.0_7na7m37n4dmvcpiduxi3duce4e
   svelte-preprocess: 4.10.6_dge32yyqljm6qqfihfn6ebwd44
@@ -1548,6 +1550,10 @@ packages:
   /normalize-path/3.0.0:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
+    dev: true
+
+  /normalize.css/8.0.1:
+    resolution: {integrity: sha512-qizSNPO93t1YUuUhP22btGOo3chcvDFqFaj2TRybP0DMxkHOCTYwp3n34fel4a31ORXy4m1Xq0Gyqpb5m33qIg==}
     dev: true
 
   /npmlog/5.0.1:
