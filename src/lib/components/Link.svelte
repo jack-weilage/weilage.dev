@@ -28,12 +28,3 @@ TODO: Raise an issue with SvelteKit about the ability to programmatically enable
         <svelte:component this={icon} size={iconSize} />
     {/if}
 </a>
-
-<style>
-    a[data-hasicon="true"] {
-        display: inline-flex;
-        align-items: center;
-
-        gap: 0.25rem;
-    }
-</style>
