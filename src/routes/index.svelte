@@ -42,7 +42,7 @@ TODO: Remove `div.container` (no longer required for proper spacing, but only if
     <div class="container">
         <h1 class="greeting" bind:clientWidth={headingWidth}>
             <span class="small-greeting">Hello! I'm</span>
-            <span class="no-wrap">Jack&nbsp;Weilage</span>
+            <span class="no-wrap">Jack Weilage</span>
         </h1>
         <p class="description" style:--width={headingWidth && `${headingWidth}px`}>
             I'm a web developer currently using
@@ -155,10 +155,15 @@ TODO: Remove `div.container` (no longer required for proper spacing, but only if
     }
 
     @media (max-width: 600px) {
-        main div.container h1.greeting {
-            font-size: 3.5rem;
-            span.small-greeting {
-                font-size: 1.3rem;
+        main div.container {
+            h1.greeting {
+                font-size: 3.5rem;
+                span.small-greeting {
+                    font-size: 1.3rem;
+                }
+            }
+            p.description {
+                line-height: 1.2;
             }
         }
     }
