@@ -1,5 +1,8 @@
+<!-- 
+TODO: Remove `div.container` (no longer required for proper spacing, but only if javascript is enabled)
+ -->
 <script lang="ts">
-    import { SvEO, SkipToLink } from '$lib/components'
+    import { SvEO, SkipToLink, Link } from '$lib/components'
     
     import Email from 'carbon-icons-svelte/lib/Email.svelte'
     import LogoGithub from 'carbon-icons-svelte/lib/LogoGithub.svelte'
@@ -19,6 +22,8 @@
             username: 'jack-weilage'
         }
     }
+
+    let headingWidth: number | null = null
 </script>
 
 <SvEO
@@ -35,15 +40,14 @@
 
 <main id="main-content">
     <div class="container">
-        <h1 class="greeting">
+        <h1 class="greeting" bind:clientWidth={headingWidth}>
             <span class="small-greeting">Hello! I'm</span>
-            Jack&nbsp;Weilage
+            <span class="no-wrap">Jack&nbsp;Weilage</span>
         </h1>
-        <p class="description">
+        <p class="description" style:--width={headingWidth && `${headingWidth}px`}>
             I'm a web developer currently using
-            <a href="https://svelte.dev" rel="external" target="_blank">Svelte</a>&nbsp;/&nbsp;<a href="https://kit.svelte.dev" rel="external" target="_blank">SvelteKit</a>,
-            <a href="https://nodejs.org" rel="external" target="_blank">Node.js</a> and
-            <a href="https://www.typescriptlang.org" rel="external" target="_blank">TypeScript</a>
+            <span class="no-wrap"><Link href="https://svelte.dev">Svelte</Link> / <Link href="https://kit.svelte.dev">SvelteKit</Link></span>,
+            <Link href="https://nodejs.org">Node.js</Link> and <Link href="https://www.typescriptlang.org">TypeScript</Link>
             to build highly accessible and fully semantic websites.
         </p>
     </div>
@@ -54,7 +58,7 @@
     {#each Object.values(contacts) as { title, icon, href, username }}
         <li {title}>
             <svelte:component this={icon} size={24} />
-            <a {href} rel="external" target="_blank">{username}</a>
+            <Link {href} icon={false}>{username}</Link>
         </li>
     {/each}
     </ul>
@@ -63,7 +67,10 @@
 <style lang="scss">
     :root {
         --header-height: 8rem;
-        --footer-height: 8rem
+        --footer-height: 8rem;
+    }
+    span.no-wrap {
+        white-space: nowrap;
     }
     
     header {
@@ -85,9 +92,11 @@
             h1.greeting {
                 margin: 0;
                 
+                width: min-content;
+
                 line-height: 1;
                 /* force style to italic and bold while the font is loading */
-                font-family: 'Fira Sans Condensed', sans-serif;
+                font-family: 'Fira Sans Condensed', 'Times New Roman', 'Times', sans-serif;
                 font-style: italic;
                 font-weight: bold;
                 font-size: 5.5rem;
@@ -110,7 +119,7 @@
             p.description {
                 margin: 0;
 
-                max-width: 27rem;
+                max-width: var(--width, 28rem);
             }
         }
     }
@@ -131,6 +140,7 @@
         ul.contact-list {
             margin: 0;
             padding: 0;
+
             align-self: flex-end;
 
             li {
@@ -145,24 +155,11 @@
     }
 
     @media (max-width: 600px) {
-        main {
-            div.container {
-                h1.greeting {
-                    font-size: 3.5rem;
-
-                    span.small-greeting {
-                        font-size: 1.3rem;
-                    }
-                }
-
-                p.description {
-                    max-width: 20rem;
-                }
+        main div.container h1.greeting {
+            font-size: 3.5rem;
+            span.small-greeting {
+                font-size: 1.3rem;
             }
         }
-
-        // footer ul.contact-list {
-        //     padding: 0 0.5rem 0.5rem
-        // }
     }
 </style>
