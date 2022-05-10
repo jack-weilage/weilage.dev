@@ -1,0 +1,39 @@
+<!-- 
+TODO: Raise an issue with SvelteKit about the ability to programmatically enable sveltekit namespaced features.
+ -->
+<script lang="ts">
+    import Launch from 'carbon-icons-svelte/lib/Launch.svelte'
+    
+    /** An internal or external href. */
+    export let href: string
+    /** Is this link external? Only use if the automatic detection doesn't work correctly. */
+    export let external = !!href && !href.startsWith('/') && !href.startsWith('#')
+    /** The relation between the href and the current page. Only use if the automatic detection doesn't work correctly. */
+    export let rel = external ? 'external noopener noreferrer' : undefined
+    /** The target of the link. Only use if the automatic detection doesn't work correctly. */
+    export let target: string = external ? '_blank' : '_self'
+
+    /** The icon to be displayed after the link. Set to `false` to remove. */
+    export let icon: boolean | typeof Launch = Launch
+    /** The size (in `px`) of the icon. */
+    export let iconSize = 14
+
+    /** Is this link internal and should be prefetched by SvelteKit? */
+    // export let prefetch = !external
+</script>
+
+<a {href} {rel} {target} {...$$restProps} data-hasicon={!!icon}>
+    <slot />
+    {#if !!icon}
+        <svelte:component this={icon} size={iconSize} />
+    {/if}
+</a>
+
+<style>
+    a[data-hasicon="true"] {
+        display: inline-flex;
+        align-items: center;
+
+        gap: 0.25rem;
+    }
+</style>
