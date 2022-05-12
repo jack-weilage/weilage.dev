@@ -17,9 +17,6 @@ TODO: Raise an issue with SvelteKit about the ability to programmatically enable
     export let icon: boolean | typeof Launch = Launch
     /** The size (in `px`) of the icon. */
     export let iconSize = 14
-
-    /** Is this link internal and should be prefetched by SvelteKit? */
-    // export let prefetch = !external
 </script>
 
 <a {href} {rel} {target} {...$$restProps} data-hasicon={!!icon}>
