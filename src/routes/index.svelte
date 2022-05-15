@@ -1,29 +1,23 @@
-<!-- 
-TODO: Remove `div.container` (no longer required for proper spacing, but only if javascript is enabled)
- -->
 <script lang="ts">
-    import { SvEO, SkipToLink, Link } from '$lib/components'
-    
-    import Email from 'carbon-icons-svelte/lib/Email.svelte'
-    import LogoGithub from 'carbon-icons-svelte/lib/LogoGithub.svelte'
-
-    //TODO: Use an internal endpoint to fetch a json file with the following data. Maybe dynamically fetch the icons?
-    const contacts = {
+    import { SvEO, Link } from '$lib/components'
+    interface Contact {
+        href: string
+        text: string
+        title: string
+    }
+    //TODO: Implement a json endpoint to retrieve the list of contacts. Would be a useless feature, but it's a good example.
+    const contacts: { [key: string]: Contact } = {
         email: {
-            title: 'Email me',
-            icon: Email,
-            href: 'mailto:jack@weilage.dev', 
-            username: 'jack@weilage.dev'
+            href: 'mailto:jack@weilage.dev',
+            text: 'Email me',
+            title: 'Send me an email',
         },
         github: {
-            title: 'Read my code',
-            icon: LogoGithub,
             href: 'https://github.com/jack-weilage',
-            username: 'jack-weilage'
-        }
+            text: 'Read my code',
+            title: 'View my GitHub profile',
+        },
     }
-
-    let headingWidth: number | null = null
 </script>
 
 <SvEO
@@ -34,136 +28,128 @@ TODO: Remove `div.container` (no longer required for proper spacing, but only if
     canonical="https://weilage.dev/"
 />
 
-<header>
-    <SkipToLink href="#main-content" />
-</header>
-
 <main id="main-content">
-    <div class="container">
-        <h1 class="greeting" bind:clientWidth={headingWidth}>
-            <span class="small-greeting">Hello! I'm</span>
-            <span class="no-wrap">Jack Weilage</span>
-        </h1>
-        <p class="description" style:--width={headingWidth && `${headingWidth}px`}>
-            I'm a web developer currently using
-            <span class="no-wrap"><Link href="https://svelte.dev">Svelte</Link> / <Link href="https://kit.svelte.dev">SvelteKit</Link></span>,
-            <Link href="https://nodejs.org">Node.js</Link> and <Link href="https://www.typescriptlang.org">TypeScript</Link>
-            to build highly accessible and fully semantic websites.
-        </p>
-    </div>
+    <h1 class="greeting">
+        <div class="line" />
+
+        <span class="hello">Hello! I'm </span>
+        <span class="name">Jack Weilage</span>
+        
+        <div class="line" />
+    </h1>
+    <ul class="contact-list">
+        {#each Object.values(contacts) as { href, title, text }, i}
+            {#if i > 0}
+                <div class="spacer" />
+            {/if}
+            <li>
+                <Link {href} {title}>{text}</Link>
+            </li>
+        {/each}
+    </ul>
 </main>
 
-<footer>
-    <ul class="contact-list">
-    {#each Object.values(contacts) as { title, icon, href, username }}
-        <li {title}>
-            <svelte:component this={icon} size={24} />
-            <Link {href} icon={false}>{username}</Link>
-        </li>
-    {/each}
-    </ul>
-</footer>
-
 <style lang="scss">
-    :root {
-        --header-height: 8rem;
-        --footer-height: 8rem;
-    }
-    span.no-wrap {
-        white-space: nowrap;
-    }
-    
-    header {
-        width: 100%;
-        height: var(--header-height);
-    }
-
     main {
-        box-sizing: border-box;
-
         display: flex;
         flex-flow: column wrap;
         align-content: center;
         justify-content: center;
-
+        
         padding: 1rem;
+        h1.greeting {
+            margin: 0;
+            
+            text-align: center;
+            vertical-align: middle;
+            
+            font-size: 4.5rem;
+            font-weight: 700;
+            font-variant: small-caps;
+            text-transform: lowercase;
+            font-style: italic;
 
-        div.container {
-            h1.greeting {
-                margin: 0;
+            color: var(--theme-green);
+            span.hello {
+                position: absolute;
                 
-                width: min-content;
+                font-size: 1.5rem;
+                font-weight: 200;
+                text-transform: none;
 
-                line-height: 1;
-                /* force style to italic and bold while the font is loading */
-                font-family: 'Fira Sans Condensed', 'Times New Roman', 'Times', sans-serif;
-                font-style: italic;
-                font-weight: bold;
-                font-size: 5.5rem;
+                color: var(--theme-text);
+                
+                transform: translateX(2rem);
 
-                color: var(--theme-green);
-
-                margin-bottom: 0.5rem;
-
-                span.small-greeting {
-                    display: block;
-
-                    font-family: 'Libre Franklin', sans-serif;
-                    font-style: normal;
-                    font-size: 2rem;
-                    font-weight: bold;
-
-                    color: var(--theme-text);
-                }
+                transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             }
-            p.description {
-                margin: 0;
+            div.line {
+                display: inline-block;
+                vertical-align: middle;
 
-                max-width: var(--width, 28rem);
+                border-top: 1px solid var(--theme-border);
+
+                width: 10.5rem;
+                margin: 0 1rem;
+
+                transition: width 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), margin 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            }
+            &:hover span {
+                transform: translateX(1.75rem) translateY(0.2rem);
+            }            
+            &:hover div.line {
+                width: 10rem;
+                margin: 0 -0.25rem;
             }
         }
-    }
-
-    footer {
-        box-sizing: border-box;
-
-        width: 100%;
-        height: var(--footer-height);
-
-        display: flex;
-        flex-flow: row nowrap;
-        align-items: center;
-        justify-content: flex-end;
-
-        padding: 1rem;
-
         ul.contact-list {
             margin: 0;
             padding: 0;
 
-            align-self: flex-end;
+            display: flex;
+            flex-flow: row wrap;
+            align-content: center;
+            justify-content: center;
 
+            gap: 1rem;
             li {
-                display: flex;
-                flex-flow: row nowrap;
-                align-items: center;
-        
-                gap: 0.75rem;
-                padding: 0.2rem;
+                list-style: none;
+                font-size: 1.2rem;
+
+                text-align: center;
+            }
+            div.spacer {
+                content: '';
+                border-top: 0.5px solid var(--theme-border);
+                border-right: 0.5px solid var(--theme-border);
+                align-self: stretch;
             }
         }
     }
-
+    @media (max-width: 900px) {
+        main h1.greeting {
+            div.line {
+                display: none;
+            }
+        }
+    }
     @media (max-width: 600px) {
-        main div.container {
+        main {
             h1.greeting {
-                font-size: 3.5rem;
-                span.small-greeting {
-                    font-size: 1.3rem;
+                font-size: 3rem;
+                span {
+                    font-size: 1.6rem;
+                    transform: translate(25%, -35%);
                 }
             }
-            p.description {
-                line-height: 1.2;
+            ul.contact-list {
+                flex-direction: column;
+                gap: 0.25rem;
+                li:not(:first-child) {
+                    margin-left: 0;
+                    
+                    list-style: none;
+                }
             }
         }
     }

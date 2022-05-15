@@ -1,4 +1,5 @@
 :root {
+    
     --theme-background-light: #fbfbfb;
     --theme-background-dark: #0d0d15;
     
@@ -10,6 +11,9 @@
     
     --theme-anchor-hover-light: #06c;
     --theme-anchor-hover-dark: #51d6ff;
+    
+    --theme-border-light: #0d0d15;
+    --theme-border-dark: #e6e6e6;
 
     --theme-green: #00b84d;
     --theme-orange: #ee6c4d;
@@ -21,6 +25,10 @@
     --theme-text:           var(--theme-text-light);
     --theme-anchor:         var(--theme-anchor-light);
     --theme-anchor-hover:   var(--theme-anchor-hover-light);
+    --theme-border:         var(--theme-border-light);
+    
+    --font-family-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --font-family-body: Verdana, Geneva, Tahoma, sans-serif
 }
 @media (prefers-color-scheme: dark) {
     :root {
@@ -29,5 +37,6 @@
         --theme-text:           var(--theme-text-dark);
         --theme-anchor:         var(--theme-anchor-dark);
         --theme-anchor-hover:   var(--theme-anchor-hover-dark);
+        --theme-border:         var(--theme-border-dark);
     }
 }
