@@ -14,7 +14,7 @@
     "logs:app": "heroku logs --tail --source app"
   },
   "devDependencies": {
-    "@sveltejs/adapter-node": "next",
+    "@sveltejs/adapter-vercel": "1.0.0-next.51",
     "@sveltejs/kit": "next",
     "@types/node": "^17.0.31",
     "carbon-icons-svelte": "^11.0.1",
@@ -26,9 +26,6 @@
     "svelte-preprocess": "^4.10.6",
     "tslib": "^2.4.0",
     "typescript": "^4.6.4"
-  },
-  "engines": {
-    "node": "17.9.0"
   },
   "type": "module"
 }
