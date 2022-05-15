@@ -1,9 +1,7 @@
-.DS_Store
-node_modules
-/build
+/node_modules
 /.svelte-kit
 /.vercel_build_output
-/package
+/.vscode
 .env
 .env.*
 !.env.example
