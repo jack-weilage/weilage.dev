@@ -10,6 +10,8 @@
 
     export let error: Error, status: number
     const online = typeof navigator !== 'undefined' ? navigator.onLine : true
+    //@ts-expect-error SvelteKit decided to break today, so I'm just going to ignore the error for now.
+    const dev = import.meta.env.DEV
 </script>
 
 <SvEO
@@ -30,7 +32,7 @@
         {:else}
             <p>You found a {status} error!</p>
         {/if}
-        {#if import.meta.env.DEV}
+        {#if dev}
             <pre>{error.stack}</pre>
         {:else}
             <p>If this error persists when it seems like it really shouldn't, please contact me at <a href="mailto:jack@weilage.dev?subject=Recurring Error {status}: {error.message}">jack@weilage.dev</a> with a description of how to reproduce the error.</p>
