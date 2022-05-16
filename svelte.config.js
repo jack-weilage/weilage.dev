@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-vercel'
+import vercel from '@sveltejs/adapter-vercel'
 import preprocess from 'svelte-preprocess'
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -9,7 +9,14 @@ const config = {
 
 	kit: {
 		trailingSlash: 'always',
-		adapter: adapter({  }),
+		adapter: vercel({ edge: true }),
+		csp: {
+			mode: 'auto',
+			directives: {
+				'default-src': [ 'self' ],
+				'script-src': [ 'self', 'https://analytics.weilage.dev/' ]
+			}
+		}
 	}
 }
 

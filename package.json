@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
+    "build": "ENABLE_VC_BUILD=1 svelte-kit build",
     "start": "node build",
     "preview": "svelte-kit preview",
     "prepare": "svelte-kit sync && husky install",
