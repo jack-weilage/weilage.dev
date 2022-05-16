@@ -152,7 +152,8 @@
 
 		var img = document.createElement('img')
 		img.src = url
-		img.style.position = 'absolute'  // Affect layout less.
+		// img.style.position = 'absolute'  // Affect layout less.
+		img.style.position = 'fixed'  // Prevent random overflows.
 		img.style.bottom = '0px'
 		img.style.width = '1px'
 		img.style.height = '1px'
