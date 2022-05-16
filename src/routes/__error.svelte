@@ -1,9 +1,8 @@
 <script lang="ts" context="module">
     /** @type {import('@sveltejs/kit').ErrorLoad} */
-    export function load({ error, status }: { error: Error; status: number }) {
-        return {
-            props: { error, status }
-        }
+    export function load({ error, status }: { error: Error; status: number })
+    {
+        return { props: { error, status } }
     }
 </script>
 <script lang="ts">
@@ -23,7 +22,7 @@
     noindex noarchive
 />
 
-<main id="main-content">
+<main>
     {#if online}
         <h1>{status}</h1>
         {#if error.message}

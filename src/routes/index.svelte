@@ -28,7 +28,7 @@
     canonical="https://weilage.dev/"
 />
 
-<main id="main-content">
+<main>
     <h1 class="greeting">
         <div class="line" />
 
