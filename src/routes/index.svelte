@@ -1,3 +1,7 @@
+<script context="module">
+    export const prerender = true
+    export const hydrate = false
+</script>
 <script lang="ts">
     import { SvEO, Link } from '$lib/components'
     interface Contact {
