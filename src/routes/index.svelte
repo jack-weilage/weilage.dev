@@ -50,6 +50,9 @@
 </main>
 
 <style lang="scss">
+    :root {
+        --heading-hover-transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.25s
+    }
     main {
         display: flex;
         flex-flow: column wrap;
@@ -79,9 +82,9 @@
 
                 color: var(--theme-text);
                 
-                transform: translateX(2rem);
+                transform: translateX(2.5rem);
 
-                transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                transition: transform var(--heading-hover-transition);
             }
             div.line {
                 display: inline-block;
@@ -92,15 +95,17 @@
                 width: 10.5rem;
                 margin: 0 1rem;
 
-                transition: width 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), margin 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                transition: width var(--heading-hover-transition), margin var(--heading-hover-transition);
             }
-            &:hover span {
-                transform: translateX(1.75rem) translateY(0.2rem);
+            &:hover {
+                span.hello {
+                    transform: translateX(2rem) translateY(0.2rem);
+                }
+                div.line {
+                    width: 10rem;
+                    margin: 0 -0.25rem;
+                }
             }            
-            &:hover div.line {
-                width: 10rem;
-                margin: 0 -0.25rem;
-            }
         }
         ul.contact-list {
             margin: 0;
@@ -136,10 +141,12 @@
     @media (max-width: 600px) {
         main {
             h1.greeting {
-                font-size: 3rem;
-                span {
+                span.name {
+                    font-size: 3rem;
+                }
+                span.hello {
                     font-size: 1.6rem;
-                    transform: translate(25%, -35%);
+                    transform: translate(25%, 25%);
                 }
             }
             ul.contact-list {
