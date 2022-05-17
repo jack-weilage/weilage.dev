@@ -7,7 +7,7 @@ const config = {
 
 	kit: {
 		trailingSlash: 'always',
-		adapter: vercel({ edge: true }),
+		adapter: vercel({  }),
 		csp: {
 			mode: 'auto',
 			directives: {
