@@ -1,9 +1,9 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@sveltejs/adapter-vercel': 1.0.0-next.51
-  '@sveltejs/kit': 1.0.0-next.330
-  '@types/node': ^17.0.33
+  '@sveltejs/adapter-vercel': 1.0.0-next.52
+  '@sveltejs/kit': 1.0.0-next.334
+  '@types/node': ^17.0.34
   carbon-icons-svelte: ^11.0.1
   husky: ^8.0.1
   normalize.css: ^8.0.1
@@ -15,9 +15,9 @@ specifiers:
   typescript: ^4.6.4
 
 devDependencies:
-  '@sveltejs/adapter-vercel': 1.0.0-next.51
-  '@sveltejs/kit': 1.0.0-next.330_sass@1.51.0+svelte@3.48.0
-  '@types/node': 17.0.33
+  '@sveltejs/adapter-vercel': 1.0.0-next.52
+  '@sveltejs/kit': 1.0.0-next.334_sass@1.51.0+svelte@3.48.0
+  '@types/node': 17.0.34
   carbon-icons-svelte: 11.0.1
   husky: 8.0.1
   normalize.css: 8.0.1
@@ -75,15 +75,15 @@ packages:
       picomatch: 2.3.1
     dev: true
 
-  /@sveltejs/adapter-vercel/1.0.0-next.51:
-    resolution: {integrity: sha512-U4GSe1tYcWq90XCQfLK4qmEEVA1MyWgnT6i7LhbLVOoNP8bf3ict3xKjGrHcx/CY4jNUBA80DXSkj/hpFkweAg==}
+  /@sveltejs/adapter-vercel/1.0.0-next.52:
+    resolution: {integrity: sha512-HEGmOX1HPGAotmosms0k88sTG9LnPMEQkpmWoyMdcffsPcT45SkJepXP/lvqNNlbUl9epZX95nqyZVie/mauRA==}
     dependencies:
       esbuild: 0.14.39
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.330_sass@1.51.0+svelte@3.48.0:
-    resolution: {integrity: sha512-Wb95D5tOF8BViZuikqzZLAcupdS7TpXtadNPgpEOxKowmkrW8xjRrrfVdPIkNOLqAP1V+gKInmQ/gFYmnv5EjA==}
-    engines: {node: '>=14.13'}
+  /@sveltejs/kit/1.0.0-next.334_sass@1.51.0+svelte@3.48.0:
+    resolution: {integrity: sha512-HPMF1oYBfyOG6wfU0Y6F4SID8jphue9yF+PXJqVTDBL5Z2WBG2ogum6MavE8aWhq+g2H6w5y0jNT8+8DO2KTCA==}
+    engines: {node: '>=16'}
     hasBin: true
     peerDependencies:
       svelte: ^3.44.0
@@ -124,8 +124,8 @@ packages:
       - supports-color
     dev: true
 
-  /@types/node/17.0.33:
-    resolution: {integrity: sha512-miWq2m2FiQZmaHfdZNcbpp9PuXg34W5JZ5CrJ/BaS70VuhoJENBEQybeiYSaPBRNq6KQGnjfEnc/F3PN++D+XQ==}
+  /@types/node/17.0.34:
+    resolution: {integrity: sha512-XImEz7XwTvDBtzlTnm8YvMqGW/ErMWBsKZ+hMTvnDIjGCKxwK5Xpc+c/oQjOauwq8M4OS11hEkpjX8rrI/eEgA==}
     dev: true
 
   /@types/pug/2.0.6:
@@ -135,7 +135,7 @@ packages:
   /@types/sass/1.43.1:
     resolution: {integrity: sha512-BPdoIt1lfJ6B7rw35ncdwBZrAssjcwzI5LByIrYs+tpXlj/CAkuVdRsgZDdP4lq5EjyWzwxZCqAoFyHKFwp32g==}
     dependencies:
-      '@types/node': 17.0.33
+      '@types/node': 17.0.34
     dev: true
 
   /anymatch/3.1.2:
