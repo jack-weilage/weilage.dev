@@ -21,7 +21,7 @@
         noindex && 'noindex', 
         nofollow && 'nofollow', 
         noarchive && 'noarchive' 
-    ].filter(Boolean).join()
+    ].filter(Boolean)?.join()
 
     /** Opengraph data (for social media). */
     export let opengraph: {
@@ -63,7 +63,7 @@
 <svelte:head>
     <title>{title}</title>
     <meta name="description" content={description}>
-    <meta name="keywords"    content={keywords.join()}>
+    <meta name="keywords"    content={keywords?.join()}>
     <link rel="canonical"    href={canonical}>
 
     {#if author}<meta name="author" content={author}>{/if}
