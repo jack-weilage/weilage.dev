@@ -1,16 +1,16 @@
 <script context="module">
-    export const prerender = true
-    export const hydrate = false
+    export const prerender = true, hydrate = false
 </script>
 <script lang="ts">
     import { SvEO, Link } from '$lib/components'
+
     interface Contact {
-        href: string
-        text: string
+        href:  string
+        text:  string
         title: string
     }
     //TODO: Implement a json endpoint to retrieve the list of contacts. Would be a useless feature, but it's a good example.
-    const contacts: { [key: string]: Contact } = {
+    const contacts: Record<string, Contact> = {
         email: {
             href: 'mailto:jack@weilage.dev',
             text: 'Email me',

@@ -1,8 +1,10 @@
-<script lang="ts" context="module">
-    /** @type {import('@sveltejs/kit').ErrorLoad} */
-    export function load({ error, status }: { error: Error; status: number })
+<script context="module" lang="ts">
+    import type { LoadInput, LoadOutput } from '@sveltejs/kit'
+    export function load({ error, status }: LoadInput): LoadOutput
     {
-        return { props: { error, status } }
+        return {
+            props: { error, status }
+        }
     }
 </script>
 <script lang="ts">
@@ -10,8 +12,6 @@
 
     export let error: Error, status: number
     const online = typeof navigator !== 'undefined' ? navigator.onLine : true
-    //@ts-expect-error SvelteKit decided to break today, so I'm just going to ignore the error for now.
-    const dev = import.meta.env.DEV
 </script>
 
 <SvEO
@@ -19,8 +19,6 @@
     description="An error occurred while loading this page."
     keywords={[]}
     canonical=""
-    opengraph={false}
-    twitter={false}
     noindex noarchive
 />
 
@@ -32,7 +30,7 @@
         {:else}
             <p>You found a {status} error!</p>
         {/if}
-        {#if dev}
+        {#if import.meta.env.DEV}
             <pre>{error.stack}</pre>
         {:else}
             <p>If this error persists when it seems like it really shouldn't, please contact me at <a href="mailto:jack@weilage.dev?subject=Recurring Error {status}: {error.message}">jack@weilage.dev</a> with a description of how to reproduce the error.</p>

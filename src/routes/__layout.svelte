@@ -12,7 +12,6 @@
     import '$lib/css/global.css'
 
     import { LoadingIndicator } from '$lib/components'
-    //@ts-expect-error SvelteKit decided to break today, so I'm just going to ignore the error for now.
     import { navigating } from '$app/stores'
 </script>
 
@@ -20,4 +19,9 @@
     <LoadingIndicator />
 {/if}
 
-<slot />
+<slot>
+    <main>
+        <h1>No Content</h1>
+        <p>This page has no content.</p>
+    </main>
+</slot>
