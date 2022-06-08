@@ -21,6 +21,11 @@
             text: 'Read my code',
             title: 'View my GitHub profile',
         },
+        examples: {
+            href: '/examples/',
+            text: 'View examples',
+            title: 'View examples',
+        },
     }
 </script>
 
