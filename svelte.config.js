@@ -12,8 +12,8 @@ const config = {
 			mode: 'auto',
 			directives: {
 				'default-src': [ 'self' ],
-				'script-src': [ 'self', 'https://analytics.weilage.dev/' ],
-				'img-src': [ 'self', 'https://analytics.weilage.dev/' ]
+				'script-src': [ 'self' ],
+				'img-src': [ 'self' ]
 			}
 		}
 	}
