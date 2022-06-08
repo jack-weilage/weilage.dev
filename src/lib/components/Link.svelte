@@ -12,6 +12,8 @@ TODO: Raise an issue with SvelteKit about the ability to programmatically enable
     export let rel = external ? 'external noopener noreferrer' : undefined
     /** The target of the link. Only use if the automatic detection doesn't work correctly. */
     export let target: string = external ? '_blank' : '_self'
+    /** Should `sveltekit:prefetch` be enabled? */
+    export let prefetch = !external
 
     /** The icon to be displayed after the link. Set to `false` to remove. */
     export let icon: boolean | typeof Launch = Launch
@@ -19,9 +21,18 @@ TODO: Raise an issue with SvelteKit about the ability to programmatically enable
     export let iconSize = 14
 </script>
 
-<a {href} {rel} {target} {...$$restProps} data-hasicon={!!icon}>
-    <slot />
-    {#if !!icon}
-        <svelte:component this={icon} size={iconSize} />
-    {/if}
-</a>
+{#if prefetch}
+    <a {href} {rel} {target} {...$$restProps} sveltekit:prefetch data-hasicon={!!icon}>
+        <slot />
+        {#if !!icon}
+            <svelte:component this={icon} size={iconSize} />
+        {/if}
+    </a>
+{:else}
+    <a {href} {rel} {target} {...$$restProps} data-hasicon={!!icon}>
+        <slot />
+        {#if !!icon}
+            <svelte:component this={icon} size={iconSize} />
+        {/if}
+    </a>
+{/if}
