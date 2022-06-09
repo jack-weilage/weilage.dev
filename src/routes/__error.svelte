@@ -1,18 +1,18 @@
 <script context="module" lang="ts">
     import type { LoadEvent, LoadOutput } from '@sveltejs/kit/types'
-    export function load({ error, status }: LoadEvent): LoadOutput
+    export function load({ url, status, error }: LoadEvent): LoadOutput
     {
-        console.log(status, error)
+        console.error(`${url.toString()} (${status}):\n${error}`)
         
         return {
-            props: { error, status }
+            props: { status, error }
         }
     }
 </script>
 <script lang="ts">
     import { SvEO } from '$lib/components'
 
-    export let error: Error, status: number
+    export let status: number, error: Error | null
     const online = typeof navigator !== 'undefined' ? navigator.onLine : true
 </script>
 
@@ -27,15 +27,15 @@
 <main>
     {#if online}
         <h1>{status}</h1>
-        {#if error.message}
+        {#if error?.message}
             <p>{status}: {error.message}</p>
         {:else}
             <p>You found a {status} error!</p>
         {/if}
         {#if import.meta.env.DEV}
-            <pre>{error.stack}</pre>
+            <pre>{error?.stack}</pre>
         {:else}
-            <p>If this error persists when it seems like it really shouldn't, please contact me at <a href="mailto:jack@weilage.dev?subject=Recurring Error {status}: {error.message}">jack@weilage.dev</a> with a description of how to reproduce the error.</p>
+            <p>If this error persists when it seems like it really shouldn't, please contact me at <a href="mailto:jack@weilage.dev?subject=Recurring Error {status}: {error?.message}">jack@weilage.dev</a> with a description of how to reproduce the error.</p>
         {/if}
     {:else}
         <h1>You're currently offline!</h1>
