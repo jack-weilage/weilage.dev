@@ -25,14 +25,14 @@ TODO: Raise an issue with SvelteKit about the ability to programmatically enable
     <a {href} {rel} {target} {...$$restProps} sveltekit:prefetch data-hasicon={!!icon}>
         <slot />
         {#if !!icon}
-            <svelte:component this={icon} size={iconSize} />
+            <svelte:component this={icon} size={iconSize} aria-hidden="true" />
         {/if}
     </a>
 {:else}
     <a {href} {rel} {target} {...$$restProps} data-hasicon={!!icon}>
         <slot />
         {#if !!icon}
-            <svelte:component this={icon} size={iconSize} />
+            <svelte:component this={icon} size={iconSize} aria-hidden="true" />
         {/if}
     </a>
 {/if}
