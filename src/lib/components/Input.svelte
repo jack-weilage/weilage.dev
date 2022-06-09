@@ -46,7 +46,7 @@ TODO:
     {/if}
     {#if invalid_message}
         <label class="invalid-message" for={id}>{invalid_message}</label>
-        <div class="spacer" aria-hidden>{invalid_message}</div>
+        <div class="spacer" aria-hidden="true">{invalid_message}</div>
     {/if}
 </div>
 
