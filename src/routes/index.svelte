@@ -48,9 +48,6 @@
     </h1>
     <ul class="contact-list">
         {#each Object.values(contacts) as { href, title, text }, i}
-            {#if i > 0}
-                <div class="spacer" />
-            {/if}
             <li>
                 <Link {href} {title}>{text}</Link>
             </li>
@@ -125,18 +122,21 @@
             align-content: center;
             justify-content: center;
 
-            gap: 1rem;
             li {
                 list-style: none;
                 font-size: 1.2rem;
 
                 text-align: center;
-            }
-            div.spacer {
-                content: '';
-                border-top: 0.5px solid var(--theme-border);
-                border-right: 0.5px solid var(--theme-border);
-                align-self: stretch;
+
+                &:not(:last-child)::after {
+                    content: '';
+                    margin: 0 0.75rem;
+        
+                    border-top: 0.5px solid var(--theme-border);
+                    border-right: 0.5px solid var(--theme-border);
+        
+                    align-self: stretch;
+                }
             }
         }
     }
@@ -160,11 +160,11 @@
             }
             ul.contact-list {
                 flex-direction: column;
-                gap: 0.25rem;
-                li:not(:first-child) {
-                    margin-left: 0;
-                    
-                    list-style: none;
+
+                & li:not(:last-child)::after {
+                    display: block;
+
+                    margin: 0.25rem 0;
                 }
             }
         }
