@@ -2,7 +2,7 @@
     import type { LoadEvent, LoadOutput } from '@sveltejs/kit/types'
     export function load({ status, error }: LoadEvent): LoadOutput
     {
-        console.error(`(${status}):\n${error}`)
+        console.error(`(${status}): ${error}`)
         
         return {
             props: { status, error }
