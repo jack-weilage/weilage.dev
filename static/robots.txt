@@ -1,0 +1,3 @@
+User-Agent: *
+
+Sitemap: https://weilage.dev/sitemap.xml
