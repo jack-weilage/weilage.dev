@@ -1,8 +1,8 @@
 <script context="module" lang="ts">
     import type { LoadEvent, LoadOutput } from '@sveltejs/kit/types'
-    export function load({ url, status, error }: LoadEvent): LoadOutput
+    export function load({ status, error }: LoadEvent): LoadOutput
     {
-        console.error(`${url.toString()} (${status}):\n${error}`)
+        console.error(`(${status}):\n${error}`)
         
         return {
             props: { status, error }
