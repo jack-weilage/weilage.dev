@@ -26,6 +26,7 @@
             const { success, message } = await response.json()
             
             alert(message)
+            console.log('success:', success)
         }
         else
         {
