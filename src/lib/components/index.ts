@@ -1,3 +1,4 @@
+export { default as ColorPicker }       from './ColorPicker.svelte'
 export { default as Copy }              from './Copy.svelte'
 export { default as Input }             from './Input.svelte'
 export { default as Link }              from './Link.svelte'

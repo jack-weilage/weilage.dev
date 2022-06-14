@@ -3,7 +3,7 @@
     export const load = ({ url }: LoadEvent): LoadOutput => ({ props: { url } })
 </script>
 <script lang="ts">
-    import { SvEO, Link, Copy, SkipToLink } from '$lib/components'
+    import { SvEO, Link, Copy, SkipToLink, ColorPicker } from '$lib/components'
     import Login from './_login.svelte'
     import TwoFactorEntry from './_2fa.svelte'
 
@@ -28,6 +28,12 @@
             description: 'A two factor authentication entry form. Try pasting a code!',
 
             component: TwoFactorEntry,
+        },
+        {
+            name: 'HSL Color Picker',
+            description: 'A color picker that uses the HSL color model.',
+
+            component: ColorPicker,
         }
     ]
 </script>
