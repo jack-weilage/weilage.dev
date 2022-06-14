@@ -3,7 +3,6 @@
  */
 import type { RequestHandlerOutput } from '@sveltejs/kit/types'
 
-const url = 'https://weilage.dev'
 export async function get(): Promise<RequestHandlerOutput>
 {
     const urls = Object.keys(import.meta.glob('./**/*.svelte'))
