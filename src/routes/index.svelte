@@ -47,7 +47,7 @@
         <div class="line" />
     </h1>
     <ul class="contact-list">
-        {#each Object.values(contacts) as { href, title, text }, i}
+        {#each Object.values(contacts) as { href, title, text }}
             <li>
                 <Link {href} {title}>{text}</Link>
             </li>
