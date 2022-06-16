@@ -1,6 +1,6 @@
 <script context="module" lang="ts">
-    import type { LoadEvent, LoadOutput } from '@sveltejs/kit/types'
-    export function load({ status, error }: LoadEvent): LoadOutput
+    import type { Load } from '@sveltejs/kit/types'
+    export const load: Load = function({ status, error })
     {
         console.error(`(${status}): ${error}`)
         

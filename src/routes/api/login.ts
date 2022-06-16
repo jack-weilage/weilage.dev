@@ -1,6 +1,5 @@
-import type { RequestEvent, RequestHandlerOutput } from '@sveltejs/kit/types'
-
-export async function post({ request, url }: RequestEvent): Promise<RequestHandlerOutput>
+import type { RequestHandler } from '@sveltejs/kit/types'
+export const post: RequestHandler = async function({ request })
 {
     let data = null
     if (request.headers.get('content-type') === 'application/json')

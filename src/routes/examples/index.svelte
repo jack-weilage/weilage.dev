@@ -1,6 +1,6 @@
 <script lang="ts" context="module">
-    import type { LoadEvent, LoadOutput } from '@sveltejs/kit/types'
-    export const load = ({ url }: LoadEvent): LoadOutput => ({ props: { url } })
+    import type { Load } from '@sveltejs/kit/types'
+    export const load: Load = ({ url }) => ({ props: { url } })
 </script>
 <script lang="ts">
     import { SvEO, Link, Copy, SkipToLink, ColorPicker } from '$lib/components'

@@ -1,9 +1,8 @@
 /**
  * TODO: Use `svelte.config.js` to adjust the sitemap.
  */
-import type { RequestHandlerOutput } from '@sveltejs/kit/types'
-
-export async function get(): Promise<RequestHandlerOutput>
+import type { RequestHandler } from '@sveltejs/kit/types'
+export const get: RequestHandler = function()
 {
     const urls = Object.keys(import.meta.glob('./**/*.svelte'))
         // Ignore any files starting with an underscore
