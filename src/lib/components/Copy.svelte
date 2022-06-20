@@ -1,6 +1,7 @@
 <script lang="ts">
     import Copy from 'carbon-icons-svelte/lib/Copy.svelte'
 
+    
     export let icon = Copy
     export let to_copy: string
 

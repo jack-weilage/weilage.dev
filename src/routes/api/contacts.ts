@@ -1,12 +1,8 @@
+import type { ContactsResponse } from '$lib/types'
 import type { RequestHandler } from '@sveltejs/kit/types'
 export const get: RequestHandler = async function()
 {
-    interface Contact {
-        href:  string
-        text:  string
-        title: string
-    }
-    const contacts: Record<string, Contact> = {
+    const contacts: ContactsResponse = {
         email: {
             href: 'mailto:jack@weilage.dev',
             text: 'Email me',
@@ -23,7 +19,7 @@ export const get: RequestHandler = async function()
             title: 'View examples',
         },
     }
-    
+
     let body = JSON.stringify(contacts)
 
     return { status: 200, body }

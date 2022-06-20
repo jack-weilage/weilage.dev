@@ -1,7 +1,8 @@
 <script lang="ts">
     import { onMount } from 'svelte'
-    const wait = (ms: number): Promise<void> => new Promise(resolve => setTimeout(resolve, ms))
+    import { wait } from '$lib/utils'
 
+    
     let width = 0
     async function update()
     {

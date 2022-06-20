@@ -1,0 +1,1 @@
+export const hsv2hsl = (h: number, s: number, v: number, l = (200 - s) * v / 100) => ({ h, s: (l === 0 || l === 200) ? 0 : s * v / 100 / (l <= 100 ? l : 200 - l) * 100, l: l * 5 / 10 })

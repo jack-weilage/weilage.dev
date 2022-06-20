@@ -1,4 +1,7 @@
 <script lang="ts">
+    import { defaults } from '$lib/utils'
+
+    
     /** The title for both the browser and search engines. */
     export let title: string
     /** The description for search engines. */
@@ -35,10 +38,7 @@
     $: if (opengraph)
     {
         // Set Opengraph defaults
-        opengraph = {
-            ...{ title, description, url: canonical, type: 'website' },
-            ...opengraph,
-        }
+        opengraph = defaults(opengraph, { title, description, url: canonical, type: 'website' })
     }
     
     /** Twitter card data. */
@@ -53,10 +53,7 @@
     $: if (twitter)
     {
         // Set Twitter defaults
-        twitter = {
-            ...{ card: 'summary', description, title },
-            ...twitter,
-        }
+        twitter = defaults(twitter, { card: 'summary', description, title })
     }
 </script>
 

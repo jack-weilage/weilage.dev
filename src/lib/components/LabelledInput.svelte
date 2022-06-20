@@ -6,6 +6,7 @@ TODO: Decide whether the input should show as valid/invalid when empty.
     import View from 'carbon-icons-svelte/lib/View.svelte'
     import ViewOff from 'carbon-icons-svelte/lib/ViewOff.svelte'
 
+    
     /** The type of the input. */
     export let type = 'text'
     /** The id of the input. */

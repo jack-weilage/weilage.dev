@@ -1,11 +1,12 @@
 <script lang="ts" context="module">
     export const prerender = true, hydrate = false
     export const sitemap = { enabled: true }
-
+    
+    import type { ContactsResponse } from '$lib/types'
     import type { Load } from '@sveltejs/kit'
     export const load: Load = async ({ fetch }) => {
         const response = await fetch('/api/contacts')
-        const contacts = response.status === 200 ? await response.json() : {}
+        const contacts: ContactsResponse = response.status === 200 ? await response.json() : {}
 
         return {
             props: { contacts }
@@ -14,11 +15,7 @@
 </script>
 <script lang="ts">
     import { SvEO, Link } from '$lib/components'
-    export let contacts: Record<string, {
-        href:  string
-        text:  string
-        title: string
-    }>
+    export let contacts: ContactsResponse
 </script>
 
 <SvEO
