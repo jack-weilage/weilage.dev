@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Link, Input } from '$lib/components';
+    import { Link, LabelledInput } from '$lib/components';
 
     /** The RegEx to check both username and password against. */
     export let regex = {
@@ -37,19 +37,19 @@
 
 <form on:submit|preventDefault={on_submit}>
     <div class="section">
-        <Input 
+        <LabelledInput
             bind:value={values.username} 
             id="username" name="user" type="text" 
             pattern={regex.username.source} spellcheck="false" autocapitalize="off" autocomplete="username" required
-        >Username</Input>
+        >Username</LabelledInput>
     </div>
 
     <div class="section">
-        <Input 
+        <LabelledInput 
             bind:value={values.password} 
             id="password" name="pass" type="password" 
             pattern={regex.password.source} spellcheck="false" autocapitalize="off" autocomplete="password" required
-        >Password</Input>
+        >Password</LabelledInput>
     </div>
 
     <Link href="#" title="Forgot your password?" sveltekit:prefetch>Forgot your password?</Link>
