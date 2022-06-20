@@ -5,7 +5,6 @@
     let width = 0
     async function update()
     {
-        console.log('update')
         // As the width grows, wait for more and more time.
         // Once the width is 80% or more, stop growing.
         while (width < 80)
