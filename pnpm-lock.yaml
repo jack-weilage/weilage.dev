@@ -13,6 +13,7 @@ specifiers:
   svelte-preprocess: ^4.10.7
   tslib: ^2.4.0
   typescript: ^4.7.3
+  vite-plugin-glob: ^0.3.2
 
 devDependencies:
   '@sveltejs/adapter-vercel': 1.0.0-next.58
@@ -27,6 +28,7 @@ devDependencies:
   svelte-preprocess: 4.10.7_wfj4jlpao5uvzwlgyw6x7lu76q
   tslib: 2.4.0
   typescript: 4.7.3
+  vite-plugin-glob: 0.3.2
 
 packages:
 
@@ -1513,8 +1515,22 @@ packages:
     hasBin: true
     dev: true
 
+  /ufo/0.8.4:
+    resolution: {integrity: sha512-/+BmBDe8GvlB2nIflWasLLAInjYG0bC9HRnfEpNi4sw77J2AJNnEVnTDReVrehoh825+Q/evF3THXTAweyam2g==}
+    dev: true
+
   /util-deprecate/1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
+    dev: true
+
+  /vite-plugin-glob/0.3.2:
+    resolution: {integrity: sha512-RoOm67e9eQ7bbWfnVbErjMcqnWCLjNtLy/fhOu8eqWbNi8Pz4T/co2j8uF9v2/P6KaGz02+4jFL83lDCAZ5StQ==}
+    dependencies:
+      acorn: 8.7.1
+      fast-glob: 3.2.11
+      magic-string: 0.26.2
+      micromatch: 4.0.5
+      ufo: 0.8.4
     dev: true
 
   /vite/2.9.12_sass@1.52.3:
