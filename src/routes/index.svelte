@@ -1,5 +1,6 @@
 <script context="module">
     export const prerender = true, hydrate = false
+    export const sitemap = { enabled: true }
 </script>
 <script lang="ts">
     import { SvEO, Link } from '$lib/components'

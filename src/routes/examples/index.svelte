@@ -1,4 +1,6 @@
 <script lang="ts" context="module">
+    export const sitemap = { enabled: true }
+    
     import type { Load } from '@sveltejs/kit/types'
     export const load: Load = ({ url }) => ({ props: { url } })
 </script>
