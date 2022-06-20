@@ -1,33 +1,24 @@
-<script context="module">
+<script lang="ts" context="module">
     export const prerender = true, hydrate = false
     export const sitemap = { enabled: true }
+
+    import type { Load } from '@sveltejs/kit'
+    export const load: Load = async ({ fetch }) => {
+        const response = await fetch('/api/contacts')
+        const contacts = response.status === 200 ? await response.json() : {}
+
+        return {
+            props: { contacts }
+        }
+    }
 </script>
 <script lang="ts">
     import { SvEO, Link } from '$lib/components'
-
-    interface Contact {
+    export let contacts: Record<string, {
         href:  string
         text:  string
         title: string
-    }
-    //TODO: Implement a json endpoint to retrieve the list of contacts. Would be a useless feature, but it's a good example.
-    const contacts: Record<string, Contact> = {
-        email: {
-            href: 'mailto:jack@weilage.dev',
-            text: 'Email me',
-            title: 'Send me an email',
-        },
-        github: {
-            href: 'https://github.com/jack-weilage',
-            text: 'Read my code',
-            title: 'View my GitHub profile',
-        },
-        examples: {
-            href: '/examples/',
-            text: 'View examples',
-            title: 'View examples',
-        },
-    }
+    }>
 </script>
 
 <SvEO
