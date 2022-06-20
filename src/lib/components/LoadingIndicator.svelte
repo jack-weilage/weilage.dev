@@ -1,19 +1,21 @@
-<script>
+<script lang="ts">
     import { onMount } from 'svelte'
-    
+    const wait = (ms: number): Promise<void> => new Promise(resolve => setTimeout(resolve, ms))
+
     let width = 0
-    onMount(() => {
-        function update()
+    async function update()
+    {
+        console.log('update')
+        // As the width grows, wait for more and more time.
+        // Once the width is 80% or more, stop growing.
+        while (width < 80)
         {
             width += 5
-
-            if (width < 80)
-            {
-                setTimeout(update, 10 * width)
-            }
+            await wait(10 * width)
         }
-        setTimeout(update, 250)
-    })
+    }
+    // Wait for 250ms before displaying the indicator.
+    onMount(() => setTimeout(update, 250))
 </script>
 
 {#if width > 0}
