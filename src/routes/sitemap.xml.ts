@@ -2,7 +2,7 @@
  * TODO: Escape characters in the XML.
  * TODO: Add the last modified date to the XML.
  * TODO: Allow the user to specify more than one sitemap.
- * TODO: Allow the user to specify a 
+ * TODO: Fix fallthrough routes.
  */
 import type { SitemapConfig } from '$lib/types'
 import { defaults } from '$lib/utils'
@@ -20,7 +20,7 @@ const trailingSlash = svelte_config.kit?.trailingSlash === 'always' ? '/' : ''
 import type { RequestHandler } from '@sveltejs/kit/types'
 export const get: RequestHandler = async function({ url })
 {
-    let urlset = ''
+    let sitemap = '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
     const files = import.meta.importGlob<SitemapConfig>('./**/*.svelte', { import: 'sitemap' })
 
     for (const [ path, options ] of Object.entries(files))
@@ -49,16 +49,16 @@ export const get: RequestHandler = async function({ url })
         }
 
         // Construct urlset.
-        urlset += '<url>'
+        sitemap += '<url>'
         for (const [ element, value ] of Object.entries(elements))
         {
-            urlset += `<${element}>${value}</${element}>`
+            sitemap += `<${element}>${value}</${element}>`
         }
-        urlset += '</url>'
+        sitemap += '</url>'
     }
     
     // Construct sitemap.
-    const sitemap = `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urlset}</urlset>`
+    sitemap += '</urlset>'
     return {
         status: 200,
         headers: {
