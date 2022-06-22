@@ -1,24 +1,20 @@
 <script lang="ts" context="module">
-    export const sitemap = { enabled: true }
+    export const sitemap = { enabled: true, priority: 0.7 }
     
     import type { Load } from '@sveltejs/kit/types'
     export const load: Load = ({ url }) => ({ props: { url } })
 </script>
 <script lang="ts">
-    import { SvEO, Link, Copy, SkipToLink, ColorPicker } from '$lib/components'
-    import Login from './_login.svelte'
-    import TwoFactorEntry from './_2fa.svelte'
+    import type { ExampleComponent } from '$lib/types'
+    import { SvEO, Link, Copy, SkipToLink } from '$lib/components'
 
     export let url: URL
 
-    interface Component {
-        name: string
-        description: string
-        //TODO: Find a good type for components
-        component: any
-        props?: Record<string, any>
-    }
-    const components: Component[] = [
+    import Login from './_login.svelte'
+    import TwoFactorEntry from './_2fa.svelte'
+    import ColorPicker from '$lib/components/ColorPicker.svelte'
+
+    const components: ExampleComponent[] = [
         {
             name: 'Login',
             description: 'A fancy, minimal login form.',
