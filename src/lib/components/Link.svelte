@@ -5,8 +5,8 @@ TODO: Raise an issue with SvelteKit about the ability to programmatically enable
     import { page } from '$app/stores'
     import Launch from 'carbon-icons-svelte/lib/Launch.svelte'
 
-    const { origin } = $page.url
 
+    const { origin } = $page.url
     /** An internal or external href. */
     export let href: string
     /** Is this link external? Only use if the automatic detection doesn't work correctly. */

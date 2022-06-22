@@ -1,5 +1,4 @@
 <script lang="ts">
-    /** href to skip the header. */
     export let href: string
 </script>
 
