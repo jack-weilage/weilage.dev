@@ -2,17 +2,17 @@
 TODO: Raise an issue with SvelteKit about the ability to programmatically enable sveltekit namespaced features.
  -->
 <script lang="ts">
+    import { page } from '$app/stores'
     import Launch from 'carbon-icons-svelte/lib/Launch.svelte'
-    
     
     /** An internal or external href. */
     export let href: string
     /** Is this link external? Only use if the automatic detection doesn't work correctly. */
-    export let external = !!href && !href.startsWith('/') && !href.startsWith('#')
+    export let external = new URL(href).origin !== $page.url.origin
     /** The relation between the href and the current page. Only use if the automatic detection doesn't work correctly. */
     export let rel = external ? 'external noopener noreferrer' : undefined
     /** The target of the link. Only use if the automatic detection doesn't work correctly. */
-    export let target: string = external ? '_blank' : '_self'
+    export let target = external ? '_blank' : '_self'
     /** Should `sveltekit:prefetch` be enabled? */
     export let prefetch = !external
 
@@ -25,14 +25,14 @@ TODO: Raise an issue with SvelteKit about the ability to programmatically enable
 {#if prefetch}
     <a {href} {rel} {target} {...$$restProps} sveltekit:prefetch data-hasicon={!!icon}>
         <slot />
-        {#if !!icon}
+        {#if icon}
             <svelte:component this={icon} size={iconSize} aria-hidden="true" />
         {/if}
     </a>
 {:else}
     <a {href} {rel} {target} {...$$restProps} data-hasicon={!!icon}>
         <slot />
-        {#if !!icon}
+        {#if icon}
             <svelte:component this={icon} size={iconSize} aria-hidden="true" />
         {/if}
     </a>
