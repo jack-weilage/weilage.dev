@@ -8,5 +8,5 @@ export interface ContactsResponse {
 export interface SitemapConfig {
     enabled: boolean
     priority: number
-    changefreq: 'hourly' | 'daily' | 'monthly' | 'yearly'
+    changefreq: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never'
 }

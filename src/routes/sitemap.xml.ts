@@ -1,22 +1,24 @@
-/**
- * TODO: Use `svelte.config.js` to adjust the sitemap.
- * LIMIT: Glob patterns must be static, meaning that per-extension globs are not possible
+/** 
+ * TODO: Escape characters in the XML.
+ * TODO: Add the last modified date to the XML.
+ * TODO: Allow the user to specify more than one sitemap.
+ * TODO: Allow the user to specify a 
  */
 import type { SitemapConfig } from '$lib/types'
 import { defaults } from '$lib/utils'
+import svelte_config from '../../svelte.config'
 
 /** Default sitemap config (will apply when config is falsy) */
 const default_config: SitemapConfig = {
     enabled: false,
-    priority: 1,
+    priority: 0.5,
     changefreq: 'daily'
 }
+const trailingSlash = svelte_config.kit?.trailingSlash === 'always' ? '/' : ''
 
-import svelte_config from '../../svelte.config'
-const trailingSlash = (svelte_config.kit?.trailingSlash ?? 'never') === 'always' ? '/' : ''
 
 import type { RequestHandler } from '@sveltejs/kit/types'
-export const get: RequestHandler = async function()
+export const get: RequestHandler = async function({ url })
 {
     let urlset = ''
     const files = import.meta.importGlob<SitemapConfig>('./**/*.svelte', { import: 'sitemap' })
@@ -38,10 +40,10 @@ export const get: RequestHandler = async function()
         // Create an object for all per-url sitemap elements. Keys are element names, values are element values
         const elements = { 
             /**
-             *  - If the path is in a folder, like `routes/test/index.svelte`, first replacement will remove the trailing `index.svelte` or `/index.svelte`.
-             *  - If the path is standalone, like `routes/test.svelte`, second replacement will replace the trailing `.svelte` with `/` or remove it.
+             * - If the path is in a folder, like `routes/test/index.svelte`, first replacement will remove the trailing `index.svelte` or `/index.svelte`.
+             * - If the path is standalone, like `routes/test.svelte`, second replacement will replace the trailing `.svelte` with `/` or remove it.
              */
-            loc: `https://weilage.dev${path.substring(1).replace('/index.svelte', trailingSlash).replace('.svelte', trailingSlash)}`, 
+            loc: url.origin + path.substring(1).replace('/index.svelte', trailingSlash).replace('.svelte', trailingSlash),
             changefreq: config.changefreq, 
             priority: config.priority 
         }

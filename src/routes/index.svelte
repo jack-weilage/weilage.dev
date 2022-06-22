@@ -1,12 +1,11 @@
 <script lang="ts" context="module">
     export const prerender = true, hydrate = false
-    export const sitemap = { enabled: true }
+    export const sitemap = { enabled: true, priority: 1 }
     
     import type { ContactsResponse } from '$lib/types'
     import type { Load } from '@sveltejs/kit'
     export const load: Load = async ({ fetch }) => {
-        const response = await fetch('/api/contacts')
-        const contacts: ContactsResponse = response.status === 200 ? await response.json() : {}
+        const contacts = await fetch('/api/contacts').then(res => res.json()) as Promise<ContactsResponse>
 
         return {
             props: { contacts }
