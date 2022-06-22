@@ -4,11 +4,13 @@ TODO: Raise an issue with SvelteKit about the ability to programmatically enable
 <script lang="ts">
     import { page } from '$app/stores'
     import Launch from 'carbon-icons-svelte/lib/Launch.svelte'
-    
+
+    const { origin } = $page.url
+
     /** An internal or external href. */
     export let href: string
     /** Is this link external? Only use if the automatic detection doesn't work correctly. */
-    export let external = new URL(href).origin !== $page.url.origin
+    export let external = new URL(href, origin).origin !== origin
     /** The relation between the href and the current page. Only use if the automatic detection doesn't work correctly. */
     export let rel = external ? 'external noopener noreferrer' : undefined
     /** The target of the link. Only use if the automatic detection doesn't work correctly. */
@@ -23,7 +25,7 @@ TODO: Raise an issue with SvelteKit about the ability to programmatically enable
 </script>
 
 {#if prefetch}
-    <a {href} {rel} {target} {...$$restProps} sveltekit:prefetch data-hasicon={!!icon}>
+    <a {href} {rel} {target} {...$$restProps} sveltekit:prefetch data-hasicon={Boolean(icon)}>
         <slot />
         {#if icon}
             <svelte:component this={icon} size={iconSize} aria-hidden="true" />
