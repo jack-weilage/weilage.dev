@@ -1,26 +1,17 @@
 <script lang="ts" context="module">
     export const prerender = true, hydrate = false
     export const sitemap = { enabled: true, priority: 1 }
-    
-    import type { ContactsResponse } from '$lib/types'
-    import type { Load } from '@sveltejs/kit'
-    export const load: Load = async ({ fetch }) => {
-        const contacts = await fetch('/api/contacts').then(res => res.json()) as Promise<ContactsResponse>
-
-        return {
-            props: { contacts }
-        }
-    }
 </script>
 <script lang="ts">
+    import type { ContactsResponse } from '$lib/types'
     import { SvEO, Link } from '$lib/components'
+
     export let contacts: ContactsResponse
 </script>
 
 <SvEO
     title="Home - Jack Weilage"
     description="Welcome to weilage.dev, a personal website for Jack Weilage, a web developer and designer."
-    author="Jack Weilage"
     keywords={[ 'weilage.dev', 'jack weilage', 'portfolio', 'developer', 'designer' ]}
     canonical="https://weilage.dev/"
 />
@@ -44,9 +35,8 @@
 </main>
 
 <style lang="scss">
-    :root {
-        --heading-hover-transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.25s
-    }
+    $transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.25s;
+
     main {
         display: flex;
         flex-flow: column wrap;
@@ -54,6 +44,7 @@
         justify-content: center;
         
         padding: 1rem;
+        
         h1.greeting {
             margin: 0;
             
@@ -78,7 +69,7 @@
                 
                 transform: translateX(2.5rem);
 
-                transition: transform var(--heading-hover-transition);
+                transition: transform $transition;
             }
             div.line {
                 display: inline-block;
@@ -89,11 +80,15 @@
                 width: 10.5rem;
                 margin: 0 1rem;
 
-                transition: width var(--heading-hover-transition), margin var(--heading-hover-transition);
+                transition: 
+                    width $transition, 
+                    margin $transition;
             }
             &:hover {
                 span.hello {
-                    transform: translateX(2rem) translateY(0.2rem);
+                    transform: 
+                        translateX(2rem) 
+                        translateY(0.2rem);
                 }
                 div.line {
                     width: 10rem;
