@@ -77,8 +77,6 @@ TODO: Decide whether the input should show as valid/invalid when empty.
             border: 2px solid var(--theme-border);
             border-radius: 0.5rem;
 
-            transition: border-color 0.2s ease-out;
-
             // Hide the "real" placeholder text, as long as the input is not focused.
             // This makes the label a "higher priority", as it will be visible when the input is not focused.
             &:not(:focus)::placeholder {
@@ -157,13 +155,19 @@ TODO: Decide whether the input should show as valid/invalid when empty.
             
             $time: 0.1s;
             $timing: ease-in-out;
-            transition:
-                padding          $time $timing,
-                margin           $time $timing,
-                height           $time $timing,
-                transform        $time $timing,
-                font-size        $time $timing,
-                background-color $time $timing;
+            
+            $transition: null;
+            @each $type in [ padding margin height transform font-size background-color ] {
+                $transition: $transition, $type $time $timing
+            }
+            // transition:
+            //     padding          $time $timing,
+            //     margin           $time $timing,
+            //     height           $time $timing,
+            //     transform        $time $timing,
+            //     font-size        $time $timing,
+            //     background-color $time $timing;
+            transition: $transition;
         }
         // If the input is focused or has a value (placeholder is not shown), move the label to the top and make it smaller.
         :where(input:focus, input:not(:placeholder-shown)) + label.caption {
