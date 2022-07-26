@@ -1,8 +1,5 @@
-<!-- 
-TODO: Test whether `LoadingIndicator` works.
- -->
 <script>
-    import 'normalize.css'
+    import 'normalize.css/normalize.css'
     import '$lib/css/vars.css'
     import '$lib/css/global.css'
 
