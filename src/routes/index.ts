@@ -18,4 +18,4 @@ const contacts: ContactsResponse = {
         title: 'View examples',
     }
 }
-export const get: RequestHandler = () => ({ body: { contacts } })
+export const GET: RequestHandler = () => ({ body: { contacts } })

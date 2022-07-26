@@ -18,7 +18,7 @@ const trailingSlash = svelte_config.kit?.trailingSlash === 'always' ? '/' : ''
 
 
 import type { RequestHandler } from '@sveltejs/kit/types'
-export const get: RequestHandler = async function({ url })
+export const GET: RequestHandler = async function({ url })
 {
     let sitemap = '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
     const files = import.meta.importGlob<SitemapConfig>('./**/*.svelte', { import: 'sitemap' })
