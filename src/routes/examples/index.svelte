@@ -44,11 +44,6 @@
     canonical="https://weilage.dev/examples/"
 />
 
-<header>
-    <SkipToLink href="#main-content" />
-    <Link href="/" icon={false}>Home</Link>
-</header>
-
 <main id="main-content">
     {#each components as { name, description, component, props }}
         {@const id = name.toLowerCase().replace(/\s/g, '-')}
@@ -66,9 +61,6 @@
 </main>
 
 <style lang="scss">
-    header {
-        padding: 1rem;
-    }
     main {
         display: flex;
         flex-flow: row wrap;
