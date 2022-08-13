@@ -58,6 +58,14 @@
             font-style: italic;
 
             color: var(--theme-green);
+
+            span.name {
+                white-space: nowrap;
+
+                @media screen and (max-width: 600px) {
+                    font-size: 15vw;
+                }
+            }
             span.hello {
                 position: absolute;
                 
@@ -70,6 +78,11 @@
                 transform: translateX(2.5rem);
 
                 transition: transform $transition;
+
+                @media screen and (max-width: 600px) {
+                    font-size: 7.5vw;
+                    transform: translate(25%, 25%);
+                }
             }
             div.line {
                 display: inline-block;
@@ -83,6 +96,10 @@
                 transition: 
                     width $transition, 
                     margin $transition;
+
+                @media screen and (max-width: 900px) {
+                    display: none;
+                }
             }
             &:hover {
                 span.hello {
@@ -105,6 +122,10 @@
             align-content: center;
             justify-content: center;
 
+            @media screen and (max-width: 600px) {
+                flex-direction: column;
+            }
+
             li {
                 list-style: none;
                 font-size: 1.2rem;
@@ -119,35 +140,12 @@
                     border-right: 0.5px solid var(--theme-border);
         
                     align-self: stretch;
-                }
-            }
-        }
-    }
-    @media (max-width: 900px) {
-        main h1.greeting {
-            div.line {
-                display: none;
-            }
-        }
-    }
-    @media (max-width: 600px) {
-        main {
-            h1.greeting {
-                span.name {
-                    font-size: 3rem;
-                }
-                span.hello {
-                    font-size: 1.6rem;
-                    transform: translate(25%, 25%);
-                }
-            }
-            ul.contact-list {
-                flex-direction: column;
 
-                & li:not(:last-child)::after {
-                    display: block;
+                    @media screen and (max-width: 600px) {
+                        display: block;
 
-                    margin: 0.25rem 0;
+                        margin: 0.25rem 0;
+                    }
                 }
             }
         }
