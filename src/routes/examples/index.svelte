@@ -4,13 +4,10 @@
 </script>
 <script lang="ts">
     import type { ExampleComponent } from '$lib/types'
-    import { SvEO, Copy } from '$lib/components'
-
-    export let url: string
+    import { SvEO, ColorPicker } from '$lib/components'
 
     import Login from './_login.svelte'
     import TwoFactorEntry from './_2fa.svelte'
-    import ColorPicker from '$lib/components/ColorPicker.svelte'
 
     const components: ExampleComponent[] = [
         {
@@ -44,11 +41,9 @@
 
 <main id="main-content">
     {#each components as { name, description, component, props }}
-        {@const id = name.toLowerCase().replace(/\s/g, '-')}
-        {@const to_copy = `${url}#${id}`}
-        <section {id}>
+        <section>
             <header>
-                <h2>{name}<Copy {to_copy} /></h2>
+                <h2>{name}</h2>
                 <p>{description}</p>
             </header>
             <main>
