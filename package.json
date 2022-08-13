@@ -2,22 +2,22 @@
   "name": "weilage.dev",
   "version": "0.0.1",
   "scripts": {
-    "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
+    "dev": "vite dev --port 3000",
+    "build": "vite build",
     "start": "node build",
-    "preview": "svelte-kit preview",
+    "preview": "vite preview --port 3000",
     "prepare": "svelte-kit sync && husky install",
     "check": "svelte-check --fail-on-warnings"
   },
   "devDependencies": {
-    "@sveltejs/adapter-vercel": "next",
+    "@sveltejs/adapter-static": "next",
     "@sveltejs/kit": "next",
-    "@types/node": "^18.0.0",
-    "carbon-icons-svelte": "^11.1.0",
+    "@types/node": "^18.7.2",
+    "carbon-icons-svelte": "^11.2.0",
     "husky": "^8.0.1",
     "normalize.css": "^8.0.1",
-    "sass": "^1.53.0",
-    "svelte": "^3.48.0",
+    "sass": "^1.54.4",
+    "svelte": "^3.49.0",
     "svelte-check": "^2.8.0",
     "svelte-preprocess": "^4.10.7",
     "tslib": "^2.4.0",
@@ -27,5 +27,8 @@
   "type": "module",
   "engines": {
     "node": "v16.x"
+  },
+  "dependencies": {
+    "vite": "^3.0.7"
   }
 }

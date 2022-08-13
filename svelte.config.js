@@ -1,27 +1,22 @@
-import vercel from '@sveltejs/adapter-vercel'
+import adapter from '@sveltejs/adapter-static'
 import preprocess from 'svelte-preprocess'
-import GlobPlugin from 'vite-plugin-glob'
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	preprocess: preprocess({  }),
+	preprocess: preprocess(),
 
 	kit: {
 		trailingSlash: 'always',
-		adapter: vercel({  }),
+		adapter: adapter(),
 		csp: {
 			mode: 'auto',
 			directives: {
 				'default-src': [ 'self' ],
 				'script-src': [ 'self', 'unsafe-inline' ],
-				'img-src': [ 'self' ]
 			}
 		},
-		vite: {
-			plugins: [
-				GlobPlugin({  })
-			]
-		}
+		inlineStyleThreshold: 50,
+		prerender: { default: true }
 	}
 }
 
