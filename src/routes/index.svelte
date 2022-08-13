@@ -1,6 +1,8 @@
 <script lang="ts" context="module">
-    export const prerender = true, hydrate = false
-    export const sitemap = { enabled: true, priority: 1 }
+    export const hydrate = false
+    
+    import type { SitemapConfig } from '$lib/types'
+    export const sitemap: SitemapConfig = { enabled: true, priority: 1, changefreq: 'daily' }
 </script>
 <script lang="ts">
     import type { ContactsResponse } from '$lib/types'

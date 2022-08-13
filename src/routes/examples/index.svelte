@@ -1,14 +1,12 @@
 <script lang="ts" context="module">
-    export const sitemap = { enabled: true, priority: 0.7 }
-    
-    import type { Load } from '@sveltejs/kit/types'
-    export const load: Load = ({ url }) => ({ props: { url } })
+    import type { SitemapConfig } from '$lib/types'
+    export const sitemap: SitemapConfig = { enabled: true, priority: 0.7, changefreq: 'daily' }
 </script>
 <script lang="ts">
     import type { ExampleComponent } from '$lib/types'
     import { SvEO, Copy } from '$lib/components'
 
-    export let url: URL
+    export let url: string
 
     import Login from './_login.svelte'
     import TwoFactorEntry from './_2fa.svelte'
@@ -47,7 +45,7 @@
 <main id="main-content">
     {#each components as { name, description, component, props }}
         {@const id = name.toLowerCase().replace(/\s/g, '-')}
-        {@const to_copy = `${url.protocol}//${url.host}${url.pathname}#${id}`}
+        {@const to_copy = `${url}#${id}`}
         <section {id}>
             <header>
                 <h2>{name}<Copy {to_copy} /></h2>
