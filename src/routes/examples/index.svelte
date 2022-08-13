@@ -6,7 +6,7 @@
 </script>
 <script lang="ts">
     import type { ExampleComponent } from '$lib/types'
-    import { SvEO, Link, Copy, SkipToLink } from '$lib/components'
+    import { SvEO, Copy } from '$lib/components'
 
     export let url: URL
 
