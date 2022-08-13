@@ -1,8 +1,8 @@
 /node_modules
 /.svelte-kit
 /.vercel
-/.vercel_build_output
 /.vscode
+/build
 .env
 .env.*
 !.env.example
