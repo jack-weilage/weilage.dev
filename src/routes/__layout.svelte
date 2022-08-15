@@ -12,7 +12,7 @@
 {#if $navigating && $navigating.to}
     <LoadingIndicator />
 {/if}
-{#if $page.url.pathname !== '/'}
+{#if $page.url.pathname !== '/' && $page.url.pathname !== '/rewrite/'}
     <header>
         <SkipToLink href="#main-content" />
         <Link href="/" icon={false}>Home</Link>

@@ -1,11 +1,10 @@
 <script lang="ts" context="module">
     export const hydrate = false
     
-    import type { SitemapConfig } from '$lib/types'
+    import type { SitemapConfig, ContactsResponse } from '$lib/types'
     export const sitemap: SitemapConfig = { enabled: true, priority: 1, changefreq: 'daily' }
 </script>
 <script lang="ts">
-    import type { ContactsResponse } from '$lib/types'
     import { SvEO, Link } from '$lib/components'
 
     export let contacts: ContactsResponse
@@ -99,7 +98,7 @@
                     width $transition, 
                     margin $transition;
 
-                @media screen and (max-width: 900px) {
+                @media screen and (max-width: 920px) {
                     display: none;
                 }
             }
