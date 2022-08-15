@@ -6,13 +6,14 @@
     "build": "vite build",
     "start": "node build",
     "preview": "vite preview --port 3000",
-    "prepare": "svelte-kit sync && husky install",
+    "prepare": "husky install",
+    "postinstall": "svelte-kit sync",
     "check": "svelte-check --fail-on-warnings"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "next",
     "@sveltejs/kit": "next",
-    "@types/node": "^18.7.2",
+    "@types/node": "^18.7.5",
     "carbon-icons-svelte": "^11.2.0",
     "husky": "^8.0.1",
     "normalize.css": "^8.0.1",

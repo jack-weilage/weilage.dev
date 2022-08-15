@@ -1,7 +1,3 @@
-<script lang="ts" context="module">
-    import type { SitemapConfig } from '$lib/types'
-    export const sitemap: SitemapConfig = { enabled: true, priority: 0.7, changefreq: 'daily' }
-</script>
 <script lang="ts">
     import type { ExampleComponent } from '$lib/types'
     import { SvEO, ColorPicker } from '$lib/components'

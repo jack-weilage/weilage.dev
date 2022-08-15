@@ -4,9 +4,7 @@
     import '$lib/css/global.css'
 
     import { LoadingIndicator, SkipToLink, Link } from '$lib/components'
-    import { navigating } from '$app/stores'
-    import { page } from '$app/stores'
-    
+    import { navigating, page } from '$app/stores'
 </script>
 
 {#if $navigating && $navigating.to}

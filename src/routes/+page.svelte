@@ -1,13 +1,24 @@
-<script lang="ts" context="module">
-    export const hydrate = false
-    
-    import type { SitemapConfig, ContactsResponse } from '$lib/types'
-    export const sitemap: SitemapConfig = { enabled: true, priority: 1, changefreq: 'daily' }
-</script>
 <script lang="ts">
     import { SvEO, Link } from '$lib/components'
+    import type { Contact } from '$lib/types'
 
-    export let contacts: ContactsResponse
+    const contacts: Contact[] = [
+        {
+            href: 'mailto:jack@weilage.dev',
+            text: 'Email me',
+            title: 'Send me an email',
+        },
+        {
+            href: 'https://github.com/jack-weilage',
+            text: 'Read my code',
+            title: 'View my GitHub profile',
+        },
+        {
+            href: '/examples/',
+            text: 'View examples',
+            title: 'View examples',
+        }
+    ]
 </script>
 
 <SvEO
@@ -27,7 +38,7 @@
         <div class="line" />
     </h1>
     <ul class="contact-list">
-        {#each Object.values(contacts) as { href, title, text }}
+        {#each contacts as { href, title, text }}
             <li>
                 <Link {href} {title}>{text}</Link>
             </li>

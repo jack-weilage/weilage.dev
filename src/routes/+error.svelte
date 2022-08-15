@@ -1,27 +1,15 @@
 <!-- 
 TODO: Raise an issue with SvelteKit to fix page endpoints for `__error.svelte`
- -->
-<script lang="ts" context="module">
-    import type { Load } from '@sveltejs/kit/types'
-
-    export const load: Load = function ({ status, error })
-    {
-        console.error(`(${status}): ${error}`)
-        
-        return { props: { status, error } }
-    }
-</script>
+-->
 <script lang="ts">
     import { SvEO, SkipToLink, Link } from '$lib/components'
-
-    export let status: number
-    export let error: Error | null
+    import { page } from '$app/stores'
 
     const online = typeof navigator !== 'undefined' ? navigator.onLine : true
 </script>
 
 <SvEO
-    title="Error {status}"
+    title="Error {$page.status}"
     description="An error occurred while loading this page."
     keywords={[]}
     canonical=""
@@ -34,16 +22,20 @@ TODO: Raise an issue with SvelteKit to fix page endpoints for `__error.svelte`
 </header>
 <main id="main-content">
     {#if online}
-        <h1>{status}</h1>
-        {#if error?.message}
-            <p>{status}: {error.message}</p>
+        <h1>{$page.status}</h1>
+        {#if $page.error?.message}
+            <p>{$page.status}: {$page.error.message}</p>
         {:else}
-            <p>You found a {status} error!</p>
+            <p>You found a {$page.status} error!</p>
         {/if}
         {#if import.meta.env.DEV}
-            <pre>{error?.stack}</pre>
+            <pre>{$page.error?.stack}</pre>
         {:else}
-            <p>If this error persists when it seems like it really shouldn't, please contact me at <a href="mailto:jack@weilage.dev?subject=Recurring Error {status}: {error?.message}">jack@weilage.dev</a> with a description of how to reproduce the error.</p>
+            <p>
+                If this error persists when it seems like it really shouldn't, please contact me at 
+                <a href="mailto:jack@weilage.dev?subject=Recurring Error {$page.status}: {$page.error?.message}">jack@weilage.dev</a>
+                with a description of how to reproduce the error.
+            </p>
         {/if}
     {:else}
         <h1>You're currently offline!</h1>

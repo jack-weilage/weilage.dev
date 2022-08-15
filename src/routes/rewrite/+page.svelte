@@ -1,5 +1,5 @@
 <script lang="ts">
-    // import Quotes from './_quotes.svelte'
+
 </script>
 
 <main>
@@ -21,7 +21,7 @@
     <section>
         <h2>I'm a writer</h2>
         <p>
-            Read my rambling <a href="/blog/">blog</a>.
+            Read my rambling <a href="/blog/" rel="external">blog</a>.
         </p>
     </section>
     <section>

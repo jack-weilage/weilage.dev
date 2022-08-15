@@ -1,21 +1,16 @@
-import type { RequestHandler } from '@sveltejs/kit/types'
-export const post: RequestHandler = async function({ request })
+import type { RequestHandler } from './$types'
+import { error, json } from '@sveltejs/kit'
+
+export const POST: RequestHandler = async function({ request })
 {
     let data = null
     if (request.headers.get('content-type') === 'application/json')
-    {
         data = await request.json()
-    }
 
     if (!data || (data && (!data.username || !data.password)))
-    {
-        return {
-            status: 400,
-            body: 'Invalid request body'
-        }
-    }
+        throw error(400, 'Invalid request body')
 
-    let body = {
+    let response = {
         success: false,
         message: 'Invalid username or password'
     }
@@ -23,11 +18,11 @@ export const post: RequestHandler = async function({ request })
     // Correct 2/3 of the time
     if (Math.random() > 0.33)
     {
-        body = {
+        response = {
             success: true,
             message: 'Login successful',
         }
     }
 
-    return { status: 200, body }
+    return json(response)
 }
