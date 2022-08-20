@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Link, LabelledInput } from '$lib/components';
+    import { Link, LabelledInput } from '!components';
 
     /** The RegEx to check both username and password against. */
     export let regex = {

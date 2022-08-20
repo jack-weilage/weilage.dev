@@ -1,9 +1,9 @@
 <script>
     import 'normalize.css/normalize.css'
-    import '$lib/css/vars.css'
-    import '$lib/css/global.css'
+    import '!css/vars.css'
+    import '!css/global.css'
 
-    import { LoadingIndicator, SkipToLink, Link } from '$lib/components'
+    import { LoadingIndicator, SkipToLink, Link } from '!components'
     import { navigating, page } from '$app/stores'
 </script>
 

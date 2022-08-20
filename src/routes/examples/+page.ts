@@ -1,2 +1,2 @@
-import type { SitemapConfig } from '$lib/types'
+import type { SitemapConfig } from '!types'
 export const sitemap: SitemapConfig = { enabled: true, priority: 0.7, changefreq: 'daily' }

@@ -1,6 +1,6 @@
 <script lang="ts">
-    import type { ExampleComponent } from '$lib/types'
-    import { SvEO, ColorPicker } from '$lib/components'
+    import type { ExampleComponent } from '!types'
+    import { SvEO, ColorPicker } from '!components'
 
     import Login from './_login.svelte'
     import TwoFactorEntry from './_2fa.svelte'

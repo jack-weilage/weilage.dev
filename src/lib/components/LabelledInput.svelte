@@ -2,7 +2,7 @@
 TODO: Decide whether the input should show as valid/invalid when empty.
  -->
 <script lang="ts">
-    import { forward_events } from '$lib/actions'
+    import { forward_events } from '!actions'
     import View from 'carbon-icons-svelte/lib/View.svelte'
     import ViewOff from 'carbon-icons-svelte/lib/ViewOff.svelte'
 

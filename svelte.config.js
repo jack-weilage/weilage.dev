@@ -6,6 +6,13 @@ const config = {
 	preprocess: preprocess(),
 
 	kit: {
+		alias: {
+			'!actions': 'src/lib/actions',
+			'!components': 'src/lib/components',
+			'!css': 'src/lib/css',
+			'!types': 'src/lib/types',
+			'!utils': 'src/lib/utils',
+		},
 		trailingSlash: 'always',
 		adapter: adapter(),
 		csp: {

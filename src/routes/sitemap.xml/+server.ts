@@ -6,8 +6,8 @@
  * TODO: Allow the user to specify more than one sitemap.
  * TODO: Fix fallthrough routes.
  */
-import type { SitemapConfig } from '$lib/types'
-import { defaults } from '$lib/utils'
+import type { SitemapConfig } from '!types'
+import { defaults } from '!utils'
 import svelte_config from '../../../svelte.config'
 
 /** Default sitemap config (will apply when config is falsy) */

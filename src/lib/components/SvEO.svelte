@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { defaults } from '$lib/utils'
+    import { defaults } from '!utils'
 
     
     /** The title for both the browser and search engines. */

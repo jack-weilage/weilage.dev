@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onMount } from 'svelte'
-    import { wait } from '$lib/utils'
+    import { wait } from '!utils'
 
     
     let width = 0

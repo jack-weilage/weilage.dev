@@ -1,6 +1,6 @@
 <script lang="ts">
-    import { SvEO, Link } from '$lib/components'
-    import type { Contact } from '$lib/types'
+    import { SvEO, Link } from '!components'
+    import type { Contact } from '!types'
 
     const contacts: Contact[] = [
         {
