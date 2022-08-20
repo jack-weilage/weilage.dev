@@ -16,10 +16,6 @@ TODO: Raise an issue with SvelteKit to fix page endpoints for `__error.svelte`
     noindex noarchive
 />
 
-<header>
-    <SkipToLink href="#main-content" />
-    <Link href="/" icon={false}>Home</Link>
-</header>
 <main id="main-content">
     {#if online}
         <h1>{$page.status}</h1>
@@ -44,12 +40,9 @@ TODO: Raise an issue with SvelteKit to fix page endpoints for `__error.svelte`
 </main>
 
 <style lang="scss">
-    header {
-        padding: 1rem;
-    }
     main {
         display: flex;
-        flex-flow: column wrap;
+        flex-direction: column;
 
         padding: 2rem;
 

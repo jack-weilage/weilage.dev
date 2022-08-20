@@ -18,6 +18,7 @@ const default_config: SitemapConfig = {
 }
 const trailingSlash = svelte_config.kit?.trailingSlash === 'always' ? '/' : ''
 
+const construct_element = (element: string, innerText: string) => `<${element}>${innerText}</${element}>`
 
 import type { RequestHandler } from './$types'
 export const GET: RequestHandler = async function({ url, setHeaders })
@@ -43,39 +44,22 @@ export const GET: RequestHandler = async function({ url, setHeaders })
         }
 
         // Construct urlset.
-        sitemap += '<url>'
-        for (const [ element, value ] of Object.entries(elements))
-        {
-            sitemap += `<${element}>${value}</${element}>`
-        }
-        sitemap += '</url>'
+        sitemap += construct_element(
+            'url', 
+            Object.entries(elements)
+                .map(([ element, value ]) => construct_element(element, value.toString()))
+                .join('')
+        )
     }
     
     // Construct sitemap.
     sitemap += '</urlset>'
-    // throw new Error("@migration task: Migrate this return statement (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292701)");
-    // Suggestion (check for correctness before using):
-    // return json(sitemap, {
-    //     headers: {
-    //         'Cache-Control': 'no-cache',
-    //         'Content-Length': sitemap.length,
-    //         'Content-Type': 'application/xml'
-    //     }
-    // });
-    setHeaders({
-        'Cache-Control': 'no-cache',
-        'Content-Length': sitemap.length,
-        'Content-Type': 'application/xml'
-    })
-    return new Response(sitemap)
 
-    // return {
-    //     status: 200,
-    //     headers: {
-    //         'Cache-Control': 'no-cache',
-    //         'Content-Length': sitemap.length,
-    //         'Content-Type': 'application/xml'
-    //     },
-    //     body: sitemap
-    // }
+    return new Response(sitemap, {
+        headers: {
+            'Cache-Control': 'no-cache',
+            'Content-Length': sitemap.length.toString(),
+            'Content-Type': 'application/xml'
+        }
+    })
 }

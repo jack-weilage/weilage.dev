@@ -1,7 +1,7 @@
 <script lang="ts">
     import { SvEO, Link } from '!components'
+    
     import type { Contact } from '!types'
-
     const contacts: Contact[] = [
         {
             href: 'mailto:jack@weilage.dev',

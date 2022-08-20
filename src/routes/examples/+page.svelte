@@ -1,10 +1,10 @@
 <script lang="ts">
-    import type { ExampleComponent } from '!types'
     import { SvEO, ColorPicker } from '!components'
-
-    import Login from './_login.svelte'
-    import TwoFactorEntry from './_2fa.svelte'
-
+    
+    import Login from './Login.svelte'
+    import TwoFactorEntry from './2fa.svelte'
+    
+    import type { ExampleComponent } from '!types'
     const components: ExampleComponent[] = [
         {
             name: 'Login',

@@ -1,5 +1,5 @@
 <script>
-    import 'normalize.css/normalize.css'
+    import 'normalize.css'
     import '!css/vars.css'
     import '!css/global.css'
 
