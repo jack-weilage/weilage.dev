@@ -6,6 +6,7 @@ const config = {
 	preprocess: preprocess(),
 
 	kit: {
+		adapter: adapter(),
 		alias: {
 			'!actions': 'src/lib/actions',
 			'!components': 'src/lib/components',
@@ -13,8 +14,6 @@ const config = {
 			'!types': 'src/lib/types',
 			'!utils': 'src/lib/utils',
 		},
-		trailingSlash: 'always',
-		adapter: adapter(),
 		csp: {
 			mode: 'auto',
 			directives: {
@@ -23,7 +22,8 @@ const config = {
 			}
 		},
 		inlineStyleThreshold: 50,
-		prerender: { default: true }
+		prerender: { default: true },
+		trailingSlash: 'always',
 	}
 }
 
