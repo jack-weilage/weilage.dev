@@ -1,0 +1,37 @@
+@mixin flex($direction: null, $wrap: null, $align: null, $justify: null, $gap: null)
+{
+    display: flex;
+
+    $direction_custom: $direction != row and $direction != null;
+    $wrap_custom: $wrap != nowrap and $wrap != null;
+    $align_custom: $align != normal and $align != null;
+    $justify_custom: $justify != normal and $justify != null;
+    $gap_custom: $gap != normal and $gap != null;
+
+    @if $direction_custom and $wrap_custom
+    {
+        flex-flow: $direction $wrap;
+    }
+    @else if $direction_custom and not $wrap_custom
+    {
+        flex-direction: $direction;
+    }
+    @else if not $direction_custom and $wrap_custom
+    {
+        flex-wrap: $wrap;
+    }
+
+    @if $align_custom
+    {
+        align-items: $align;
+    }
+    @if $justify_custom
+    {
+        justify-content: $justify;
+    }
+
+    @if $gap_custom
+    {
+        gap: $gap;
+    }
+}

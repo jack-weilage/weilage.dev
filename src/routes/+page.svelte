@@ -47,13 +47,11 @@
 </main>
 
 <style lang="scss">
+    @import '../lib/css/mixins.scss';
     $transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.25s;
 
     main {
-        display: flex;
-        flex-flow: column wrap;
-        align-content: center;
-        justify-content: center;
+        @include flex($direction: column, $align: center, $justify: center);
         
         padding: 1rem;
         
@@ -126,13 +124,11 @@
             }            
         }
         ul.contact-list {
+            @include flex($align: center, $justify: center);
+            
             margin: 0;
             padding: 0;
 
-            display: flex;
-            flex-flow: row wrap;
-            align-content: center;
-            justify-content: center;
 
             @media screen and (max-width: 600px) {
                 flex-direction: column;

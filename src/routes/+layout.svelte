@@ -25,10 +25,10 @@
 </slot>
 
 <style lang="scss">
+    @import '../lib/css/mixins.scss';
+    
     header {
-        display: flex;
-        flex-flow: row wrap;
-        align-items: flex-start;
+        @include flex($wrap: wrap, $align: flex-start);
 
         padding: 1rem;
         border-bottom: 1px solid var(--theme-border);

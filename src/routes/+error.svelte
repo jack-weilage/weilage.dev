@@ -40,9 +40,10 @@ TODO: Raise an issue with SvelteKit to fix page endpoints for `__error.svelte`
 </main>
 
 <style lang="scss">
+    @import '../lib/css/mixins.scss';
+
     main {
-        display: flex;
-        flex-direction: column;
+        @include flex($direction: column);
 
         padding: 2rem;
 

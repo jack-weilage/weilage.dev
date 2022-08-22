@@ -50,11 +50,10 @@
 </main>
 
 <style lang="scss">
+    @import '../../lib/css/mixins.scss';
+
     main {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-around;
-        align-items: flex-start;
+        @include flex($wrap: wrap, $justify: space-around, $align: flex-start);
 
         padding: 1rem;
 
