@@ -2,7 +2,7 @@
 TODO: Raise an issue with SvelteKit to fix page endpoints for `__error.svelte`
 -->
 <script lang="ts">
-    import { SvEO, SkipToLink, Link } from '!components'
+    import { SvEO } from '!components'
     import { page } from '$app/stores'
 
     const online = typeof navigator !== 'undefined' ? navigator.onLine : true

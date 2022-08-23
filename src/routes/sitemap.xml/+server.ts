@@ -21,7 +21,7 @@ const trailingSlash = svelte_config.kit?.trailingSlash === 'always' ? '/' : ''
 const construct_element = (element: string, innerText: string) => `<${element}>${innerText}</${element}>`
 
 import type { RequestHandler } from './$types'
-export const GET: RequestHandler = async function({ url, setHeaders })
+export const GET: RequestHandler = async function({ url })
 {
     let sitemap = '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
     const files = import.meta.importGlob<SitemapConfig>('../**/+page.ts', { import: 'sitemap' })

@@ -14,7 +14,7 @@ TODO: Decide whether the input should show as valid/invalid when empty.
     /** The name of the input. */
     export let name: string
     /** The placeholder of the input. */
-    export let placeholder: string = ' '
+    export let placeholder = ' '
     /** The inputs to be forwarded. */
     export let forwarded_events: string[] = []
     /** The message to display when an input is invalid. */
