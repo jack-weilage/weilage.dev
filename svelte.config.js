@@ -18,10 +18,9 @@ const config = {
 			mode: 'auto',
 			directives: {
 				'default-src': [ 'self' ],
-				'script-src': [ 'self', 'unsafe-inline' ],
+				'style-src': [ 'self', 'unsafe-inline' ],
 			}
 		},
-		inlineStyleThreshold: 50,
 		prerender: { default: true },
 		trailingSlash: 'always',
 	}
