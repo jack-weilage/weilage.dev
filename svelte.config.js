@@ -23,6 +23,7 @@ const config = {
 			directives: {
 				'default-src': [ 'self' ],
 				'style-src': [ 'self', 'unsafe-inline' ],
+                'img-src': ['self', 'https://dummyimage.com'],
 			}
 		},
 		prerender: { default: true },
