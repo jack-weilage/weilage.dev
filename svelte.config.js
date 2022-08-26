@@ -4,9 +4,9 @@ import preprocess from 'svelte-preprocess'
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	preprocess: preprocess({
-        scss: {
-            prependData: `@import './src/lib/css/mixins.scss';`
-        }
+        scss: { 
+			prependData: `@import './src/lib/css/mixins.scss';` 
+		}
     }),
 
 	kit: {
@@ -23,7 +23,7 @@ const config = {
 			directives: {
 				'default-src': [ 'self' ],
 				'style-src': [ 'self', 'unsafe-inline' ],
-                'img-src': ['self', 'https://dummyimage.com'],
+                'img-src': [ 'self', 'https://dummyimage.com' ],
 			}
 		},
 		prerender: { default: true },
