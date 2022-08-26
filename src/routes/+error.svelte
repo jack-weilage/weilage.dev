@@ -40,8 +40,6 @@ TODO: Raise an issue with SvelteKit to fix page endpoints for `__error.svelte`
 </main>
 
 <style lang="scss">
-    @import '../lib/css/mixins.scss';
-
     main {
         @include flex($direction: column);
 

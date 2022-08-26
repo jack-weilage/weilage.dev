@@ -55,7 +55,6 @@
 </main>
 
 <style lang="scss">
-    @import '../lib/css/mixins.scss';
     $transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.25s;
 
     main {

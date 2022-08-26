@@ -35,3 +35,11 @@
         gap: $gap;
     }
 }
+@mixin multi-transition($transitions, $duration: 0.2s, $easing: ease-in-out) {
+    $list: null;
+    @each $transition in $transitions {
+        $list: $list, $transition $duration $easing;
+    }
+
+    transition: $list;
+}

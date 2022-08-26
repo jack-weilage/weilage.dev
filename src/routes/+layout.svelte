@@ -28,8 +28,6 @@
 </slot>
 
 <style lang="scss">
-    @import '../lib/css/mixins.scss';
-    
     header {
         @include flex($wrap: wrap, $align: flex-start);
 

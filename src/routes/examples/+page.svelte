@@ -55,8 +55,6 @@
 </main>
 
 <style lang="scss">
-    @import '../../lib/css/mixins.scss';
-
     main {
         @include flex($wrap: wrap, $justify: space-around, $align: flex-start);
 
