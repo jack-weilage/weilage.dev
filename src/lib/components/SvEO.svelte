@@ -11,7 +11,7 @@
     /** Keywords for search engines. */
     export let keywords: string[]
     /** The "real"/permanent version of the url. */
-    export let canonical: string
+    export let canonical = ''
 
     /** Should search engines not index this page. */
     export let noindex = false
@@ -61,10 +61,9 @@
     <title>{title}</title>
     <meta name="description" content={description}>
     <meta name="keywords"    content={keywords?.join()}>
-    <link rel="canonical"    href={canonical}>
-
-    {#if author}<meta name="author" content={author}>{/if}
-    {#if robots}<meta name="robots" content={robots}>{/if}
+    {#if canonical}<link rel="canonical" href={canonical}>{/if}
+    {#if author}   <meta name="author"   content={author}>{/if}
+    {#if robots}   <meta name="robots"   content={robots}>{/if}
 
     {#each Object.entries(opengraph) as [key, value]}
         {#if value}<meta property="og:{key}" content={value}>{/if}

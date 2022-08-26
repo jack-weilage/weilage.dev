@@ -1,15 +1,20 @@
 <script lang="ts">
     import { SvEO, ColorPicker } from '!components'
-    
+
     import Login from './Login.svelte'
     import TwoFactorEntry from './2fa.svelte'
-    
-    import type { ExampleComponent } from '!types'
-    const components: ExampleComponent[] = [
+
+    const components: {
+        name: string
+        description: string
+        //TODO: Find a good type for components (not SvelteComponent)
+        component: any
+        props?: Record<string, any>
+    }[] = [
         {
             name: 'Login',
             description: 'A fancy, minimal login form.',
-            
+
             component: Login,
         },
         {
@@ -23,15 +28,15 @@
             description: 'A color picker that uses the HSL color model.',
 
             component: ColorPicker,
-        }
+        },
     ]
 </script>
 
-<SvEO 
+<SvEO
     title="Examples - Jack Weilage"
     description="A collection of Svelte components for use in web development."
     author="Jack Weilage"
-    keywords={[ 'svelte', 'components', 'examples' ]}
+    keywords={['svelte', 'components', 'examples']}
     canonical="https://weilage.dev/examples/"
 />
 
@@ -60,7 +65,7 @@
         section {
             min-width: 30%;
             width: min-content;
-            
+
             margin: 1rem;
 
             border: 1px solid var(--theme-border);

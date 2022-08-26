@@ -1,8 +1,11 @@
 <script lang="ts">
     import { SvEO, Link } from '!components'
     
-    import type { Contact } from '!types'
-    const contacts: Contact[] = [
+    const contacts: {
+        href:  string
+        text:  string
+        title: string
+    }[] = [
         {
             href: 'mailto:jack@weilage.dev',
             text: 'Email me',
@@ -13,6 +16,11 @@
             text: 'Read my code',
             title: 'View my GitHub profile',
         },
+        // {
+        //     href: '/blog/',
+        //     text: 'View my ramblings',
+        //     title: 'Read my blog',
+        // },
         {
             href: '/examples/',
             text: 'View examples',

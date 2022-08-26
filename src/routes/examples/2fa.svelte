@@ -182,6 +182,7 @@
             flex-flow: row nowrap;
             justify-content: center;
             align-items: center;
+            
             input[type="text"] {
                 width: 3rem;
                 height: 4rem;

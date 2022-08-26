@@ -24,7 +24,7 @@ import type { RequestHandler } from './$types'
 export const GET: RequestHandler = async function({ url })
 {
     let sitemap = '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
-    const files = import.meta.importGlob<SitemapConfig>('../**/+page.ts', { import: 'sitemap' })
+    const files = import.meta.glob<SitemapConfig>('../**/+page.ts', { import: 'sitemap' })
 
     for (const [ path, options ] of Object.entries(files))
     {
