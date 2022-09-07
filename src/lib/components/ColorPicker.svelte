@@ -3,9 +3,9 @@ TODO: Smoothly transition when tapping or dragging fast
  -->
 <script lang="ts">
     import { createEventDispatcher, onMount } from 'svelte'
-    import { clamp } from '!utils'
-    import { hsv2hsl } from '!utils/color'
-
+    
+    const hsv2hsl = (h: number, s: number, v: number, l = (200 - s) * v / 100) => ({ h, s: (l === 0 || l === 200) ? 0 : s * v / 100 / (l <= 100 ? l : 200 - l) * 100, l: l * 5 / 10 })
+    const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max)
 
     const dispatch = createEventDispatcher()
 
