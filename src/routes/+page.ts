@@ -1,4 +1,5 @@
 export const csr = false
+export const prerender = true
 
 // Sitemap configuration
 import type { SitemapConfig } from '!types'
