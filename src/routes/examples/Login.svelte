@@ -52,7 +52,7 @@
         >Password</LabelledInput>
     </div>
 
-    <Link href="#" title="Forgot your password?" sveltekit:prefetch>Forgot your password?</Link>
+    <Link href="#" title="Forgot your password?" data-sveltekit-prefetch>Forgot your password?</Link>
     <button type="submit">Sign in</button>
 </form>
 

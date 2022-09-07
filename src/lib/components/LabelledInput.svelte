@@ -153,21 +153,7 @@ TODO: Decide whether the input should show as valid/invalid when empty.
             // Space text away from the left.
             margin-left: 0.5rem;
             
-            $time: 0.1s;
-            $timing: ease-in-out;
-            
-            $transition: null;
-            @each $type in [ padding margin height transform font-size background-color ] {
-                $transition: $transition, $type $time $timing
-            }
-            // transition:
-            //     padding          $time $timing,
-            //     margin           $time $timing,
-            //     height           $time $timing,
-            //     transform        $time $timing,
-            //     font-size        $time $timing,
-            //     background-color $time $timing;
-            transition: $transition;
+            @include multi-transition((padding, margin, height, transform, font-size, background-color), 0.2s)
         }
         // If the input is focused or has a value (placeholder is not shown), move the label to the top and make it smaller.
         :where(input:focus, input:not(:placeholder-shown)) + label.caption {

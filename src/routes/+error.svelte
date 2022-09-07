@@ -1,6 +1,3 @@
-<!-- 
-TODO: Raise an issue with SvelteKit to fix page endpoints for `__error.svelte`
--->
 <script lang="ts">
     import { SvEO } from '!components'
     import { page } from '$app/stores'

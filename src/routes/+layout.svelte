@@ -3,19 +3,15 @@
     import '!css/vars.css'
     import '!css/global.css'
 
-    import { LoadingIndicator } from '!components'
-    import { navigating, page } from '$app/stores'
+    import { page } from '$app/stores'
 </script>
 
-{#if $navigating && $navigating.to}
-    <LoadingIndicator />
-{/if}
 {#if $page.url.pathname !== '/' && $page.url.pathname !== '/rewrite/'}
     <header>
         <a href="#main-content" class="skip-to-main">Skip To Main Content</a>
         <nav>
-            <a href="/" sveltekit:prefetch>Home</a>
-            <!-- <a href="/blog/" sveltekit:prefetch>Blog</a> -->
+            <a href="/" data-sveltekit-prefetch>Home</a>
+            <!-- <a href="/blog/" data-sveltekit-prefetch>Blog</a> -->
         </nav>
     </header>
 {/if}
