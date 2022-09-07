@@ -1,4 +1,4 @@
-export const hydrate = false
+export const csr = false
 
 // Sitemap configuration
 import type { SitemapConfig } from '!types'
