@@ -11,7 +11,7 @@
         <a href="#main-content" class="skip-to-main">Skip To Main Content</a>
         <nav>
             <a href="/" data-sveltekit-prefetch>Home</a>
-            <!-- <a href="/blog/" data-sveltekit-prefetch>Blog</a> -->
+            <a href="/blog/" data-sveltekit-prefetch>Blog</a>
         </nav>
     </header>
 {/if}

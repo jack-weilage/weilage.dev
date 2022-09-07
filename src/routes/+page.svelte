@@ -16,11 +16,11 @@
             text: 'View my code',
             title: 'View my GitHub profile',
         },
-        // {
-        //     href: '/blog/',
-        //     text: 'Read my ramblings',
-        //     title: 'Read my blog',
-        // },
+        {
+            href: '/blog/',
+            text: 'Read my ramblings',
+            title: 'Read my blog',
+        },
         {
             href: '/examples/',
             text: 'View examples',
