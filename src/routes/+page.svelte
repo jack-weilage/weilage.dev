@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { SvEO, Link } from '!components'
+    import { SvEO } from '!components'
     
     const contacts: {
         href:  string
@@ -13,12 +13,12 @@
         },
         {
             href: 'https://github.com/jack-weilage',
-            text: 'Read my code',
+            text: 'View my code',
             title: 'View my GitHub profile',
         },
         // {
         //     href: '/blog/',
-        //     text: 'View my ramblings',
+        //     text: 'Read my ramblings',
         //     title: 'Read my blog',
         // },
         {
@@ -48,7 +48,7 @@
     <ul class="contact-list">
         {#each contacts as { href, title, text }}
             <li>
-                <Link {href} {title}>{text}</Link>
+                <a {href} {title}>{text}</a>
             </li>
         {/each}
     </ul>

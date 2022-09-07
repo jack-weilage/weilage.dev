@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Link, LabelledInput } from '!components'
+    import { LabelledInput } from '!components'
 
     /** The RegEx to check both username and password against. */
     export let regex = {
@@ -52,7 +52,7 @@
         >Password</LabelledInput>
     </div>
 
-    <Link href="#" title="Forgot your password?" data-sveltekit-prefetch>Forgot your password?</Link>
+    <a href="#" title="Forgot your password?" data-sveltekit-prefetch>Forgot your password?</a>
     <button type="submit">Sign in</button>
 </form>
 
