@@ -7,16 +7,6 @@
         title: string
     }[] = [
         {
-            href: 'mailto:jack@weilage.dev',
-            text: 'Email me',
-            title: 'Send me an email',
-        },
-        {
-            href: 'https://github.com/jack-weilage',
-            text: 'View my code',
-            title: 'View my GitHub profile',
-        },
-        {
             href: '/blog/',
             text: 'Read my ramblings',
             title: 'Read my blog',
@@ -25,7 +15,17 @@
             href: '/examples/',
             text: 'View examples',
             title: 'View examples',
-        }
+        },
+        {
+            href: 'https://github.com/jack-weilage',
+            text: 'View my code',
+            title: 'View my GitHub profile',
+        },
+        {
+            href: 'mailto:jack@weilage.dev',
+            text: 'Email me',
+            title: 'Send me an email',
+        },
     ]
 </script>
 
@@ -41,7 +41,7 @@
         <div class="line" />
 
         <span class="hello">Hello! I'm </span>
-        <span class="name">Jack Weilage</span>
+        <span class="name">Jack&nbsp;Weilage</span>
         
         <div class="line" />
     </h1>
@@ -77,8 +77,6 @@
             color: var(--theme-green);
 
             span.name {
-                white-space: nowrap;
-
                 @media screen and (max-width: 600px) {
                     font-size: 15vw;
                 }
@@ -131,35 +129,29 @@
             }            
         }
         ul.contact-list {
-            @include flex($align: center, $justify: center);
-            
             margin: 0;
+            // Yuck.
+            margin-bottom: -6rem;
             padding: 0;
 
-
-            @media screen and (max-width: 600px) {
-                flex-direction: column;
-            }
-
             li {
+                display: inline;
                 list-style: none;
                 font-size: 1.2rem;
 
                 text-align: center;
 
+                @media screen and (max-width: 800px) {
+                    display: block;
+                    padding: 0.5rem;
+                }
+
                 &:not(:last-child)::after {
-                    content: '';
-                    margin: 0 0.75rem;
-        
-                    border-top: 0.5px solid var(--theme-border);
-                    border-right: 0.5px solid var(--theme-border);
-        
-                    align-self: stretch;
+                    content: '- ';
+                    margin: 0 1rem;
 
-                    @media screen and (max-width: 600px) {
-                        display: block;
-
-                        margin: 0.25rem 0;
+                    @media screen and (max-width: 800px) {
+                        display: none;
                     }
                 }
             }
