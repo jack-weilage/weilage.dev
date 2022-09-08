@@ -130,10 +130,12 @@
         }
         ul.contact-list {
             margin: 0;
-            // Yuck.
-            margin-bottom: -6rem;
             padding: 0;
-
+            
+            @media screen and (max-width: 800px) {
+                // Yuck.
+                margin-bottom: -6rem;
+            }
             li {
                 display: inline;
                 list-style: none;
