@@ -44,20 +44,26 @@
             // Leave a big space on the right for an image later.
             padding: 8rem 20rem 4rem 4rem;
     
-            @media screen and (max-width: 900px) {
+            //TODO: Clean up these media queries, too many!
+            @media (max-width: 900px) {
                 padding-right: 2rem;
             }
-            @media screen and (max-width: 800px) {
+            @media (max-width: 800px) {
                 padding-left: 2rem;
             }
-            @media screen and (max-width: 650px) {
+            @media (max-width: 650px) {
                 padding-top: 4rem;
             }
+
             h1 {
                 margin: 0;
                 font-size: 5rem;
                 font-weight: 700;
                 letter-spacing: -2px;
+
+                @media (max-width: 375px) {
+                    font-size: 21vw;
+                }
             }
             p {
                 :global(a) {
