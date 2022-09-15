@@ -1,6 +1,6 @@
 :root {
-    $theme-background-light: #fbfbfb;
-    $theme-background-dark: #0d0d15;
+    --theme-background-light: #fff;
+    --theme-background-dark: #0d0d15;
     
     --theme-text-light: #161716;
     --theme-text-dark: #fbfbfb;
@@ -24,7 +24,7 @@
 }
 /* Default/Light-mode colors */
 :root {
-    --theme-background:     $theme-background-light;
+    --theme-background:     var(--theme-background-light);
     --theme-text:           var(--theme-text-light);
     --theme-anchor:         var(--theme-anchor-light);
     --theme-anchor-hover:   var(--theme-anchor-hover-light);
@@ -33,7 +33,7 @@
 @media (prefers-color-scheme: dark) {
     :root {
         /* Dark-mode colors */
-        --theme-background:     $theme-background-dark;
+        --theme-background:     var(--theme-background-dark);
         --theme-text:           var(--theme-text-dark);
         --theme-anchor:         var(--theme-anchor-dark);
         --theme-anchor-hover:   var(--theme-anchor-hover-dark);
