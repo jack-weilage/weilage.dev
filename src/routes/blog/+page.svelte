@@ -29,7 +29,7 @@
     main {
         padding: 1rem;
 
-        h1 {
+        > h1 {
             padding-bottom: 0.25rem;
             border-bottom: 2px solid var(--theme-border);
 
@@ -37,7 +37,7 @@
                 text-align: center;
             }
         }
-        div.articles {
+        > div.articles {
             @include flex($wrap: wrap, $justify: space-evenly, $gap: 2rem);
         }
     }

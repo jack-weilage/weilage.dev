@@ -41,7 +41,7 @@
     main {
         grid-row: main;
         
-        div.content {
+        > div.content {
             // Leave a big space on the right for an image later.
             padding: 8rem 20rem 4rem 4rem;
     
@@ -56,7 +56,7 @@
                 padding-top: 4rem;
             }
 
-            h1 {
+            > h1 {
                 margin: 0;
                 font-size: 5rem;
                 font-weight: 700;
@@ -66,7 +66,7 @@
                     font-size: 21vw;
                 }
             }
-            p {
+            > p {
                 :global(a) {
                     font-weight: bold;
                 }

@@ -40,33 +40,33 @@
     @import '../../../lib/css/markdown.scss';
 
     main {
-        article {
+        > article {
             margin: 0 15%;
             padding: 0.5rem;
 
             @media screen and (max-width: 900px) {
                 margin: 0;
             }
-            header {
+            > header {
                 text-align: center;
 
                 padding-bottom: 1rem;
                 margin-bottom: 1rem;
                 border-bottom: 2px solid var(--theme-border);
 
-                h1 {
+                > h1 {
                     margin: 4rem 1rem 0.5rem;
 
                     font-size: 2.5em;
                 }
-                time {
+                > time {
                     margin: 0.25rem 0;
 
                     font-size: 0.8em;
                     filter: opacity(50%);
                 }
             }
-            main {
+            > main {
                 @include flex($direction: column);
 
                 padding: 1.5rem 5rem;
@@ -80,8 +80,8 @@
                     @include markdown;
                 }
             }
-            footer {
-                a.scroll-to-top {
+            > footer {
+                > a.scroll-to-top {
                     @include flex($align: center, $justify: center);
 
                     position: fixed;

@@ -26,7 +26,7 @@
         grid-row: header;
         @include flex($wrap: wrap, $align: flex-start);
         
-        a.skip-to-main {
+        > a.skip-to-main {
             position: absolute;
             left: 0;
             right: 0;
@@ -47,10 +47,10 @@
             }
         }
         
-        nav {
+        > nav {
             @include flex;
 
-            a {
+            > a {
                 padding: 1rem;
             }
         }

@@ -38,14 +38,14 @@
 
         padding: 2rem;
 
-        h1 {
+        > h1 {
             font-size: 2rem;
     
             margin-bottom: 1rem;
     
             border-bottom: 1px solid var(--theme-text);
         }
-        p {
+        > p {
             margin-bottom: 0.5rem;
         }
     }
