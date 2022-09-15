@@ -25,7 +25,7 @@
     </script>
 </svelte:head>
 
-<main>
+<main id="main-content">
     <div class="content">
         <h1>Jack Weilage</h1>
         <p>
