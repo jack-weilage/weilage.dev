@@ -1,3 +1,6 @@
+// This path cannot be prerendered as each slug is a different page. I think that's how it works?
+export const prerender = false
+
 import { error } from '@sveltejs/kit'
 import { parse, type Metadata } from '!utils/posts'
 

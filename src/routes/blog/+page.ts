@@ -1,3 +1,6 @@
+// I assume this route isn't prerenderable because of this load function?
+export const prerender = false
+
 import type { Metadata } from '!utils/posts'
 
 import type { PageLoad } from './$types'
