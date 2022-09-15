@@ -1,1 +1,0 @@
-export const defaults = <T>(input: object, defaults: T): T => ({ ...defaults, ...input })

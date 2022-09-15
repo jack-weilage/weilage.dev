@@ -1,6 +1,4 @@
 <script lang="ts">
-    import { defaults } from '!utils'
-
     
     /** The title for both the browser and search engines. */
     export let title: string
@@ -26,6 +24,8 @@
         noarchive && 'noarchive' 
     ].filter(Boolean)?.join()
 
+    const defaults = <T>(input: object, defaults: T): T => ({ ...defaults, ...input })
+    
     /** Opengraph data (for social media). */
     export let opengraph: {
         title?: string
