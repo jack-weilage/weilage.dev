@@ -1,8 +1,5 @@
 import type { SitemapConfig } from '!types'
 import type { Metadata } from '!utils/posts'
-import svelte_config from '../../../svelte.config'
-
-const trailingSlash = svelte_config.kit?.trailingSlash === 'always' ? '/' : ''
 
 const escape = (str: string) => str.replace(/["'<>&]/g, '')
 const construct_url = (elements: Record<string, string | number>) => 
@@ -26,7 +23,7 @@ export const GET: RequestHandler = async function({ url })
         sitemap += construct_url({
             loc: url.origin + path
                 .replace(/^\.\./, '')
-                .replace(/\/\+page\.ts$/, trailingSlash),
+                .replace(/\/\+page\.ts$/, '/'),
             ...(config.changefreq ? { changefreq: config.changefreq } : undefined),
             ...(config.priority ? { priority: config.priority } : undefined)
         })
@@ -36,7 +33,7 @@ export const GET: RequestHandler = async function({ url })
     for (const [ slug, metadata ] of Object.entries(blog_posts))
     {
         const elements = {
-            loc: `${url.origin}/blog/${slug}`,
+            loc: `${url.origin}/blog/${slug}/`,
             lastmod: metadata.date_modified || metadata.date_published,
             priority: 0.5
         }
