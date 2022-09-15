@@ -1,7 +1,13 @@
 <script lang="ts">
-    import { Link } from '!components'
+    import { SvEO, Link } from '!components'
 </script>
 
+<SvEO
+    title="Jack Weilage - Home"
+    description="The homepage of Jack Weilage, a web developer and designer."
+    author="Jack Weilage"
+    keywords={[ 'jack weilage', 'web developer', 'designer' ]}
+/>
 <svelte:head>
     <script type="application/ld+json">
     {
