@@ -1,5 +1,6 @@
 <script lang="ts">
-    import { SvEO, Link } from '!components'
+    import SvEO from '!components/SvEO.svelte'
+    import Link from '!components/Link.svelte'
 </script>
 
 <SvEO

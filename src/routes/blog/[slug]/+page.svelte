@@ -5,7 +5,7 @@
     let height = 0
     let scroll = 0
 
-    import { SvEO } from '!components'
+    import SvEO from '!components/SvEO.svelte'
     import ChevronUp from 'carbon-icons-svelte/lib/ChevronUp.svelte'
     import { fly } from 'svelte/transition'
 </script>

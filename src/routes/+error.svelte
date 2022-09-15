@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { SvEO } from '!components'
+    import SvEO from '!components/SvEO.svelte'
     import { page } from '$app/stores'
 
     const online = typeof navigator !== 'undefined' ? navigator.onLine : true

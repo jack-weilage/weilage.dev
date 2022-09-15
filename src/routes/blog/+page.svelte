@@ -4,13 +4,13 @@
 
     import { DateTime } from 'luxon'
 
-    import { SvEO } from '!components'
+    import SvEO from '!components/SvEO.svelte'
     import { page } from '$app/stores'
 </script>
 
 <SvEO
     title="Blog - Jack Weilage"
-    description=""
+    description="A blog run by Jack Weilage, describing web development."
     keywords={[ 'blog', 'jack weilage' ]}
 />
 
