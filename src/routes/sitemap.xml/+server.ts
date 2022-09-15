@@ -45,8 +45,6 @@ export const GET: RequestHandler = async function({ url })
 
     return new Response(sitemap, {
         headers: {
-            // 'Cache-Control': 'no-cache',
-            // 'Content-Length': sitemap.length.toString(),
             'Content-Type': 'application/xml'
         }
     })
