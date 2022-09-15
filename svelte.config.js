@@ -31,8 +31,7 @@ const config = {
             mode: 'auto',
             directives: {
                 'default-src': ['self'],
-                'style-src': ['self', 'unsafe-inline'],
-                'img-src': ['self', 'https://dummyimage.com'],
+                'style-src': ['self', 'unsafe-inline']
             },
         },
         trailingSlash: 'always',
