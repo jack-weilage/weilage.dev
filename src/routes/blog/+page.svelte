@@ -18,7 +18,7 @@
     <h1>Posts</h1>
     <div class="articles">
         {#if data.posts && Object.keys(data.posts).length > 0}
-            {#each Object.entries(data.posts) as [slug, { title, description, tags, date_published, date_modified }]}
+            {#each Object.entries(data.posts) as [slug, { title, description, tags, date_published }]}
             {@const url = new URL(slug + '/', $page.url)}
                 <article>
                     <h2 class="title"><a href={url.toString()} data-sveltekit-prefetch>{title}</a></h2>
