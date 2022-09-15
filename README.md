@@ -7,8 +7,7 @@ This website is __*very*__ early in development, so many many items simply haven
 - [ ] Upgrade homepage
     - [ ] Animate all elements smoothly
     - [ ] Add background mask
-- [ ] Create blog
-    - [ ] Add markdown parser
+- [x] Create blog
     - [ ] Actually create blog articles
 
 ## Development
