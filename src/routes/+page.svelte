@@ -1,160 +1,61 @@
 <script lang="ts">
-    import { SvEO } from '!components'
-    
-    const contacts: {
-        href:  string
-        text:  string
-        title: string
-    }[] = [
-        {
-            href: '/blog/',
-            text: 'Read my ramblings',
-            title: 'Read my blog',
-        },
-        {
-            href: '/examples/',
-            text: 'View examples',
-            title: 'View examples',
-        },
-        {
-            href: 'https://github.com/jack-weilage',
-            text: 'View my code',
-            title: 'View my GitHub profile',
-        },
-        {
-            href: 'mailto:jack@weilage.dev',
-            text: 'Email me',
-            title: 'Send me an email',
-        },
-    ]
+    import { Link } from '!components'
 </script>
 
-<SvEO
-    title="Home - Jack Weilage"
-    description="Welcome to weilage.dev, a personal website for Jack Weilage, a web developer and designer."
-    keywords={[ 'weilage.dev', 'jack weilage', 'portfolio', 'developer', 'designer' ]}
-    canonical="https://weilage.dev/"
-/>
+<svelte:head>
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org/",
+        "@type": "Person",
+        "name": "Jack Weilage",
+        "gender": "Male",
+        "sameAs": [
+            "https://weilage.dev/",
+            "https://github.com/jack-weilage",
+            "https://figma.com/@weilage"
+        ],
+        "url": "https://weilage.dev/"
+    }
+    </script>
+</svelte:head>
 
 <main>
-    <h1 class="greeting">
-        <div class="line" />
-
-        <span class="hello">Hello! I'm </span>
-        <span class="name">Jack&nbsp;Weilage</span>
-        
-        <div class="line" />
-    </h1>
-    <ul class="contact-list">
-        {#each contacts as { href, title, text }}
-            <li>
-                <a {href} {title}>{text}</a>
-            </li>
-        {/each}
-    </ul>
+    <div class="content">
+        <h1>Jack Weilage</h1>
+        <p>
+            I'm a <Link href="https://github.com/jack-weilage">web developer</Link> and <Link href="https://figma.com/@weilage">designer</Link>, working to improve the web through performant code and accessible designs.
+            As a student, I'm currently building websites with <Link href="https://svelte.dev">Svelte</Link>&nbsp;/&nbsp;<Link href="https://kit.svelte.dev">SvelteKit</Link> and learning modern methods to optimize websites.
+            I strongly belive that as the average connection speed increases, the importance of performance and weight reduction only increases.
+        </p>
+    </div>
 </main>
 
 <style lang="scss">
-    $transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.25s;
-
     main {
-        @include flex($direction: column, $align: center, $justify: center);
+        grid-row: main;
         
-        padding: 1rem;
-        
-        h1.greeting {
-            margin: 0;
-            
-            text-align: center;
-            vertical-align: middle;
-            
-            font-size: 4.5rem;
-            font-weight: 700;
-            font-variant: small-caps;
-            text-transform: lowercase;
-            font-style: italic;
-
-            color: var(--theme-green);
-
-            span.name {
-                @media screen and (max-width: 600px) {
-                    font-size: 15vw;
-                }
+        div.content {
+            // Leave a big space on the right for an image later.
+            padding: 8rem 20rem 4rem 4rem;
+    
+            @media screen and (max-width: 900px) {
+                padding-right: 2rem;
             }
-            span.hello {
-                position: absolute;
-                
-                font-size: 1.5rem;
-                font-weight: 200;
-                text-transform: none;
-
-                color: var(--theme-text);
-                
-                transform: translateX(2.5rem);
-
-                transition: transform $transition;
-
-                @media screen and (max-width: 600px) {
-                    font-size: 7.5vw;
-                    transform: translate(25%, 25%);
-                }
-            }
-            div.line {
-                display: inline-block;
-                vertical-align: middle;
-
-                border-top: 1px solid var(--theme-border);
-
-                width: 10.5rem;
-                margin: 0 1rem;
-
-                transition: 
-                    width $transition, 
-                    margin $transition;
-
-                @media screen and (max-width: 920px) {
-                    display: none;
-                }
-            }
-            &:hover {
-                span.hello {
-                    transform: 
-                        translateX(2rem) 
-                        translateY(0.2rem);
-                }
-                div.line {
-                    width: 10rem;
-                    margin: 0 -0.25rem;
-                }
-            }            
-        }
-        ul.contact-list {
-            margin: 0;
-            padding: 0;
-            
             @media screen and (max-width: 800px) {
-                // Yuck.
-                margin-bottom: -6rem;
+                padding-left: 2rem;
             }
-            li {
-                display: inline;
-                list-style: none;
-                font-size: 1.2rem;
-
-                text-align: center;
-
-                @media screen and (max-width: 800px) {
-                    display: block;
-                    padding: 0.5rem;
-                }
-
-                &:not(:last-child)::after {
-                    content: '- ';
-                    margin: 0 1rem;
-
-                    @media screen and (max-width: 800px) {
-                        display: none;
-                    }
+            @media screen and (max-width: 650px) {
+                padding-top: 4rem;
+            }
+            h1 {
+                margin: 0;
+                font-size: 5rem;
+                font-weight: 700;
+                letter-spacing: -2px;
+            }
+            p {
+                :global(a) {
+                    font-weight: bold;
                 }
             }
         }
