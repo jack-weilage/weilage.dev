@@ -75,10 +75,6 @@
                 @media screen and (max-width: 700px) {
                     padding: 0.5rem 1.5rem;
                 }
-
-                :global {
-                    @include markdown;
-                }
             }
             > footer {
                 > a.scroll-to-top {
@@ -98,5 +94,10 @@
                 }
             }
         }
+    }
+    
+    // Why? Don't ask me...
+    main article main :global {
+        @include markdown;
     }
 </style>
