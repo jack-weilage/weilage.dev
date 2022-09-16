@@ -32,7 +32,6 @@
         <p>
             I'm a <Link href="https://github.com/jack-weilage">web developer</Link> and <Link href="https://figma.com/@weilage">designer</Link>, working to improve the web through performant code and accessible designs.
             As a student, I'm currently building websites with <Link href="https://svelte.dev">Svelte</Link>&nbsp;/&nbsp;<Link href="https://kit.svelte.dev">SvelteKit</Link> and learning modern methods to optimize websites.
-            I strongly belive that as the average connection speed increases, the importance of performance and weight reduction only increases.
         </p>
     </div>
 </main>
