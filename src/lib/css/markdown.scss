@@ -1,5 +1,14 @@
 @mixin markdown {
-    :not(pre) code {
+    pre {
+        word-wrap: break-word;
+        white-space: pre-wrap;
+
+        border-radius: 0.5rem;
+        border: 1px solid var(--theme-border);
+
+        padding: 0.75rem 0.5rem;
+    }
+    :not(pre) > code {
         white-space: nowrap;
         background-color: var(--theme-border);
 
@@ -57,85 +66,85 @@
     }
 
     // Prism syntax highlighting
-    // .token {
-    //     &.namespace {
-    //         opacity: .7;
-    //     }
+    .token {
+        &.namespace {
+            opacity: .7;
+        }
 
-    //     &.comment, &.prolog, &.doctype, &.cdata {
-    //         color: #6f705e;
-    //     }
+        &.comment, &.prolog, &.doctype, &.cdata {
+            color: #6f705e;
+        }
 
-    //     &.boolean, &.number {
-    //         color: #99f;
-    //     }
+        &.boolean, &.number {
+            color: #99f;
+        }
 
-    //     &.attr-name, &.string, &.entity, &.url, 
-    //     .language-css &.string, .style &.string {
-    //         color: #e6d06c;
-    //     }
+        &.attr-name, &.string, &.entity, &.url, 
+        .language-css &.string, .style &.string {
+            color: #e6d06c;
+        }
 
-    //     &.selector, &.inserted {
-    //         color: #a6e22d;
-    //     }
+        &.selector, &.inserted {
+            color: #a6e22d;
+        }
 
-    //     &.atrule, &.attr-value, &.keyword, &.important, &.deleted {
-    //         color: #ef3b7d;
-    //     }
+        &.atrule, &.attr-value, &.keyword, &.important, &.deleted {
+            color: #ef3b7d;
+        }
 
-    //     &.regex, &.statement {
-    //         color: #76d9e6;
-    //     }
+        &.regex, &.statement {
+            color: #76d9e6;
+        }
 
-    //     &.placeholder, &.variable {
-    //         color: #fff;
-    //     }
+        &.placeholder, &.variable {
+            color: #fff;
+        }
 
-    //     &.builtin {
-    //         color: #ef3b7d;
-    //     }
+        &.builtin {
+            color: #ef3b7d;
+        }
 
-    //     &.tag {
-    //         color: var(--theme-green);
+        &.tag {
+            color: var(--theme-green);
 
-    //     }
+        }
 
-    //     &.important, &.statement, &.bold {
-    //         font-weight: bold;
-    //     }
+        &.important, &.statement, &.bold {
+            font-weight: bold;
+        }
 
-    //     &.punctuation {
-    //         color: #bebec5;
-    //     }
+        &.punctuation {
+            color: #bebec5;
+        }
 
-    //     &.entity {
-    //         cursor: help;
-    //     }
+        &.entity {
+            cursor: help;
+        }
 
-    //     &.italic {
-    //         font-style: italic;
-    //     }
-    // }
+        &.italic {
+            font-style: italic;
+        }
+    }
 
-    // code.language-markup {
-    //     color: #f9f9f9;
+    code.language-markup {
+        color: #f9f9f9;
 
-    //     .token {
-    //         &.tag {
-    //             color: #ef3b7d;
-    //         }
+        .token {
+            &.tag {
+                color: #ef3b7d;
+            }
 
-    //         &.attr-name {
-    //             color: #a6e22d;
-    //         }
+            &.attr-name {
+                color: #a6e22d;
+            }
 
-    //         &.attr-value {
-    //             color: #e6d06c;
-    //         }
+            &.attr-value {
+                color: #e6d06c;
+            }
         
-    //         &.style, &.script, &.script, &.keyword {
-    //             color: #76d9e6;
-    //         }
-    //     }
-    // }
+            &.style, &.script, &.script, &.keyword {
+                color: #76d9e6;
+            }
+        }
+    }
 }
