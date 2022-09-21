@@ -21,7 +21,10 @@
     <article id="top">
         <header>
             <h1>{data.title}</h1>
-            <time datetime={data.date_published.toISO()}>{data.date_published.toFormat('LLLL dd, yyyy')}</time>
+            <p>
+                Published on 
+                <time datetime={data.date_published.toISO()}>{data.date_published.toFormat('LLLL dd, yyyy')}</time>
+            </p>
         </header>
         <main>
             <svelte:component this={data.component} />
@@ -59,7 +62,7 @@
 
                     font-size: 2.5em;
                 }
-                > time {
+                > p {
                     margin: 0.25rem 0;
 
                     font-size: 0.8em;
