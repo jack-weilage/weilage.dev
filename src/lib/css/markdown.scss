@@ -1,6 +1,5 @@
 @mixin markdown {
-    h1, h2, h3, h4, h5, h6 {
-        // margin-top: 4rem;
+    h2, h3, h4, h5, h6 {
         margin: 4rem 0 0.5rem;
 
         a.heading-link {
@@ -16,7 +15,9 @@
             text-decoration: none;
         }
 
-        & + p {
+        // The first element after a heading should not have extra margin.
+        // Helps keep consistent styling.
+        & + * {
             margin-top: 0;
         }
     }
@@ -30,6 +31,7 @@
 
         padding: 0.75rem 0.5rem;
     }
+    // If code is just sitting inside a paragraph it should look different than standalone code.
     :not(pre) > code {
         white-space: nowrap;
         background-color: var(--color--border);
