@@ -19,13 +19,14 @@ export const GET: import('./$types').RequestHandler = async function({ url })
         if (!config || !config.enabled)
             continue
 
-        sitemap += construct_url({
+        const elements = {
             loc: url.origin + path
                 .replace(/^\.\./, '')
                 .replace(/\/\+page\.ts$/, '/'),
             ...(config.changefreq ? { changefreq: config.changefreq } : undefined),
             ...(config.priority   ? { priority: config.priority }     : undefined)
-        })
+        }
+        sitemap += construct_url(elements)
     }
 
     for (const post of posts)
@@ -35,13 +36,14 @@ export const GET: import('./$types').RequestHandler = async function({ url })
             lastmod: post.date,
             priority: 0.5
         }
-
         sitemap += construct_url(elements)
     }
 
     sitemap += '</urlset>'
 
     return new Response(sitemap, {
-        headers: { 'Content-Type': 'application/xml' }
+        headers: {
+            'Content-Type': 'application/xml'
+        }
     })
 }
