@@ -93,7 +93,8 @@
         }
     }
     a.scroll-to-top {
-        @include flex($align: center, $justify: center);
+        display: grid;
+        place-items: center;
 
         position: fixed;
         bottom: 2rem;

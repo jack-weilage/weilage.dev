@@ -12,11 +12,6 @@ const config = {
         mdsvex(mdsvex_config), 
         preprocess({
             preserve: [ 'ld+json' ],
-            scss: { 
-                prependData: `
-                    @import './src/lib/css/mixins.scss';
-                ` 
-            }
         })
     ],
     kit: {

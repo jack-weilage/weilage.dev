@@ -6,9 +6,9 @@
 <header>
     <a href="#main-content" class="skip-to-main">Skip To Main Content</a>
 
-    <nav>
-        <a href="/" data-sveltekit-prefetch>Home</a>
-        <a href="/blog/" data-sveltekit-prefetch>Blog</a>
+    <nav data-sveltekit-prefetch>
+        <a href="/">Home</a>
+        <a href="/blog/">Blog</a>
     </nav>
 </header>
 
@@ -23,18 +23,20 @@
     header {
         //TODO: Figure out why header sometimes shows below content.
         z-index: 1;
+        grid-row: header;
 
         position: fixed;
         top: 0;
         width: 100%;
 
         background-color: var(--color--background);
-        //TODO: Implement fancy blurred background.
-        // background-color: rgba(0, 0, 0, 0.7);
+        //TODO: Implement fancy blurred background with CSS vars.
+        // background-color: rgba(0, 0, 0, 0.6);
         // backdrop-filter: saturate(1.5) blur(20px);
 
-        grid-row: header;
-        @include flex($wrap: wrap, $align: flex-start);
+
+        display: flex;
+        flex-wrap: wrap;
         
         > a.skip-to-main {
             position: absolute;
@@ -58,7 +60,7 @@
         }
         
         > nav {
-            @include flex;
+            display: flex;
 
             > a {
                 padding: 1rem;
