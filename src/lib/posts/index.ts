@@ -35,3 +35,6 @@ export const posts: PostData[] = Object.entries(import.meta.glob('../../routes/b
         } as PostData
     })
     .sort((a, b) => +new Date(b.date) - +new Date(a.date))
+
+export const posts_no_drafts = posts
+    .filter(post => !post.draft)

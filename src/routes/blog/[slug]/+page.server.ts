@@ -1,4 +1,4 @@
-import { posts as unfiltered_posts } from '$lib/posts'
+import { posts_no_drafts as posts } from '$lib/posts'
 import { error } from '@sveltejs/kit'
 import dayjs from 'dayjs'
 
@@ -6,8 +6,6 @@ import type { PageServerLoad } from './$types'
 
 export const load: PageServerLoad = function ({ params })
 {
-    const posts = unfiltered_posts.filter(post => !post.draft)
-
     const index = posts.findIndex(post => post.slug === params.slug)
     const post = posts[index]
 
