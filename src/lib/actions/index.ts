@@ -1,1 +1,0 @@
-export { default as forward_events } from './forward_events'

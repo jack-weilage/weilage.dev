@@ -11,26 +11,28 @@
 </script>
 
 <SvEO 
-    title={data.title}
-    description={data.description}
-    keywords={[ ...data.tags, 'blog' ]}
+    title={data.post.title}
+    description={data.post.description}
+    keywords={[ ...data.post.tags, 'blog' ]}
 />
 
-<svelte:window bind:scrollY={scroll} />
-<main id="main-content" bind:clientHeight={height}>
+<svelte:window bind:scrollY={scroll} bind:innerHeight={height} />
+
+<main id="main-content">
     <article id="top">
         <header>
-            <h1>{data.title}</h1>
-            <p>
-                Published on 
-                <time datetime={data.date_published.toISO()}>{data.date_published.toFormat('LLLL dd, yyyy')}</time>
+            <h1>{data.post.title}</h1>
+            <p class="details">
+                Published on <time datetime={data.date.iso}>{data.date.format}</time>
+                •
+                {Math.ceil(data.post.wordcount / 200)} minute read
             </p>
         </header>
-        <main>
+        <main class="post-content">
             <svelte:component this={data.component} />
         </main>
         <footer>
-            {#if scroll / height > 0.2}
+            {#if scroll > height}
                 <a href="#top" class="scroll-to-top" title="Scroll to top" transition:fly={{ y: 15 }}>
                     <ChevronUp width="2rem" height="2rem" />
                 </a>
@@ -42,65 +44,62 @@
 <style lang="scss">
     @import '../../../lib/css/markdown.scss';
 
-    main {
-        > article {
-            margin: 0 15%;
-            padding: 0.5rem;
+    main#main-content {
+        display: grid;
+        grid-template-columns: [gutter-left] 0.5fr [main] 3fr [gutter-right] 0.5fr;
 
-            @media screen and (max-width: 900px) {
-                margin: 0;
-            }
-            > header {
-                text-align: center;
+        gap: 1rem;
 
-                padding-bottom: 1rem;
-                margin-bottom: 1rem;
-                border-bottom: 2px solid var(--theme-border);
-
-                > h1 {
-                    margin: 4rem 1rem 0.5rem;
-
-                    font-size: 2.5em;
-                }
-                > p {
-                    margin: 0.25rem 0;
-
-                    font-size: 0.8em;
-                    filter: opacity(50%);
-                }
-            }
-            > main {
-                @include flex($direction: column);
-
-                padding: 1.5rem 5rem;
-                line-height: 1.5;
-
-                @media screen and (max-width: 700px) {
-                    padding: 0.5rem 1.5rem;
-                }
-            }
-            > footer {
-                > a.scroll-to-top {
-                    @include flex($align: center, $justify: center);
-
-                    position: fixed;
-                    bottom: 1rem;
-                    left: 1rem;
-
-                    width: 3rem;
-                    height: 3rem;
-
-
-                    border-radius: 50%;
-                    color: var(--theme-background);
-                    background-color: var(--theme-text);
-                }
-            }
+        @media (max-width: 700px) {
+            grid-template-columns: [main] 1fr;
         }
+    }
+    article {
+        grid-column: main;
+    }
+    header {
+        text-align: center;
+
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid var(--color--border);
+    }
+    h1 {
+        margin: 4rem 1rem 0.5rem;
+        
+        font-size: 3em;
+    }
+    p.details {
+        margin: 0.25rem 0;
+        
+        font-size: 0.8em;
+        opacity: 0.5;
+    }
+    .post-content {
+        padding: 1.5rem 5rem;
+        line-height: 1.5;
+
+        @media (max-width: 700px) {
+            padding: 1rem 1.5rem;
+        }
+    }
+    a.scroll-to-top {
+        @include flex($align: center, $justify: center);
+
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+
+        width: 3rem;
+        height: 3rem;
+
+        border-radius: 50%;
+        color: var(--color--background);
+        background-color: var(--color--text-bold);
     }
     
     // Why? Don't ask me...
-    main article main :global {
+    .post-content :global {
         @include markdown;
     }
 </style>

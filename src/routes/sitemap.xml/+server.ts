@@ -1,5 +1,5 @@
 import type { SitemapConfig } from '!types'
-import type { Metadata } from '!utils/posts'
+import { posts } from '$lib/posts'
 
 const escape = (str: string) => str.replace(/["'<>&]/g, '')
 const construct_url = (elements: Record<string, string | number>) => 
@@ -25,16 +25,15 @@ export const GET: RequestHandler = async function({ url })
                 .replace(/^\.\./, '')
                 .replace(/\/\+page\.ts$/, '/'),
             ...(config.changefreq ? { changefreq: config.changefreq } : undefined),
-            ...(config.priority ? { priority: config.priority } : undefined)
+            ...(config.priority   ? { priority: config.priority }     : undefined)
         })
     }
 
-    const blog_posts = await fetch(new URL('/api/blog/posts', url.origin)).then(res => res.json()) as Record<string, Metadata>
-    for (const [ slug, metadata ] of Object.entries(blog_posts))
+    for (const post of posts)
     {
         const elements = {
-            loc: `${url.origin}/blog/${slug}/`,
-            lastmod: metadata.date_modified || metadata.date_published,
+            loc: `${url.origin}/blog/${post.slug}/`,
+            lastmod: post.date,
             priority: 0.5
         }
 
@@ -44,8 +43,6 @@ export const GET: RequestHandler = async function({ url })
     sitemap += '</urlset>'
 
     return new Response(sitemap, {
-        headers: {
-            'Content-Type': 'application/xml'
-        }
+        headers: { 'Content-Type': 'application/xml' }
     })
 }

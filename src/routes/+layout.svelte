@@ -1,8 +1,6 @@
 <script>
-    import 'normalize.css'
     import '!css/vars.scss'
     import '!css/global.scss'
-
 </script>
 
 <header>
@@ -23,6 +21,18 @@
 
 <style lang="scss">
     header {
+        //TODO: Figure out why header sometimes shows below content.
+        z-index: 1;
+
+        position: fixed;
+        top: 0;
+        width: 100%;
+
+        background-color: var(--color--background);
+        //TODO: Implement fancy blurred background.
+        // background-color: rgba(0, 0, 0, 0.7);
+        // backdrop-filter: saturate(1.5) blur(20px);
+
         grid-row: header;
         @include flex($wrap: wrap, $align: flex-start);
         

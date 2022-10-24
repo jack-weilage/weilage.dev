@@ -13,19 +13,19 @@ const config = {
         preprocess({
             preserve: [ 'ld+json' ],
             scss: { 
-                prependData: `@import './src/lib/css/mixins.scss';` 
+                prependData: `
+                    @import './src/lib/css/mixins.scss';
+                ` 
             }
         })
     ],
     kit: {
         adapter: adapter(),
         alias: {
-            '!actions': 'src/lib/actions',
             '!components': 'src/lib/components',
             '!css': 'src/lib/css',
-            '!images': 'src/images',
+            '!posts': 'src/lib/posts',
             '!types': 'src/lib/types',
-            '!utils': 'src/lib/utils',
         },
         csp: {
             mode: 'auto',

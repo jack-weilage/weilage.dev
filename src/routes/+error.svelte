@@ -43,7 +43,7 @@
     
             margin-bottom: 1rem;
     
-            border-bottom: 1px solid var(--theme-text);
+            border-bottom: 1px solid var(--color--text-bold);
         }
         > p {
             margin-bottom: 0.5rem;
