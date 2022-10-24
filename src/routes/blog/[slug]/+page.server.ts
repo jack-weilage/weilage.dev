@@ -2,9 +2,7 @@ import { posts_no_drafts as posts } from '$lib/posts'
 import { error } from '@sveltejs/kit'
 import dayjs from 'dayjs'
 
-import type { PageServerLoad } from './$types'
-
-export const load: PageServerLoad = function ({ params })
+export const load: import('./$types').PageServerLoad = function ({ params })
 {
     const index = posts.findIndex(post => post.slug === params.slug)
     const post = posts[index]

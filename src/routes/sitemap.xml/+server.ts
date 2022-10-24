@@ -5,8 +5,7 @@ const escape = (str: string) => str.replace(/["'<>&]/g, '')
 const construct_url = (elements: Record<string, string | number>) => 
     `<url>${Object.entries(elements).map(([ el, val ]) => `<${el}>${escape(val.toString())}</${el}>`).join('')}</url>`
 
-import type { RequestHandler } from './$types'
-export const GET: RequestHandler = async function({ url })
+export const GET: import('./$types').RequestHandler = async function({ url })
 {
     let sitemap = '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
     

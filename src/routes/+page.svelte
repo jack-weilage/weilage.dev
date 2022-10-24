@@ -6,8 +6,7 @@ TODO: Main title/text should be horizontally centered. Maybe vertical center? Ho
     import Link from '!components/Link.svelte'
     import PostPreview from '!components/PostPreview.svelte'
 
-    import type { PageData } from './$types'
-    export let data: PageData
+    export let data: import('./$types').PageData
 
 
     import Down from 'carbon-icons-svelte/lib/ChevronDown.svelte'
