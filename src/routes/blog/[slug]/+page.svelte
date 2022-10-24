@@ -37,6 +37,15 @@
                     <ChevronUp width="2rem" height="2rem" />
                 </a>
             {/if}
+
+            <a href="/blog/{data.last?.slug ?? ''}" class="pagi last">
+                <span>Previous post</span>
+                {data.last?.title ?? 'No previous post (Go home)'}
+            </a>
+            <a href="/blog/{data.next?.slug ?? ''}" class="pagi next">
+                <span>Next post</span>
+                {data.next?.title ?? 'No next post (Go home)'}
+            </a>
         </footer>
     </article>
 </main>
@@ -96,6 +105,36 @@
         border-radius: 50%;
         color: var(--color--background);
         background-color: var(--color--text-bold);
+    }
+    footer {
+        display: grid;
+        grid-auto-flow: column;
+
+        gap: 2rem;
+
+        padding: 2rem;
+
+        a.pagi {
+            padding: 2rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--color--border);
+
+            &:hover {
+                text-decoration: none;
+            }
+            span {
+                display: block;
+                font-size: 1.5em;
+                font-weight: bold;
+                color: var(--color--text-bold);
+            }
+        }
+        a.next {
+            text-align: end;
+        }
+        @media (max-width: 700px) {
+            grid-auto-flow: row;
+        }
     }
     
     // Why? Don't ask me...
