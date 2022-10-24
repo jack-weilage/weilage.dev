@@ -10,21 +10,23 @@
     description="An error occurred while loading this page."
     keywords={[]}
     canonical=""
-    noindex noarchive
+    robots={{ noindex: true, noarchive: true }}
 />
 
 <main id="main-content">
     {#if online}
-        <h1>{$page.status}</h1>
         {#if $page.error?.message}
-            <p>{$page.status}: {$page.error.message}</p>
+            <h1>{$page.status}: {$page.error.message}</h1>
         {:else}
-            <p>You found a {$page.status} error!</p>
+            <h1>{$page.status}</h1>
         {/if}
         <p>
-            If this error persists when it seems like it really shouldn't, please contact me at 
-            <a href="mailto:jack@weilage.dev?subject=Recurring Error {$page.status}: {$page.error?.message ?? 'Unknown'}">jack@weilage.dev</a>
-            with a description of how to reproduce the error.
+            If this error is unexpected or seems like my fault, please contact me at 
+            <a href="mailto:jack@weilage.dev?subject={encodeURIComponent(`Recurring Error ${$page.status}: ${$page.error?.message ?? 'Unknown'}`)}&body={encodeURIComponent('Description: ')}">jack@weilage.dev</a>
+            with a description of how to reliably reproduce the error.
+        </p>
+        <p class="home">
+            <a href="/">Click here to travel back home</a>
         </p>
     {:else}
         <h1>You're currently offline!</h1>
@@ -34,19 +36,22 @@
 
 <style lang="scss">
     main {
-        @include flex($direction: column);
-
         padding: 2rem;
+    }
+    h1 {
+        font-size: 2rem;
+        
+        margin: 5rem 0 1rem;
+        padding-bottom: 0.5rem;
+        // margin-bottom: 1rem;
+        
+        border-bottom: 1px solid var(--color--text-bold);
+    }
+    p {
+        margin-bottom: 0.5rem;
 
-        > h1 {
-            font-size: 2rem;
-    
-            margin-bottom: 1rem;
-    
-            border-bottom: 1px solid var(--color--text-bold);
-        }
-        > p {
-            margin-bottom: 0.5rem;
+        &.home {
+            margin-top: 4rem;
         }
     }
 </style>
