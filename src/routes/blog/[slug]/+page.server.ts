@@ -8,7 +8,7 @@ export const load: import('./$types').PageServerLoad = function ({ params })
     const post = posts[index]
 
     if (!post)
-        throw error(404, 'Post not found')
+        throw error(404, 'Post Not Found')
     
     // Dates are static on the client, so we do all the work here. Saves like 10 KB
     const date = dayjs(post.date)
