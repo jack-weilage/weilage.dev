@@ -8,6 +8,7 @@ export const load: import('./$types').PageServerLoad = function ({ params })
 
     if (!post)
         throw error(404, 'Post Not Found')
+    
     return {
         post,
         // Posts are ordered from recent to old, so reverse the order here
