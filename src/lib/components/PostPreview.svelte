@@ -1,9 +1,10 @@
 <script lang="ts">
-    import type { PostData } from '!types'
     import dayjs from 'dayjs'
 
-    export let post: PostData
+    export let post: import('!types').PostData
     $: date = dayjs(post.date)
+
+    export let heading = 'h3'
 </script>
 
 <article id={post.slug}>
@@ -13,11 +14,11 @@
         {Math.ceil(post.wordcount / 200)} minute read
     </p>
     <div class="content">
-        <h3>
-            <a href="/blog/{post.slug}">
+        <svelte:element this={heading}>
+            <a href="/blog/{post.slug}/">
                 {post.title}
             </a>
-        </h3>
+        </svelte:element>
         <p>{post.description}</p>
     </div>
 </article>
@@ -49,8 +50,10 @@
         padding: 1rem;
         border-radius: 0.25rem;
 
-        h3 {
+        // Whatever heading shows up.
+        > *:first-child {
             margin: 0;
+            font-size: 1.75rem;
         }
         p {
             margin-bottom: 0;

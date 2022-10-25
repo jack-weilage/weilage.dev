@@ -2,7 +2,7 @@
     export let data: import('./$types').PageData
 
     import SvEO from '!components/SvEO.svelte'
-    import Post from '!components/PostPreview.svelte'
+    import PostPreview from '!components/PostPreview.svelte'
 </script>
 
 <SvEO
@@ -15,7 +15,7 @@
     <h1>Posts</h1>
     <div class="articles">
         {#each data.posts as post}
-            <Post {post} />
+            <PostPreview {post} heading="h2" />
         {:else}
             <p>No posts found.</p>
         {/each}
