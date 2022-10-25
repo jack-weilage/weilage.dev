@@ -36,7 +36,7 @@
         <footer>
             {#if scroll > height}
                 <a href="#top" class="scroll-to-top" title="Scroll to top" transition:fly={{ y: 15 }}>
-                    <ChevronUp width="2rem" height="2rem" />
+                    <ChevronUp width="2rem" height="2rem" aria-hidden="true" />
                 </a>
             {/if}
 

@@ -49,19 +49,19 @@ TODO: Main title/text should be horizontally centered. Maybe vertical center? Ho
             </p>
             <ul>
                 <li>
-                    <Github />
+                    <Github aria-hidden="true" />
                     <a href="https://github.com/jack-weilage">
                         Read my code!
                     </a>
                 </li>
                 <li>
-                    <Figma />
+                    <Figma aria-hidden="true" />
                     <a href="https://figma.com/@weilage">
                         Check out my designs!
                     </a>
                 </li>
                 <li>
-                    <Email />
+                    <Email aria-hidden="true" />
                     <a href="mailto:jack@weilage.dev">
                         Contact me!
                     </a>
@@ -69,7 +69,7 @@ TODO: Main title/text should be horizontally centered. Maybe vertical center? Ho
             </ul>
         </div>
         <a href="#posts" class="next-section" title="Move to next section">
-            <Down />
+            <Down aria-hidden="true" />
         </a>
     </section>
     <section id="posts">
