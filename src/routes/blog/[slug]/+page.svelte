@@ -7,6 +7,9 @@
     import SvEO from '!components/SvEO.svelte'
     import ChevronUp from 'carbon-icons-svelte/lib/ChevronUp.svelte'
     import { fly } from 'svelte/transition'
+
+    import dayjs from 'dayjs'
+    const date = dayjs(data.post.date)
 </script>
 
 <SvEO 
@@ -22,7 +25,7 @@
         <header>
             <h1>{data.post.title}</h1>
             <p class="details">
-                Published on <time datetime={data.date.iso}>{data.date.format}</time>
+                Published on <time datetime={date.toISOString()}>{date.format('MMMM D, YYYY')}</time>
                 •
                 {Math.ceil(data.post.wordcount / 200)} minute read
             </p>
