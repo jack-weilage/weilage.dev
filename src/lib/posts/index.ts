@@ -6,7 +6,7 @@ import type { Heading, PostData, ViteGlobImport } from '!types'
 if (browser)
     throw new Error('Posts cannot be accessed from browser.')
 
-export const posts: PostData[] = Object.entries(import.meta.glob('../../routes/blog/content/*.md', { eager: true }) as ViteGlobImport)
+export const posts: PostData[] = Object.entries(import.meta.glob('./content/**/*.md', { eager: true  }) as ViteGlobImport)
     .map(([ path, content ]) => {
         
         // Create a slug
