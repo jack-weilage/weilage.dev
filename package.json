@@ -12,7 +12,7 @@
   "devDependencies": {
     "@sveltejs/adapter-vercel": "next",
     "@sveltejs/kit": "next",
-    "@types/node": "^18.11.4",
+    "@types/node": "^18.11.5",
     "@vcarl/remark-headings": "^0.1.0",
     "carbon-icons-svelte": "^11.4.0",
     "dayjs": "^1.11.6",
