@@ -5,6 +5,7 @@ import mdsvex_config from './mdsvex.config.js'
 
 import preprocess from 'svelte-preprocess'
 import postcss_preset_env from 'postcss-preset-env'
+import cssnano from 'cssnano'
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -19,7 +20,9 @@ const config = {
                         browsers: [ '>1%', 'not dead', 'last 2 versions' ],
                         stage: 1
                     }),
-                    
+                    cssnano({
+                        preset: 'default'
+                    })
                 ]
             }
         })
