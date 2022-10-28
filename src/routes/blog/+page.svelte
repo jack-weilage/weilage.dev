@@ -24,7 +24,7 @@
 
 <style lang="scss">
     main {
-        padding: 4rem 1rem 1rem;
+        padding: 1rem;
     }
     h1 {
         margin: 1rem;
