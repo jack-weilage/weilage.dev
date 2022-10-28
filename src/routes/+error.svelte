@@ -8,8 +8,6 @@
 <SvEO
     title="Error {$page.status}"
     description="An error occurred while loading this page."
-    keywords={[]}
-    canonical=""
     robots={{ noindex: true, noarchive: true }}
 />
 
