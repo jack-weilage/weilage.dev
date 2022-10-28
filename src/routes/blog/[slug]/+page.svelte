@@ -99,17 +99,6 @@
         color: var(--color--background);
         background-color: var(--color--text-bold);
     }
-    @media (max-width: 700px) {
-        main#main-content {
-            grid-template-columns: [main] 1fr;
-        }
-        .post-content {
-            padding: 1rem 1.5rem;
-        }
-        footer {
-            grid-auto-flow: row;
-        }
-    }
     footer {
         display: grid;
         grid-auto-flow: column;
@@ -169,6 +158,17 @@
             & li:not(:last-child) {
                 margin-bottom: 0.5rem;
             }
+        }
+    }
+    @media (max-width: 700px) {
+        main#main-content {
+            grid-template-columns: [main] 1fr;
+        }
+        .post-content {
+            padding: 1rem 1.5rem;
+        }
+        footer {
+            grid-auto-flow: row;
         }
     }
 </style>
