@@ -28,9 +28,9 @@ This website is meant to acting as a living document, displaying and cataloguing
 
 This website is built with [Svelte](https://svelte.dev)/[SvelteKit](https://svelte.dev), [TypeScript](https://typescriptlang.com), and [SCSS](https://sass-lang.com). Website hosting is done by [Vercel](https://vercel.com), with email hosting from [Forward Email](https://forwardemail.net).
 
- - **Svelte** is an up-and-coming JavaScript framework, with many DX (developer experience) improvements. Unlike other frameworks, Svelte compiles its code down *before* sending it to the browser, saving a huge amount of network strain. Additionally, Svelte has Vue-style multi-language files, combining JavaScript, HTML, and CSS in a single file.
- - **SvelteKit** is a light and responsive full-stack router for Svelte. While it is currently in the RC (release candidate) stage, SvelteKit is feature-complete and viable for use in production.
- - **TypeScript** strongly types JavaScript code. It makes code more easily understood, with more ways to find creeping, insidious errors.
+ - **Svelte** is an up-and-coming JavaScript framework, with many DX (developer experience) improvements. Unlike other frameworks, Svelte compiles its code down *before* sending it to the browser, saving a huge amount of network strain. Additionally, Svelte has [Vue-style](https://vuejs.org/guide/introduction.html#single-file-components) multi-language files, combining JavaScript, HTML, and CSS in a single file.
+ - **SvelteKit** is a light and responsive full-stack router for Svelte. While it is currently in the RC stage, SvelteKit is feature-complete and viable for use in production.
+ - **TypeScript** strongly types JavaScript code. It makes code easily readable, with more ways to find creeping, insidious errors.
  - **SCSS** adds nesting ([although this might be in CSS sooner than later](https://w3c.github.io/csswg-drafts/css-nesting/)), complex functions, and replaced variables in CSS.
  - **Vercel** hosts websites for little to no cost, with a dead-easy CLI (type `vercel` and you're done), a slew of useful development features, and a tight integration with SvelteKit.
  - **Forward Email** forwards incoming *and* outgoing emails, all for free!
@@ -46,3 +46,9 @@ As I (hopefully) travel through college and begin working in the field, I will c
 The creation of this website has been a very fun journey. Along the way, I've learnt many new skills, found out about amazing open-source projects and services, and even ended up with a website! Resources like [MDN](https://developer.mozilla.org) and [HTTP 203](https://youtube.com/playlist?list=PLNYkxOF6rcIAKIQFsNbV0JDws_G_bnNo9) have helped teach me both the overall web and the minutiae within.
 
 [Donate some money to Mozilla](https://donate.mozilla.org/en-US/), star your favorite projects on GitHub, and have a good day.
+
+*[CSS]: Cascading Style Sheets
+*[HTML]: Hyper Text Markup Language
+*[A11Y]: Accessibility
+*[RC]: Release Candidate
+*[CLI]: Command-line Interface
