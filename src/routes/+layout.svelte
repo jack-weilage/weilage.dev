@@ -7,18 +7,17 @@
 
 <!-- Resume shouldn't have the normal header -->
 {#if $page.url.pathname !== '/resume/'}
-    <header>
+    <header class:no-branding={$page.url.pathname === '/'}>
         <a href="#main-content" class="skip-to-main">Skip To Main Content</a>
-        <div>
-            <!-- Homepage shouldn't have heading -->
-            {#if $page.url.pathname !== '/'}
+        {#if $page.url.pathname !== '/'}
+            <a href="/" class="branding">
                 <p class="heading">Jack Weilage</p>
                 <p class="description">Web Developer and Designer</p>
-            {/if}
-        </div>
+            </a>
+        {/if}
         <nav data-sveltekit-prefetch>
-            <a href="/">Home</a>
-            <a href="/blog/">Blog</a>
+            <!-- <a href="/" aria-current={$page.url.pathname === '/' ? 'page' : undefined}>Home</a> -->
+            <a href="/blog/" aria-current={$page.url.pathname === '/blog/' ? 'page' : undefined}>Blog</a>
         </nav>
     </header>
 {/if}
@@ -40,33 +39,43 @@
         flex-wrap: wrap;
         justify-content: space-between;
 
-        padding: 2rem;
+        padding: 2rem 2rem 1rem;
 
+        &.no-branding {
+            justify-content: flex-end;
+        }
         @media (max-width: 500px) {
+            padding: 0.5rem 2rem;
             text-align: center;
             justify-content: center;
 
-            div {
+            a.branding {
                 width: 100%;
             }
         }
-        p {
-            margin: 0;
-        }
-        p.heading {
-            // Make the same as h1
-            font-family: var(--font--heading);
-            font-weight: bold;
-            font-size: 38px;
-            color: var(--color--text-bold);
-        }
-        p.description {
-            margin-top: 0.25rem;
-            opacity: 0.6;
-            font-weight: 300;
+        .branding {
+            &:hover {
+                text-decoration: none;
+            }
+            p {
+                color: var(--color--text);
+                margin: 0;
+            }
+            .heading {
+                // Make the same as h1
+                font-family: var(--font--heading);
+                font-weight: bold;
+                font-size: 38px;
+                color: var(--color--text-bold);
+            }
+            .description {
+                margin-top: 0.25rem;
+                opacity: 0.6;
+                font-weight: 300;
+            }
         }
     }
-    a.skip-to-main {
+    .skip-to-main {
         position: absolute;
         left: 0;
         right: 0;
@@ -74,8 +83,8 @@
 
         padding: 0.75rem;
         
-        color: #000;
-        background-color: #fff;
+        color: var(--color--background);
+        background-color: var(--color--text);
 
         z-index: 999;
 
@@ -88,9 +97,17 @@
     }
     nav {
         display: flex;
+        gap: 1rem;
+        align-items: center;
+        padding: 1rem;
 
-        > a {
-            padding: 1rem;
+        a {
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+
+            &[aria-current="page"] {
+                background-color: var(--color--background-alt);
+            }
         }
     }
 </style>
