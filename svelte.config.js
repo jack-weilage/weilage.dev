@@ -16,7 +16,7 @@ const config = {
             postcss: {
                 plugins: [
                     postcss_preset_env({
-                        browsers: [ '>1%', 'not dead', 'last 2 versions' ],
+                        browsers: [ 'defaults' ],
                         stage: 1
                     })
                 ]
