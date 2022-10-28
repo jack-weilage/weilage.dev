@@ -43,19 +43,19 @@
 
         padding: 2rem 2rem 1rem;
 
-        &.no-branding {
-            justify-content: flex-end;
-        }
         @media (max-width: 500px) {
-            padding: 0.5rem 2rem;
+            padding: 1rem 2rem;
             text-align: center;
             justify-content: center;
 
-            a.branding {
+            & a.branding {
                 width: 100%;
             }
         }
-        .branding {
+        &.no-branding {
+            justify-content: flex-end;
+        }
+        & .branding {
             &:hover {
                 text-decoration: none;
             }

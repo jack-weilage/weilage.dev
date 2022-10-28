@@ -41,7 +41,6 @@
         
         margin: 5rem 0 1rem;
         padding-bottom: 0.5rem;
-        // margin-bottom: 1rem;
         
         border-bottom: 1px solid var(--color--text-bold);
     }
