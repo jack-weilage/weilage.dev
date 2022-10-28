@@ -15,7 +15,6 @@
     "@types/node": "^18.11.7",
     "@vcarl/remark-headings": "^0.1.0",
     "carbon-icons-svelte": "^11.4.0",
-    "cssnano": "^5.1.14",
     "dayjs": "^1.11.6",
     "husky": "^8.0.1",
     "mdsvex": "^0.10.6",
