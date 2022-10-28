@@ -126,9 +126,12 @@ TODO: Main title/text should be horizontally centered. Maybe vertical center? Ho
         }
     }
     section#intro {
-        // Attempt to use dvh, but fall back to vh.
-        height: 100dvh;
-        height: 100vh;
+        padding-top: 4rem;
+        margin-bottom: 2rem;
+
+        @media (max-width: 500px) {
+            padding-top: 1rem;
+        }
 
         display: grid;
         place-items: center;
