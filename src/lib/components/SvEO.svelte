@@ -6,7 +6,7 @@
     /** The author for search engines. */
     export let author: string | null = null
     /** Keywords for search engines. */
-    export let keywords: string[]
+    export let keywords: string[] | null = null
     /** The "real"/permanent version of the url. */
     export let canonical = ''
 
@@ -30,7 +30,7 @@
 <svelte:head>
     <title>{title}</title>
     <meta name="description" content={description}>
-    <meta name="keywords"    content={keywords?.join()}>
+    {#if keywords}  <meta name="keywords" content={keywords.join()}>{/if}
     {#if canonical} <link rel="canonical" href={canonical}>{/if}
     {#if author}    <meta name="author"   content={author}>{/if}
     {#if robots_str}<meta name="robots"   content={robots_str}>{/if}
