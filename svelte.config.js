@@ -4,6 +4,7 @@ import { mdsvex } from 'mdsvex'
 import mdsvex_config from './mdsvex.config.js'
 
 import preprocess from 'svelte-preprocess'
+import postcss_preset_env from 'postcss-preset-env'
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -12,6 +13,15 @@ const config = {
         mdsvex(mdsvex_config), 
         preprocess({
             preserve: [ 'ld+json' ],
+            postcss: {
+                plugins: [
+                    postcss_preset_env({
+                        browsers: [ '>1%', 'not dead', 'last 2 versions' ],
+                        stage: 1
+                    }),
+                    
+                ]
+            }
         })
     ],
     kit: {
