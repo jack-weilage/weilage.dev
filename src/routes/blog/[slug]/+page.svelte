@@ -52,18 +52,12 @@
     </article>
 </main>
 
-<style lang="scss">
-    @import '../../../lib/css/markdown.scss';
-
+<style lang="postcss" global>
     main#main-content {
         display: grid;
         grid-template-columns: [gutter-left] 0.5fr [main] 3fr [gutter-right] 0.5fr;
 
         gap: 1rem;
-
-        @media (max-width: 700px) {
-            grid-template-columns: [main] 1fr;
-        }
     }
     article {
         grid-column: main;
@@ -89,10 +83,6 @@
     .post-content {
         padding: 1.5rem 5rem;
         line-height: 1.5;
-
-        @media (max-width: 700px) {
-            padding: 1rem 1.5rem;
-        }
     }
     a.scroll-to-top {
         display: grid;
@@ -109,6 +99,17 @@
         color: var(--color--background);
         background-color: var(--color--text-bold);
     }
+    @media (max-width: 700px) {
+        main#main-content {
+            grid-template-columns: [main] 1fr;
+        }
+        .post-content {
+            padding: 1rem 1.5rem;
+        }
+        footer {
+            grid-auto-flow: row;
+        }
+    }
     footer {
         display: grid;
         grid-auto-flow: column;
@@ -117,7 +118,7 @@
 
         padding: 2rem;
 
-        a.pagi {
+        & a.pagi {
             padding: 2rem;
             border-radius: 0.5rem;
             border: 1px solid var(--color--border);
@@ -125,23 +126,49 @@
             &:hover {
                 text-decoration: none;
             }
-            span {
+            & span {
                 display: block;
                 font-size: 1.5em;
                 font-weight: bold;
                 color: var(--color--text-bold);
             }
         }
-        a.next {
+        & a.next {
             text-align: end;
-        }
-        @media (max-width: 700px) {
-            grid-auto-flow: row;
         }
     }
     
-    // Why? Don't ask me...
     .post-content :global {
-        @include markdown;
+        & h2, & h3, & h4, & h5, & h6 {
+            margin: 4rem 0 0.5rem;
+
+            & a.heading-link {
+                float: left;
+                margin-left: -0.85em;
+                padding-right: 0.25em;
+
+                opacity: 0;
+                transition: opacity 0.1s ease-in-out;
+            }
+            &:hover a.heading-link {
+                opacity: 1;
+                text-decoration: none;
+            }
+            & + * {
+                margin-top: 0;
+            }
+        }
+        & :not(pre) > code {
+            white-space: nowrap;
+
+            border-radius: 0.25em;
+            padding: 0.1em 0.25em;
+            background-color: var(--color--background-alt);
+        }
+        & ul, & ol {
+            & li:not(:last-child) {
+                margin-bottom: 0.5rem;
+            }
+        }
     }
 </style>

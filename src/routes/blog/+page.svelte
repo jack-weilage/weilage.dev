@@ -22,7 +22,7 @@
     </div>
 </main>
 
-<style lang="scss">
+<style lang="postcss">
     main {
         padding: 1rem;
     }

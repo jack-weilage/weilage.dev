@@ -32,7 +32,7 @@
     {/if}
 </main>
 
-<style lang="scss">
+<style lang="postcss">
     main {
         padding: 2rem;
     }

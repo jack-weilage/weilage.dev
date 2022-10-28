@@ -29,11 +29,13 @@
     </main>
 </slot>
 
-<style lang="scss">
+<style lang="postcss">
     header {
-        //TODO: Implement fancy blurred background with CSS vars.
-        // background-color: rgba(0, 0, 0, 0.6);
-        // backdrop-filter: saturate(1.5) blur(20px);
+        /* 
+        TODO: Implement fancy blurred background with CSS vars.
+        background-color: rgba(0, 0, 0, 0.6);
+        backdrop-filter: saturate(1.5) blur(20px);
+        */
 
         display: flex;
         flex-wrap: wrap;
@@ -57,18 +59,18 @@
             &:hover {
                 text-decoration: none;
             }
-            p {
+            & p {
                 color: var(--color--text);
                 margin: 0;
             }
-            .heading {
-                // Make the same as h1
+            & .heading {
+                /* Make the same as h1 */
                 font-family: var(--font--heading);
                 font-weight: bold;
                 font-size: 38px;
                 color: var(--color--text-bold);
             }
-            .description {
+            & .description {
                 margin-top: 0.25rem;
                 opacity: 0.6;
                 font-weight: 300;
@@ -101,7 +103,7 @@
         align-items: center;
         padding: 1rem;
 
-        a {
+        & a {
             padding: 0.5rem 1rem;
             border-radius: 0.5rem;
 

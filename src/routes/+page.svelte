@@ -87,7 +87,7 @@ TODO: Main title/text should be horizontally centered. Maybe vertical center? Ho
     </section>
 </main>
 
-<style lang="scss" global>
+<style lang="postcss" global>
     @keyframes up-and-down {
         to {
             margin-bottom: -35%;
@@ -107,8 +107,8 @@ TODO: Main title/text should be horizontally centered. Maybe vertical center? Ho
         display: grid;
         place-items: center;
 
-        // Icon placed right in the middle, half-size
-        > svg {
+        /* Icon placed right in the middle, half-size */
+        & > svg {
             width: 50%;
             height: 50%;
 
@@ -136,83 +136,85 @@ TODO: Main title/text should be horizontally centered. Maybe vertical center? Ho
         display: grid;
         place-items: center;
 
-        div {
+        & div {
             width: 75%;
             @media (max-width: 900px) {
                 width: 100%;
             }
 
-            h1 {
+            & h1 {
                 margin: 0;
                 font-size: 5rem;
                 letter-spacing: -2px;
                 line-height: 0.8;
             }
-            p {
+            & p {
                 margin: 0.25em 0 0;
 
-                a {
+                & a {
                     font-weight: bold;
                 }
             }
-            ul {
+            & ul {
                 list-style: none;
                 padding-left: 1rem;
                 margin-bottom: 0;
 
-                li {
+                & li {
                     padding: 0.25rem;
                     font-weight: bold;
                 }
             }
-            .spacer-xl {
+            & .spacer-xl {
                 display: inline-block;
                 width: 2.65rem;
             }
-            .spacer-sm {
+            & .spacer-sm {
                 display: none;
                 width: 4.5rem;
             }
 
-            // At 500px, the heading should collapse and a different spacer should be shown to break up different text.
+            /* At 500px, the heading should collapse and a different spacer should be shown to break up different text. */
             @media (max-width: 500px) {
-                h1 {
+                & h1 {
                     width: min-content;
                 }
-                p {
+                & p {
                     margin: 0;
                 }
-                .spacer-xl {
+                & .spacer-xl {
                     display: none;
                 }
-                .spacer-sm {
+                & .spacer-sm {
                     display: inline-block;
                 }
             }
-            // At 335px, the heading should begin to shrink with screen size, making spacers obsolete.
-            // The heading should be placed higher so the letters don't overlap.
+            /* 
+            At 335px, the heading should begin to shrink with screen size, making spacers obsolete. 
+            The heading should be placed higher so the letters don't overlap.
+            */
             @media (max-width: 335px) {
-                h1 {
+                & h1 {
                     font-size: 22vw;
                     margin-bottom: 5vw;
                 }
-                .spacer-sm {
+                & .spacer-sm {
                     display: none;
                 }
             }
         }
     }
     section#posts {
-        header {
+        & header {
             text-align: center;
             margin-bottom: 1.5rem;
 
-            h2 {
+            & h2 {
                 font-size: 3rem;
                 margin: 0;
             }
         }
-        footer a {
+        & footer a {
             display: block;
             
             font-size: 1.75rem;
