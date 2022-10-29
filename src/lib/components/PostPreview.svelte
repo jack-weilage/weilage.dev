@@ -23,7 +23,7 @@
     </div>
 </article>
 
-<style lang="scss">
+<style lang="postcss">
     article {
         display: grid;
         align-items: center;
@@ -50,12 +50,12 @@
         padding: 1rem;
         border-radius: 0.25rem;
 
-        // Whatever heading shows up.
-        > *:first-child {
+        /* Whatever heading shows up. */
+        & > *:first-child {
             margin: 0;
             font-size: 1.75rem;
         }
-        p {
+        & p {
             margin-bottom: 0;
         }
     }
@@ -67,7 +67,7 @@
             margin-top: 1rem;
             padding: 0;
 
-            p {
+            & p {
                 margin-bottom: 1rem;
             }
         }
