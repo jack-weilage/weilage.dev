@@ -1,6 +1,6 @@
 <script>
-    import '!css/vars.scss'
-    import '!css/global.scss'
+    import '!css/vars.css'
+    import '!css/global.css'
 
     import { page } from '$app/stores'
 </script>
@@ -15,8 +15,8 @@
                 <p class="description">Web Developer and Designer</p>
             </a>
         {/if}
-        <nav data-sveltekit-prefetch>
-            <!-- <a href="/" aria-current={$page.url.pathname === '/' ? 'page' : undefined}>Home</a> -->
+        <nav>
+            <!-- <a href="/resume/">Resume</a> -->
             <a href="/blog/" aria-current={$page.url.pathname === '/blog/' ? 'page' : undefined}>Blog</a>
         </nav>
     </header>
