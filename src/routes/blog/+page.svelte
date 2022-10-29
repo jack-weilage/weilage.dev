@@ -22,7 +22,7 @@
     </div>
 </main>
 
-<style lang="postcss">
+<style lang="postcss" global>
     main {
         padding: 1rem;
     }
