@@ -3,6 +3,11 @@ html, body {
 
     width: 100%;
     height: 100%;
+
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
 }
 body {
     background-color: var(--color--background);
@@ -18,7 +23,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--font--heading);
     color: var(--color--text-bold);
 }
-b {
+b, strong {
     color: var(--color--text-bold);
 }
 
@@ -29,10 +34,6 @@ a {
     &:hover {
         text-decoration: underline;
     }
-}
-
-*, *::before, *::after {
-    box-sizing: border-box;
 }
 
 ::selection {
