@@ -1,4 +1,4 @@
-import { posts } from '$lib/posts'
+import { posts_no_drafts as posts } from '$lib/posts'
 
 const escape = (str: string) => str.replace(/["'<>&]/g, '')
 const construct_url = (elements: Record<string, any>) => 
