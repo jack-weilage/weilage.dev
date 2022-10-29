@@ -21,20 +21,23 @@ TODO: Main title/text should be horizontally centered. Maybe vertical center? Ho
     description="The homepage of Jack Weilage, a web developer and designer."
     author="Jack Weilage"
     keywords={[ 'jack weilage', 'web developer', 'designer' ]}
-
-    ld_json={{
-        '@context': 'http://schema.org/',
-        '@type': 'Person',
-        name: 'Jack Weilage',
-        gender: 'Male',
-        sameAs: [
-            'https://weilage.dev/',
-            'https://github.com/jack-weilage',
-            'https://figma.com/@weilage'
-        ],
-        url: 'https://weilage.dev/'
-    }}
 />
+<svelte:head>
+    <script type="ld+json">
+        {
+            '@context': 'http://schema.org/',
+            '@type': 'Person',
+            'name': 'Jack Weilage',
+            'gender': 'Male',
+            'sameAs': [
+                'https://weilage.dev/',
+                'https://github.com/jack-weilage',
+                'https://figma.com/@weilage'
+            ],
+            'url': 'https://weilage.dev/'
+        }
+    </script>
+</svelte:head>
 
 <main id="main-content">
     <section id="intro">

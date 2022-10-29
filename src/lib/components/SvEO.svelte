@@ -22,9 +22,6 @@
     $: robots_str = (Object.keys(robots) as (keyof typeof robots)[])
         .filter(key => !!robots[key])
         .join(',')
-
-    /** What ld+json data should be displayed. */
-    export let ld_json: object | false = false
 </script>
 
 <svelte:head>
@@ -34,10 +31,4 @@
     {#if canonical} <link rel="canonical" href={canonical}>{/if}
     {#if author}    <meta name="author"   content={author}>{/if}
     {#if robots_str}<meta name="robots"   content={robots_str}>{/if}
-
-    {#if ld_json}  
-        <script type="application/ld+json">
-            {JSON.stringify(ld_json)}
-        </script> 
-    {/if}
 </svelte:head>
