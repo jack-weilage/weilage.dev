@@ -12,6 +12,10 @@ tags:
     - 'website'
 ---
 
+<script>
+    import Note from '!components/Note.svelte'
+</script>
+
 Hello, *hello*, **hello**. Welcome to my *great* and *not at all **constantly** changing* website.
 
 ## Who am I?
@@ -28,7 +32,12 @@ This website is meant to acting as a living document, displaying and cataloguing
 
 This website is built with [Svelte](https://svelte.dev)/[SvelteKit](https://svelte.dev), [TypeScript](https://typescriptlang.com), and [SCSS](https://sass-lang.com). Website hosting is done by [Vercel](https://vercel.com), with email hosting from [Forward Email](https://forwardemail.net).
 
- - **Svelte** is an up-and-coming JavaScript framework, with many DX (developer experience) improvements. Unlike other frameworks, Svelte compiles its code down *before* sending it to the browser, saving a huge amount of network strain. Additionally, Svelte has [Vue-style](https://vuejs.org/guide/introduction.html#single-file-components) multi-language files, combining JavaScript, HTML, and CSS in a single file.
+<Note>
+    This list is based on what I am using <i>as of time of writing</i>. 
+    It is almost certainly out of date by the time you are reading this.
+</Note>
+
+ - **Svelte** is an up-and-coming JavaScript framework, with many DX (developer experience) improvements. Unlike other frameworks, Svelte compiles its code down *before* sending it to the browser, saving a huge amount of network strain. Additionally, Svelte has [Vue-style](https://vuejs.org/guide/scaling-up/sfc.html) multi-language files, combining JavaScript, HTML, and CSS in a single file.
  - **SvelteKit** is a light and responsive full-stack router for Svelte. While it is currently in the RC stage, SvelteKit is feature-complete and viable for use in production.
  - **TypeScript** strongly types JavaScript code. It makes code easily readable, with more ways to find creeping, insidious errors.
  - **SCSS** adds nesting ([although this might be in CSS sooner than later](https://w3c.github.io/csswg-drafts/css-nesting/)), complex functions, and replaced variables in CSS.
