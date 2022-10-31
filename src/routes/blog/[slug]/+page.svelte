@@ -159,6 +159,30 @@
                 margin-bottom: 0.5rem;
             }
         }
+        & pre {
+            /* HACK: This really sucks. It doesn't even add padding to the other end of the container! */
+            max-width: calc(100vw - (1.5rem * 2));
+
+            display: block;
+            border-radius: 0.5rem;
+            border: 1px solid var(--color--border);
+
+            background-color: var(--color--background-alt);
+
+            padding: 1rem;
+            overflow-x: auto;
+        }
+        & pre.language-css span.token, & pre.language-scss span.token {
+            &.selector {
+                color: green;
+            }
+            &.punctuation {
+                color: white;
+            }
+            &.property {
+                color: lightgreen;
+            }
+        }
     }
     @media (max-width: 700px) {
         main#main-content {
