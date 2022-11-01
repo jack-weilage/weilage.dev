@@ -43,7 +43,7 @@
 
         padding: 2rem 2rem 1rem;
 
-        @media (max-width: 500px) {
+        @media (max-width: 600px) {
             padding: 1rem 2rem;
             text-align: center;
             justify-content: center;
@@ -55,29 +55,30 @@
         &.no-branding {
             justify-content: flex-end;
         }
-        & .branding {
+        & a.branding {
             &:hover {
                 text-decoration: none;
             }
-            & p {
-                color: var(--color--text);
+            & p.heading {
                 margin: 0;
-            }
-            & .heading {
+
                 /* Make the same as h1 */
                 font-family: var(--font--heading);
                 font-weight: bold;
                 font-size: 38px;
                 color: var(--color--text-bold);
+
             }
-            & .description {
-                margin-top: 0.25rem;
+            & p.description {
+                margin: 0.25rem 0 0;
+                
                 opacity: 0.6;
                 font-weight: 300;
+                color: var(--color--text);
             }
         }
     }
-    .skip-to-main {
+    a.skip-to-main {
         position: absolute;
         left: 0;
         right: 0;

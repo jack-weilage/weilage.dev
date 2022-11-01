@@ -20,7 +20,7 @@
     <p class="content">
         <slot />
     </p>
-    <ul class="skills">
+    <ul>
         {#each skills as skill}
             <li>{skill}</li>
         {:else}
@@ -39,7 +39,7 @@
             color: var(--color--text-bold);
         }
     }
-    .duration {
+    p.duration {
         display: inline-block;
         background-color: var(--color--background);
         margin: 0;
@@ -49,12 +49,12 @@
 
         transform: translate(1rem, 50%);
     }
-    .content {
+    p.content {
         margin-top: 0;
         border-top: 5px double var(--color--border);
         padding-top: 1rem;
     }
-    .skills {
+    ul {
         padding: 0;
         list-style: none;
 

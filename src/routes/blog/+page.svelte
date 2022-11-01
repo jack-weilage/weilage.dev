@@ -13,7 +13,7 @@
 
 <main id="main-content">
     <h1>Posts</h1>
-    <div class="articles">
+    <div>
         {#each data.posts as post}
             <PostPreview {post} heading="h2" />
         {:else}

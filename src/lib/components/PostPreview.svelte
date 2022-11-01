@@ -8,12 +8,12 @@
 </script>
 
 <article id={post.slug}>
-    <p class="time">
+    <aside>
         Uploaded: <time datetime={date.toISOString()}>{date.format('MMMM D, YYYY')}</time>
         <br>
         {Math.ceil(post.wordcount / 200)} minute read
-    </p>
-    <div class="content">
+    </aside>
+    <div>
         <svelte:element this={heading}>
             <a href="/blog/{post.slug}/">
                 {post.title}
@@ -42,11 +42,11 @@
             background-color: var(--color--background-alt);
         }
     }
-    .time {
+    aside {
         font-size: 0.8em;
         opacity: 0.75;
     }
-    .content {
+    div {
         padding: 1rem;
         border-radius: 0.25rem;
 
@@ -63,7 +63,7 @@
         article {
             grid-template-columns: 1fr;
         }
-        .content {
+        div {
             margin-top: 1rem;
             padding: 0;
 

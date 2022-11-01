@@ -41,7 +41,7 @@
     </ul>
 </header>
 <main>
-    <section class="main">
+    <section>
         <h2>Experience</h2>
         <Experience start={dayjs('2022-09-01')} end={dayjs('2022-10-14')} skills={[ 'Performance', 'A11Y', 'Presentation', 'Self-Driven' ]}>
             <h3 slot="heading">
@@ -51,10 +51,9 @@
             I personally presented this list to the assistant director of Educational Technology, receiving high praise.
         </Experience>
     </section>
-    <aside class="skills">
+    <aside>
         <h2>Skills</h2>
-
-        <div class="skill-grid">
+        <div>
             <Skill items={[ 'SCSS/CSS', 'TypeScript/JavaScript', 'HTML' ]}>Languages</Skill>
             <Skill items={[ 'Svelte/SvelteKit' ]}>Frameworks</Skill>
             <Skill items={[ 'VSCode', 'GitHub' ]}>Tools</Skill>
@@ -62,12 +61,9 @@
         </div>
     </aside>
 </main>
-<!-- <footer>
-
-</footer> -->
 
 <style lang="postcss" global>
-    :global(body) {
+    body {
         display: block;
     }
     header {
@@ -100,10 +96,10 @@
                 color: var(--color--text-bold);
                 font-weight: 600;
 
-                & :global(a) {
+                & a {
                     color: var(--color--text-bold);
                 }
-                & :global(svg) {
+                & svg {
                     margin-right: 0.75rem;
                 }
             }
@@ -123,7 +119,7 @@
     section, aside {
         padding: 2rem;
     }
-    .skill-grid {
+    aside div {
         display: grid;
         grid-template-columns: 1fr;
         gap: 1rem;

@@ -24,13 +24,13 @@
     <article id="top">
         <header>
             <h1>{data.post.title}</h1>
-            <p class="details">
+            <p>
                 Published on <time datetime={date.toISOString()}>{date.format('MMMM D, YYYY')}</time>
                 •
                 {Math.ceil(data.post.wordcount / 200)} minute read
             </p>
         </header>
-        <main class="post-content">
+        <main class="markdown">
             <svelte:component this={data.component} />
         </main>
         <footer>
@@ -61,73 +61,31 @@
     }
     article {
         grid-column: main;
-    }
-    header {
-        text-align: center;
 
-        padding-bottom: 1rem;
-        margin-bottom: 1rem;
-        border-bottom: 2px solid var(--color--border);
+        & header {
+            text-align: center;
+    
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--color--border);
+    
+            & h1 {
+                margin: 4rem 1rem 0.5rem;
+                
+                font-size: 3em;
+            }
+            & p {
+                margin: 0.25rem 0;
+                
+                font-size: 0.8em;
+                opacity: 0.5;
+            }
+        }
     }
-    h1 {
-        margin: 4rem 1rem 0.5rem;
-        
-        font-size: 3em;
-    }
-    p.details {
-        margin: 0.25rem 0;
-        
-        font-size: 0.8em;
-        opacity: 0.5;
-    }
-    .post-content {
+    .markdown {
         padding: 1.5rem 5rem;
         line-height: 1.5;
-    }
-    a.scroll-to-top {
-        display: grid;
-        place-items: center;
-
-        position: fixed;
-        bottom: 2rem;
-        right: 2rem;
-
-        width: 3rem;
-        height: 3rem;
-
-        border-radius: 50%;
-        color: var(--color--background);
-        background-color: var(--color--text-bold);
-    }
-    footer {
-        display: grid;
-        grid-auto-flow: column;
-
-        gap: 2rem;
-
-        padding: 2rem;
-
-        & a.pagi {
-            padding: 2rem;
-            border-radius: 0.5rem;
-            border: 1px solid var(--color--border);
-
-            &:hover {
-                text-decoration: none;
-            }
-            & span {
-                display: block;
-                font-size: 1.5em;
-                font-weight: bold;
-                color: var(--color--text-bold);
-            }
-        }
-        & a.next {
-            text-align: end;
-        }
-    }
-    
-    .post-content :global {
+        
         & h2, & h3, & h4, & h5, & h6 {
             margin: 4rem 0 0.5rem;
 
@@ -184,11 +142,56 @@
             }
         }
     }
+    footer {
+        display: grid;
+        grid-auto-flow: column;
+        
+        gap: 2rem;
+        
+        padding: 2rem;
+        
+        & a.scroll-to-top {
+            display: grid;
+            place-items: center;
+    
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+    
+            width: 3rem;
+            height: 3rem;
+    
+            border-radius: 50%;
+            color: var(--color--background);
+            background-color: var(--color--text-bold);
+        }
+        & a.pagi {
+            padding: 2rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--color--border);
+
+            &:hover {
+                text-decoration: none;
+            }
+            & span {
+                display: block;
+                font-size: 1.5em;
+                font-weight: bold;
+                color: var(--color--text-bold);
+            }
+        }
+        & a.last {
+            text-align: start;
+        }
+        & a.next {
+            text-align: end;
+        }
+    }
     @media (max-width: 700px) {
         main#main-content {
             grid-template-columns: [main] 1fr;
         }
-        .post-content {
+        .markdown {
             padding: 1rem 1.5rem;
         }
         footer {
