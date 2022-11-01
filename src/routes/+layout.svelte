@@ -16,7 +16,7 @@
             </a>
         {/if}
         <nav>
-            <!-- <a href="/resume/">Resume</a> -->
+            <a href="/resume/">Resume</a>
             <a href="/blog/" aria-current={$page.url.pathname === '/blog/' ? 'page' : undefined}>Blog</a>
         </nav>
     </header>
