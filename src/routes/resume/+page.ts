@@ -1,0 +1,1 @@
+export const sitemap: import('!types').SitemapConfig = { enabled: true, changefreq: 'monthly' }
