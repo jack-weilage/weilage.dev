@@ -31,20 +31,27 @@
 
 <style lang="postcss">
     header {
+        z-index: 9;
         /* 
         TODO: Implement fancy blurred background with CSS vars.
         background-color: rgba(0, 0, 0, 0.6);
         backdrop-filter: saturate(1.5) blur(20px);
         */
 
+        position: sticky;
+        top: 0;
+        background-color: var(--color--background);
+
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
 
-        padding: 2rem 2rem 1rem;
+        margin-top: 1rem;
+        padding: 1rem 2rem;
 
         @media (max-width: 600px) {
-            padding: 1rem 2rem;
+            margin-top: 0;
+
             text-align: center;
             justify-content: center;
 
@@ -54,6 +61,9 @@
         }
         &.no-branding {
             justify-content: flex-end;
+
+            margin-top: 2rem;
+            padding: 0 2rem;
         }
         & a.branding {
             &:hover {
@@ -80,11 +90,14 @@
     }
     a.skip-to-main {
         position: absolute;
+        top: 0;
         left: 0;
         right: 0;
-        text-align: center;
 
-        padding: 0.75rem;
+        display: grid;
+        place-items: center;
+
+        padding: 1.5rem 0.75rem;
         
         color: var(--color--background);
         background-color: var(--color--text);
