@@ -32,15 +32,12 @@
 <style lang="postcss">
     header {
         z-index: 9;
-        /* 
-        TODO: Implement fancy blurred background with CSS vars.
-        background-color: rgba(0, 0, 0, 0.6);
-        backdrop-filter: saturate(1.5) blur(20px);
-        */
-
+        
         position: sticky;
         top: 0;
-        background-color: var(--color--background);
+        
+        background-color: var(--color--background-trans);
+        backdrop-filter: saturate(1.5) blur(20px);
 
         display: flex;
         flex-wrap: wrap;
