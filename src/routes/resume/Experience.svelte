@@ -1,8 +1,9 @@
 <script lang="ts">
     import type { Dayjs } from 'dayjs'
+    import dayjs from 'dayjs'
 
     export let start: Dayjs
-    export let end: Dayjs
+    export let end: Dayjs | undefined = undefined
     export let skills: string[] = []
 </script>
 
@@ -15,7 +16,11 @@
     <p class="duration">
         <time datetime={start.toISOString()}>{start.format('MMMM YYYY')}</time>
         -
-        <time datetime={end.toISOString()}>{end.format('MMMM YYYY')}</time>
+        {#if end}
+            <time datetime={end.toISOString()}>{end.format('MMMM YYYY')}</time>
+        {:else}
+            <time datetime={dayjs().toISOString()}>Today</time>
+        {/if}
     </p>
     <p class="content">
         <slot />

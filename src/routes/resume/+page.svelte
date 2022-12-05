@@ -50,12 +50,20 @@
             As a student, I created an actionable list of performance, A11Y, and usablility concerns for my <a href="https://bellinghamschools.org">school district's website</a>.
             I personally presented this list to the assistant director of Educational Technology, receiving high praise.
         </Experience>
+        <Experience start={dayjs('2022-09-24')} skills={[ 'Performance', 'Optimization', 'Self-Driven' ]}>
+            <h3 slot="heading">
+                <a href="https://github.com/jack-weilage/vite-image">vite-image</a> - Sole Developer
+            </h3>
+            In my free time, I built a performant image optimization plugin for <a href="https://vitejs.dev">ViteJS</a>. 
+            <a href="https://github.com/jack-weilage/vite-image">vite-image</a> was built from the ground up with ease-of-use, extensibility, and maintainability in mind.
+            The project is well commented, with local/CI testing, automated Github/NPM releases, comprehensive TypeScript definitions, and compatibility for both CommonJS and ESM modules.
+        </Experience>
     </section>
     <aside>
         <h2>Skills</h2>
-        <div>
+        <div class="skills">
             <Skill items={[ 'SCSS/CSS', 'TypeScript/JavaScript', 'HTML' ]}>Languages</Skill>
-            <Skill items={[ 'Svelte/SvelteKit' ]}>Frameworks</Skill>
+            <Skill items={[ 'Svelte/SvelteKit', 'ViteJS' ]}>Frameworks</Skill>
             <Skill items={[ 'VSCode', 'GitHub' ]}>Tools</Skill>
             <Skill items={[ 'Vercel', 'Linux' ]}>Platforms</Skill>
         </div>
@@ -119,12 +127,12 @@
     section, aside {
         padding: 2rem;
     }
-    aside div {
+    aside div.skills {
         display: grid;
         grid-template-columns: 1fr;
         gap: 1rem;
 
-        @media (max-width: 600px) {
+        @media (min-width: 500px) and (max-width: 600px) {
             grid-template-columns: 1fr 1fr;
         }
     }
