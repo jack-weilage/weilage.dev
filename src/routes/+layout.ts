@@ -4,3 +4,5 @@ import { dev } from '$app/environment'
 export const csr = false
 //TODO: Pages seem to be ignored by vercel if prerendered. ????
 export const prerender = false
+
+export const trailingSlash = 'always'

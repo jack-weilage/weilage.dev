@@ -1,7 +1,8 @@
 import { sveltekit }  from '@sveltejs/kit/vite'
+import vite_image from 'vite-image'
 
 export default {
-	plugins: [ 
-		sveltekit() 
+	plugins: [
+		vite_image(), sveltekit()
 	]
 } as import('vite').UserConfig

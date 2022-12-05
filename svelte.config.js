@@ -30,7 +30,6 @@ const config = {
                 'style-src': ['self', 'unsafe-inline']
             },
         },
-        trailingSlash: 'always',
     },
 }
 
