@@ -33,7 +33,7 @@
             <Github aria-hidden="true" /><Link href="https://github.com/jack-weilage" title="Read my code">jack-weilage</Link>
         </li>
         <li>
-            <Phone aria-hidden="true" /><Link href="tel:+13609279721">(360) 927-9721</Link>
+            <Phone aria-hidden="true" /><Link href="tel:+13609279721">+1 (360) 927-9721</Link>
         </li>
         <li>
             <Location aria-hidden="true" />Bellingham, WA
@@ -54,9 +54,8 @@
             <h3 slot="heading">
                 <a href="https://github.com/jack-weilage/vite-image">vite-image</a> - Sole Developer
             </h3>
-            In my free time, I built a performant image optimization plugin for <a href="https://vitejs.dev">ViteJS</a>. 
-            <a href="https://github.com/jack-weilage/vite-image">vite-image</a> was built from the ground up with ease-of-use, extensibility, and maintainability in mind.
-            The project is well commented, with local/CI testing, automated Github/NPM releases, comprehensive TypeScript definitions, and compatibility for both CommonJS and ESM modules.
+            In my free time, I built a performant, easy-to-use image optimization plugin for <a href="https://vitejs.dev">Vite</a> called <a href="https://github.com/jack-weilage/vite-image">vite-image</a>. 
+            The plugin is fully commented, with local and CI testing, automated Github/NPM releases, comprehensive TypeScript definitions, and compatibility for both CommonJS and ESM modules.
         </Experience>
     </section>
     <aside>
