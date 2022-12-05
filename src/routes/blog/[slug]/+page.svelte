@@ -141,6 +141,20 @@
                 color: lightgreen;
             }
         }
+        & pre.language-js span.token, & pre.language-ts span.token {
+            &.keyword {
+                color: red;
+            }
+            &.string, &.constant {
+                color: #3dcfff;
+            }
+            &.function {
+                color: rgb(236, 118, 236);
+            }
+            &.comment {
+                opacity: 0.5;
+            }
+        }
     }
     footer {
         display: grid;
