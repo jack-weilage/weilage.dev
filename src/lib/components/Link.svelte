@@ -6,6 +6,6 @@
     export let target = external ? '_blank' : undefined
 </script>
 
-<a {href} data-sveltekit-prefetch={external ? undefined : ''} {rel} {target} {...$$restProps}>
+<a {href} data-sveltekit-preload-data={external || href.startsWith('#') ? undefined : 'hover'} {rel} {target} {...$$restProps}>
     <slot />
 </a>
