@@ -37,12 +37,15 @@
 <style lang="postcss">
     article :global h3 {
         font-weight: 400;
-        margin: 3rem 0 0;
+        margin: 0;
 
         & a {
             font-weight: bold;
             color: var(--color--text-bold);
         }
+    }
+    article:not(:first-of-type) :global h3 {
+        margin: 1.5rem 0 0;
     }
     p.duration {
         display: inline-block;
@@ -51,6 +54,7 @@
         padding: 0 0.5rem;
 
         font-size: 0.95em;
+        font-style: italic;
 
         transform: translate(1rem, 50%);
     }
