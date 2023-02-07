@@ -47,33 +47,33 @@ TODO: Main title/text should be horizontally centered. Maybe vertical center? Ho
                 I'm a <Link href="https://github.com/jack-weilage">web developer</Link> <span class="spacer-sm" aria-hidden="true" />
                 and <Link href="https://figma.com/@weilage">designer</Link>, working <span class="spacer-xl" aria-hidden="true" />to
                 improve the web through performant code and accessible designs. Currently, I'm studying computer science and web
-                development, with a focus on loading performance, reactive layouts, and mobile compatibility. Outside of programming,
+                development, with a focus on performance, reactive layouts, and mobile compatibility. Outside of programming,
                 I love reading and learning more about technology and the world around me!
             </p>
             <ul>
                 <li>
                     <Github aria-hidden="true" />
-                    <a href="https://github.com/jack-weilage">
+                    <Link href="https://github.com/jack-weilage">
                         Read my code!
-                    </a>
+                    </Link>
                 </li>
                 <li>
                     <Figma aria-hidden="true" />
-                    <a href="https://figma.com/@weilage">
+                    <Link href="https://figma.com/@weilage">
                         Check out my designs!
-                    </a>
+                    </Link>
                 </li>
                 <li>
                     <Email aria-hidden="true" />
-                    <a href="mailto:jack@weilage.dev">
+                    <Link href="mailto:jack@weilage.dev">
                         Contact me!
-                    </a>
+                    </Link>
                 </li>
             </ul>
         </div>
-        <a href="#posts" class="next-section" title="Move to next section">
+        <Link href="#posts" class="next-section" title="Move to next section">
             <Down aria-hidden="true" />
-        </a>
+        </Link>
     </section>
     <section id="posts">
         <header>
@@ -85,7 +85,7 @@ TODO: Main title/text should be horizontally centered. Maybe vertical center? Ho
             {/each}
         </main>
         <footer>
-            <a href="/blog/">Browse all posts</a>
+            <Link href="/blog/">Browse all posts</Link>
         </footer>
     </section>
 </main>
