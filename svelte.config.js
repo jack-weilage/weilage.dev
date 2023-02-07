@@ -10,10 +10,7 @@ const config = {
     extensions: [ '.svelte',  ...mdsvex_config.extensions ?? [] ],
     preprocess: [ 
         mdsvex(mdsvex_config), 
-        preprocess({
-            preserve: [ 'ld+json' ],
-            postcss: true
-        })
+        preprocess({ preserve: [ 'ld+json' ], postcss: true })
     ],
     kit: {
         adapter: adapter(),
@@ -26,8 +23,8 @@ const config = {
         csp: {
             mode: 'auto',
             directives: {
-                'default-src': ['self'],
-                'style-src': ['self', 'unsafe-inline']
+                'default-src': [ 'self' ],
+                'style-src': [ 'self', 'unsafe-inline' ]
             },
         },
     },

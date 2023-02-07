@@ -1,1 +1,6 @@
-export const sitemap: import('!types').SitemapConfig = { enabled: true, changefreq: 'monthly' }
+import type { SitemapConfig } from '!types'
+
+export const _sitemap: SitemapConfig = {
+    enabled: true,
+    changefreq: 'monthly'
+}
