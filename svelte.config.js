@@ -18,7 +18,7 @@ const config = {
             '!components': 'src/lib/components',
             '!css': 'src/lib/css',
             '!posts': 'src/lib/posts',
-            '!types': 'src/lib/types',
+            '!types': 'src/lib/types.d.ts',
         },
         csp: {
             mode: 'auto',
