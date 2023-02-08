@@ -10,12 +10,7 @@ TODO: Main title/text should be horizontally centered. Maybe vertical center? Ho
 
     export let data: PageData
 
-
-    import Down from 'carbon-icons-svelte/lib/ChevronDown.svelte'
-
-    import Github from 'carbon-icons-svelte/lib/LogoGithub.svelte'
-    import Figma  from 'carbon-icons-svelte/lib/LogoFigma.svelte'
-    import Email  from 'carbon-icons-svelte/lib/Email.svelte'
+    import { ChevronDown, Github, Figma, Mail} from 'lucide-svelte'
 </script>
 
 <SvEO
@@ -54,19 +49,19 @@ TODO: Main title/text should be horizontally centered. Maybe vertical center? Ho
             </p>
             <ul>
                 <li>
-                    <Github aria-hidden="true" />
+                    <Github size="18px" />
                     <Link href="https://github.com/jack-weilage">
                         Read my code!
                     </Link>
                 </li>
                 <li>
-                    <Figma aria-hidden="true" />
+                    <Figma size="18px" />
                     <Link href="https://figma.com/@weilage">
                         Check out my designs!
                     </Link>
                 </li>
                 <li>
-                    <Email aria-hidden="true" />
+                    <Mail size="18px" />
                     <Link href="mailto:jack@weilage.dev">
                         Contact me!
                     </Link>
@@ -74,7 +69,7 @@ TODO: Main title/text should be horizontally centered. Maybe vertical center? Ho
             </ul>
         </div>
         <Link href="#posts" class="next-section" title="Move to next section">
-            <Down aria-hidden="true" />
+            <ChevronDown size="1rem" />
         </Link>
     </section>
     <section id="posts">
@@ -168,6 +163,10 @@ TODO: Main title/text should be horizontally centered. Maybe vertical center? Ho
                 & li {
                     padding: 0.25rem;
                     font-weight: bold;
+
+                    display: flex;
+                    align-items: center;
+                    gap: 0.75rem;
                 }
             }
             & .spacer-xl {

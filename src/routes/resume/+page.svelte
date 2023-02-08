@@ -1,9 +1,5 @@
 <script lang="ts">
-    import Globe from 'carbon-icons-svelte/lib/EarthAmericasFilled.svelte'
-    import Email from 'carbon-icons-svelte/lib/Email.svelte'
-    import Github from 'carbon-icons-svelte/lib/LogoGithub.svelte'
-    import Phone from 'carbon-icons-svelte/lib/PhoneFilled.svelte'
-    import Location from 'carbon-icons-svelte/lib/LocationFilled.svelte'
+    import { Mail, Github, Phone, MapPin } from 'lucide-svelte'
 
     import Experience from './Experience.svelte'
     import Link from '!components/Link.svelte'
@@ -26,16 +22,16 @@
     </div>
     <ul>
         <li>
-            <Email aria-hidden="true" /><Link href="mailto:jack@weilage.dev" title="Email me">jack@weilage.dev</Link>
+            <Mail size="1rem" /><Link href="mailto:jack@weilage.dev" title="Email me">jack@weilage.dev</Link>
         </li>
         <li>
-            <Github aria-hidden="true" /><Link href="https://github.com/jack-weilage" title="Read my code">@jack-weilage</Link>
+            <Github size="1rem" /><Link href="https://github.com/jack-weilage" title="Read my code">@jack-weilage</Link>
         </li>
         <li>
-            <Phone aria-hidden="true" /><Link href="tel:+13609279721">360-927-9721</Link>
+            <Phone size="1rem" /><Link href="tel:+13609279721">360-927-9721</Link>
         </li>
         <li>
-            <Location aria-hidden="true" />Bellingham, WA
+            <MapPin size="1rem" />Bellingham, WA
         </li>
     </ul>
 </header>
@@ -126,11 +122,13 @@
                 color: var(--color--text-bold);
                 font-weight: 600;
 
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.75rem;
+
                 & a {
                     color: var(--color--text-bold);
-                }
-                & svg {
-                    margin-right: 0.75rem;
                 }
             }
         }
