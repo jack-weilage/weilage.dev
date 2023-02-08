@@ -1,9 +1,9 @@
 <script lang="ts">
-    import Information from 'carbon-icons-svelte/lib/InformationFilled.svelte'
+    import { Info } from 'lucide-svelte'
 </script>
 
 <div>
-    <Information aria-hidden="true" />
+    <Info size="1.5rem" />
     <p>
         <strong>Note: </strong>
         <slot />
@@ -28,9 +28,6 @@
 
         & > :global(svg) {
             color: var(--color--anchor);
-
-            width: 1.5rem;
-            height: 1.5rem;
         }
         & > p {
             margin: 0;
