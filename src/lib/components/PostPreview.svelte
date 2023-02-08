@@ -1,7 +1,9 @@
 <script lang="ts">
+    import type { PostData } from '!types'
+
     import dayjs from 'dayjs'
 
-    export let post: import('!types').PostData
+    export let post: PostData
     $: date = dayjs(post.date)
 
     export let heading = 'h3'

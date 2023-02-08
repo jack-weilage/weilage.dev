@@ -1,7 +1,8 @@
+import type { PageServerLoad } from './$types'
 import { posts_no_drafts as posts } from '$lib/posts'
 import { error } from '@sveltejs/kit'
 
-export const load: import('./$types').PageServerLoad = function ({ params })
+export const load: PageServerLoad = function ({ params })
 {
     const index = posts.findIndex(post => post.slug === params.slug)
 

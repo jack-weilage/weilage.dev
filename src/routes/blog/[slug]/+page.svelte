@@ -1,5 +1,7 @@
 <script lang="ts">
-    export let data: import('./$types').PageData
+    import type { PageData } from './$types'
+
+    export let data: PageData
 
     let height = 0
     let scroll = 0

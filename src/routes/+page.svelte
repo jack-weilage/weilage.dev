@@ -2,11 +2,13 @@
 TODO: Main title/text should be horizontally centered. Maybe vertical center? How to center around one element?
  -->
 <script lang="ts">
+    import type { PageData } from './$types'
+
     import SvEO from '!components/SvEO.svelte'
     import Link from '!components/Link.svelte'
     import PostPreview from '!components/PostPreview.svelte'
 
-    export let data: import('./$types').PageData
+    export let data: PageData
 
 
     import Down from 'carbon-icons-svelte/lib/ChevronDown.svelte'

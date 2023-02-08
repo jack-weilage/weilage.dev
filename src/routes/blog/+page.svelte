@@ -1,5 +1,7 @@
 <script lang="ts">
-    export let data: import('./$types').PageData
+    import type { PageData } from './$types'
+
+    export let data: PageData
 
     import SvEO from '!components/SvEO.svelte'
     import PostPreview from '!components/PostPreview.svelte'
