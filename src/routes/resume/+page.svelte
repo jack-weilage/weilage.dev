@@ -47,7 +47,7 @@
             </ul>
             <h2>Education</h2>
             <ul class="education">
-                <li><a href="https://bellingham.bellinghamschool.org">Bellingham High School</a>, August 2019 - June 2022.</li>
+                <li><a href="https://bellingham.bellinghamschool.org">Bellingham High School</a>, August 2019 - June 2023.</li>
             </ul>
         </div>
         <div>
@@ -81,7 +81,6 @@
 
 <style lang="postcss" global>
     body {
-        display: block;
         font-size: 1rem;
     }
     header {
@@ -91,7 +90,6 @@
         gap: 2rem;
 
         align-items: center;
-
 
         & h1 {
             margin: 0;
@@ -146,12 +144,15 @@
     section.first {
         display: grid;
         @media (max-width: 900px) {
-            /* grid-template-columns: 1.5fr 1fr; */
             grid-template-columns: 1.25fr 1fr;
             gap: 1rem;
         }
         @media (max-width: 600px) {
             grid-template-columns: 1fr;
+        }
+
+        & ul {
+            padding-left: 1.25rem;
         }
     }
     h2 {
@@ -167,6 +168,7 @@
     div.skills {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
     }
     ul.education {
         font-style: italic;

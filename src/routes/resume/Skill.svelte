@@ -16,15 +16,11 @@
 </div>
 
 <style lang="postcss">
-    div {
-        /* padding: 0.25rem 0.75rem; */
+    div:nth-child(2n) {
+        text-align: right;
 
-        &:nth-child(2n) {
-            text-align: right;
-
-            & ul {
-                justify-content: end;
-            }
+        & ul {
+            justify-content: end;
         }
     }
     h3 {
@@ -40,7 +36,7 @@
         gap: 0.25rem;
 
         & li {
-            padding: 0.5rem;
+            padding: 0.35rem 0.5rem;
             border-radius: 0.5rem;
             background-color: var(--color--background-alt);
 
