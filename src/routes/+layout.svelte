@@ -1,6 +1,6 @@
 <script>
-    import '!css/vars.css'
-    import '!css/global.css'
+    import '!css/vars.pcss'
+    import '!css/global.pcss'
 
     import { page } from '$app/stores'
 </script>
