@@ -30,12 +30,38 @@ b, strong {
 a {
     color: var(--color--anchor);
     text-decoration: none;
-}
-a:hover {
-    text-decoration: underline;
+
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 ::selection {
     color: var(--color--background);
     background-color: var(--color--text-bold);
+}
+
+button, input {
+    color: var(--color--text);
+    background-color: var(--color--background);
+
+    padding: 0.35rem;
+
+    outline: 0;
+    border: 2px solid var(--color--border);
+    border-radius: 0.5rem;
+}
+
+button {
+    cursor: pointer;
+
+    &[type="submit"] {
+        margin-top: 1.5rem;
+    }
+    &:hover, &:focus {
+        background-color: var(--color--background-alt);
+    }
+    &:active {
+        opacity: 0.7;
+    }
 }
