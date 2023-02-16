@@ -23,7 +23,6 @@
         <nav>
             <a href="/resume/">Resume</a>
             <a href="/blog/" aria-current={$page.url.pathname === '/blog/' ? 'page' : undefined}>Blog</a>
-            <a href="/new/" aria-current={$page.url.pathname === '/new/' ? 'page' : undefined}>New</a>
         </nav>
     </header>
 {/if}
