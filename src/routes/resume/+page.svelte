@@ -136,18 +136,18 @@
         grid-template-columns: 1fr 1.5fr;
         gap: 1rem;
 
-        @media (max-width: 900px) {
+        @media (width <= 900px) {
             grid-template-columns: 1fr;
             gap: 0;
         }
     }
     section.first {
         display: grid;
-        @media (max-width: 900px) {
+        @media (width <= 900px) {
             grid-template-columns: 1.25fr 1fr;
             gap: 1rem;
         }
-        @media (max-width: 600px) {
+        @media (width <= 600px) {
             grid-template-columns: 1fr;
         }
 
