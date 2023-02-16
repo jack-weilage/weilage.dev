@@ -51,7 +51,7 @@
         margin-top: 1rem;
         padding: 1rem 2rem;
 
-        @media (max-width: 600px) {
+        @media (width <= 600px) {
             margin-top: 0;
 
             text-align: center;

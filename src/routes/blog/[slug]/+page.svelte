@@ -203,7 +203,7 @@
             text-align: end;
         }
     }
-    @media (max-width: 700px) {
+    @media (width <= 700px) {
         main#main-content {
             grid-template-columns: [main] 1fr;
         }

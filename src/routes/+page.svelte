@@ -118,10 +118,10 @@ TODO: Main title/text should be horizontally centered. Maybe vertical center? Ho
     section {
         padding: 6rem;
 
-        @media (max-width: 800px) {
+        @media (width <= 800px) {
             padding: 6rem 2rem;
         }
-        @media (max-width: 600px) {
+        @media (width <= 600px) {
             padding: 4rem 1rem;
         }
     }
@@ -129,7 +129,7 @@ TODO: Main title/text should be horizontally centered. Maybe vertical center? Ho
         padding-top: 4rem;
         margin-bottom: 2rem;
 
-        @media (max-width: 500px) {
+        @media (width <= 500px) {
             padding-top: 1rem;
         }
 
@@ -138,7 +138,7 @@ TODO: Main title/text should be horizontally centered. Maybe vertical center? Ho
 
         & div {
             width: 75%;
-            @media (max-width: 900px) {
+            @media (width <= 900px) {
                 width: 100%;
             }
 
@@ -179,7 +179,7 @@ TODO: Main title/text should be horizontally centered. Maybe vertical center? Ho
             }
 
             /* At 500px, the heading should collapse and a different spacer should be shown to break up different text. */
-            @media (max-width: 500px) {
+            @media (width <= 500px) {
                 & h1 {
                     width: min-content;
                 }
@@ -197,7 +197,7 @@ TODO: Main title/text should be horizontally centered. Maybe vertical center? Ho
             At 335px, the heading should begin to shrink with screen size, making spacers obsolete. 
             The heading should be placed higher so the letters don't overlap.
             */
-            @media (max-width: 335px) {
+            @media (width <= 335px) {
                 & h1 {
                     font-size: 22vw;
                     margin-bottom: 5vw;

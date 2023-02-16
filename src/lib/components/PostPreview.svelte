@@ -61,7 +61,7 @@
             margin-bottom: 0;
         }
     }
-    @media (max-width: 700px) {
+    @media (width <= 700px) {
         article {
             grid-template-columns: 1fr;
         }
@@ -74,7 +74,7 @@
             }
         }
     }
-    @media (max-width: 400px) {
+    @media (width <= 400px) {
         article {
             text-align: center;
         }

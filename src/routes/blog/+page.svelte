@@ -33,7 +33,7 @@
         padding: 0.25rem 1rem;
         border-bottom: 2px solid var(--color--border);
 
-        @media screen and (max-width: 30rem) {
+        @media (width <= 30rem) {
             text-align: center;
         }
     }
