@@ -3,7 +3,7 @@
 </script>
 
 <div>
-    <Info size="1.5rem" />
+    <Info size="20px" />
     <p>
         <strong>Note: </strong>
         <slot />

@@ -69,7 +69,7 @@ TODO: Main title/text should be horizontally centered. Maybe vertical center? Ho
             </ul>
         </div>
         <Link href="#posts" class="next-section" title="Move to next section">
-            <ChevronDown size="1rem" />
+            <ChevronDown size="16px" />
         </Link>
     </section>
     <section id="posts">

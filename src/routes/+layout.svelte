@@ -3,10 +3,15 @@
     import '!css/global.pcss'
 
     import { page } from '$app/stores'
+    // import { browser, dev } from '$app/environment'
+    // import { vitals } from '$lib/analytics'
+
+    // $: if (browser && !dev)
+    //     vitals({ params: $page.params, url: $page.url })
 </script>
 
 <!-- Resume shouldn't have the normal header -->
-{#if $page.url.pathname !== '/resume/'}
+{#if $page.url.pathname !== '/resume/' && $page.url.pathname !== '/new/' && $page.url.pathname !== '/new/resume/'}
     <header class:no-branding={$page.url.pathname === '/'}>
         <a href="#main-content" class="skip-to-main">Skip To Main Content</a>
         {#if $page.url.pathname !== '/'}
@@ -18,6 +23,7 @@
         <nav>
             <a href="/resume/">Resume</a>
             <a href="/blog/" aria-current={$page.url.pathname === '/blog/' ? 'page' : undefined}>Blog</a>
+            <a href="/new/" aria-current={$page.url.pathname === '/new/' ? 'page' : undefined}>New</a>
         </nav>
     </header>
 {/if}
@@ -74,7 +80,6 @@
                 font-weight: bold;
                 font-size: 38px;
                 color: var(--color--text-bold);
-
             }
             & p.description {
                 margin: 0.25rem 0 0;

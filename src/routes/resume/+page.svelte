@@ -22,16 +22,16 @@
     </div>
     <ul>
         <li>
-            <Mail size="1rem" /><Link href="mailto:jack@weilage.dev" title="Email me">jack@weilage.dev</Link>
+            <Mail size="18px" /><Link href="mailto:jack@weilage.dev" title="Email me">jack@weilage.dev</Link>
         </li>
         <li>
-            <Github size="1rem" /><Link href="https://github.com/jack-weilage" title="Read my code">@jack-weilage</Link>
+            <Github size="18px" /><Link href="https://github.com/jack-weilage" title="Read my code">@jack-weilage</Link>
         </li>
         <li>
-            <Phone size="1rem" /><Link href="tel:+13609279721">360-927-9721</Link>
+            <Phone size="18px" /><Link href="tel:+13609279721">360-927-9721</Link>
         </li>
         <li>
-            <MapPin size="1rem" />Bellingham, WA
+            <MapPin size="18px" />Bellingham, WA
         </li>
     </ul>
 </header>
