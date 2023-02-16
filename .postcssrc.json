@@ -1,8 +1,0 @@
-{
-    "plugins": {
-        "postcss-preset-env": {
-            "browsers": [ "defaults" ],
-            "stage": 1
-        }
-    }
-}
