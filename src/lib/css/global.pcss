@@ -1,8 +1,8 @@
 html, body {
-    margin: 0;
-
     width: 100%;
     min-height: 100%;
+
+    margin: 0;
 
     -webkit-font-smoothing: antialiased;
     box-sizing: border-box;
@@ -11,13 +11,13 @@ html, body {
     box-sizing: inherit;
 }
 body {
-    background-color: var(--color--background);
-    color: var(--color--text);
-
-    font-size: 19px;
     font-family: var(--font--body);
+    font-size: 19px;
 
     line-height: 1.15;
+
+    color: var(--color--text);
+    background-color: var(--color--background);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -31,15 +31,15 @@ b, strong {
 a {
     color: var(--color--anchor);
     text-decoration: none;
-
-    &:hover {
-        text-decoration: underline;
-    }
+}
+a:hover {
+    text-decoration: underline;
 }
 
 img {
-    display: block;
     max-width: 100%;
+
+    display: block;
 }
 
 ::selection {
@@ -48,26 +48,25 @@ img {
 }
 
 button, input {
+    padding: 0.35rem;
+
     color: var(--color--text);
     background-color: var(--color--background);
 
-    padding: 0.35rem;
-
     outline: 0;
-    border: 2px solid var(--color--border);
     border-radius: 0.5rem;
+    border: 2px solid var(--color--border);
 }
 
 button {
     cursor: pointer;
-
-    &[type="submit"] {
-        margin-top: 1.5rem;
-    }
-    &:hover, &:focus {
-        background-color: var(--color--background-alt);
-    }
-    &:active {
-        opacity: 0.7;
-    }
+}
+button[type="submit"] {
+    margin-top: 1.5rem;
+}
+button:hover, button:focus {
+    background-color: var(--color--background-alt);
+}
+button:active {
+    opacity: 0.7;
 }
