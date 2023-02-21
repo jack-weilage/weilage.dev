@@ -1,40 +1,31 @@
-import type { Heading, PostData, ViteGlobImport } from '!types'
+import type { PostData } from '!types'
 
-import { browser } from '$app/environment'
-import { basename } from 'path'
-import { parse } from 'node-html-parser'
+import MarkdownIt   from 'markdown-it'
+import front_matter from 'markdown-it-front-matter'
+import abbr         from 'markdown-it-abbr'
+import footnote     from 'markdown-it-footnote'
+import shiki        from 'markdown-it-shiki'
 
-if (browser)
-    throw new Error('Posts cannot be accessed from browser.')
+import YAML from 'yaml'
 
-export const posts: PostData[] = Object.entries(import.meta.glob('./content/**/*.md', { eager: true }) as ViteGlobImport)
-    .map(([ path, content ]) => {
-        // Create a slug
-        const slug = basename(path)
-            .replace('.md', '')
-            .replace(/\s/g, '-')
-        
-        const $ = parse(content.default.render().html)
+import { basename, extname } from 'path'
 
-        // Get the text of the whole document (this won't include title or other metadata).
-        const wordcount = $.structuredText
-            .split(' ')
-            .filter(Boolean)
-            .length
-        
-        const meta = content.metadata
-        return {
-            slug,
-            draft:        !!meta.draft,
-            title:        meta.title       as string    ?? 'Unknown Title',
-            description:  meta.description as string    ?? 'Unknown Description',
-            date:         meta.date        as string    ?? '1970-01-01',
-            wordcount,
-            tags:         meta.tags        as string[]  ?? [],
-            headings:     meta.headings    as Heading[] ?? []
-        } as PostData
-    })
-    .sort((a, b) => +new Date(b.date) - +new Date(a.date))
+// For some reason, there's no way for `markdown-it-front-matter` to return the front-matter, 
+// so it must be collected in the arrow function and stored here.
+let fm: Record<string, any>
+const md = new MarkdownIt({ typographer: true })
+    .use(front_matter, yaml => fm = YAML.parse(yaml))
+    .use(abbr)
+    .use(footnote)
+    .use(shiki, { theme: 'github-dark' })
 
-export const posts_no_drafts = posts
-    .filter(post => !post.draft)
+export const posts: PostData[] = Object.entries(import.meta.glob('./content/*.md', { eager: true, as: 'raw' }))
+    .map(([ path, content ]) => ({
+        html:           md.render(content),
+        slug:           basename(path, extname(path)).replace(/\s/g, '-'),
+        title:          fm.title       ?? 'Unknown Title',
+        description:    fm.description ?? 'Unknown Description',
+        date:           +new Date(fm.date),
+        read_time:      Math.ceil(content.split(/\s/).filter(Boolean).length / 200)
+    }))
+    .sort((a, b) => b.date - a.date)
