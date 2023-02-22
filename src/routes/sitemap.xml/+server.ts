@@ -1,3 +1,6 @@
+// This page must be rendered every time it is accessed.
+export const prerender = false
+
 import type { SitemapConfig } from '!types'
 import type { RequestHandler } from './$types'
 
