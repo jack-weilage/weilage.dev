@@ -1,24 +1,25 @@
 import adapter from '@sveltejs/adapter-vercel'
 
-import { mdsvex } from 'mdsvex'
-import mdsvex_config from './mdsvex.config.js'
-
 import preprocess from 'svelte-preprocess'
 
-import postcss_preset_env from 'postcss-preset-env'
+import postcss_reporter from 'postcss-reporter'
+import postcss_stylelint from 'stylelint'
 import postcss_autoprefixer from 'autoprefixer'
+import postcss_preset_env from 'postcss-preset-env'
+
+const is_dev = process.env['NODE_ENV'] === 'development'
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-    extensions: [ '.svelte',  ...mdsvex_config.extensions ?? [] ],
     preprocess: [ 
-        mdsvex(mdsvex_config), 
         preprocess({
             preserve: [ 'ld+json' ],
             postcss: {
+                // Runs plugins in reverse? idk
                 plugins: [
-                    postcss_preset_env({ stage: 1 }),
-                    postcss_autoprefixer()
+                    ...(is_dev ? [ postcss_reporter(), postcss_stylelint() ]: []),
+                    postcss_autoprefixer(),
+                    postcss_preset_env({ stage: 1 })
                 ]
             }
         })
@@ -31,13 +32,13 @@ const config = {
             '!posts': 'src/lib/posts',
             '!types': 'src/lib/types.d.ts',
         },
-        csp: {
-            mode: 'auto',
-            directives: {
-                'default-src': [ 'self' ],
-                'style-src': [ 'self', 'unsafe-inline' ]
-            },
-        },
+        // csp: {
+        //     mode: 'auto',
+        //     directives: {
+        //         'default-src': [ 'self' ],
+        //         'style-src': [ 'self', 'unsafe-inline' ]
+        //     },
+        // },
     },
 }
 

@@ -1,0 +1,45 @@
+{
+    "$schema": "https://json.schemastore.org/stylelintrc.json",
+    "plugins": [
+        "stylelint-no-unsupported-browser-features",
+        "stylelint-order"
+    ],
+    "extends": [
+        "stylelint-config-recommended",
+        "stylelint-config-html/svelte"
+    ],
+    "rules": {
+        "plugin/no-unsupported-browser-features": [
+            true,
+            { "ignorePartialSupport": true }
+        ],
+        "order/order": [
+            "custom-properties",
+            "declarations",
+            "at-rules",
+            "rules"
+        ],
+        "order/properties-order": [
+            "z-index",
+            "position", "transform", "translate",
+            "width", "max-width", "min-width",
+            "height", "max-height", "min-height",
+            "display",
+            "align-items", "align-content", "justify-items", "justify-content",
+            "flex-wrap", "flex-direction", "flex-flow",
+            "gap", "row-gap", "column-gap",
+            "margin", "margin-top", "margin-right", "margin-bottom", "margin-left",
+            "padding", "padding-top", "padding-right", "padding-bottom", "padding-left",
+            "font", "font-family", "font-size", "font-weight", "font-style", "line-height",
+            "color", "filter", "background-color", "backdrop-filter",
+            "border-radius", "border-radius-top-left", "border-radius-top-right", "border-radius-bottom-right", "border-radius-bottom-left",
+            "border", "border-top", "border-right", "border-bottom", "border-left"
+        ],
+        "no-empty-source": null,
+        "selector-pseudo-class-no-unknown": [
+            true,
+            { "ignorePseudoClasses": [ "global" ] }
+        ]
+
+    }
+}
