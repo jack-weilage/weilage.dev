@@ -1,47 +1,41 @@
-import type { RequestHandler } from './$types'
 import type { SitemapConfig } from '!types'
+import type { RequestHandler } from './$types'
 
-import { posts_no_drafts as posts } from '$lib/posts'
+import { dirname, normalize } from 'path'
+import { posts } from '!posts'
+import dayjs from 'dayjs'
 
-const escape = (str: string) => str.replace(/["'<>&]/g, '')
-const construct_url = (elements: Record<string, any>) => 
-    `<url>${Object.entries(elements).map(([ el, val ]) => `<${el}>${escape(val.toString())}</${el}>`).join('')}</url>`
+const construct_url = (data: Record<string, unknown>) => Object.entries(data)
+    .filter(([, value ]) => !!value)
+    .map(([ key, value ]) => `<${key}>${value}</${key}>`)
+    .join('')
 
-export const GET: RequestHandler = async function({ url })
+export const GET: RequestHandler = async function ({ url })
 {
-    let sitemap = '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+    let sitemap = ''
 
-    const files = import.meta.glob<SitemapConfig>('../**/+page.ts', { import: '_sitemap' })
-    for (const [ path, options ] of Object.entries(files))
+    const pages = import.meta.glob<SitemapConfig | undefined>('../**/+page.svelte', { import: '_sitemap', eager: true })
+    for (const [ path, options ] of Object.entries(pages))
     {
-        // Get the sitemap config.
-        const config = await options()
-        
-        // If sitemap is not enabled, ignore file.
-        if (!config || !config.enabled)
+        if (!options?.enabled)
             continue
+        
+        const loc = normalize(`${url.origin}/sitemap.xml/${dirname(path)}/`)
+        const { changefreq, priority } = options
 
-        const elements = {
-            loc: url.origin + path
-                .replace(/^\.\./, '')
-                .replace(/\/\+page\.ts$/, '/'),
-            ...(config.changefreq ? { changefreq: config.changefreq } : undefined),
-            ...(config.priority   ? { priority: config.priority }     : undefined)
-        }
-        sitemap += construct_url(elements)
+        sitemap += `<url>${construct_url({ loc, changefreq, priority })}</url>`
     }
-
-    for (const post of posts)
+    // Every blog post is shown by default. If a post needs to be hidden, it'll be removed from the repo.
+    for (const { slug, date } of posts)
     {
-        const elements = {
-            loc: `${url.origin}/blog/${post.slug}/`,
-            lastmod: post.date,
-            priority: 0.5
-        }
-        sitemap += construct_url(elements)
+        const loc = normalize(`${url.origin}/blog/${slug}/`)
+        const lastmod = dayjs(date).format('YYYY-MM-DD')
+
+        sitemap += `<url>${construct_url({ loc, lastmod })}</url>`
     }
 
-    sitemap += '</urlset>'
-
-    return new Response(sitemap, { headers: { 'Content-Type': 'application/xml' } })
+    return new Response(
+        `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitemap}</urlset>`,
+        { headers: { 'Content-Type': 'application/xml' } }
+    )
 }
