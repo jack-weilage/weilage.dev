@@ -32,14 +32,18 @@ const config = {
             '!posts': 'src/lib/posts',
             '!types': 'src/lib/types.d.ts',
         },
-        // csp: {
-        //     mode: 'auto',
-        //     directives: {
-        //         'default-src': [ 'self' ],
-        //         'style-src': [ 'self', 'unsafe-inline' ]
-        //     },
-        // },
-    },
+        csp: {
+            mode: 'auto',
+            directives: {
+                'default-src': [ 'self' ],
+                'style-src': is_dev ? [ 'unsafe-inline', 'self' ] : undefined,
+                'script-src': is_dev ? [ 'unsafe-inline', 'self' ] : undefined
+            }
+        },
+        prerender: {
+            origin: 'https://weilage.dev'
+        }
+    }
 }
 
 export default config
