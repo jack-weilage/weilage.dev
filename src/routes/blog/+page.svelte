@@ -1,40 +1,48 @@
+<script lang="ts" context="module">
+    import type { SitemapConfig } from '!types'
+    export const _sitemap: SitemapConfig = {
+        enabled: true,
+        changefreq: 'weekly',
+        priority: 0.8
+    }
+</script>
 <script lang="ts">
     import type { PageData } from './$types'
 
-    export let data: PageData
+    import SEO from '!components/SEO.svelte'
+    import PostPreview from './PostPreview.svelte'
 
-    import SvEO from '!components/SvEO.svelte'
-    import PostPreview from '!components/PostPreview.svelte'
+    export let data: PageData
 </script>
 
-<SvEO
+<SEO
     title="Blog - Jack Weilage"
     description="A blog run by Jack Weilage, describing web development."
-    keywords={[ 'blog', 'jack weilage' ]}
 />
 
 <main id="main-content">
-    <h1>Posts</h1>
+    <h1>Blog</h1>
     <div>
         {#each data.posts as post}
-            <PostPreview {post} heading="h2" />
-        {:else}
-            <p>No posts found.</p>
+            <PostPreview {post} />
         {/each}
     </div>
 </main>
 
-<style lang="postcss" global>
-    main {
-        padding: 1rem;
-    }
-    h1 {
-        margin: 1rem;
-        padding: 0.25rem 1rem;
-        border-bottom: 2px solid var(--color--border);
+<style lang="postcss">
+    main :global {
+        max-width: 45rem;
 
-        @media (width <= 30rem) {
-            text-align: center;
+        margin: 6rem auto 0;
+        padding: 2rem;
+
+        & > h1 {
+            margin-bottom: 3rem;
+            font-size: 3em;
+
+            @media (width <= 650px) {
+                text-align: center;
+            }
         }
     }
 </style>
