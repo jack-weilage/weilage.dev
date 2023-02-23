@@ -1,54 +1,46 @@
 <script lang="ts">
-    import SvEO from '!components/SvEO.svelte'
     import { page } from '$app/stores'
-
-    const online = typeof navigator !== 'undefined' ? navigator.onLine : true
+    import SEO from '!components/SEO.svelte'
 </script>
 
-<SvEO
-    title="Error {$page.status}"
+<SEO 
+    title="Error {$page.status}: {$page.error?.message ?? 'Unknown Error'}"
     description="An error occurred while loading this page."
     robots={{ noindex: true, noarchive: true }}
 />
 
 <main id="main-content">
-    {#if online}
-        {#if $page.error?.message}
-            <h1>{$page.status}: {$page.error.message}</h1>
-        {:else}
-            <h1>{$page.status}</h1>
-        {/if}
+    <h1>
+        Error {$page.status}: {$page.error?.message ?? 'Unknown Error'}
+    </h1>
+    {#if $page.status === 404}
         <p>
-            If this error is unexpected or seems like my fault, please contact me at 
-            <a href="mailto:jack@weilage.dev?subject={encodeURIComponent(`Recurring Error ${$page.status}: ${$page.error?.message ?? 'Unknown'}`)}&body={encodeURIComponent('Description: ')}">jack@weilage.dev</a>
-            with a description of how to reliably reproduce the error.
+            Looks like you've navigated to a page that doesn't exist! If you were sent here from a link on my site,
+            <a href="https://github.com/jack-weilage/weilage-dev/issues">create an issue on my GitHub</a>.
         </p>
-        <p class="home">
-            <a href="/">Click here to travel back home</a>
+        <p>
+            If you were sent here by a link from somewhere else, I've likely updated my URL style or removed this page.
         </p>
+    {:else if $page.status === 401}
+        <p>You're not supposed to be here.</p>
     {:else}
-        <h1>You're currently offline!</h1>
-        <p>Wait for an internet connection, then reload this page.</p>
+        <p>
+            An error has occured. Try waiting a couple minutes, then retry your request.
+        </p>
+        <p>
+            If this error consistently ocurrs, 
+            <a href="https://github.com/jack-weilage/weilage-dev/issues">create an issue on my GitHub</a>.
+        </p>
     {/if}
 </main>
 
 <style lang="postcss">
-    main {
-        padding: 2rem;
-    }
-    h1 {
-        font-size: 2rem;
-        
-        margin: 5rem 0 1rem;
-        padding-bottom: 0.5rem;
-        
-        border-bottom: 1px solid var(--color--text-bold);
-    }
-    p {
-        margin-bottom: 0.5rem;
+    main :global {
+        max-width: 45rem;
+        margin: 8rem auto 0;
 
-        &.home {
-            margin-top: 4rem;
-        }
+        padding: 2rem;
+
+        text-align: center;
     }
 </style>
