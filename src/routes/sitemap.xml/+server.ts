@@ -1,19 +1,15 @@
-// This page must be rendered every time it is accessed.
-export const prerender = false
-
 import type { SitemapConfig } from '!types'
 import type { RequestHandler } from './$types'
 
 import { dirname, normalize } from 'path'
-import { posts } from '!posts'
-import dayjs from 'dayjs'
+import { filename } from '$lib/utils'
 
 const construct_url = (data: Record<string, unknown>) => Object.entries(data)
     .filter(([, value ]) => !!value)
     .map(([ key, value ]) => `<${key}>${value}</${key}>`)
     .join('')
 
-export const GET: RequestHandler = async function ({ url })
+export const GET: RequestHandler = function ({ url })
 {
     let sitemap = ''
 
@@ -28,13 +24,15 @@ export const GET: RequestHandler = async function ({ url })
 
         sitemap += `<url>${construct_url({ loc, changefreq, priority })}</url>`
     }
-    // Every blog post is shown by default. If a post needs to be hidden, it'll be removed from the repo.
-    for (const { slug, date } of posts)
-    {
-        const loc = normalize(`${url.origin}/blog/${slug}/`)
-        const lastmod = dayjs(date).format('YYYY-MM-DD')
 
-        sitemap += `<url>${construct_url({ loc, lastmod })}</url>`
+    // Every blog post is shown by default. If a post needs to be hidden, it'll be removed from the repo.
+    const posts = import.meta.glob('../../lib/posts/content/*.md')
+    for (const path of Object.keys(posts))
+    {
+        const loc = normalize(`${url.origin}/blog/${filename(path)}/`)
+        // const lastmod = dayjs(date).format('YYYY-MM-DD')
+
+        sitemap += `<url>${construct_url({ loc, changefreq: 'yearly' })}</url>`
     }
 
     return new Response(
