@@ -1,6 +1,6 @@
-//TODO: The back-forward cache seems to break when CSR is enabled and CSS is global.
-export const csr = false
-//TODO: Pages seem to be ignored by vercel if prerendered. ????
-export const prerender = false
+import { dev } from '$app/environment'
 
+// Enable CSR on dev for hot-reloading.
+export const csr = dev
+export const prerender = true
 export const trailingSlash = 'always'
