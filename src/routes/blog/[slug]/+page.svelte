@@ -1,217 +1,132 @@
+<script lang="ts" context="module">
+    import type { SitemapConfig } from '!types'
+    export const _sitemap: SitemapConfig = {
+        enabled: false
+    }
+</script>
 <script lang="ts">
     import type { PageData } from './$types'
+    import { ChevronLeft, ChevronRight } from 'lucide-svelte'
+    import SEO from '!components/SEO.svelte'
 
     export let data: PageData
-
-    let height = 0
-    let scroll = 0
-
-    import SvEO from '!components/SvEO.svelte'
-    import { ChevronUp } from 'lucide-svelte'
-    import { fly } from 'svelte/transition'
-
-    import dayjs from 'dayjs'
-    const date = dayjs(data.post.date)
 </script>
 
-<SvEO 
-    title={data.post.title}
-    description={data.post.description}
-    keywords={[ ...data.post.tags, 'blog' ]}
-/>
-
-<svelte:window bind:scrollY={scroll} bind:innerHeight={height} />
+<SEO title={data.post.title} description={data.post.description} />
 
 <main id="main-content">
-    <article id="top">
-        <header>
-            <h1>{data.post.title}</h1>
-            <p>
-                Published on <time datetime={date.toISOString()}>{date.format('MMMM D, YYYY')}</time>
-                •
-                {Math.ceil(data.post.wordcount / 200)} minute read
-            </p>
-        </header>
-        <main class="markdown">
-            <svelte:component this={data.component} />
-        </main>
-        <footer>
-            {#if scroll > height}
-                <a href="#top" class="scroll-to-top" title="Scroll to top" transition:fly={{ y: 15 }}>
-                    <ChevronUp size="36px" />
-                </a>
-            {/if}
-
-            <a href="/blog/{data.last?.slug ?? ''}" class="pagi last">
-                <span>Previous post</span>
-                {data.last?.title ?? 'No previous post (Go home)'}
-            </a>
-            <a href="/blog/{data.next?.slug ?? ''}" class="pagi next">
-                <span>Next post</span>
-                {data.next?.title ?? 'No next post (Go home)'}
-            </a>
-        </footer>
+    <h1>{data.post.title}</h1>
+    <p>{data.post.description}</p>
+    <article>
+        {@html data.post.html}
     </article>
+    <div>
+        <a href="/blog/{data.next?.slug ?? ''}">
+            <ChevronLeft />
+            <div>
+                <p class="title">{data.next?.title ?? 'Blog Homepage'}</p>
+                <p class="desc">{data.next?.description ?? 'No newer posts.'}</p>
+            </div>
+        </a>
+        <a href="/blog/{data.last?.slug ?? ''}">
+            <div>
+                <p class="title">{data.last?.title ?? 'Blog Homepage'}</p>
+                <p class="desc">{data.last?.description ?? 'No older posts.'}</p>
+            </div>
+            <ChevronRight />
+        </a>
+    </div>
 </main>
 
-<style lang="postcss" global>
-    main#main-content {
-        display: grid;
-        grid-template-columns: [gutter-left] 0.5fr [main] 3fr [gutter-right] 0.5fr;
-
-        gap: 1rem;
-    }
-    article {
-        grid-column: main;
-
-        & header {
-            text-align: center;
-    
-            padding-bottom: 1rem;
-            margin-bottom: 1rem;
-            border-bottom: 2px solid var(--color--border);
-    
-            & h1 {
-                margin: 4rem 1rem 0.5rem;
-                
-                font-size: 3em;
-            }
-            & p {
-                margin: 0.25rem 0;
-                
-                font-size: 0.8em;
-                opacity: 0.5;
-            }
-        }
-    }
-    .markdown {
-        padding: 1.5rem 5rem;
-        line-height: 1.5;
-        
-        & h2, & h3, & h4, & h5, & h6 {
-            margin: 4rem 0 0.5rem;
-
-            & a.heading-link {
-                float: left;
-                margin-left: -0.85em;
-                padding-right: 0.25em;
-
-                opacity: 0;
-                transition: opacity 0.1s ease-in-out;
-            }
-            &:hover a.heading-link {
-                opacity: 1;
-                text-decoration: none;
-            }
-            & + * {
-                margin-top: 0;
-            }
-        }
-        & :not(pre) > code {
-            white-space: nowrap;
-
-            border-radius: 0.25em;
-            padding: 0.1em 0.25em;
-            background-color: var(--color--background-alt);
-        }
-        & ul, & ol {
-            & li:not(:last-child) {
-                margin-bottom: 0.5rem;
-            }
-        }
-        & pre {
-            /* HACK: This really sucks. It doesn't even add padding to the other end of the container! */
-            max-width: calc(100vw - (1.5rem * 2));
-
-            display: block;
-            border-radius: 0.5rem;
-            border: 1px solid var(--color--border);
-
-            background-color: var(--color--background-alt);
-
-            padding: 1rem;
-            overflow-x: auto;
-        }
-        & pre.language-css span.token, & pre.language-scss span.token {
-            &.selector {
-                color: green;
-            }
-            &.punctuation {
-                color: white;
-            }
-            &.property {
-                color: lightgreen;
-            }
-        }
-        & pre.language-js span.token, & pre.language-ts span.token {
-            &.keyword {
-                color: red;
-            }
-            &.string, &.constant {
-                color: #3dcfff;
-            }
-            &.function {
-                color: rgb(236, 118, 236);
-            }
-            &.comment {
-                opacity: 0.5;
-            }
-        }
-    }
-    footer {
-        display: grid;
-        grid-auto-flow: column;
-        
-        gap: 2rem;
-        
+<style lang="postcss">
+    main :global {
+        max-width: 50rem;
+        margin: 8rem auto 0;
         padding: 2rem;
-        
-        & a.scroll-to-top {
-            display: grid;
-            place-items: center;
-    
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-    
-            width: 3rem;
-            height: 3rem;
-    
-            border-radius: 50%;
-            color: var(--color--background);
-            background-color: var(--color--text-bold);
-        }
-        & a.pagi {
-            padding: 2rem;
-            border-radius: 0.5rem;
-            border: 1px solid var(--color--border);
 
-            &:hover {
-                text-decoration: none;
+        & > h1 {
+            margin-bottom: 0;
+
+            font-size: clamp(2.25rem, 8vw, 3.2rem);
+        }
+        & > p {
+            margin: 0.25rem 0 2.5rem;
+
+            font-size: 0.9em;
+            color: var(--color--text-alt);
+        }
+
+        & > article {
+            & div.note {
+                padding: 1rem;
+
+                border-radius: 0.5rem;
+                border: 3px solid var(--color--orange);
+
+                & > *:first-child {
+                    margin-top: 0;
+                }
+                & > *:last-child {
+                    margin-bottom: 0;
+                }
             }
-            & span {
-                display: block;
-                font-size: 1.5em;
-                font-weight: bold;
-                color: var(--color--text-bold);
+            & pre.shiki {
+                width: 100%;
+                
+                overflow-x: auto;
+                padding: 1rem;
+                font-size: 0.75em;
+
+                border-radius: 0.5rem;
+            }
+            & *:not(pre) > code {
+                padding: 0.15rem 0.35rem;
+                font-size: 0.8em;
+                background-color: var(--color--background-alt);
+                border-radius: 0.5rem;
             }
         }
-        & a.last {
-            text-align: start;
-        }
-        & a.next {
-            text-align: end;
-        }
-    }
-    @media (width <= 700px) {
-        main#main-content {
-            grid-template-columns: [main] 1fr;
-        }
-        .markdown {
-            padding: 1rem 1.5rem;
-        }
-        footer {
-            grid-auto-flow: row;
+        & > div {
+            margin-top: 3rem;
+
+            & > a {
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+                gap: 1rem;
+
+                padding: 1.5rem 2rem;
+
+                background-color: var(--color--background-alt);
+                border-radius: 0.5rem;
+
+                &:first-child {
+                    justify-content: flex-start;
+                    margin-bottom: 1rem;
+                    text-align: start;
+                }
+                &:last-child {
+                    justify-content: flex-end;
+                    text-align: end;
+                }
+                &:hover {
+                    text-decoration: none;
+                }
+                & > div {
+                    & > p {
+                        margin: 0;
+
+                        &.title {
+                            font-weight: bold;
+                        }
+                        &.desc {
+                            margin-top: 0.25rem;
+                            font-size: 0.8rem;
+                            color: var(--color--text-alt);
+                        }
+                    }
+                }
+            }
         }
     }
 </style>
