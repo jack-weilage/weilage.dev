@@ -2,15 +2,16 @@
     import type { SitemapConfig } from '!types'
     export const _sitemap: SitemapConfig = {
         enabled: true,
+
         changefreq: 'weekly',
-        priority: 0.8
+        priority: 0.8,
     }
 </script>
 <script lang="ts">
     import type { PageData } from './$types'
 
-    import SEO from '!components/SEO.svelte'
     import PostPreview from './PostPreview.svelte'
+    import SEO from '!components/SEO.svelte'
 
     export let data: PageData
 </script>

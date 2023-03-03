@@ -1,11 +1,10 @@
 <script lang="ts" context="module">
     import type { SitemapConfig } from '!types'
-    export const _sitemap: SitemapConfig = {
-        enabled: false
-    }
+    export const _sitemap: SitemapConfig = { enabled: false }
 </script>
 <script lang="ts">
     import type { PageData } from './$types'
+
     import { ChevronLeft, ChevronRight } from 'lucide-svelte'
     import SEO from '!components/SEO.svelte'
 
@@ -72,7 +71,7 @@
             }
             & pre.shiki {
                 width: 100%;
-                
+
                 overflow-x: auto;
                 padding: 1rem;
                 font-size: 0.75em;

@@ -7,8 +7,8 @@
     const no_header_paths = [ '/resume/' ]
     const header_links = {
         '/': 'Home',
+        '/blog/': 'Blog',
         '/resume/': 'Resume',
-        '/blog/': 'Blog'
     }
 </script>
 
@@ -17,7 +17,15 @@
         <a class="skip" href="#main-content">Skip to main content</a>
         <nav>
             {#each Object.entries(header_links) as [ href, title ]}
-                <a {href} aria-current={$page.url.pathname === href ? 'page' : undefined}>{title}</a>
+                {@const is_current = $page.url.pathname === href}
+                <a
+                    {href}
+                    aria-current={is_current ? 'page' : undefined}
+                    aria-disabled={is_current ? 'true' : undefined}
+                    tabindex={is_current ? -1 : undefined}
+                >
+                    {title}
+                </a>
             {/each}
         </nav>
     </header>
@@ -33,11 +41,13 @@
         right: 0;
 
         background-color: var(--color--background-trans);
-        backdrop-filter: blur(20px) saturate(150%);
+        backdrop-filter: saturate(180%) blur(5px);
 
         & > a.skip {
             position: absolute;
             transform: translate(1rem, -100%);
+
+            max-width: calc(100vw - 2rem);
 
             padding: 1rem;
             background-color: var(--color--background-alt);
@@ -45,6 +55,7 @@
             border-radius: 0.5rem;
 
             transition: transform 0.15s ease-out;
+
             &:focus {
                 transform: translate(1rem, 1rem);
             }
@@ -55,17 +66,18 @@
             gap: 1.25rem;
 
             padding: 1.5rem;
-            
+
             @media (width <= 700px) {
                 justify-content: center;
             }
-
             & > a {
                 width: 7.5rem;
                 padding: 0.45rem 0.5rem;
 
                 text-align: center;
-                font-size: 0.9em; 
+                font-size: 0.9em;
+
+                background-color: var(--color--background);
 
                 border-radius: 0.5rem;
                 border: 2px solid transparent;
@@ -78,6 +90,10 @@
                 &:hover, &:focus {
                     border-color: var(--color--blue);
                     text-decoration: none;
+
+                    &[aria-current="page"] {
+                        border-color: var(--color--text-alt);
+                    }
                 }
                 &:active {
                     transform: translateY(5%);

@@ -2,12 +2,13 @@
     import type { SitemapConfig } from '!types'
     export const _sitemap: SitemapConfig = {
         enabled: true,
+
         changefreq: 'weekly',
-        priority: 1
+        priority: 1,
     }
 </script>
 <script lang="ts">
-    import { Mail, Github, Figma } from 'lucide-svelte'
+    import { Figma, Github, Mail } from 'lucide-svelte'
     import SEO from '!components/SEO.svelte'
 </script>
 
@@ -17,14 +18,15 @@
         '@context': 'http://schema.org/',
         '@type': 'Person',
         name: 'Jack Weilage',
-        gender: 'Mail',
+
+        email: 'jack@weilage.dev',
+        gender: 'Male',
+        image: '/images/pfp.jpg',
         sameAs: [
             'https://github.com/jack-weilage',
-            'https://figma.com/@weilage'
+            'https://figma.com/@weilage',
         ],
-        email: 'jack@weilage.dev',
-        image: '/images/pfp.jpg',
-        url: 'https://weilage.dev/'
+        url: 'https://weilage.dev/',
     }}
 />
 
@@ -33,17 +35,26 @@
     <p>Web Developer and Designer</p>
     <ul>
         <li>
-            <a target="_blank" rel="noopener noreferrer" href="mailto:jack@weilage.dev" title="Email me at jack@weilage.dev">
+            <a
+                target="_blank" rel="noopener noreferrer"
+                href="mailto:jack@weilage.dev" title="Email me at jack@weilage.dev"
+            >
                 <Mail aria-hidden="true" size="20px" />
             </a>
         </li>
         <li>
-            <a target="_blank" rel="noopener noreferrer" href="https://github.com/jack-weilage" title="Read my code on GitHub">
+            <a
+                target="_blank" rel="noopener noreferrer"
+                href="https://github.com/jack-weilage" title="Read my code on GitHub"
+            >
                 <Github aria-hidden="true" size="20px" />
             </a>
         </li>
         <li>
-            <a target="_blank" rel="noopener noreferrer" href="https://figma.com/@weilage" title="Check out my designs on Figma">
+            <a
+                target="_blank" rel="noopener noreferrer"
+                href="https://figma.com/@weilage" title="Check out my designs on Figma"
+            >
                 <Figma aria-hidden="true" size="20px" />
             </a>
         </li>

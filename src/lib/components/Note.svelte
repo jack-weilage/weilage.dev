@@ -12,19 +12,18 @@
 
 <style lang="postcss">
     div {
+        display: grid;
+        grid-template-columns: 3rem 1fr;
+        align-items: center;
+
         margin: 2rem 0;
         padding: 1rem;
+
+        background-color: var(--color--background-alt);
 
         border-radius: 0.25rem;
         border: 1px solid var(--color--border);
         border-left: 5px solid var(--color--anchor);
-
-        background-color: var(--color--background-alt);
-
-
-        display: grid;
-        grid-template-columns: 3rem 1fr;
-        align-items: center;
 
         & > :global(svg) {
             color: var(--color--anchor);

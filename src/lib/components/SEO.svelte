@@ -9,7 +9,7 @@
 
     const robots_string = Object.keys(robots)
         .filter(key => !!robots[key as keyof Robots])
-        .join()
+        .join(', ')
 </script>
 
 <svelte:head>
@@ -20,6 +20,7 @@
         <meta name="robots" content={robots_string}>
     {/if}
     {#if json_ld}
+        <!-- eslint-disable-next-line no-useless-concat -->
         {@html `<script type="application/ld+json">${JSON.stringify(json_ld)}</` + `script>`}
     {/if}
 </svelte:head>

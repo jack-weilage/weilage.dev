@@ -1,9 +1,10 @@
 import type { PageServerLoad } from './$types'
 
-import { posts } from '!posts'
 import { error } from '@sveltejs/kit'
+import { posts } from '!posts'
 
-export const load: PageServerLoad = ({ params }) => {
+export const load: PageServerLoad = function ({ params })
+{
     const index = posts.findIndex(post => post.slug === params.slug)
 
     if (index === -1)
@@ -11,7 +12,8 @@ export const load: PageServerLoad = ({ params }) => {
 
     return {
         post: posts[index],
+
         last: posts[index + 1],
-        next: posts[index - 1]
+        next: posts[index - 1],
     }
 }

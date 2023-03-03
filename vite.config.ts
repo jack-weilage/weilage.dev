@@ -3,6 +3,8 @@ import type { UserConfig } from 'vite'
 import { sveltekit } from '@sveltejs/kit/vite'
 
 export default {
-	plugins: [ sveltekit() ],
-	assetsInclude: [ '**/*.md' ]
+    assetsInclude: [ '**/*.md' ],
+    plugins: [
+        sveltekit(),
+    ],
 } as UserConfig
