@@ -3,18 +3,7 @@ title: 'Welcome to my website!'
 description: 'Read about me, my website, and my future.'
 
 date: '2022-10-23'
-
-tags:
-    - 'svelte'
-    - 'sveltekit'
-    - 'jack weilage'
-    - 'developer'
-    - 'website'
 ---
-
-<script>
-    import Note from '!components/Note.svelte'
-</script>
 
 Hello, *hello*, **hello**. Welcome to my *great* and *not at all **constantly** changing* website.
 
@@ -30,12 +19,7 @@ This website is meant to acting as a living document, displaying and cataloguing
 
 ## What did I use to make this website?
 
-This website is built with [Svelte](https://svelte.dev)/[SvelteKit](https://svelte.dev), [TypeScript](https://typescriptlang.com), and [SCSS](https://sass-lang.com). Website hosting is done by [Vercel](https://vercel.com), with email hosting from [Forward Email](https://forwardemail.net).
-
-<Note>
-    This list is based on what I am using <i>as of time of writing</i>. 
-    It is almost certainly out of date by the time you are reading this.
-</Note>
+This website is built with [Svelte](https://svelte.dev)/[SvelteKit](https://svelte.dev), [TypeScript](https://typescriptlang.com), and [SCSS](https://sass-lang.com). Website hosting is done by [Vercel](https://vercel.com), with email hosting from [Forward Email](https://forwardemail.net).^[This list is based on what I am using *as of time of writing*. It is almost certainly out of date by the time you are reading this.]
 
  - **Svelte** is an up-and-coming JavaScript framework, with many DX (developer experience) improvements. Unlike other frameworks, Svelte compiles its code down *before* sending it to the browser, saving a huge amount of network strain. Additionally, Svelte has [Vue-style](https://vuejs.org/guide/scaling-up/sfc.html) multi-language files, combining JavaScript, HTML, and CSS in a single file.
  - **SvelteKit** is a light and responsive full-stack router for Svelte. While it is currently in the RC stage, SvelteKit is feature-complete and viable for use in production.
@@ -60,4 +44,4 @@ The creation of this website has been a very fun journey. Along the way, I've le
 *[HTML]: Hyper Text Markup Language
 *[A11Y]: Accessibility
 *[RC]: Release Candidate
-*[CLI]: Command-line Interface
+*[CLI]: Command-Line Interface
