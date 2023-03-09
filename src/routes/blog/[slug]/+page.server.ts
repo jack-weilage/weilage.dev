@@ -1,19 +1,21 @@
 import type { PageServerLoad } from './$types'
 
+import { database } from '$lib/database'
 import { error } from '@sveltejs/kit'
-import { posts } from '!posts'
 
-export const load: PageServerLoad = function ({ params })
+export const load: PageServerLoad = async function ({ params })
 {
-    const index = posts.findIndex(post => post.slug === params.slug)
+    const post = await database.from('posts')
+        .select('title,description,slug,draft,content')
+        .eq('draft', false)
+        .eq('slug', params.slug)
+        .limit(1)
+        .maybeSingle()
 
-    if (index === -1)
+    if (!post || post.error)
         throw error(404, 'Post Not Found')
 
     return {
-        post: posts[index],
-
-        last: posts[index + 1],
-        next: posts[index - 1],
+        post: post.data,
     }
 }

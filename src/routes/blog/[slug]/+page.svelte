@@ -1,3 +1,4 @@
+<!-- TODO: Add the prev/next display back. -->
 <script lang="ts" context="module">
     import type { SitemapConfig } from '!types'
     export const _sitemap: SitemapConfig = { enabled: false }
@@ -5,7 +6,6 @@
 <script lang="ts">
     import type { PageData } from './$types'
 
-    import { ChevronLeft, ChevronRight } from 'lucide-svelte'
     import SEO from '!components/SEO.svelte'
 
     export let data: PageData
@@ -17,24 +17,8 @@
     <h1>{data.post.title}</h1>
     <p>{data.post.description}</p>
     <article>
-        {@html data.post.html}
+        {@html data.post.content}
     </article>
-    <div>
-        <a href="/blog/{data.next?.slug ?? ''}">
-            <ChevronLeft />
-            <div>
-                <p class="title">{data.next?.title ?? 'Blog Homepage'}</p>
-                <p class="desc">{data.next?.description ?? 'No newer posts.'}</p>
-            </div>
-        </a>
-        <a href="/blog/{data.last?.slug ?? ''}">
-            <div>
-                <p class="title">{data.last?.title ?? 'Blog Homepage'}</p>
-                <p class="desc">{data.last?.description ?? 'No older posts.'}</p>
-            </div>
-            <ChevronRight />
-        </a>
-    </div>
 </main>
 
 <style lang="postcss">
@@ -56,19 +40,6 @@
         }
 
         & > article {
-            & div.note {
-                padding: 1rem;
-
-                border-radius: 0.5rem;
-                border: 3px solid var(--color--orange);
-
-                & > *:first-child {
-                    margin-top: 0;
-                }
-                & > *:last-child {
-                    margin-bottom: 0;
-                }
-            }
             & pre.shiki {
                 width: 100%;
 
@@ -83,48 +54,6 @@
                 font-size: 0.8em;
                 background-color: var(--color--background-alt);
                 border-radius: 0.5rem;
-            }
-        }
-        & > div {
-            margin-top: 3rem;
-
-            & > a {
-                display: flex;
-                align-items: center;
-                flex-direction: row;
-                gap: 1rem;
-
-                padding: 1.5rem 2rem;
-
-                background-color: var(--color--background-alt);
-                border-radius: 0.5rem;
-
-                &:first-child {
-                    justify-content: flex-start;
-                    margin-bottom: 1rem;
-                    text-align: start;
-                }
-                &:last-child {
-                    justify-content: flex-end;
-                    text-align: end;
-                }
-                &:hover {
-                    text-decoration: none;
-                }
-                & > div {
-                    & > p {
-                        margin: 0;
-
-                        &.title {
-                            font-weight: bold;
-                        }
-                        &.desc {
-                            margin-top: 0.25rem;
-                            font-size: 0.8rem;
-                            color: var(--color--text-alt);
-                        }
-                    }
-                }
             }
         }
     }
