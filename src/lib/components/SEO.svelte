@@ -1,5 +1,9 @@
 <script lang="ts">
-    import type { Robots } from '!types'
+    interface Robots {
+        noindex?: boolean
+        nofollow?: boolean
+        noarchive?: boolean
+    }
 
     export let title: string
     export let description: string
