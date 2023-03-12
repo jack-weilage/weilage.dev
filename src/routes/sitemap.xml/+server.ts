@@ -2,14 +2,16 @@ import type { RequestHandler } from './$types'
 import type { SitemapConfig } from '!types'
 
 import { dirname, normalize } from 'node:path'
-import { filename } from '$lib/utils'
+
+import { database } from '$lib/database.server'
+import { error } from '@sveltejs/kit'
 
 const construct_url = (data: Record<string, unknown>) => Object.entries(data)
     .filter(([ , value ]) => !!value)
     .map(([ key, value ]) => `<${key}>${value}</${key}>`)
     .join('')
 
-export const GET: RequestHandler = function ({ url })
+export const GET: RequestHandler = async function ({ url })
 {
     let sitemap = ''
 
@@ -29,15 +31,23 @@ export const GET: RequestHandler = function ({ url })
         sitemap += `<url>${construct_url({ loc, changefreq, priority })}</url>`
     }
 
-    // Every blog post is shown by default. If a post needs to be hidden, it'll be removed from the repo.
-    const posts = import.meta.glob('../../lib/posts/content/*.md')
-    for (const path of Object.keys(posts))
+    const {
+        data: posts,
+        error: database_error,
+    } = await database.from('posts')
+        .select('slug,draft,created_at,updated_at')
+        .eq('draft', false)
+
+    if (database_error)
+        throw error(500)
+
+    for (const post of posts)
     {
-        const loc = normalize(`${url.origin}/blog/${filename(path)}/`)
-        // TODO: Find a way to get update time.
+        const loc = `${url.origin}/blog/${post.slug}/`
+        const lastmod = post.updated_at || post.created_at
 
         // eslint-disable-next-line sort-keys
-        sitemap += `<url>${construct_url({ loc, changefreq: 'yearly' })}</url>`
+        sitemap += `<url>${construct_url({ loc, changefreq: 'yearly', lastmod })}</url>`
     }
 
     return new Response(
