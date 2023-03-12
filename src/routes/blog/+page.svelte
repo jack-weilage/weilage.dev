@@ -8,12 +8,10 @@
     }
 </script>
 <script lang="ts">
-    import type { PageData } from './$types'
-
     import PostPreview from './PostPreview.svelte'
     import SEO from '!components/SEO.svelte'
 
-    export let data: PageData
+    export let data
 </script>
 
 <SEO

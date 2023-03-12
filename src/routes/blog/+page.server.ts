@@ -1,16 +1,14 @@
-import type { PageServerLoad } from './$types'
-
 import { database } from '$lib/database.server'
 import { dev } from '$app/environment'
 import { error } from '@sveltejs/kit'
 
-export const load: PageServerLoad = async function ()
+export async function load()
 {
     const {
         data: posts,
         error: error_data,
     } = await database.from('posts')
-        .select('title,description,slug,draft,read_time')
+        .select('title,description,slug,draft,read_time,created_at')
         .eq('draft', false)
 
     if (error_data || !posts)
@@ -22,7 +20,7 @@ export const load: PageServerLoad = async function ()
     if (dev)
     {
         const { data: drafts } = await database.from('posts')
-            .select('title,description,slug,draft,read_time')
+            .select('title,description,slug,draft,read_time,created_at')
             .eq('draft', true)
 
         posts.push(...drafts ?? [])

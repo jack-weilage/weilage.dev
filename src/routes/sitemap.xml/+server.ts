@@ -1,4 +1,3 @@
-import type { RequestHandler } from './$types'
 import type { SitemapConfig } from '!types'
 
 import { dirname, normalize } from 'node:path'
@@ -11,7 +10,7 @@ const construct_url = (data: Record<string, unknown>) => Object.entries(data)
     .map(([ key, value ]) => `<${key}>${value}</${key}>`)
     .join('')
 
-export const GET: RequestHandler = async function ({ url })
+export async function GET({ url })
 {
     let sitemap = ''
 

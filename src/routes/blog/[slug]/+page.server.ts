@@ -1,9 +1,7 @@
-import type { PageServerLoad } from './$types'
-
 import { database } from '$lib/database.server'
 import { error } from '@sveltejs/kit'
 
-export const load: PageServerLoad = async function ({ params })
+export async function load({ params })
 {
     const post = await database.from('posts')
         .select('title,description,slug,draft,content')
