@@ -1,15 +1,19 @@
 <script lang="ts">
-    import type { PostData } from '!types'
-
     import dayjs from 'dayjs'
 
-    export let post: PostData
-    $: date = dayjs(post.date)
+    export let post: {
+        title: string
+        slug: string
+        description: string
+
+        read_time: number
+        created_at: string
+    }
 </script>
 
 <article>
     <div class="info">
-        <p>{date.format('MMMM D, YYYY ')}</p>
+        <p>{dayjs(post.created_at).format('MMMM D, YYYY ')}</p>
         <p>{post.read_time} minute read</p>
     </div>
     <div class="title">
