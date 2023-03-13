@@ -7,7 +7,6 @@
         "build": "vite build",
         "preview": "svelte-kit sync && vite preview",
         "check": "svelte-kit sync && svelte-check --fail-on-warnings",
-        "prepare": "lefthook install",
         "lint": "eslint -f mo --cache . && stylelint --cache --custom-formatter stylelint-codeframe-formatter ./src/**/*.{pcss,svelte}"
     },
     "devDependencies": {
