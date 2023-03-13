@@ -9,6 +9,7 @@
 </script>
 <script lang="ts">
     import { Figma, Github, Mail } from 'lucide-svelte'
+    import Link from '!components/Link.svelte'
     import SEO from '!components/SEO.svelte'
 </script>
 
@@ -35,28 +36,19 @@
     <p>Web Developer and Designer</p>
     <ul>
         <li>
-            <a
-                target="_blank" rel="noopener noreferrer"
-                href="mailto:jack@weilage.dev" title="Email me at jack@weilage.dev"
-            >
+            <Link href="mailto:jack@weilage.dev" title="Email me at jack@weilage.dev">
                 <Mail aria-hidden="true" size="20px" />
-            </a>
+            </Link>
         </li>
         <li>
-            <a
-                target="_blank" rel="noopener noreferrer"
-                href="https://github.com/jack-weilage" title="Read my code on GitHub"
-            >
+            <Link href="https://github.com/jack-weilage" title="Read my code on GitHub">
                 <Github aria-hidden="true" size="20px" />
-            </a>
+            </Link>
         </li>
         <li>
-            <a
-                target="_blank" rel="noopener noreferrer"
-                href="https://figma.com/@weilage" title="Check out my designs on Figma"
-            >
+            <Link href="https://figma.com/@weilage" title="Check out my designs on Figma">
                 <Figma aria-hidden="true" size="20px" />
-            </a>
+            </Link>
         </li>
     </ul>
 </main>

@@ -4,6 +4,8 @@
 
     import { page } from '$app/stores'
 
+    import Link from '!components/Link.svelte'
+
     const no_header_paths = [ '/resume/' ]
     const header_links = {
         '/': 'Home',
@@ -18,14 +20,14 @@
         <nav>
             {#each Object.entries(header_links) as [ href, title ]}
                 {@const is_current = $page.url.pathname === href}
-                <a
+                <Link
                     {href}
                     aria-current={is_current ? 'page' : undefined}
                     aria-disabled={is_current ? 'true' : undefined}
                     tabindex={is_current ? -1 : undefined}
                 >
                     {title}
-                </a>
+                </Link>
             {/each}
         </nav>
     </header>

@@ -1,6 +1,7 @@
 <script lang="ts">
     import { page } from '$app/stores'
 
+    import Link from '!components/Link.svelte'
     import SEO from '!components/SEO.svelte'
 </script>
 
@@ -18,7 +19,9 @@
         <p>
             Looks like you've navigated to a page that doesn't exist! If you were sent here from a link on my
             site,
-            <a href="https://github.com/jack-weilage/weilage-dev/issues">create an issue on my GitHub</a>.
+            <Link href="https://github.com/jack-weilage/weilage-dev/issues">
+                create an issue on my GitHub
+            </Link>.
         </p>
         <p>
             If you were sent here by a link from somewhere else, I've likely updated my URL style or removed
@@ -28,11 +31,13 @@
         <p>You're not supposed to be here.</p>
     {:else}
         <p>
-            An error has occured. Try waiting a couple minutes, then retry your request.
+            An error has occured. Try waiting a little while, then retry your request.
         </p>
         <p>
             If this error consistently ocurrs,
-            <a href="https://github.com/jack-weilage/weilage-dev/issues">create an issue on my GitHub</a>.
+            <Link href="https://github.com/jack-weilage/weilage-dev/issues">
+                create an issue on my GitHub
+            </Link>.
         </p>
     {/if}
 </main>
