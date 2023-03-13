@@ -9,3 +9,4 @@
 vite.config.ts.timestamp-*.mjs
 .eslintcache
 .stylelintcache
+lefthook-local.yml
