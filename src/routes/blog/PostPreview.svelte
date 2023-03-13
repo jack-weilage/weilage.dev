@@ -1,5 +1,5 @@
 <script lang="ts">
-    import dayjs from 'dayjs'
+    import Link from '!components/Link.svelte'
 
     export let post: {
         title: string
@@ -9,18 +9,21 @@
         read_time: number
         created_at: string
     }
+
+    const created_at = new Date(post.created_at)
+        .toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })
 </script>
 
 <article>
     <div class="info">
-        <p>{dayjs(post.created_at).format('MMMM D, YYYY ')}</p>
+        <p>{created_at}</p>
         <p>{post.read_time} minute read</p>
     </div>
     <div class="title">
         <h2>
-            <a href="/blog/{post.slug}/">
+            <Link href="/blog/{post.slug}/">
                 {post.title}
-            </a>
+            </Link>
         </h2>
         <p>{post.description}</p>
     </div>
@@ -56,7 +59,7 @@
             & > h2 {
                 margin: 0 0 0.25rem;
 
-                & > a {
+                & > :global(a) {
                     color: var(--color--text-bold);
                 }
             }

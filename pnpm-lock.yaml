@@ -8,7 +8,6 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^5.54.1
   '@typescript-eslint/parser': ^5.54.1
   autoprefixer: ^10.4.14
-  dayjs: ^1.11.7
   eslint: ^8.36.0
   eslint-formatter-mo: ^1.2.0
   eslint-plugin-svelte: ^2.21.0
@@ -40,7 +39,6 @@ devDependencies:
   '@typescript-eslint/eslint-plugin': 5.54.1_4rfaf6mlw2mmutqjcopwvbftpu
   '@typescript-eslint/parser': 5.54.1_vgl77cfdswitgr47lm5swmv43m
   autoprefixer: 10.4.14_postcss@8.4.21
-  dayjs: 1.11.7
   eslint: 8.36.0
   eslint-formatter-mo: 1.2.0
   eslint-plugin-svelte: 2.21.0_pdvxdpbnzjwxjm7tkjwumh3vqi
@@ -1425,10 +1423,6 @@ packages:
     dependencies:
       es5-ext: 0.10.62
       type: 1.2.0
-    dev: true
-
-  /dayjs/1.11.7:
-    resolution: {integrity: sha512-+Yw9U6YO5TQohxLcIkrXBeY73WP3ejHWVvx8XCk3gxvQDCTEmS48ZrSZCKciI7Bhl/uCMyxYtE9UqRILmFphkQ==}
     dev: true
 
   /debug/2.6.9:
