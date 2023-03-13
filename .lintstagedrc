@@ -1,0 +1,4 @@
+{
+    "*.{svelte,ts,js}": "eslint -f mo --cache",
+    "*.{svelte,pcss}": "stylelint --cache --custom-formatter stylelint-codeframe-formatter"
+}
