@@ -3,31 +3,39 @@
     import Link from '!components/Link.svelte'
 </script>
 
-<section class="heading">
-    <h1>Jack Weilage</h1>
-    <ul>
-        <li>
-            <Mail aria-hidden="true" size="16px" />
-            <Link href="mailto:jack@weilage.dev">jack@weilage.dev</Link>
-        </li>
-        <li>
-            <Github aria-hidden="true" size="16px" />
-            <Link href="https://github.com/jack-weilage">@jack-weilage</Link>
-        </li>
-    </ul>
-    <p>
-        I am a web developer with a love for elegant, performant solutions. By combining effective
-        communication skills and a modern understanding of web standards, I build simple, light, and
-        accessible websites.
-    </p>
-    <picture>
-        <source srcset="/images/pfp.webp" type="image/webp">
-        <img src="/images/pfp.jpg" alt="">
-    </picture>
-</section>
+<div class="heading">
+    <slot name="heading">
+        <h1>Lorem Ipsum</h1>
+    </slot>
+    <slot name="contact-list">
+        <ul>
+            <li>
+                <Mail aria-hidden="true" size="16px" />
+                <Link href="mailto:jack@weilage.dev">jack@weilage.dev</Link>
+            </li>
+            <li>
+                <Github aria-hidden="true" size="16px" />
+                <Link href="https://github.com/jack-weilage">@jack-weilage</Link>
+            </li>
+        </ul>
+    </slot>
+    <slot name="description">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam cupiditate maiores id ad alias
+            sint hic ab incidunt quos corrupti laborum aut, amet molestias minima ea eius commodi
+            consequatur fugiat. Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+        </p>
+    </slot>
+    <slot name="image">
+        <picture>
+            <source srcset="/images/pfp.webp" type="image/webp">
+            <img src="/images/pfp.jpg" alt="">
+        </picture>
+    </slot>
+</div>
 
 <style lang="postcss">
-    section {
+    div {
         display: grid;
         grid-template-areas:
             "title pfp"
@@ -35,7 +43,7 @@
             "desc  pfp";
         align-items: center;
 
-        gap: 0.25rem;
+        gap: 0.25rem 1rem;
 
         @media (width <= 675px) {
             grid-template-areas:
@@ -43,29 +51,25 @@
                 "list  pfp"
                 "desc  desc";
         }
-        & > picture {
-            grid-area: pfp;
+        @media (width <= 500px) {
+            text-align: center;
 
-            aspect-ratio: 600 / 641;
-            min-width: 8rem;
-            max-height: 13.5rem;
-
-            margin-left: 1.75rem;
-
-            @media print {
-                width: 10rem;
-            }
-            & > img {
-                border-radius: 1.5rem;
-            }
+            grid-template-areas:
+                "title"
+                "list"
+                "pfp"
+                "desc";
         }
-        & h1 {
+        @media (width <= 500px) {
+            gap: 1rem;
+        }
+        & > :global h1 {
             grid-area: title;
 
             margin: 0;
             font-size: 2.5em;
         }
-        & ul {
+        & > :global ul {
             grid-area: list;
             list-style: none;
 
@@ -77,13 +81,19 @@
             margin: 0 0 auto;
             padding: 0;
 
-            @media (width <= 675px) {
+            @media (width <= 675px) and (width > 500px) {
                 grid-template-columns: 1fr;
+            }
+            @media (width <= 450px) {
+                grid-template-columns: 1fr;
+                justify-items: center;
+
+                gap: 0.5rem;
             }
             @media print {
                 gap: 0.35rem;
             }
-            & li {
+            & > li {
                 display: flex;
                 align-items: center;
                 gap: 1rem;
@@ -95,12 +105,29 @@
                 }
             }
         }
-        & > p {
+        & > :global p {
             grid-area: desc;
 
             margin: 0;
             font-size: 0.85em;
+        }
+        & > :global picture {
+            grid-area: pfp;
 
+            aspect-ratio: 320 / 342;
+
+            min-width: 8rem;
+            max-height: 13.5rem;
+
+            margin: 0 auto;
+
+            @media print {
+                width: 10rem;
+            }
+            /* TODO: Fix CLS issues (why...) */
+            & > img {
+                border-radius: 1.5rem;
+            }
         }
     }
 </style>
