@@ -30,17 +30,14 @@ export async function GET({ url })
         sitemap += `<url>${construct_url({ loc, changefreq, priority })}</url>`
     }
 
-    const {
-        data: posts,
-        error: database_error,
-    } = await database.from('posts')
+    const posts = await database.from('posts')
         .select('slug,created_at,updated_at')
         .eq('draft', false)
 
-    if (database_error)
+    if (posts.error)
         throw error(500)
 
-    for (const post of posts)
+    for (const post of posts.data)
     {
         const loc = `${url.origin}/blog/${post.slug}/`
         const lastmod = post.updated_at || post.created_at

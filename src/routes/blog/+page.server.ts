@@ -4,27 +4,14 @@ import { error } from '@sveltejs/kit'
 
 export async function load()
 {
-    const {
-        data: posts,
-        error: error_data,
-    } = await database.from('posts')
+    const posts = await database.from('posts')
         .select('title,description,slug,read_time,created_at')
-        .eq('draft', false)
+        .or(`draft.eq.false,draft.eq.${dev}`)
 
-    if (error_data || !posts)
-    {
-        console.log(error_data)
+    if (posts.error)
         throw error(500, 'An error occurred while fetching posts.')
+
+    return {
+        posts: posts.data,
     }
-
-    if (dev)
-    {
-        const { data: drafts } = await database.from('posts')
-            .select('title,description,slug,read_time,created_at')
-            .eq('draft', true)
-
-        posts.push(...drafts ?? [])
-    }
-
-    return { posts }
 }
