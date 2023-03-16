@@ -10,7 +10,7 @@ export async function load({ params })
         .limit(1)
         .maybeSingle()
 
-    if (!post || post.error)
+    if (!post?.data || post.error)
         throw error(404, 'Post Not Found')
 
     return {
