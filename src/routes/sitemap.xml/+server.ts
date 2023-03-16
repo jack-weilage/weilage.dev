@@ -34,7 +34,7 @@ export async function GET({ url })
         data: posts,
         error: database_error,
     } = await database.from('posts')
-        .select('slug,draft,created_at,updated_at')
+        .select('slug,created_at,updated_at')
         .eq('draft', false)
 
     if (database_error)

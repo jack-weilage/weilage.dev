@@ -8,7 +8,7 @@ export async function load()
         data: posts,
         error: error_data,
     } = await database.from('posts')
-        .select('title,description,slug,draft,read_time,created_at')
+        .select('title,description,slug,read_time,created_at')
         .eq('draft', false)
 
     if (error_data || !posts)
@@ -20,7 +20,7 @@ export async function load()
     if (dev)
     {
         const { data: drafts } = await database.from('posts')
-            .select('title,description,slug,draft,read_time,created_at')
+            .select('title,description,slug,read_time,created_at')
             .eq('draft', true)
 
         posts.push(...drafts ?? [])
