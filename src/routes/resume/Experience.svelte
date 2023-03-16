@@ -1,85 +1,90 @@
 <script lang="ts">
-    import type { Dayjs } from 'dayjs'
-    import dayjs from 'dayjs'
+    export let start:    string | undefined = undefined
+    export let end:      string | undefined = undefined
+    export let position: string | undefined = undefined
 
-    export let start: Dayjs
-    export let end: Dayjs | undefined = undefined
-    export let skills: string[] = []
+    export let id = 0
 </script>
 
-<article>
-    <slot name="heading">
-        <h3>
-            No <a href="/">heading</a>
-        </h3>
-    </slot>
-    <p class="duration">
-        <time datetime={start.toISOString()}>{start.format('MMMM YYYY')}</time>
-        -
-        {#if end}
-            <time datetime={end.toISOString()}>{end.format('MMMM YYYY')}</time>
-        {:else}
-            <time datetime={dayjs().toISOString()}>Today</time>
+<article class:swap-side={id % 2 === 1}>
+    <h3>
+        <slot name="heading" />
+        {#if position}
+            <span>{position}</span>
         {/if}
-    </p>
-    <p class="content">
-        <slot />
-    </p>
-    <ul>
-        {#each skills as skill}
-            <li>{skill}</li>
-        {:else}
-            <li>General</li>
-        {/each}
-    </ul>
+    </h3>
+    <div>
+        {#if start}
+            <p class="duration">
+                {new Date(start).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+                -
+                {#if end}
+                    {new Date(end).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+                {:else}
+                    Present
+                {/if}
+            </p>
+        {/if}
+        <p class="desc">
+            <slot />
+        </p>
+    </div>
 </article>
 
 <style lang="postcss">
-    article :global h3 {
-        font-weight: 400;
-        margin: 0;
+    article {
+        @media not print {
+            /* If the parent is not a grid and this element should be swapped. */
+            :global(:not(div.grid)) > &.swap-side,
+            /* Or the parent is a grid and this element is the eventh child. */
+            :global(div.grid) > &:nth-child(even) {
+                text-align: end;
 
-        & a {
-            font-weight: bold;
-            color: var(--color--text-bold);
+                & > h3 {
+                    flex-direction: row-reverse;
+                }
+            }
         }
-    }
-    article:not(:first-of-type) :global h3 {
-        margin: 1.5rem 0 0;
-    }
-    p.duration {
-        display: inline-block;
-        background-color: var(--color--background);
-        margin: 0;
-        padding: 0 0.5rem;
+        /* If the parent is not a grid and this isn't the first child. */
+        :global(:not(div.grid)) > &:not(:first-of-type) {
+            margin-top: 3.5rem;
 
-        font-size: 0.95em;
-        font-style: italic;
+            @media print {
+                margin-top: 0.5rem;
+            }
+        }
+        /* stylelint-disable no-descending-specificity */
+        & > h3 {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0 1.5rem;
 
-        transform: translate(1rem, 50%);
-    }
-    p.content {
-        margin-top: 0;
-        border-top: 5px double var(--color--border);
-        padding-top: 1rem;
-    }
-    ul {
-        padding: 0;
-        list-style: none;
+            margin: 0 0 0.25rem;
 
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
+            & > span {
+                font-weight: 300;
+            }
+        }
+        & > div {
+            font-size: 0.9em;
 
-        & li {
-            padding: 0.5rem;
-            border-radius: 0.5rem;
-            background-color: var(--color--background-alt);
+            & > p.duration {
+                margin: 0 0 1rem;
 
-            outline-offset: -2px;
-            outline: 2px solid var(--color--background-alt);
+                font-size: 0.95em;
+                font-weight: 300;
+                font-style: italic;
 
-            line-height: 1;
+                color: var(--color--text-alt);
+
+                @media print {
+                    margin-bottom: 0.25rem;
+                }
+            }
+            & > p.desc {
+                margin: 0;
+            }
         }
     }
 </style>

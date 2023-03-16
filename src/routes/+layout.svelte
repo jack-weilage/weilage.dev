@@ -6,7 +6,6 @@
 
     import Link from '!components/Link.svelte'
 
-    const no_header_paths = [ '/resume/' ]
     const header_links = {
         '/': 'Home',
         '/blog/': 'Blog',
@@ -14,24 +13,22 @@
     }
 </script>
 
-{#if !no_header_paths.includes($page.url.pathname)}
-    <header>
-        <a class="skip" href="#main-content">Skip to main content</a>
-        <nav>
-            {#each Object.entries(header_links) as [ href, title ]}
-                {@const is_current = $page.url.pathname === href}
-                <Link
-                    {href}
-                    aria-current={is_current ? 'page' : undefined}
-                    aria-disabled={is_current ? 'true' : undefined}
-                    tabindex={is_current ? -1 : undefined}
-                >
-                    {title}
-                </Link>
-            {/each}
-        </nav>
-    </header>
-{/if}
+<header>
+    <a class="skip" href="#main-content">Skip to main content</a>
+    <nav>
+        {#each Object.entries(header_links) as [ href, title ]}
+            {@const is_current = $page.url.pathname === href}
+            <Link
+                {href}
+                aria-current={is_current ? 'page' : undefined}
+                aria-disabled={is_current ? 'true' : undefined}
+                tabindex={is_current ? -1 : undefined}
+            >
+                {title}
+            </Link>
+        {/each}
+    </nav>
+</header>
 
 <slot />
 
@@ -45,6 +42,9 @@
         background-color: var(--color--background-trans);
         backdrop-filter: saturate(180%) blur(5px);
 
+        @media print {
+            display: none;
+        }
         & > a.skip {
             position: absolute;
             transform: translate(1rem, -100%);
