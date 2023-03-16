@@ -9,8 +9,8 @@
 </script>
 <script lang="ts">
     import Experience from './Experience.svelte'
+    import Heading from './Heading.svelte'
     import Link from '!components/Link.svelte'
-    import NewHeading from './NewHeading.svelte'
     import SEO from '!components/SEO.svelte'
     import Section from './Section.svelte'
 
@@ -24,7 +24,7 @@
 
 <main id="main-content">
     <Section heading>
-        <NewHeading>
+        <Heading>
             <h1 slot="heading">Jack Weilage</h1>
             <ul slot="contact-list">
                 <li>
@@ -45,7 +45,7 @@
                 <source srcset="/images/pfp.webp" type="image/webp">
                 <img src="/images/pfp.jpg" alt="">
             </picture>
-        </NewHeading>
+        </Heading>
     </Section>
     <Section>
         <h2 slot="title">Experience</h2>
