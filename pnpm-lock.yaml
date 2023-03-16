@@ -17,11 +17,8 @@ specifiers:
   postcss: ^8.4.21
   postcss-html: ^1.5.0
   postcss-preset-env: ^8.0.1
-  postcss-simple-vars: ^7.0.1
   stylelint: ^15.2.0
   stylelint-codeframe-formatter: ^1.2.0
-  stylelint-config-html: ^1.1.0
-  stylelint-config-recommended: ^10.0.1
   stylelint-no-unsupported-browser-features: ^6.1.0
   stylelint-order: ^6.0.3
   svelte: ^3.57.0
@@ -48,11 +45,8 @@ devDependencies:
   postcss: 8.4.21
   postcss-html: 1.5.0
   postcss-preset-env: 8.0.1_postcss@8.4.21
-  postcss-simple-vars: 7.0.1_postcss@8.4.21
   stylelint: 15.2.0
   stylelint-codeframe-formatter: 1.2.0
-  stylelint-config-html: 1.1.0_x2qzl5lwlwnkkekx7bj2y4o6y4
-  stylelint-config-recommended: 10.0.1_stylelint@15.2.0
   stylelint-no-unsupported-browser-features: 6.1.0_stylelint@15.2.0
   stylelint-order: 6.0.3_stylelint@15.2.0
   svelte: 3.57.0
@@ -3482,15 +3476,6 @@ packages:
       util-deprecate: 1.0.2
     dev: true
 
-  /postcss-simple-vars/7.0.1_postcss@8.4.21:
-    resolution: {integrity: sha512-5GLLXaS8qmzHMOjVxqkk1TZPf1jMqesiI7qLhnlyERalG0sMbHIbJqrcnrpmZdKCLglHnRHoEBB61RtGTsj++A==}
-    engines: {node: '>=14.0'}
-    peerDependencies:
-      postcss: ^8.2.1
-    dependencies:
-      postcss: 8.4.21
-    dev: true
-
   /postcss-sorting/8.0.2_postcss@8.4.21:
     resolution: {integrity: sha512-M9dkSrmU00t/jK7rF6BZSZauA5MAaBW4i5EnJXspMwt4iqTh/L9j6fgMnbElEOfyRyfLfVbIHj/R52zHzAPe1Q==}
     peerDependencies:
@@ -3859,25 +3844,6 @@ packages:
       chalk: 4.1.2
       log-symbols: 4.1.0
       plur: 4.0.0
-    dev: true
-
-  /stylelint-config-html/1.1.0_x2qzl5lwlwnkkekx7bj2y4o6y4:
-    resolution: {integrity: sha512-IZv4IVESjKLumUGi+HWeb7skgO6/g4VMuAYrJdlqQFndgbj6WJAXPhaysvBiXefX79upBdQVumgYcdd17gCpjQ==}
-    engines: {node: ^12 || >=14}
-    peerDependencies:
-      postcss-html: ^1.0.0
-      stylelint: '>=14.0.0'
-    dependencies:
-      postcss-html: 1.5.0
-      stylelint: 15.2.0
-    dev: true
-
-  /stylelint-config-recommended/10.0.1_stylelint@15.2.0:
-    resolution: {integrity: sha512-TQ4xQ48tW4QSlODcti7pgSRqBZcUaBzuh0jPpfiMhwJKBPkqzTIAU+IrSWL/7BgXlOM90DjB7YaNgFpx8QWhuA==}
-    peerDependencies:
-      stylelint: ^15.0.0
-    dependencies:
-      stylelint: 15.2.0
     dev: true
 
   /stylelint-no-unsupported-browser-features/6.1.0_stylelint@15.2.0:
