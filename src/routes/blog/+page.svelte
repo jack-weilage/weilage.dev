@@ -35,9 +35,12 @@
         margin: 6rem auto 0;
         padding: 2rem;
 
+        @media print {
+            margin: 0;
+        }
         & > h1 {
             margin-bottom: 3rem;
-            font-size: 3em;
+            font-size: 2.5em;
 
             @media (width <= 650px) {
                 text-align: center;

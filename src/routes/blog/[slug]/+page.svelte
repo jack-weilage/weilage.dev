@@ -27,6 +27,9 @@
         margin: 8rem auto 0;
         padding: 2rem;
 
+        @media print {
+            margin: 0;
+        }
         & > h1 {
             margin-bottom: 0;
 
