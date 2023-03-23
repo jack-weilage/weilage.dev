@@ -20,8 +20,11 @@
 />
 
 <main id="main-content">
-    <h1>Blog</h1>
-    <div>
+    <div class="heading">
+        <h1>Blog</h1>
+        <p>Where I write about whatever comes into my mind.</p>
+    </div>
+    <div class="previews">
         {#each data.posts as post}
             <PostPreview {post} />
         {/each}
@@ -38,13 +41,29 @@
         @media print {
             margin: 0;
         }
-        & > h1 {
+        & > div.heading {
             margin-bottom: 3rem;
-            font-size: 2.5em;
 
             @media (width <= 650px) {
                 text-align: center;
             }
+            & > h1 {
+                margin: 0 0 0.25rem;
+
+                font-size: 2.5em;
+            }
+            & > p {
+                margin: 0;
+
+                font-size: 0.9em;
+                color: var(--color--text-alt);
+            }
+        }
+        & > div.previews {
+            display: flex;
+            flex-direction: column;
+
+            gap: 1.5rem;
         }
     }
 </style>

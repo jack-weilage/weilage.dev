@@ -11,14 +11,10 @@
     }
 
     const created_at = new Date(post.created_at)
-        .toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })
+        .toLocaleDateString('en-US', { day: 'numeric', month: 'numeric', year: 'numeric' })
 </script>
 
 <article>
-    <div class="info">
-        <p>{created_at}</p>
-        <p>{post.read_time} minute read</p>
-    </div>
     <div class="title">
         <h2>
             <Link href="/blog/{post.slug}/">
@@ -27,18 +23,29 @@
         </h2>
         <p>{post.description}</p>
     </div>
+    <div class="info">
+        <p>{created_at}</p>
+        <p>{post.read_time} minute read</p>
+    </div>
 </article>
 
 <style lang="postcss">
     article {
         display: flex;
         align-items: center;
+        justify-content: space-between;
         flex-wrap: wrap;
 
-        gap: 0.5rem;
+        gap: 1rem;
 
-        &:not(:last-child) {
-            margin-bottom: 5rem;
+        @media (width <= 550px) {
+            &:nth-child(even) {
+                text-align: end;
+
+                & > div.info {
+                    align-items: flex-end;
+                }
+            }
         }
         & p {
             margin: 0;
@@ -46,22 +53,23 @@
             font-size: 0.8em;
             color: var(--color--text-alt);
         }
-        & > div.info {
-            width: 20%;
-            min-width: min(8rem, 100%);
-
-            margin-right: auto;
-        }
         & > div.title {
-            width: 60%;
-            min-width: min(20rem, 100%);
-
+            @media (width <= 550px) {
+                width: 100%;
+            }
             & > h2 {
-                margin: 0 0 0.25rem;
+                margin: 0;
+            }
+        }
+        & > div.info {
+            display: flex;
+            align-items: flex-end;
+            flex-direction: column;
 
-                & > :global(a) {
-                    color: var(--color--text-bold);
-                }
+            @media (width <= 550px) {
+                width: 100%;
+
+                align-items: flex-start;
             }
         }
     }
