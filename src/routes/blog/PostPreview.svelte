@@ -11,7 +11,7 @@
     }
 
     const created_at = new Date(post.created_at)
-        .toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })
+        .toLocaleDateString('en-US', { day: 'numeric', month: 'numeric', year: 'numeric' })
 </script>
 
 <article>
@@ -38,6 +38,15 @@
 
         gap: 1rem;
 
+        @media (width <= 550px) {
+            &:nth-child(even) {
+                text-align: end;
+
+                & > div.info {
+                    align-items: flex-end;
+                }
+            }
+        }
         & p {
             margin: 0;
 
