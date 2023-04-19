@@ -5,7 +5,7 @@ pre-push:
       run: npm run check
     eslint:
       files: git diff --name-only main
-      glob: "*.{js,ts}"
+      glob: "*.{js,ts,svelte}"
       run: npm run lint:eslint {files}
     stylelint:
       files: git diff --name-only main
