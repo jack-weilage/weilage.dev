@@ -1,14 +1,14 @@
 pre-push:
   commands:
     svelte-check:
-      run: npx svelte-kit sync && npx svelte-check --fail-on-warnings
+      run: npm run check && npm run lint
 
 pre-commit:
   parallel: true
   commands:
     eslint:
       glob: "*.{js,ts,svelte}"
-      run: npx eslint --cache -f mo {staged_files}
+      run: npm run lint:eslint {staged_files}
     stylelint:
       glob: "*.{svelte,pcss,css}"
-      run: npx stylelint --cache --custom-formatter stylelint-codeframe-formatter {staged_files}
+      run: npm run lint:stylelint {staged_files}
