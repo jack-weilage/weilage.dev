@@ -1,7 +1,10 @@
 pre-push:
+  parallel: true
   commands:
     svelte-check:
-      run: npm run check && npm run lint
+      run: npm run check
+    lint:
+      run: npm run lint
 
 pre-commit:
   parallel: true
