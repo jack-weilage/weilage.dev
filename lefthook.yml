@@ -3,8 +3,14 @@ pre-push:
   commands:
     svelte-check:
       run: npm run check
-    lint:
-      run: npm run lint
+    eslint:
+      files: git diff --name-only main
+      glob: "*.{js,ts}"
+      run: npm run lint:eslint {files}
+    stylelint:
+      files: git diff --name-only main
+      glob: "*.{pcss,svelte}"
+      run: npm run lint:stylelint {files}
 
 pre-commit:
   parallel: true
