@@ -124,7 +124,7 @@
             padding: 0;
         }
         & :global(a) {
-            font-weight: bold;
+            font-weight: 700;
             color: var(--color--text-bold);
         }
     }
