@@ -1,0 +1,11 @@
+{
+  "name": "stylelint-config-custom",
+  "version": "0.0.1",
+  "description": "A custom stylelint config for weilage.dev",
+  "main": "index.js",
+  "license": "ISC",
+  "dependencies": {
+    "stylelint-no-unsupported-browser-features": "^6.1.0",
+    "stylelint-order": "^6.0.3"
+  }
+}
