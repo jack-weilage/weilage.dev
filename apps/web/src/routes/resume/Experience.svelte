@@ -53,7 +53,6 @@
                 margin-top: 0.5rem;
             }
         }
-        /* stylelint-disable no-descending-specificity */
         & > h3 {
             display: flex;
             align-items: center;
