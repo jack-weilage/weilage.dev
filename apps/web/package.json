@@ -7,8 +7,8 @@
         "build": "vite build",
         "preview": "svelte-kit sync && vite preview",
         "check": "svelte-kit sync && svelte-check --fail-on-warnings",
-        "lint:eslint": "eslint --cache --report-unused-disable-directives -f mo",
-        "lint:stylelint": "stylelint --cache --rdd --risd --rd --custom-formatter stylelint-codeframe-formatter",
+        "lint:eslint": "eslint --cache --report-unused-disable-directives",
+        "lint:stylelint": "stylelint --cache --rdd --risd --rd",
         "lint": "pnpm lint:eslint . && pnpm lint:stylelint ./src/**/*.{pcss,svelte}"
     },
     "devDependencies": {

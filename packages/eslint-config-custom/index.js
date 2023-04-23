@@ -25,7 +25,8 @@ module.exports = {
         "plugin:svelte/recommended",
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
-        "plugin:unicorn/recommended"
+        "plugin:unicorn/recommended",
+        "turbo"
     ],
     "rules": {
         // `eslint-plugin-svelte`

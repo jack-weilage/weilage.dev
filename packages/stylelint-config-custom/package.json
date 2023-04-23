@@ -5,6 +5,7 @@
   "main": "index.js",
   "license": "ISC",
   "dependencies": {
+    "stylelint": "^15.6.0",
     "stylelint-no-unsupported-browser-features": "^6.1.0",
     "stylelint-order": "^6.0.3"
   }
