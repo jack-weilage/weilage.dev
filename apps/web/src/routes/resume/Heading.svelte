@@ -1,5 +1,7 @@
 <script lang="ts">
-    import { Github, Mail } from 'lucide-svelte'
+    import Github from 'lucide-svelte/dist/svelte/icons/github.svelte'
+    import Mail from 'lucide-svelte/dist/svelte/icons/mail.svelte'
+
     import Link from '!components/Link.svelte'
 </script>
 
