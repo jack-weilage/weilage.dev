@@ -1,0 +1,14 @@
+{
+  "name": "eslint-config-custom",
+  "version": "0.0.1",
+  "description": "A custom eslint config for weilage.dev",
+  "main": "index.js",
+  "license": "ISC",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "eslint-config-turbo": "^1.9.3",
+    "eslint-plugin-svelte": "^2.26.0",
+    "eslint-plugin-unicorn": "^46.0.0"
+  }
+}

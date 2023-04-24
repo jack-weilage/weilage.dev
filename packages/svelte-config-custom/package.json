@@ -1,0 +1,16 @@
+{
+  "name": "svelte-config-custom",
+  "version": "0.0.1",
+  "description": "A custom Svelte config for weilage.dev",
+  "main": "index.js",
+  "license": "ISC",
+  "dependencies": {
+    "@sveltejs/adapter-vercel": "2.4.2",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.23",
+    "postcss-html": "^1.5.0",
+    "postcss-preset-env": "^8.3.2",
+    "svelte-preprocess": "^5.0.3"
+  },
+  "type": "module"
+}

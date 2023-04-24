@@ -1,9 +1,4 @@
-import adapter from '@sveltejs/adapter-vercel'
-
-import preprocess from 'svelte-preprocess'
-
-import postcss_autoprefixer from 'autoprefixer'
-import postcss_preset_env from 'postcss-preset-env'
+import custom_config from 'svelte-config-custom'
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
 const is_dev = process.env['NODE_ENV'] === 'development'
@@ -11,7 +6,7 @@ const is_dev = process.env['NODE_ENV'] === 'development'
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
     kit: {
-        adapter: adapter(),
+        ...custom_config.kit,
         alias: {
             '!components': 'src/lib/components',
             '!css': 'src/lib/css',
@@ -31,16 +26,7 @@ const config = {
         },
     },
     preprocess: [
-        preprocess({
-            postcss: {
-                // Runs plugins in reverse? idk
-                plugins: [
-                    postcss_autoprefixer(),
-                    postcss_preset_env({ stage: 1 }),
-                ],
-            },
-            preserve: [ 'ld+json' ],
-        }),
+        ...custom_config.preprocess,
     ],
 }
 

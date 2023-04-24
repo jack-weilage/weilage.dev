@@ -2,22 +2,19 @@ pre-push:
   parallel: true
   commands:
     svelte-check:
-      run: npm run check
-    eslint:
-      files: git diff --name-only main
-      glob: "*.{js,ts,svelte}"
-      run: npm run lint:eslint {files}
-    stylelint:
-      files: git diff --name-only main
-      glob: "*.{pcss,svelte}"
-      run: npm run lint:stylelint {files}
+      run: pnpm check
+    lint:
+      run: pnpm lint
 
+#TODO: This should include more robust checks.
 pre-commit:
   parallel: true
   commands:
     eslint:
+      root: apps/web
       glob: "*.{js,ts,svelte}"
       run: npm run lint:eslint {staged_files}
     stylelint:
+      root: apps/web
       glob: "*.{svelte,pcss,css}"
       run: npm run lint:stylelint {staged_files}

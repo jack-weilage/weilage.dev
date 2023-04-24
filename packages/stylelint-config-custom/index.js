@@ -1,5 +1,4 @@
-{
-    "$schema": "https://json.schemastore.org/stylelintrc.json",
+module.exports = {
     "plugins": [
         "stylelint-no-unsupported-browser-features",
         "stylelint-order"
