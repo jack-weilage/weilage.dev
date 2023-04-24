@@ -2,9 +2,11 @@
     import '!css/vars.pcss'
     import '!css/global.pcss'
 
+    import { inject } from '@vercel/analytics'
+    import Link from '!components/Link.svelte'
     import { page } from '$app/stores'
 
-    import Link from '!components/Link.svelte'
+    inject()
 
     const header_links = {
         '/': 'Home',
