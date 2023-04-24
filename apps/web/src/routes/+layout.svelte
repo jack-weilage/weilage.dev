@@ -2,8 +2,8 @@
     import '!css/vars.pcss'
     import '!css/global.pcss'
 
-    import { inject } from '@vercel/analytics'
     import Link from '!components/Link.svelte'
+    import { inject } from '@vercel/analytics'
     import { page } from '$app/stores'
 
     inject()
