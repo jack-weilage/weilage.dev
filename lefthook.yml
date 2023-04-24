@@ -13,8 +13,12 @@ pre-commit:
     eslint:
       root: apps/web
       glob: "*.{js,ts,svelte}"
-      run: npm run lint:eslint {staged_files}
+      run: pnpm lint:eslint {staged_files}
     stylelint:
       root: apps/web
       glob: "*.{svelte,pcss,css}"
-      run: npm run lint:stylelint {staged_files}
+      run: pnpm lint:stylelint {staged_files}
+    svelte-check:
+      root: apps/web
+      glob: "*.svelte"
+      run: pnpm check {staged_files}
