@@ -8,7 +8,10 @@
     }
 </script>
 <script lang="ts">
-    import { Figma, Github, Mail } from 'lucide-svelte'
+    import Figma from 'lucide-svelte/dist/svelte/icons/figma.svelte'
+    import Github from 'lucide-svelte/dist/svelte/icons/github.svelte'
+    import Mail from 'lucide-svelte/dist/svelte/icons/mail.svelte'
+
     import Link from '!components/Link.svelte'
     import SEO from '!components/SEO.svelte'
 </script>

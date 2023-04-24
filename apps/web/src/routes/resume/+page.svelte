@@ -14,7 +14,8 @@
     import SEO from '!components/SEO.svelte'
     import Section from './Section.svelte'
 
-    import { Github, Mail } from 'lucide-svelte'
+    import Github from 'lucide-svelte/dist/svelte/icons/github.svelte'
+    import Mail from 'lucide-svelte/dist/svelte/icons/mail.svelte'
 
     // If this counter is odd, the experience should be `text-align: end`.
     let id = 0
