@@ -1,0 +1,13 @@
+{
+  "name": "postcss-config-custom",
+  "version": "0.0.1",
+  "description": "A custom PostCSS config for weilage.dev",
+  "main": "index.js",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.23",
+    "postcss-html": "^1.5.0",
+    "postcss-preset-env": "^8.3.2"
+  }
+}
