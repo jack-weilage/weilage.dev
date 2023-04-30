@@ -49,7 +49,7 @@
             </Link>
         </li>
         <li>
-            <Link href="https://figma.com/@weilage" title="Check out my designs on Figma">
+            <Link href="https://www.figma.com/@weilage" title="Check out my designs on Figma">
                 <Figma aria-hidden="true" size="20px" />
             </Link>
         </li>
