@@ -1,4 +1,4 @@
-module.exports = {
+const config = {
     "plugins": [
         "@typescript-eslint",
         "unicorn"
@@ -201,3 +201,5 @@ module.exports = {
         "yield-star-spacing": "warn"
     }
 }
+
+module.exports = config
