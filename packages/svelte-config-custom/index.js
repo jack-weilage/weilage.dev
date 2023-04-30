@@ -2,9 +2,6 @@ import adapter from '@sveltejs/adapter-vercel'
 
 import preprocess from 'svelte-preprocess'
 
-import postcss_autoprefixer from 'autoprefixer'
-import postcss_preset_env from 'postcss-preset-env'
-
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
     kit: {
@@ -13,11 +10,7 @@ const config = {
     preprocess: [
         preprocess({
             postcss: {
-                // Runs plugins in reverse? idk
-                plugins: [
-                    postcss_autoprefixer(),
-                    postcss_preset_env({ stage: 1 }),
-                ],
+                configFilePath: './postcss.config.cjs'
             },
             preserve: [ 'ld+json' ],
         }),

@@ -37,6 +37,9 @@ importers:
       lucide-svelte:
         specifier: ^0.171.0
         version: 0.171.0(svelte@3.58.0)
+      postcss-config-custom:
+        specifier: workspace:^
+        version: link:../../packages/postcss-config-custom
       stylelint-config-custom:
         specifier: workspace:^
         version: link:../../packages/stylelint-config-custom
@@ -45,7 +48,7 @@ importers:
         version: 3.58.0
       svelte-check:
         specifier: ^3.2.0
-        version: 3.2.0(svelte@3.58.0)
+        version: 3.2.0(postcss@8.4.23)(svelte@3.58.0)
       svelte-config-custom:
         specifier: workspace:^
         version: link:../../packages/svelte-config-custom
@@ -77,6 +80,21 @@ importers:
         specifier: ^46.0.0
         version: 46.0.0(eslint@8.39.0)
 
+  packages/postcss-config-custom:
+    dependencies:
+      autoprefixer:
+        specifier: ^10.4.14
+        version: 10.4.14(postcss@8.4.23)
+      postcss:
+        specifier: ^8.4.23
+        version: 8.4.23
+      postcss-html:
+        specifier: ^1.5.0
+        version: 1.5.0
+      postcss-preset-env:
+        specifier: ^8.3.2
+        version: 8.3.2(postcss@8.4.23)
+
   packages/stylelint-config-custom:
     dependencies:
       stylelint-no-unsupported-browser-features:
@@ -91,18 +109,6 @@ importers:
       '@sveltejs/adapter-vercel':
         specifier: 2.4.2
         version: 2.4.2(@sveltejs/kit@1.15.7)
-      autoprefixer:
-        specifier: ^10.4.14
-        version: 10.4.14(postcss@8.4.23)
-      postcss:
-        specifier: ^8.4.23
-        version: 8.4.23
-      postcss-html:
-        specifier: ^1.5.0
-        version: 1.5.0
-      postcss-preset-env:
-        specifier: ^8.3.2
-        version: 8.3.2(postcss@8.4.23)
       svelte-preprocess:
         specifier: ^5.0.3
         version: 5.0.3(postcss@8.4.23)(svelte@3.58.0)(typescript@5.0.4)
@@ -3710,7 +3716,7 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  /svelte-check@3.2.0(svelte@3.58.0):
+  /svelte-check@3.2.0(postcss@8.4.23)(svelte@3.58.0):
     resolution: {integrity: sha512-6ZnscN8dHEN5Eq5LgIzjj07W9nc9myyBH+diXsUAuiY/3rt0l65/LCIQYlIuoFEjp2F1NhXqZiJwV9omPj9tMw==}
     hasBin: true
     peerDependencies:
@@ -3723,7 +3729,7 @@ packages:
       picocolors: 1.0.0
       sade: 1.8.1
       svelte: 3.58.0
-      svelte-preprocess: 5.0.3(svelte@3.58.0)(typescript@5.0.4)
+      svelte-preprocess: 5.0.3(postcss@8.4.23)(svelte@3.58.0)(typescript@5.0.4)
       typescript: 5.0.4
     transitivePeerDependencies:
       - '@babel/core'
@@ -3805,54 +3811,6 @@ packages:
       strip-indent: 3.0.0
       svelte: 3.58.0
       typescript: 5.0.4
-    dev: false
-
-  /svelte-preprocess@5.0.3(svelte@3.58.0)(typescript@5.0.4):
-    resolution: {integrity: sha512-GrHF1rusdJVbOZOwgPWtpqmaexkydznKzy5qIC2FabgpFyKN57bjMUUUqPRfbBXK5igiEWn1uO/DXsa2vJ5VHA==}
-    engines: {node: '>= 14.10.0'}
-    requiresBuild: true
-    peerDependencies:
-      '@babel/core': ^7.10.2
-      coffeescript: ^2.5.1
-      less: ^3.11.3 || ^4.0.0
-      postcss: ^7 || ^8
-      postcss-load-config: ^2.1.0 || ^3.0.0 || ^4.0.0
-      pug: ^3.0.0
-      sass: ^1.26.8
-      stylus: ^0.55.0
-      sugarss: ^2.0.0 || ^3.0.0 || ^4.0.0
-      svelte: ^3.23.0
-      typescript: '>=3.9.5 || ^4.0.0 || ^5.0.0'
-    peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-      coffeescript:
-        optional: true
-      less:
-        optional: true
-      postcss:
-        optional: true
-      postcss-load-config:
-        optional: true
-      pug:
-        optional: true
-      sass:
-        optional: true
-      stylus:
-        optional: true
-      sugarss:
-        optional: true
-      typescript:
-        optional: true
-    dependencies:
-      '@types/pug': 2.0.6
-      detect-indent: 6.1.0
-      magic-string: 0.27.0
-      sorcery: 0.11.0
-      strip-indent: 3.0.0
-      svelte: 3.58.0
-      typescript: 5.0.4
-    dev: true
 
   /svelte@3.58.0:
     resolution: {integrity: sha512-brIBNNB76mXFmU/Kerm4wFnkskBbluBDCjx/8TcpYRb298Yh2dztS2kQ6bhtjMcvUhd5ynClfwpz5h2gnzdQ1A==}
