@@ -37,6 +37,7 @@ const config = {
         "svelte/no-export-load-in-svelte-module-in-kit-pages": "warn",
         "svelte/no-store-async": "warn",
         "svelte/require-store-callbacks-use-set-param": "warn",
+        "svelte/valid-compile": "off",
         // Security vulnerabilites.
         "svelte/no-at-html-tags": "off",
         // Best practices.
