@@ -1,12 +1,12 @@
 <!-- TODO: Add the prev/next display back. -->
 <script lang="ts" context="module">
-    import type { SitemapConfig } from '!types'
+    import type { SitemapConfig } from '$lib/types'
     export const _sitemap: SitemapConfig = { enabled: false }
 </script>
 <script lang="ts">
     import type { PageData } from './$types'
 
-    import SEO from '!components/SEO.svelte'
+    import { SEO } from 'ui'
 
     export let data: PageData
 </script>

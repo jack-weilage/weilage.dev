@@ -7,11 +7,6 @@ const is_dev = process.env['NODE_ENV'] === 'development'
 const config = {
     kit: {
         ...custom_config.kit,
-        alias: {
-            '!components': 'src/lib/components',
-            '!css': 'src/lib/css',
-            '!types': 'src/lib/types.d.ts',
-        },
         csp: {
             directives: {
                 'default-src': [ 'self' ],
