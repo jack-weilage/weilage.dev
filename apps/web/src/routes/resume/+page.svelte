@@ -8,9 +8,9 @@
     }
 </script>
 <script lang="ts">
+    import { Link, SEO } from 'ui'
     import Experience from './Experience.svelte'
     import Heading from './Heading.svelte'
-    import { Link, SEO } from 'ui'
     import Section from './Section.svelte'
 
     import Github from 'lucide-svelte/dist/svelte/icons/github.svelte'
