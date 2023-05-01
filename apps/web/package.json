@@ -6,10 +6,10 @@
         "dev": "vite dev",
         "build": "vite build",
         "preview": "svelte-kit sync && vite preview",
-        "check": "svelte-kit sync && svelte-check --fail-on-warnings",
-        "lint:eslint": "eslint --cache --report-unused-disable-directives",
-        "lint:stylelint": "stylelint --cache --rdd --risd --rd",
-        "lint": "pnpm lint:eslint . & pnpm lint:stylelint ./src/**/*.{pcss,svelte}"
+        "lint:svelte": "svelte-kit sync && svelte-check --fail-on-warnings",
+        "lint:eslint": "eslint --cache .",
+        "lint:stylelint": "stylelint --cache ./src/**/*.{pcss,svelte}",
+        "lint": "concurrently pnpm:lint:*"
     },
     "devDependencies": {
         "@supabase/supabase-js": "^2.21.0",
@@ -27,6 +27,5 @@
         "typescript": "^5.0.4",
         "ui": "workspace:^",
         "vite": "^4.3.3"
-    },
-    "browserslist": "defaults and >1.25%"
+    }
 }
