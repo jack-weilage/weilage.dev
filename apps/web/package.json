@@ -14,7 +14,7 @@
     "devDependencies": {
         "@supabase/supabase-js": "^2.21.0",
         "@sveltejs/kit": "1.15.7",
-        "@types/node": "^18.15.12",
+        "@types/node": "^18.16.3",
         "@vercel/analytics": "^1.0.0",
         "eslint-config-custom": "workspace:^",
         "lucide-svelte": "^0.171.0",
@@ -26,7 +26,7 @@
         "tslib": "^2.5.0",
         "typescript": "^5.0.4",
         "ui": "workspace:^",
-        "vite": "^4.3.1"
+        "vite": "^4.3.3"
     },
     "browserslist": "defaults and >1.25%"
 }
