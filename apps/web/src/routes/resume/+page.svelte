@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-    import type { SitemapConfig } from '!types'
+    import type { SitemapConfig } from '$lib/types'
     export const _sitemap: SitemapConfig = {
         enabled: true,
 
@@ -8,10 +8,9 @@
     }
 </script>
 <script lang="ts">
+    import { Link, SEO } from 'ui'
     import Experience from './Experience.svelte'
     import Heading from './Heading.svelte'
-    import Link from '!components/Link.svelte'
-    import SEO from '!components/SEO.svelte'
     import Section from './Section.svelte'
 
     import Github from 'lucide-svelte/dist/svelte/icons/github.svelte'

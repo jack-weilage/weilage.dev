@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-    import type { SitemapConfig } from '!types'
+    import type { SitemapConfig } from '$lib/types'
     export const _sitemap: SitemapConfig = {
         enabled: true,
 
@@ -9,7 +9,7 @@
 </script>
 <script lang="ts">
     import PostPreview from './PostPreview.svelte'
-    import SEO from '!components/SEO.svelte'
+    import { SEO } from 'ui'
 
     export let data
 </script>

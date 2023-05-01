@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Link from '!components/Link.svelte'
+    import { Link } from 'ui'
 
     export let post: {
         title: string

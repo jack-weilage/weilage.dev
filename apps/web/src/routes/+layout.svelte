@@ -1,8 +1,8 @@
 <script lang="ts">
-    import '!css/vars.pcss'
-    import '!css/global.pcss'
+    import 'ui/css/vars.pcss'
+    import 'ui/css/global.pcss'
 
-    import Link from '!components/Link.svelte'
+    import { Link } from 'ui'
     import { inject } from '@vercel/analytics'
     import { page } from '$app/stores'
 

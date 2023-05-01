@@ -10,7 +10,7 @@ const config = {
     preprocess: [
         preprocess({
             postcss: {
-                configFilePath: './postcss.config.cjs'
+                configFilePath: './postcss.config.cjs',
             },
             preserve: [ 'ld+json' ],
         }),

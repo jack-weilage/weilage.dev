@@ -1,8 +1,7 @@
 <script lang="ts">
     import { page } from '$app/stores'
 
-    import Link from '!components/Link.svelte'
-    import SEO from '!components/SEO.svelte'
+    import { Link, SEO } from 'ui'
 </script>
 
 <SEO

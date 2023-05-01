@@ -2,7 +2,7 @@
     import Github from 'lucide-svelte/dist/svelte/icons/github.svelte'
     import Mail from 'lucide-svelte/dist/svelte/icons/mail.svelte'
 
-    import Link from '!components/Link.svelte'
+    import { Link } from 'ui'
 </script>
 
 <div class="heading">

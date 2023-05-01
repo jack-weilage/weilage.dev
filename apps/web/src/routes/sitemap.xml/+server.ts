@@ -1,4 +1,4 @@
-import type { SitemapConfig } from '!types'
+import type { SitemapConfig } from '$lib/types'
 
 import { dirname, normalize } from 'node:path'
 

@@ -1,8 +1,6 @@
 pre-push:
   parallel: true
   commands:
-    svelte-check:
-      run: pnpm check
     lint:
       run: pnpm lint
 
@@ -11,14 +9,11 @@ pre-commit:
   parallel: true
   commands:
     eslint:
-      root: apps/web
       glob: "*.{js,ts,svelte}"
-      run: pnpm lint:eslint {staged_files}
+      run: pnpm eslint {staged_files}
     stylelint:
-      root: apps/web
       glob: "*.{svelte,pcss,css}"
-      run: pnpm lint:stylelint {staged_files}
+      run: pnpm stylelint {staged_files}
     svelte-check:
-      root: apps/web
       glob: "*.svelte"
-      run: pnpm check {staged_files}
+      run: pnpm svelte-check {staged_files}
