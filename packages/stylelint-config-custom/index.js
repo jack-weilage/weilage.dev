@@ -1,8 +1,11 @@
-module.exports = {
+/* eslint-disable quotes, comma-dangle, sort-keys, max-len */
+const config = {
     "plugins": [
         "stylelint-no-unsupported-browser-features",
         "stylelint-order"
     ],
+    "reportDescriptionlessDisables": true,
+    "reportNeedlessDisables": true,
     "overrides": [
         {
             "files": [
@@ -45,9 +48,9 @@ module.exports = {
         "declaration-block-no-duplicate-custom-properties": true,
         "declaration-block-no-duplicate-properties": [
             true,
-			{
-				"ignore": [ "consecutive-duplicates-with-different-values" ]
-			}
+            {
+                "ignore": [ "consecutive-duplicates-with-different-values" ]
+            }
         ],
         "font-family-no-duplicate-names": true,
         "keyframe-block-no-duplicate-selectors": true,
@@ -104,7 +107,7 @@ module.exports = {
         "font-weight-notation": "numeric",
         "import-notation": "string",
         "media-feature-range-notation": "context",
-        
+
         "function-url-quotes": "always",
         "selector-attribute-quotes": "always",
 
@@ -112,3 +115,5 @@ module.exports = {
         "shorthand-property-no-redundant-values": true
     }
 }
+/* eslint-disable-next-line unicorn/prefer-module */
+module.exports = config

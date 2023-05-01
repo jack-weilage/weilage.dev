@@ -1,3 +1,4 @@
+/* eslint-disable quotes, comma-dangle, sort-keys, max-len */
 const config = {
     "plugins": [
         "@typescript-eslint",
@@ -203,4 +204,5 @@ const config = {
     }
 }
 
+/* eslint-disable-next-line unicorn/prefer-module */
 module.exports = config
