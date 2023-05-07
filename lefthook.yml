@@ -3,17 +3,22 @@ pre-push:
   commands:
     lint:
       run: pnpm lint
+    format:
+      run: pnpm format
 
-#TODO: This should include more robust checks.
 pre-commit:
   parallel: true
   commands:
+    prettier:
+      glob: '*.{js,ts,svelte,json,yml,yaml}'
+      exclude: 'pnpm-lock.yaml'
+      run: pnpx prettier --plugin-search-dir=. --write {staged_files} --ignore-path=.gitignore && git add {staged_files}
     eslint:
-      glob: "*.{js,ts,svelte}"
-      run: pnpm eslint {staged_files}
+      glob: '*.{js,ts,svelte}'
+      run: pnpm eslint {staged_files} --fix && git add {staged_files}
     stylelint:
-      glob: "*.{svelte,pcss,css}"
-      run: pnpm stylelint {staged_files}
+      glob: '*.{svelte,pcss,css}'
+      run: pnpm stylelint {staged_files} --fix && git add {staged_files}
     svelte-check:
-      glob: "*.svelte"
-      run: pnpm svelte-check {staged_files}
+      glob: '*.svelte'
+      run: pnpm svelte-check {staged_files} --fail-on-warnings
