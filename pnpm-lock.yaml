@@ -28,6 +28,9 @@ importers:
       stylelint-config-custom:
         specifier: workspace:^
         version: link:packages/stylelint-config-custom
+      svelte-check:
+        specifier: ^3.3.1
+        version: 3.3.1(postcss@8.4.23)(svelte@3.58.0)
       turbo:
         specifier: ^1.9.3
         version: 1.9.3
@@ -90,7 +93,7 @@ importers:
         version: 1.9.3(eslint@8.39.0)
       eslint-plugin-svelte:
         specifier: ^2.27.2
-        version: 2.27.2(eslint@8.39.0)
+        version: 2.27.2(eslint@8.39.0)(svelte@3.58.0)
       eslint-plugin-unicorn:
         specifier: ^46.0.0
         version: 46.0.0(eslint@8.39.0)
@@ -1740,7 +1743,7 @@ packages:
       eslint-plugin-turbo: 1.9.3(eslint@8.39.0)
     dev: false
 
-  /eslint-plugin-svelte@2.27.2(eslint@8.39.0):
+  /eslint-plugin-svelte@2.27.2(eslint@8.39.0)(svelte@3.58.0):
     resolution: {integrity: sha512-1tIl65TMF0MtY26+O/1Y5S5HEFc0vRzzoX3m9FHI6VuiruqFU9PBr8WzoqdaSPlcL/q7xPUzQYl4Fzg/3GBpcg==}
     engines: {node: ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -1759,7 +1762,8 @@ packages:
       postcss: 8.4.23
       postcss-load-config: 3.1.4(postcss@8.4.23)
       postcss-safe-parser: 6.0.0(postcss@8.4.23)
-      svelte-eslint-parser: 0.27.0
+      svelte: 3.58.0
+      svelte-eslint-parser: 0.27.0(svelte@3.58.0)
     transitivePeerDependencies:
       - supports-color
       - ts-node
@@ -3639,7 +3643,34 @@ packages:
       - stylus
       - sugarss
 
-  /svelte-eslint-parser@0.27.0:
+  /svelte-check@3.3.1(postcss@8.4.23)(svelte@3.58.0):
+    resolution: {integrity: sha512-+Yb1F50M76JRPdZlxB8/blg75GiqKH/8QJTNtC3cKvxCbrRK7zpgmOg2oxem9n4eDAIllesm74guR3AnlAtNVg==}
+    hasBin: true
+    peerDependencies:
+      svelte: ^3.55.0
+    dependencies:
+      '@jridgewell/trace-mapping': 0.3.18
+      chokidar: 3.5.3
+      fast-glob: 3.2.12
+      import-fresh: 3.3.0
+      picocolors: 1.0.0
+      sade: 1.8.1
+      svelte: 3.58.0
+      svelte-preprocess: 5.0.3(postcss@8.4.23)(svelte@3.58.0)(typescript@5.0.4)
+      typescript: 5.0.4
+    transitivePeerDependencies:
+      - '@babel/core'
+      - coffeescript
+      - less
+      - postcss
+      - postcss-load-config
+      - pug
+      - sass
+      - stylus
+      - sugarss
+    dev: true
+
+  /svelte-eslint-parser@0.27.0(svelte@3.58.0):
     resolution: {integrity: sha512-x9cBbCZwLdCnNE3yPqGhvAqEl9FCILC6AaV2xRtwzaMCpvpqO7ceONXj9xka3fQFczSqLzkwOxP4Ln4cIQNqXg==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -3651,6 +3682,7 @@ packages:
       eslint-scope: 7.2.0
       eslint-visitor-keys: 3.4.0
       espree: 9.5.1
+      svelte: 3.58.0
     dev: false
 
   /svelte-hmr@0.15.1(svelte@3.58.0):

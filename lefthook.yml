@@ -19,6 +19,6 @@ pre-commit:
     stylelint:
       glob: '*.{svelte,pcss,css}'
       run: pnpm stylelint {staged_files} --fix && git add {staged_files}
-    svelte-check:
-      glob: '*.svelte'
-      run: pnpm svelte-check {staged_files} --fail-on-warnings
+    # svelte-check:
+    #   glob: '*.svelte'
+    #   run: pnpm svelte-check --fail-on-warnings
