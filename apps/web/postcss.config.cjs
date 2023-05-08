@@ -1,5 +1,3 @@
-const config = require('postcss-config-custom')
-
 module.exports = {
-    ...config
+	...require('postcss-config-custom'),
 }

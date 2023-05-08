@@ -2,14 +2,13 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 concurrency:
   group: '${{ github.workflow }}'
   cancel-in-progress: true
-
 
 jobs:
   lint:
@@ -24,7 +23,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      
+
       - name: Install PNPM
         uses: pnpm/action-setup@v2
 
