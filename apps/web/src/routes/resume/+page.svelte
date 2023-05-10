@@ -13,11 +13,12 @@
 	import Experience from './Experience.svelte'
 	import Heading from './Heading.svelte'
 	import Section from './Section.svelte'
+	import Knowledge from './Knowledge.svelte'
 
 	import Github from 'lucide-svelte/dist/svelte/icons/github.svelte'
 	import Mail from 'lucide-svelte/dist/svelte/icons/mail.svelte'
 
-	// If this counter is odd, the experience should be `text-align: end`.
+	// If this counter is odd, the experience element should be `text-align: end`.
 	let id = 0
 </script>
 
@@ -94,28 +95,29 @@
 	</Section>
 	<Section grid>
 		<h2 slot="title">Knowledge</h2>
-		<Experience>
+		<Knowledge>
 			<span slot="heading">Scripting</span>
 
 			Extremely confident with JavaScript and TypeScript. Experienced in making
 			small, modular components.
-		</Experience>
-		<Experience>
+		</Knowledge>
+		<Knowledge>
 			<span slot="heading">Styling</span>
 
-			Consistently works with CSS/PostCSS.
-		</Experience>
-		<Experience>
+			Weaves cutting-edge CSS (via <a href="https://postcss.org">PostCSS</a>)
+			with the latest HTML standards to create beautiful, minimal designs.
+		</Knowledge>
+		<Knowledge>
 			<span slot="heading">Markup</span>
 
 			Writes accessible HTML, comfortable with component-based languages like
 			Svelte.
-		</Experience>
-		<Experience>
+		</Knowledge>
+		<Knowledge>
 			<span slot="heading">Platforms</span>
 
 			Comfortable with both Windows and Linux GUI and CLI.
-		</Experience>
+		</Knowledge>
 	</Section>
 </main>
 

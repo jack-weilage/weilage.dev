@@ -3,17 +3,17 @@
 	export let end: string | undefined = undefined
 	export let position: string | undefined = undefined
 
-	export let id = 0
+	export let id: number
 </script>
 
 <article class:swap-side={id % 2 === 1}>
-	<h3>
-		<slot name="heading" />
-		{#if position}
-			<span>{position}</span>
-		{/if}
-	</h3>
-	<div>
+	<div class="heading-block">
+		<h3>
+			<slot name="heading" />
+			{#if position}
+				<span>{position}</span>
+			{/if}
+		</h3>
 		{#if start}
 			<p class="duration">
 				{new Date(start).toLocaleDateString('en-US', {
@@ -31,53 +31,47 @@
 				{/if}
 			</p>
 		{/if}
-		<p class="desc">
-			<slot />
-		</p>
 	</div>
+	<p class="desc">
+		<slot />
+	</p>
 </article>
 
 <style lang="postcss">
 	article {
-		@media not print {
-			/* If the parent is not a grid and this element should be swapped. */
-			:global(:not(div.grid)) > &.swap-side,
-            /* Or the parent is a grid and this element is the eventh child. */
-            :global(div.grid) > &:nth-child(even) {
-				text-align: end;
-
-				& > h3 {
-					flex-direction: row-reverse;
-				}
-			}
-		}
-		/* If the parent is not a grid and this isn't the first child. */
-		:global(:not(div.grid)) > &:not(:first-of-type) {
+		/* Add a margin to the top of every non-first element. */
+		&:not(:first-of-type) {
 			margin-top: 3.5rem;
 
 			@media print {
 				margin-top: 0.5rem;
 			}
 		}
-		& > h3 {
+		& > div.heading-block {
 			display: flex;
 			align-items: center;
-			flex-wrap: wrap;
-			gap: 0 1.5rem;
+			flex-direction: column;
 
-			margin: 0 0 0.25rem;
-
-			& > span {
-				font-weight: 300;
+			@media print {
+				justify-content: space-between;
+				flex-direction: row;
 			}
-		}
-		& > div {
-			font-size: 0.9em;
+			& > h3 {
+				display: flex;
+				align-items: center;
+				flex-wrap: wrap;
+				gap: 0 1.5rem;
 
+				margin: 0 0 0.25rem;
+
+				& > span {
+					font-weight: 300;
+				}
+			}
 			& > p.duration {
 				margin: 0 0 1rem;
 
-				font-size: 0.95em;
+				font-size: 0.85em;
 				font-weight: 300;
 				font-style: italic;
 
@@ -87,9 +81,10 @@
 					margin-bottom: 0.25rem;
 				}
 			}
-			& > p.desc {
-				margin: 0;
-			}
+		}
+		& > p.desc {
+			margin: 0;
+			font-size: 0.9em;
 		}
 	}
 </style>
