@@ -11,6 +11,7 @@
 		<h3>
 			<slot name="heading" />
 			{#if position}
+				<span>-</span>
 				<span>{position}</span>
 			{/if}
 		</h3>
@@ -60,7 +61,7 @@
 				display: flex;
 				align-items: center;
 				flex-wrap: wrap;
-				gap: 0 1.5rem;
+				gap: 0 0.5rem;
 
 				margin: 0 0 0.25rem;
 

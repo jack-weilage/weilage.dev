@@ -21,6 +21,9 @@
 		& > :global(h2) {
 			margin: 5rem 0 1rem;
 
+			@media not print {
+				font-size: 1.85em;
+			}
 			@media print {
 				margin: 1.5rem 0 0.75rem;
 				padding: 0 0 0.25rem;
@@ -47,10 +50,10 @@
 				grid-template-columns: 1fr 1fr;
 
 				gap: 1rem 2rem;
+
 				@media (width <= 550px) {
 					grid-template-columns: 1fr;
 				}
-
 				& > :nth-child(even) {
 					text-align: end;
 				}
