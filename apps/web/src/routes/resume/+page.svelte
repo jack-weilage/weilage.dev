@@ -17,6 +17,7 @@
 
 	import Github from 'lucide-svelte/dist/svelte/icons/github.svelte'
 	import Mail from 'lucide-svelte/dist/svelte/icons/mail.svelte'
+	import { balance } from '$lib/balance'
 
 	// If this counter is odd, the experience element should be `text-align: end`.
 	let id = 0
@@ -38,7 +39,7 @@
 					<Link href="https://github.com/jack-weilage">@jack-weilage</Link>
 				</li>
 			</ul>
-			<p slot="description">
+			<p slot="description" use:balance>
 				I am a web developer with a love for elegant, performant solutions. By
 				combining effective communication skills and a modern understanding of
 				web standards, I build simple, light, and accessible websites.
@@ -87,10 +88,9 @@
 				Bellingham High School
 			</Link>
 
-			<!-- TODO: Actually complete this text. -->
 			Used every free moment to study web development and computer science. When
-			in-class options were exhausted, self-studied using online resources, learning
-			via documentation and constant practice.
+			in-class options were exhausted, self-studied using online resources,
+			learning via documentation and constant practice.
 		</Experience>
 	</Section>
 	<Section grid>
@@ -116,7 +116,7 @@
 		<Knowledge>
 			<span slot="heading">Platforms</span>
 
-			Comfortable with both Windows and Linux GUI and CLI.
+			Comfortable working in Windows and Linux, in both GUI and CLI.
 		</Knowledge>
 	</Section>
 </main>
