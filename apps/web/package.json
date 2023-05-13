@@ -14,10 +14,12 @@
 		"format": "prettier --cache --write . --ignore-path=../../.prettierignore"
 	},
 	"devDependencies": {
-		"@supabase/supabase-js": "^2.21.0",
+		"@portabletext/svelte": "^2.0.0",
+		"@sanity/client": "^6.0.1",
 		"@sveltejs/kit": "1.16.3",
 		"@types/node": "^18.16.5",
 		"@vercel/analytics": "^1.0.1",
+		"groqd": "^0.15.5",
 		"lucide-svelte": "^0.215.0",
 		"postcss-config-custom": "workspace:^",
 		"svelte": "^3.59.1",

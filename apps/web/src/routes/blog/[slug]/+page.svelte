@@ -5,11 +5,10 @@
 </script>
 
 <script lang="ts">
-	import type { PageData } from './$types'
-
 	import { SEO } from 'ui'
+	import { PortableText, DefaultListItem } from '@portabletext/svelte'
 
-	export let data: PageData
+	export let data
 </script>
 
 <SEO title={data.post.title} description={data.post.description} />
@@ -18,7 +17,16 @@
 	<h1>{data.post.title}</h1>
 	<p>{data.post.description}</p>
 	<article>
-		{@html data.post.content}
+		<PortableText
+			value={data.post.content}
+			components={{
+				listItem: {
+					bullet: DefaultListItem,
+					number: DefaultListItem,
+					normal: DefaultListItem,
+				},
+			}}
+		/>
 	</article>
 </main>
 

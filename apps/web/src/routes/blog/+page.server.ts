@@ -1,18 +1,32 @@
-import { database } from '$lib/database.server'
-import { dev } from '$app/environment'
+import { sanity } from '$lib/sanity.server'
+import { q } from 'groqd'
 import { error } from '@sveltejs/kit'
 
 export async function load() {
-	const posts = await database
-		.from('posts')
-		.select('title,description,slug,read_time,created_at')
-		.or(`draft.eq.false,draft.eq.${dev}`)
-
-	if (posts.error) {
-		throw error(500, 'An error occurred while fetching posts.')
-	}
+	const posts = await sanity(
+		q('*')
+			.filterByType('post')
+			.slice(0, 9)
+			.grab({
+				title: q.string(),
+				description: q.string(),
+				slug: ['slug.current', q.string()],
+				created_at: [
+					'_createdAt',
+					q.string().transform((date) =>
+						new Date(date).toLocaleDateString('en-US', {
+							day: 'numeric',
+							month: 'numeric',
+							year: 'numeric',
+						}),
+					),
+				],
+			}),
+	).catch(() => {
+		throw error(500, 'Internal Server Error')
+	})
 
 	return {
-		posts: posts.data,
+		posts,
 	}
 }

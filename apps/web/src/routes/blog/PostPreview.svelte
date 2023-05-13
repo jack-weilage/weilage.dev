@@ -6,15 +6,8 @@
 		slug: string
 		description: string
 
-		read_time: number
 		created_at: string
 	}
-
-	const created_at = new Date(post.created_at).toLocaleDateString('en-US', {
-		day: 'numeric',
-		month: 'numeric',
-		year: 'numeric',
-	})
 </script>
 
 <article>
@@ -27,8 +20,7 @@
 		<p>{post.description}</p>
 	</div>
 	<div class="info">
-		<p>{created_at}</p>
-		<p>{post.read_time} minute read</p>
+		<p>{post.created_at}</p>
 	</div>
 </article>
 
