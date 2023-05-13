@@ -1,6 +1,6 @@
-import { SchemaTypeDefinition } from 'sanity'
+import type { SchemaTypeDefinition } from 'sanity'
 
-export default {
+export const post = {
 	name: 'post',
 	type: 'document',
 	title: 'Blog Post',
@@ -15,13 +15,6 @@ export default {
 			title: 'Description',
 			name: 'description',
 			type: 'text',
-			validation: (Rule) => Rule.required(),
-		},
-		{
-			title: 'Uploaded At',
-			name: 'uploaded_at',
-			type: 'date',
-			initialValue: () => new Date().toISOString().slice(0, 10),
 			validation: (Rule) => Rule.required(),
 		},
 		{
