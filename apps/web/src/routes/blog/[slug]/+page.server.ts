@@ -3,10 +3,12 @@ import { error } from '@sveltejs/kit'
 import { q } from 'groqd'
 
 export async function load({ params }) {
-	const posts = await sanity(
+	const post = await sanity(
 		q('*')
 			.filterByType('post')
 			.filter(`slug.current == "${params.slug}"`)
+			//eslint-disable-next-line unicorn/prefer-spread
+			.slice(0)
 			.grab({
 				title: q.string(),
 				description: q.string(),
@@ -16,11 +18,11 @@ export async function load({ params }) {
 		throw error(500, 'Internal Server Error')
 	})
 
-	if (posts.length === 0) {
+	if (!post) {
 		throw error(404, 'Post Not Found')
 	}
 
 	return {
-		post: posts[0],
+		post,
 	}
 }
