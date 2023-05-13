@@ -9,7 +9,7 @@ export const post = {
 			title: 'Title',
 			name: 'title',
 			type: 'string',
-			validation: (Rule) => Rule.required().unique(),
+			validation: (Rule) => Rule.required(),
 		},
 		{
 			title: 'Description',
@@ -21,7 +21,7 @@ export const post = {
 			title: 'Slug',
 			name: 'slug',
 			type: 'slug',
-			validation: (Rule) => Rule.required().unique(),
+			validation: (Rule) => Rule.required(),
 		},
 		{
 			title: 'Content',
