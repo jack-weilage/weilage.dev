@@ -6,6 +6,7 @@ export async function load() {
 	const posts = await sanity(
 		q('*')
 			.filterByType('post')
+			.order('_createdAt desc')
 			.slice(0, 9)
 			.grab({
 				title: q.string(),
