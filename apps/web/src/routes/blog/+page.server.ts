@@ -11,7 +11,7 @@ export async function load() {
 			.grab({
 				title: q.string(),
 				description: q.string(),
-				slug: ['slug.current', q.string()],
+				slug: q.slug('slug'),
 				created_at: [
 					'_createdAt',
 					q.string().transform((date) =>
