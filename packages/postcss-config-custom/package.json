@@ -6,7 +6,7 @@
 	"main": "index.js",
 	"license": "ISC",
 	"scripts": {
-		"lint:eslint": "eslint --cache .",
+		"lint:eslint": "eslint --cache . --ignore-path ../../.prettierignore",
 		"lint:prettier": "prettier --cache --check . --ignore-path=../../.prettierignore",
 		"lint": "concurrently pnpm:lint:* --kill-others-on-fail",
 		"format": "prettier --cache --write . --ignore-path=../../.prettierignore"

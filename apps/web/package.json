@@ -7,7 +7,7 @@
 		"build": "vite build",
 		"preview": "svelte-kit sync && vite preview",
 		"lint:svelte": "svelte-kit sync && svelte-check --fail-on-warnings",
-		"lint:eslint": "eslint --cache .",
+		"lint:eslint": "eslint --cache . --ignore-path ../../.prettierignore",
 		"lint:prettier": "prettier --cache --check . --ignore-path ../../.prettierignore",
 		"lint:stylelint": "stylelint --cache ./src/**/*.{pcss,svelte}",
 		"lint": "concurrently pnpm:lint:* --kill-others-on-fail",
