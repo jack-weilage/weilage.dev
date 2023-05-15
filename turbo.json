@@ -3,7 +3,7 @@
 	"pipeline": {
 		"build": {
 			"dependsOn": ["^build"],
-			"outputs": [".svelte-kit/**", ".vercel/**"]
+			"outputs": [".svelte-kit/**", ".vercel/**", ".sanity/**", "dist"]
 		},
 		"check": {
 			"outputs": [".svelte-kit/**"]
@@ -11,6 +11,9 @@
 		"dev": {
 			"cache": false,
 			"persistent": true
+		},
+		"cms#build": {
+			"env": ["SANITY_STUDIO_PROJECT_ID"]
 		}
 	}
 }

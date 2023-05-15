@@ -2,8 +2,9 @@ import type { SitemapConfig } from '$lib/types'
 
 import { dirname, normalize } from 'node:path'
 
-import { database } from '$lib/database.server'
 import { error } from '@sveltejs/kit'
+import { sanity } from '$lib/sanity.server'
+import { q } from 'groqd'
 
 const construct_url = (data: Record<string, unknown>) =>
 	Object.entries(data)
@@ -30,24 +31,28 @@ export async function GET({ url }) {
 		sitemap += `<url>${construct_url({ loc, changefreq, priority })}</url>`
 	}
 
-	const posts = await database
-		.from('posts')
-		.select('slug,created_at,updated_at')
-		.eq('draft', false)
-
-	if (posts.error) {
+	const posts = await sanity(
+		q('*')
+			.filterByType('post')
+			.grab({
+				slug: q.slug('slug'),
+				updated_at: [
+					'_updatedAt',
+					q.date().transform((date) => date.toISOString()),
+				],
+			}),
+	).catch(() => {
 		throw error(500)
-	}
+	})
 
-	for (const post of posts.data) {
-		const loc = `${url.origin}/blog/${post.slug}/`
-		const lastmod = post.updated_at || post.created_at
+	for (const { slug, updated_at } of posts) {
+		const loc = `${url.origin}/blog/${slug}/`
 
 		// eslint-disable-next-line sort-keys
 		sitemap += `<url>${construct_url({
 			loc,
 			changefreq: 'yearly',
-			lastmod,
+			lastmod: updated_at,
 		})}</url>`
 	}
 

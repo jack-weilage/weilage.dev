@@ -1,22 +1,28 @@
-import { database } from '$lib/database.server'
-import { dev } from '$app/environment'
+import { sanity } from '$lib/sanity.server'
 import { error } from '@sveltejs/kit'
+import { q } from 'groqd'
 
 export async function load({ params }) {
-	const post = await database
-		.from('posts')
-		.select('title,description,content')
-		.eq('slug', params.slug)
-		// Either draft === false or draft === dev.
-		.or(`draft.eq.false,draft.eq.${dev}`)
-		.limit(1)
-		.maybeSingle()
+	const post = await sanity(
+		q('*')
+			.filterByType('post')
+			.filter(`slug.current == "${params.slug}"`)
+			//eslint-disable-next-line unicorn/prefer-spread
+			.slice(0)
+			.grab({
+				title: q.string(),
+				description: q.string(),
+				content: q.contentBlocks(),
+			}),
+	).catch(() => {
+		throw error(500, 'Internal Server Error')
+	})
 
-	if (!post.data || post.error) {
+	if (!post) {
 		throw error(404, 'Post Not Found')
 	}
 
 	return {
-		post: post.data,
+		post,
 	}
 }

@@ -17,8 +17,7 @@ jobs:
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ secrets.TRUBO_TEAM }}
-      VITE_SUPABASE_ANON_KEY: ''
-      VITE_SUPABASE_URL: ''
+      VITE_SANITY_PROJECT_ID: ''
 
     steps:
       - name: Checkout code
