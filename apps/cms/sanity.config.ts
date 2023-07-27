@@ -1,6 +1,8 @@
 import { defineConfig } from 'sanity'
 import { visionTool } from '@sanity/vision'
 import { deskTool } from 'sanity/desk'
+import { codeInput } from '@sanity/code-input'
+
 import { schemaTypes } from './schemas'
 
 export default defineConfig({
@@ -10,7 +12,7 @@ export default defineConfig({
 	projectId: process.env.SANITY_STUDIO_PROJECT_ID ?? '',
 	dataset: 'production',
 
-	plugins: [deskTool(), visionTool()],
+	plugins: [deskTool(), visionTool(), codeInput()],
 
 	schema: {
 		types: schemaTypes,
