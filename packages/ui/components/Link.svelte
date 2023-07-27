@@ -3,7 +3,6 @@
 
 	export let external =
 		!href.startsWith('/') && !href.startsWith('./') && !href.startsWith('#')
-	// eslint-disable-next-line unicorn/prevent-abbreviations
 	export let rel = external ? 'noopener noreferrer' : undefined
 	export let target = external ? '_blank' : undefined
 </script>

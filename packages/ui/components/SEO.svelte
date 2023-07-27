@@ -24,7 +24,6 @@
 		<meta name="robots" content={robots_string} />
 	{/if}
 	{#if json_ld}
-		<!-- eslint-disable-next-line no-useless-concat -->
 		{@html `<script type="application/ld+json">${JSON.stringify(json_ld)}</` +
 			`script>`}
 	{/if}

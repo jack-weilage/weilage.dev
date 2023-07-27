@@ -1,8 +1,6 @@
 {
-	"private": true,
 	"name": "ui",
-	"version": "0.0.1",
-	"description": "Styles and components for weilage.dev",
+	"private": true,
 	"license": "ISC",
 	"module": "index.ts",
 	"svelte": "index.ts",
@@ -10,18 +8,12 @@
 		"css"
 	],
 	"scripts": {
-		"lint:eslint": "eslint --cache . --ignore-path ../../.prettierignore",
-		"lint:prettier": "prettier --cache --check . --ignore-path=../../.prettierignore",
-		"lint:stylelint": "stylelint --cache **/*.{pcss,svelte}",
-		"lint:svelte": "svelte-check --fail-on-warnings",
-		"lint": "concurrently pnpm:lint:* --kill-others-on-fail",
-		"format": "prettier --cache --write . --ignore-path=../../.prettierignore"
+		"lint": "prettier --cache --check . --ignore-path=../../.prettierignore",
+		"format": "pnpm lint --write"
 	},
 	"dependencies": {
-		"lucide-svelte": "^0.215.0",
-		"postcss-config-custom": "workspace:^",
-		"svelte": "^3.59.1",
-		"svelte-check": "^3.3.2"
+		"lucide-svelte": "^0.263.0",
+		"svelte": "^4.1.1"
 	},
 	"type": "module"
 }
