@@ -12,13 +12,4 @@ pre-commit:
     prettier:
       glob: '*.{js,ts,svelte,json,yml,yaml}'
       exclude: 'pnpm-lock.yaml'
-      run: pnpx prettier --plugin-search-dir=. --write {staged_files} --ignore-path=.gitignore && git add {staged_files}
-    eslint:
-      glob: '*.{js,ts,svelte}'
-      run: pnpm eslint {staged_files} --fix && git add {staged_files}
-    stylelint:
-      glob: '*.{svelte,pcss,css}'
-      run: pnpm stylelint {staged_files} --fix && git add {staged_files}
-    # svelte-check:
-    #   glob: '*.svelte'
-    #   run: pnpm svelte-check --fail-on-warnings
+      run: pnpx prettier --cache --write {staged_files} && git add {staged_files}
