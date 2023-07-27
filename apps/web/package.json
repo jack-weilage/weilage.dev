@@ -1,33 +1,31 @@
 {
-	"name": "weilage.dev",
-	"version": "0.0.1",
+	"name": "web",
+	"private": true,
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "svelte-kit sync && vite preview",
-		"lint:svelte": "svelte-kit sync && svelte-check --fail-on-warnings",
-		"lint:eslint": "eslint --cache . --ignore-path ../../.prettierignore",
-		"lint:prettier": "prettier --cache --check . --ignore-path ../../.prettierignore",
-		"lint:stylelint": "stylelint --cache ./src/**/*.{pcss,svelte}",
-		"lint": "concurrently pnpm:lint:* --kill-others-on-fail",
-		"format": "prettier --cache --write . --ignore-path=../../.prettierignore"
+		"lint": "prettier --cache --check . --ignore-path ../../.prettierignore",
+		"format": "pnpm lint --write"
 	},
 	"devDependencies": {
 		"@portabletext/svelte": "^2.0.0",
-		"@sanity/client": "^6.0.1",
-		"@sveltejs/kit": "1.16.3",
-		"@types/node": "^18.16.5",
+		"@sanity/client": "^6.2.0",
+		"@sveltejs/adapter-vercel": "3.0.2",
+		"@sveltejs/kit": "1.22.3",
+		"@types/node": "^20.4.5",
 		"@vercel/analytics": "^1.0.1",
-		"groqd": "^0.15.5",
-		"lucide-svelte": "^0.215.0",
-		"postcss-config-custom": "workspace:^",
-		"svelte": "^3.59.1",
-		"svelte-check": "^3.3.2",
-		"svelte-config-custom": "workspace:^",
-		"tslib": "^2.5.0",
-		"typescript": "^5.0.4",
+		"groqd": "^0.15.7",
+		"lucide-svelte": "^0.263.0",
+		"postcss": "^8.4.27",
+		"postcss-html": "^1.5.0",
+		"postcss-preset-env": "^9.1.0",
+		"svelte": "^4.1.1",
+		"svelte-preprocess": "^5.0.4",
+		"tslib": "^2.6.1",
+		"typescript": "^5.1.6",
 		"ui": "workspace:^",
-		"vite": "^4.3.5"
+		"vite": "^4.4.7"
 	}
 }

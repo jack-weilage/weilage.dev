@@ -1,27 +1,17 @@
 {
+	"name": "weilage.dev",
 	"private": true,
 	"scripts": {
-		"build": "turbo run build",
-		"check": "turbo run check",
-		"dev": "turbo run dev",
+		"build": "pnpm -r build",
+		"dev": "pnpm -r dev",
 		"lint": "pnpm -r lint",
-		"format": "prettier --cache --plugin-search-dir=. --write . --ignore-path=.prettierignore"
+		"format": "prettier --cache --write ."
 	},
 	"devDependencies": {
-		"concurrently": "^8.0.1",
-		"eslint": "^8.40.0",
-		"eslint-config-custom": "workspace:^",
-		"lefthook": "^1.3.12",
-		"prettier": "^2.8.8",
-		"prettier-config-custom": "workspace:^",
-		"stylelint": "^15.6.1",
-		"stylelint-config-custom": "workspace:^",
-		"svelte-check": "^3.3.2",
-		"turbo": "^1.9.3"
+		"lefthook": "^1.4.7",
+		"prettier": "^3.0.0",
+		"prettier-plugin-svelte": "^3.0.1"
 	},
 	"packageManager": "pnpm@8.5.0",
-	"engines": {
-		"node": "18"
-	},
 	"engineStrict": true
 }
