@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-	import { Link, SEO } from 'ui'
+	import { SEO } from 'ui'
 	import Experience from './Experience.svelte'
 	import Heading from './Heading.svelte'
 	import Section from './Section.svelte'
@@ -18,6 +18,10 @@
 	import Github from 'lucide-svelte/dist/svelte/icons/github.svelte'
 	import Mail from 'lucide-svelte/dist/svelte/icons/mail.svelte'
 	import { balance } from '$lib/balance'
+
+	import GraduationCap from 'lucide-svelte/dist/svelte/icons/graduation-cap.svelte'
+	import Dumbbell from 'lucide-svelte/dist/svelte/icons/dumbbell.svelte'
+	import Brain from 'lucide-svelte/dist/svelte/icons/brain.svelte'
 
 	// If this counter is odd, the experience element should be `text-align: end`.
 	let id = 0
@@ -32,11 +36,11 @@
 			<ul slot="contact-list">
 				<li>
 					<Mail aria-hidden="true" size="16px" />
-					<Link href="mailto:jack@weilage.dev">jack@weilage.dev</Link>
+					<a href="mailto:jack@weilage.dev">jack@weilage.dev</a>
 				</li>
 				<li>
 					<Github aria-hidden="true" size="16px" />
-					<Link href="https://github.com/jack-weilage">@jack-weilage</Link>
+					<a href="https://github.com/jack-weilage">@jack-weilage</a>
 				</li>
 			</ul>
 			<p slot="description" use:balance>
@@ -51,42 +55,45 @@
 		</Heading>
 	</Section>
 	<Section>
-		<h2 slot="title">Experience</h2>
+		<h2 slot="title">
+			<Dumbbell />
+			Experience
+		</h2>
 		<Experience id={id++} position="Student" start="2022/9/1" end="2022/10/1">
-			<Link slot="heading" href="https://bellinghamschools.org">
+			<a slot="heading" href="https://bellinghamschools.org">
 				Bellingham Public Schools
-			</Link>
+			</a>
 
 			Through a month of analysis and investigation, created a comprehensive,
-			actionable list of concerns for the <Link
-				href="https://bellinghamschools.org"
-			>
-				Bellingham School District's websites</Link
+			actionable list of concerns for the
+			<a href="https://bellinghamschools.org">
+				Bellingham School District's websites</a
 			>, ranging from A11Y, network performance, and I18N, to HTML correctness,
 			unused resources, and inconsistently updated dependencies. Presented this
 			list to the assistant director of Educational Technology in a meeting,
 			receiving high praise.
 		</Experience>
 		<Experience id={id++} position="Sole Developer" start="2022/09/24">
-			<Link slot="heading" href="https://github.com/jack-weilage/vite-image">
+			<a slot="heading" href="https://github.com/jack-weilage/vite-image">
 				vite-image
-			</Link>
+			</a>
 
-			Built a performant, easy-to-use image optimization plugin for <Link
-				href="https://vitejs.dev"
-			>
-				vitejs</Link
-			>. The plugin is fully commented, with local and CI testing, automated
-			Github/NPM releases, comprehensive TypeScript definitions, and
-			compatibility for both CommonJS and ESM modules.
+			Built a performant, easy-to-use image optimization plugin for
+			<a href="https://vitejs.dev"> vitejs</a>. The plugin is fully commented,
+			with local and CI testing, automated Github/NPM releases, comprehensive
+			TypeScript definitions, and compatibility for both CommonJS and ESM
+			modules.
 		</Experience>
 	</Section>
 	<Section>
-		<h2 slot="title">Education</h2>
+		<h2 slot="title">
+			<GraduationCap />
+			Education
+		</h2>
 		<Experience id={id++} start="2019/08/01" end="2023/06/01">
-			<Link slot="heading" href="https://bellingham.bellinghamschools.org">
+			<a slot="heading" href="https://bellingham.bellinghamschools.org">
 				Bellingham High School
-			</Link>
+			</a>
 
 			Used every free moment to study web development and computer science. When
 			in-class options were exhausted, self-studied using online resources,
@@ -94,7 +101,10 @@
 		</Experience>
 	</Section>
 	<Section grid>
-		<h2 slot="title">Knowledge</h2>
+		<h2 slot="title">
+			<Brain />
+			Knowledge
+		</h2>
 		<Knowledge>
 			<span slot="heading">Scripting</span>
 
@@ -135,7 +145,7 @@
 			margin: 0;
 			padding: 0;
 		}
-		& :global(a) {
+		& a {
 			font-weight: 700;
 			color: var(--color--text-bold);
 		}

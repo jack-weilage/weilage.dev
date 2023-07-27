@@ -7,18 +7,19 @@ export async function load({ params }) {
 		q('*')
 			.filterByType('post')
 			.filter(`slug.current == "${params.slug}"`)
-			//eslint-disable-next-line unicorn/prefer-spread
 			.slice(0)
 			.grab({
 				title: q.string(),
 				description: q.string(),
 				content: q.contentBlocks(),
 			}),
-	).catch(() => {
+	).catch((error) => {
+		console.log(error)
 		throw error(500, 'Internal Server Error')
 	})
 
 	if (!post) {
+		//TODO: This won't be reached.
 		throw error(404, 'Post Not Found')
 	}
 

@@ -61,24 +61,23 @@
 </main>
 
 <style lang="postcss">
-	main :global {
-		text-align: center;
-
+	main {
 		height: 100vh;
 		height: 100dvh;
 
 		display: flex;
+		align-items: center;
 		justify-content: center;
 		flex-direction: column;
 
-		& > h1 {
+		& > :is(h1, p, ul) {
+			max-width: max-content;
 			margin: 0;
-
+		}
+		& > h1 {
 			font-size: clamp(2.25rem, 14vw, 2.75rem);
 		}
 		& > p {
-			margin: 0;
-
 			font-size: clamp(0.75em, 5vw, 1em);
 			color: var(--color--text-alt);
 		}
@@ -86,18 +85,12 @@
 			list-style: none;
 
 			display: flex;
-			align-items: center;
 			justify-content: center;
 
 			gap: 1.35rem;
 
-			margin: 1rem 0 0;
+			margin-block-start: 1rem;
 			padding: 0;
-
-			& > li > a {
-				display: flex;
-				place-items: center;
-			}
 		}
 	}
 </style>

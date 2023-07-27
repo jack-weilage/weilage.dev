@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { Link } from 'ui'
-
 	export let post: {
 		title: string
 		slug: string
@@ -13,9 +11,9 @@
 <article>
 	<div class="title">
 		<h2>
-			<Link href="/blog/{post.slug}/">
+			<a href="/blog/{post.slug}/">
 				{post.title}
-			</Link>
+			</a>
 		</h2>
 		<p>{post.description}</p>
 	</div>

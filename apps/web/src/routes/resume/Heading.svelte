@@ -66,13 +66,13 @@
 		@media (width <= 500px) {
 			gap: 1rem;
 		}
-		& > :global h1 {
+		& > :global(h1) {
 			grid-area: title;
 
 			margin: 0;
 			font-size: 2.5em;
 		}
-		& > :global ul {
+		& > :global(ul) {
 			grid-area: list;
 			list-style: none;
 
@@ -96,7 +96,7 @@
 			@media print {
 				gap: 0.35rem;
 			}
-			& > li {
+			& > :global(li) {
 				display: flex;
 				align-items: center;
 				gap: 1rem;
@@ -108,13 +108,13 @@
 				}
 			}
 		}
-		& > :global p {
+		& > :global(p) {
 			grid-area: desc;
 
 			margin: 0;
 			font-size: 0.85em;
 		}
-		& > :global picture {
+		& > :global(picture) {
 			grid-area: pfp;
 
 			aspect-ratio: 320 / 342;
@@ -128,7 +128,7 @@
 				width: 10rem;
 			}
 			/* TODO: Fix CLS issues (why...) */
-			& > img {
+			& > :global(img) {
 				border-radius: 1.5rem;
 			}
 		}

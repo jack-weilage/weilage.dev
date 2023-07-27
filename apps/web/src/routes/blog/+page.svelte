@@ -33,7 +33,7 @@
 </main>
 
 <style lang="postcss">
-	main :global {
+	main {
 		max-width: 45rem;
 
 		margin: 6rem auto 0;
@@ -42,8 +42,8 @@
 		@media print {
 			margin: 0;
 		}
-		& > div.heading {
-			margin-bottom: 3rem;
+		& > .heading {
+			margin-block-end: 3rem;
 
 			@media (width <= 650px) {
 				text-align: center;
@@ -60,7 +60,7 @@
 				color: var(--color--text-alt);
 			}
 		}
-		& > div.previews {
+		& > .previews {
 			display: flex;
 			flex-direction: column;
 

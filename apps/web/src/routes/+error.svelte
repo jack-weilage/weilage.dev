@@ -42,7 +42,7 @@
 </main>
 
 <style lang="postcss">
-	main :global {
+	main {
 		max-width: 45rem;
 		margin: 8rem auto 0;
 

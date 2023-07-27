@@ -79,7 +79,7 @@
 				color: var(--color--text-alt);
 
 				@media print {
-					margin-bottom: 0.25rem;
+					margin-block-end: 0.25rem;
 				}
 			}
 		}

@@ -24,10 +24,10 @@ export async function GET({ url }) {
 			continue
 		}
 
+		//TODO: This is a very naive way of determining paths and will fail for anything in a capture group or parameter
 		const loc = normalize(`${url.origin}/sitemap.xml/${dirname(path)}/`)
 		const { changefreq, priority } = options
 
-		// eslint-disable-next-line sort-keys
 		sitemap += `<url>${construct_url({ loc, changefreq, priority })}</url>`
 	}
 
@@ -46,11 +46,8 @@ export async function GET({ url }) {
 	})
 
 	for (const { slug, updated_at } of posts) {
-		const loc = `${url.origin}/blog/${slug}/`
-
-		// eslint-disable-next-line sort-keys
 		sitemap += `<url>${construct_url({
-			loc,
+			loc: `${url.origin}/blog/${slug}/`,
 			changefreq: 'yearly',
 			lastmod: updated_at,
 		})}</url>`

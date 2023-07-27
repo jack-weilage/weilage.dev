@@ -19,8 +19,17 @@
 		break-inside: avoid;
 
 		& > :global(h2) {
+			display: flex;
+			align-items: center;
+
+			gap: 1.5rem;
+
 			margin: 5rem 0 1rem;
 
+			& > :global(svg) {
+				width: 1.1em;
+				height: 1.1em;
+			}
 			@media not print {
 				font-size: 1.85em;
 			}
@@ -29,10 +38,10 @@
 				padding: 0 0 0.25rem;
 				text-align: start;
 
-				border-bottom: 2px solid var(--color--border);
+				border-block-end: 2px solid var(--color--border);
 			}
 		}
-		& > :global div {
+		& > div {
 			@media not print {
 				padding: 1.5rem;
 

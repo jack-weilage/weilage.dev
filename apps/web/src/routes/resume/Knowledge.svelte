@@ -22,7 +22,7 @@
 		}
 		/* When text is balanced, it'll leave a gap if text-align: flex-end is used. */
 		&:nth-child(even) > p.desc {
-			margin-left: auto;
+			margin-inline-start: auto;
 		}
 	}
 </style>

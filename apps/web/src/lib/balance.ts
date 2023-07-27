@@ -4,6 +4,8 @@
  */
 import type { Action } from 'svelte/action'
 
+// This function is basically just a recursive binary search, honing in
+// on a width which is just before wrapping.
 function squeeze_container(
 	node: HTMLElement,
 	original_height: number,
@@ -33,8 +35,15 @@ export const balance: Action = (node: HTMLElement) => {
 	}
 
 	const callback = () => {
+		// Reset any previous resizing.
 		node.style.maxWidth = ''
-		squeeze_container(node, node.clientHeight, 0, node.clientWidth)
+
+		const original_height = node.clientHeight
+		// Skip the first step (final width will never be less than half the inital width)
+		const min = node.clientWidth / 2
+		const max = node.clientWidth
+
+		squeeze_container(node, original_height, min, max)
 	}
 
 	const resize = new ResizeObserver(callback)

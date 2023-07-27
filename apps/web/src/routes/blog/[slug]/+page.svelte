@@ -7,6 +7,7 @@
 <script lang="ts">
 	import { SEO } from 'ui'
 	import { PortableText, DefaultListItem } from '@portabletext/svelte'
+	import { balance } from '$lib/balance'
 
 	export let data
 </script>
@@ -14,8 +15,8 @@
 <SEO title={data.post.title} description={data.post.description} />
 
 <main id="main-content">
-	<h1>{data.post.title}</h1>
-	<p>{data.post.description}</p>
+	<h1 use:balance>{data.post.title}</h1>
+	<p use:balance>{data.post.description}</p>
 	<article>
 		<PortableText
 			value={data.post.content}
@@ -31,18 +32,18 @@
 </main>
 
 <style lang="postcss">
-	main :global {
-		max-width: 50rem;
-		margin: 8rem auto 0;
-		padding: 2rem;
+	main {
+		max-width: 80ch;
+		margin: 0 auto;
+		padding: 6rem 3vw;
 
 		@media print {
 			margin: 0;
 		}
 		& > h1 {
-			margin-bottom: 0;
+			margin-block: 5rem 0;
 
-			font-size: clamp(2.25rem, 8vw, 3.2rem);
+			font-size: 3.75rem;
 		}
 		& > p {
 			margin: 0.25rem 0 2.5rem;
@@ -50,22 +51,9 @@
 			font-size: 0.9em;
 			color: var(--color--text-alt);
 		}
-
 		& > article {
-			& pre.shiki {
-				width: 100%;
-
-				overflow-x: auto;
-				padding: 1rem;
-				font-size: 0.75em;
-
-				border-radius: 0.5rem;
-			}
-			& *:not(pre) > code {
-				padding: 0.15rem 0.35rem;
-				font-size: 0.8em;
-				background-color: var(--color--background-alt);
-				border-radius: 0.5rem;
+			& > :global(h2) {
+				margin-top: 3rem;
 			}
 		}
 	}
