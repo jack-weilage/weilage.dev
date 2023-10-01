@@ -9,10 +9,7 @@
 </script>
 
 <script lang="ts">
-	import Figma from 'lucide-svelte/dist/svelte/icons/figma.svelte'
-	import Github from 'lucide-svelte/dist/svelte/icons/github.svelte'
-	import Mail from 'lucide-svelte/dist/svelte/icons/mail.svelte'
-
+	import { Figma, Github, Mail } from 'lucide-svelte'
 	import { Link, SEO } from 'ui'
 </script>
 

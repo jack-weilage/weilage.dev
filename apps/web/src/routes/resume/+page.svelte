@@ -9,19 +9,13 @@
 </script>
 
 <script lang="ts">
+	import { balance } from '$lib/balance'
+	import { Brain, Dumbbell, Github, GraduationCap, Mail } from 'lucide-svelte'
 	import { SEO } from 'ui'
 	import Experience from './Experience.svelte'
 	import Heading from './Heading.svelte'
-	import Section from './Section.svelte'
 	import Knowledge from './Knowledge.svelte'
-
-	import Github from 'lucide-svelte/dist/svelte/icons/github.svelte'
-	import Mail from 'lucide-svelte/dist/svelte/icons/mail.svelte'
-	import { balance } from '$lib/balance'
-
-	import GraduationCap from 'lucide-svelte/dist/svelte/icons/graduation-cap.svelte'
-	import Dumbbell from 'lucide-svelte/dist/svelte/icons/dumbbell.svelte'
-	import Brain from 'lucide-svelte/dist/svelte/icons/brain.svelte'
+	import Section from './Section.svelte'
 
 	// If this counter is odd, the experience element should be `text-align: end`.
 	let id = 0
