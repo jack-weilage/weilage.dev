@@ -1,9 +1,20 @@
 {
-	"trailingComma": "all",
 	"semi": false,
 	"singleQuote": true,
 	"useTabs": true,
 
-	"plugins": ["prettier-plugin-svelte"],
-	"overrides": [{ "files": "*.svelte", "options": { "parser": "svelte" } }]
+	"plugins": [
+		"prettier-plugin-svelte",
+		"prettier-plugin-organize-imports",
+		"prettier-plugin-packagejson"
+	],
+	"overrides": [
+		{
+			"files": "*.svelte",
+			"options": {
+				"parser": "svelte",
+				"organizeImportsSkipDestructiveCodeActions": true
+			}
+		}
+	]
 }

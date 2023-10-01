@@ -2,14 +2,13 @@ pre-push:
   parallel: true
   commands:
     lint:
-      run: pnpm lint
+      run: bun lint
     format:
-      run: pnpm format
+      run: bun format
 
 pre-commit:
   parallel: true
   commands:
     prettier:
       glob: '*.{js,ts,svelte,json,yml,yaml}'
-      exclude: 'pnpm-lock.yaml'
-      run: pnpx prettier --cache --write {staged_files} && git add {staged_files}
+      run: bun x prettier --cache --write {staged_files} && git add {staged_files}

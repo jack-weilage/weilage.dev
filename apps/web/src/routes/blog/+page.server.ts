@@ -1,6 +1,6 @@
 import { sanity } from '$lib/sanity.server'
-import { q } from 'groqd'
 import { error } from '@sveltejs/kit'
+import { q } from 'groqd'
 
 export async function load() {
 	const posts = await sanity(

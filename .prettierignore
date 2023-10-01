@@ -9,4 +9,3 @@ node_modules/
 .env.*
 !.env.example
 vite.config.ts.timestamp-*.mjs
-pnpm-lock.yaml

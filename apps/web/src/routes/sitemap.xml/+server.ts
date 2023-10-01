@@ -2,8 +2,8 @@ import type { SitemapConfig } from '$lib/types'
 
 import { dirname, normalize } from 'node:path'
 
-import { error } from '@sveltejs/kit'
 import { sanity } from '$lib/sanity.server'
+import { error } from '@sveltejs/kit'
 import { q } from 'groqd'
 
 const construct_url = (data: Record<string, unknown>) =>
