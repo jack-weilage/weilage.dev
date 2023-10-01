@@ -9,7 +9,7 @@
 		"css"
 	],
 	"scripts": {
-		"format": "pnpm lint --write",
+		"format": "bun lint --write",
 		"lint": "prettier --cache --check . --ignore-path=../../.prettierignore"
 	},
 	"dependencies": {

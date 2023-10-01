@@ -7,7 +7,7 @@
 		"deploy": "sanity deploy",
 		"deploy-graphql": "sanity graphql deploy",
 		"dev": "sanity dev",
-		"format": "pnpm lint --write",
+		"format": "bun lint --write",
 		"lint": "prettier --cache --check . --ignore-path ../../.prettierignore",
 		"start": "sanity start"
 	},
