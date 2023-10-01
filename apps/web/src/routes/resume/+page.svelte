@@ -84,6 +84,16 @@
 			TypeScript definitions, and compatibility for both CommonJS and ESM
 			modules.
 		</Experience>
+		<Experience id={id++} position="Sole Developer" start="2023/09/15">
+			<a slot="heading" href="https://github.com/jack-weilage/chronosis"
+				>Chronosis</a
+			>
+
+			Created the smallest and fastest date manipulation library: Chronosis.
+			Although it's less than 1kb when gzipped, it has just as many features as
+			<a href="https://day.js.org">dayjs</a>. Documention can be found at
+			<a href="https://chronosis.js.org">chronosis.js.org</a> and via Intellisense.
+		</Experience>
 	</Section>
 	<Section>
 		<h2 slot="title">
@@ -98,6 +108,11 @@
 			Used every free moment to study web development and computer science. When
 			in-class options were exhausted, self-studied using online resources,
 			learning via documentation and constant practice.
+		</Experience>
+		<Experience id={id++} start="2023/09/19">
+			<a slot="heading" href="https://whatcom.edu">Whatcom Community College</a>
+
+			Currently working towards the AAS-T Cybersecurity degree.
 		</Experience>
 	</Section>
 	<Section grid>
@@ -121,7 +136,7 @@
 			<span slot="heading">Markup</span>
 
 			Writes accessible HTML, comfortable with component-based languages like
-			Svelte.
+			React and Svelte.
 		</Knowledge>
 		<Knowledge>
 			<span slot="heading">Platforms</span>
