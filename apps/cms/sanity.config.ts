@@ -1,7 +1,7 @@
-import { defineConfig } from 'sanity'
-import { visionTool } from '@sanity/vision'
-import { deskTool } from 'sanity/desk'
 import { codeInput } from '@sanity/code-input'
+import { visionTool } from '@sanity/vision'
+import { defineConfig } from 'sanity'
+import { deskTool } from 'sanity/desk'
 
 import { schemaTypes } from './schemas'
 
