@@ -6,7 +6,7 @@
 		"packages/*"
 	],
 	"scripts": {
-		"format": "bun format --write",
+		"format": "bun lint --write",
 		"lint": "prettier --cache --check . --ignore-path=.prettierignore"
 	},
 	"devDependencies": {
