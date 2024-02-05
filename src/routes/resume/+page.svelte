@@ -11,7 +11,7 @@
 <script lang="ts">
 	import { balance } from '$lib/balance'
 	import { Brain, Dumbbell, Github, GraduationCap, Mail } from 'lucide-svelte'
-	import { SEO } from 'ui'
+	import SEO from '$lib/components/SEO.svelte'
 	import Experience from './Experience.svelte'
 	import Heading from './Heading.svelte'
 	import Knowledge from './Knowledge.svelte'

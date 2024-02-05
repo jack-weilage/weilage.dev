@@ -10,7 +10,8 @@
 
 <script lang="ts">
 	import { Figma, Github, Mail } from 'lucide-svelte'
-	import { Link, SEO } from 'ui'
+	import Link from '$lib/components/Link.svelte'
+	import SEO from '$lib/components/SEO.svelte'
 </script>
 
 <SEO

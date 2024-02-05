@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Github, Mail } from 'lucide-svelte'
-	import { Link } from 'ui'
+	import Link from '$lib/components/Link.svelte'
 </script>
 
 <div class="heading">

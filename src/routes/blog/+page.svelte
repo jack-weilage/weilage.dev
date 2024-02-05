@@ -10,7 +10,7 @@
 
 <script lang="ts">
 	import PostPreview from './PostPreview.svelte'
-	import { SEO } from 'ui'
+	import SEO from '$lib/components/SEO.svelte'
 
 	export let data
 </script>
