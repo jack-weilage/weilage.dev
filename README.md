@@ -1,16 +1,9 @@
-<h1 align="center"><pre><a href="https://weilage.dev">weilage.dev</a></pre></h1>
+<h1 align="center"><pre><a target="_blank" href="https://weilage.dev">weilage.dev</a></pre></h1>
 
-This is the monorepo for [weilage.dev](https://weilage.dev), a personal website created and developed by me, @jack-weilage.
+## Development
 
-## Apps
+This website is built with <a target="_blank" href="https://kit.svelte.dev">SvelteKit</a>, so a development server is built in.
 
-| App             | Description                                           | Built with                                                          |
-| --------------- | ----------------------------------------------------- | ------------------------------------------------------------------- |
-| [cms](apps/cms) | The CMS used for blog posts, to be expanded.          | [sanity.io](https://sanity.io), [React](https://react.dev)          |
-| [web](apps/web) | The main web app. Holds all routing and styling data. | [SvelteKit](https://kit.svelte.dev), [PostCSS](https://postcss.org) |
-
-## Packages
-
-| Package           | Description                                       | Built with                   |
-| ----------------- | ------------------------------------------------- | ---------------------------- |
-| [ui](packages/ui) | The custom UI components used in [web](apps/web). | [Svelte](https://svelte.dev) |
+- `bun dev` starts a development server at <a target="_blank" href="http://localhost:5173">localhost:5173</a>.
+- `bun dev --host` hosts the development server on your network at <a target="_blank" href="about:blank">{LOCAL_IP}:5173</a>.
+- `bun run build && bun preview` builds and locally hosts a production version of the site.

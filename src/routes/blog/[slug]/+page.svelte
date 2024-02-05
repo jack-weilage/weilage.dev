@@ -5,7 +5,7 @@
 </script>
 
 <script lang="ts">
-	import { SEO } from 'ui'
+	import SEO from '$lib/components/SEO.svelte'
 	import { PortableText, DefaultListItem } from '@portabletext/svelte'
 	import { balance } from '$lib/balance'
 

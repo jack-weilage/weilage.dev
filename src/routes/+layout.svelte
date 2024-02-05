@@ -1,6 +1,5 @@
 <script lang="ts">
-	import 'ui/css/vars.pcss'
-	import 'ui/css/global.pcss'
+	import '../app.css'
 
 	import { inject } from '@vercel/analytics'
 	import { page } from '$app/stores'

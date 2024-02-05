@@ -24,7 +24,7 @@ export async function load() {
 				],
 			}),
 	).catch(() => {
-		throw error(500, 'Internal Server Error')
+		error(500, 'Internal Server Error')
 	})
 
 	return {

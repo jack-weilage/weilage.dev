@@ -24,9 +24,9 @@ function squeeze_container(
 
 	return node.clientHeight > original_height
 		? // The element has overflowed onto another line; try between mid and max.
-		  squeeze_container(node, original_height, mid + 1, max)
+			squeeze_container(node, original_height, mid + 1, max)
 		: // The element hasn't overflowed yet; try between min and mid.
-		  squeeze_container(node, original_height, min + 1, mid)
+			squeeze_container(node, original_height, min + 1, mid)
 }
 
 export const balance: Action = (node: HTMLElement) => {

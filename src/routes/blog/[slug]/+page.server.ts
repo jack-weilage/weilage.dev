@@ -20,7 +20,7 @@ export async function load({ params }) {
 
 	if (!post) {
 		//TODO: This won't be reached.
-		throw error(404, 'Post Not Found')
+		error(404, 'Post Not Found')
 	}
 
 	return {
