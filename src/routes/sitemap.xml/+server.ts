@@ -42,7 +42,7 @@ export async function GET({ url }) {
 				],
 			}),
 	).catch(() => {
-		throw error(500)
+		error(500)
 	})
 
 	for (const { slug, updated_at } of posts) {
