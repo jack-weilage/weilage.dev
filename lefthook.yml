@@ -11,4 +11,5 @@ pre-commit:
   commands:
     prettier:
       glob: '*.{js,ts,svelte,json,yml,yaml}'
-      run: bun x prettier --cache --write {staged_files} && git add {staged_files}
+      run:
+        bun x prettier --cache --write {staged_files} && git add {staged_files}
