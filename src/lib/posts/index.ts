@@ -14,23 +14,23 @@ interface ImportMetaDefault {
 
 export const posts = Object.entries(
 	import.meta.glob<{
-		metadata: PostMetadata
+		metadata?: PostMetadata
 		default: ImportMetaDefault
-	}>('./*/post.svelte.md', { eager: true }),
+	}>('./*/post.md', { eager: true }),
 )
 	// If we're in dev mode, it's ok to display non-published posts
-	.filter(([, post]) => post.metadata.published || dev)
+	.filter(([, post]) => post.metadata?.published || dev)
 	.map(([path, post]) => ({
 		slug: path.split('/').at(-2) ?? 'unknown',
 		content: post.default.$$render(),
 		metadata: {
-			title: post.metadata.published
-				? post.metadata.title
-				: `PRIVATE: ${post.metadata.title}`,
-			description: post.metadata.description,
-			uploaded_at: new Date(post.metadata.uploaded_at),
+			title: post.metadata?.published
+				? post.metadata?.title ?? 'No Title'
+				: `PRIVATE: ${post.metadata?.title ?? 'No Title'}`,
+			description: post.metadata?.description ?? 'No Description',
+			uploaded_at: new Date(post.metadata?.uploaded_at ?? 0),
 			updated_at: new Date(
-				post.metadata.updated_at ?? post.metadata.uploaded_at,
+				post.metadata?.updated_at ?? post.metadata?.uploaded_at ?? 0,
 			),
 		},
 	}))
