@@ -4,8 +4,7 @@ description:
   I've been anti-Tailwind for years, but I've given in and accepted that utility
   classes are certainly here to stay
 
-uploaded_at: 2024-04-04 17:21
-updated_at: 2024-04-05 19:34
+uploaded_at: 2024-04-06 20:11
 
 published: true
 ---
