@@ -21,9 +21,5 @@ export const load: PageServerLoad = async ({ params: { slug } }) => {
 	error(404, 'Not Found')
 }
 
-export const entries: EntryGenerator = () => {
-	const slugs = posts.map(({ slug }) => ({ slug }))
-	console.log(slugs)
-	return slugs
-}
+export const entries: EntryGenerator = () => posts.map(({ slug }) => ({ slug }))
 export const prerender = true
