@@ -6,9 +6,9 @@ import unwrapImages from 'remark-unwrap-images'
 // Rehype plugins
 
 const config = defineMDSveXConfig({
-	extensions: ['.svelte.md', '.md', '.svx'],
+	extensions: ['.md'],
 
-	layout: './src/routes/posts/[slug=slugged]/MdsvexLayout.svelte',
+	layout: './src/lib/components/mdsvex/Layout.svelte',
 
 	smartypants: {
 		dashes: 'oldschool',
