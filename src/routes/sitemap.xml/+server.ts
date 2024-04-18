@@ -1,10 +1,8 @@
 import type { SitemapConfig } from '$lib/types'
 
+import { posts } from '$lib/posts'
 import { dirname, normalize } from 'node:path'
-
-import { sanity } from '$lib/sanity.server'
-import { error } from '@sveltejs/kit'
-import { q } from 'groqd'
+import type { RequestHandler } from './$types'
 
 const construct_url = (data: Record<string, unknown>) =>
 	Object.entries(data)
@@ -12,7 +10,7 @@ const construct_url = (data: Record<string, unknown>) =>
 		.map(([key, value]) => `<${key}>${value}</${key}>`)
 		.join('')
 
-export async function GET({ url }) {
+export const GET: RequestHandler = ({ url }) => {
 	let sitemap = ''
 
 	const pages = import.meta.glob<SitemapConfig | undefined>(
@@ -31,25 +29,13 @@ export async function GET({ url }) {
 		sitemap += `<url>${construct_url({ loc, changefreq, priority })}</url>`
 	}
 
-	const posts = await sanity(
-		q('*')
-			.filterByType('post')
-			.grab({
-				slug: q.slug('slug'),
-				updated_at: [
-					'_updatedAt',
-					q.date().transform((date) => date.toISOString()),
-				],
-			}),
-	).catch(() => {
-		error(500)
-	})
-
-	for (const { slug, updated_at } of posts) {
+	for (const {
+		slug,
+		metadata: { updated_at },
+	} of posts) {
 		sitemap += `<url>${construct_url({
-			loc: `${url.origin}/blog/${slug}/`,
-			changefreq: 'yearly',
-			lastmod: updated_at,
+			loc: `${url.origin}/posts/${slug}/`,
+			lastmod: updated_at.toISOString(),
 		})}</url>`
 	}
 

@@ -1,91 +1,39 @@
 <script lang="ts">
-	export let start: string | undefined = undefined
-	export let end: string | undefined = undefined
+	export let location: string
 	export let position: string | undefined = undefined
+	export let href: string | undefined = undefined
 
-	export let id: number
+	export let start: Date | undefined = undefined
+	export let end: Date | undefined = undefined
 </script>
 
-<article class:swap-side={id % 2 === 1}>
-	<div class="heading-block">
-		<h3>
-			<slot name="heading" />
+<div class="break-inside-avoid">
+	<div class="flex items-center justify-between gap-x-4">
+		<h3 class="text-xl font-bold">
+			{#if href}
+				<a {href}>{location}</a>
+			{:else}
+				{location}
+			{/if}
 			{#if position}
-				<span>-</span>
-				<span>{position}</span>
+				- {position}
 			{/if}
 		</h3>
 		{#if start}
-			<p class="duration">
-				{new Date(start).toLocaleDateString('en-US', {
-					month: 'short',
-					year: 'numeric',
-				})}
+			<p class="italic text-stone-600 dark:text-stone-400">
+				{start.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
 				-
 				{#if end}
-					{new Date(end).toLocaleDateString('en-US', {
-						month: 'short',
-						year: 'numeric',
-					})}
+					{end.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
 				{:else}
 					Present
 				{/if}
 			</p>
 		{/if}
 	</div>
-	<p class="desc">
+	<ul
+		class="flex list-disc flex-col gap-y-2 text-stone-700 dark:text-stone-300"
+	>
 		<slot />
-	</p>
-</article>
-
-<style lang="postcss">
-	article {
-		/* Add a margin to the top of every non-first element. */
-		&:not(:first-of-type) {
-			margin-top: 3.5rem;
-
-			@media print {
-				margin-top: 0.5rem;
-			}
-		}
-		& > div.heading-block {
-			display: flex;
-			align-items: center;
-			flex-direction: column;
-
-			@media print {
-				justify-content: space-between;
-				flex-direction: row;
-			}
-			& > h3 {
-				display: flex;
-				align-items: center;
-				flex-wrap: wrap;
-				gap: 0 0.5rem;
-
-				margin: 0 0 0.25rem;
-
-				& > span {
-					font-weight: 300;
-				}
-			}
-			& > p.duration {
-				margin: 0 0 1rem;
-
-				font-size: 0.85em;
-				font-weight: 300;
-				font-style: italic;
-
-				color: var(--color--text-alt);
-
-				@media print {
-					margin-block-end: 0.25rem;
-				}
-			}
-		}
-		& > p.desc {
-			margin: 0;
-			font-size: 0.9em;
-		}
-	}
-</style>
+	</ul>
+</div>

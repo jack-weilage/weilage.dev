@@ -2,167 +2,117 @@
 	import type { SitemapConfig } from '$lib/types'
 	export const _sitemap: SitemapConfig = {
 		enabled: true,
-
-		changefreq: 'monthly',
-		priority: 0.4,
 	}
 </script>
 
-<script lang="ts">
-	import { balance } from '$lib/balance'
-
-	import Brain from 'lucide-svelte/icons/brain'
-	import Dumbbell from 'lucide-svelte/icons/dumbbell'
+<script>
 	import Github from 'lucide-svelte/icons/github'
-	import GraduationCap from 'lucide-svelte/icons/graduation-cap'
 	import Mail from 'lucide-svelte/icons/mail'
+	import LinkedIn from 'lucide-svelte/icons/linkedin'
 
-	import SEO from '$lib/components/SEO.svelte'
-	import Experience from './Experience.svelte'
-	import Heading from './Heading.svelte'
-	import Knowledge from './Knowledge.svelte'
 	import Section from './Section.svelte'
-
-	// If this counter is odd, the experience element should be `text-align: end`.
-	let id = 0
+	import Experience from './Experience.svelte'
 </script>
 
-<SEO title="Resume - Jack Weilage" description="Read Jack Weilage's resume." />
-
-<main id="main-content">
-	<Section heading>
-		<Heading>
-			<h1 slot="heading">Jack Weilage</h1>
-			<ul slot="contact-list">
-				<li>
-					<Mail aria-hidden="true" size="16px" />
-					<a href="mailto:jack@weilage.dev">jack@weilage.dev</a>
-				</li>
-				<li>
-					<Github aria-hidden="true" size="16px" />
-					<a href="https://github.com/jack-weilage">@jack-weilage</a>
-				</li>
-			</ul>
-			<p slot="description" use:balance>
-				I am a web developer with a love for elegant, performant solutions. By
-				combining effective communication skills and a modern understanding of
-				web standards, I build simple, light, and accessible websites.
-			</p>
-			<picture slot="image">
-				<source srcset="/images/pfp.webp" type="image/webp" />
-				<img src="/images/pfp.jpg" alt="" />
-			</picture>
-		</Heading>
-	</Section>
-	<Section>
-		<h2 slot="title">
-			<Dumbbell />
-			Experience
-		</h2>
-		<Experience id={id++} position="Student" start="2022/9/1" end="2022/10/1">
-			<a slot="heading" href="https://bellinghamschools.org">
-				Bellingham Public Schools
-			</a>
-
-			Through a month of analysis and investigation, created a comprehensive,
-			actionable list of concerns for the
-			<a href="https://bellinghamschools.org">
-				Bellingham School District's websites</a
-			>, ranging from A11Y, network performance, and I18N, to HTML correctness,
-			unused resources, and inconsistently updated dependencies. Presented this
-			list to the assistant director of Educational Technology in a meeting,
-			receiving high praise.
+<main class="mx-auto flex max-w-3xl flex-col gap-y-8 p-4">
+	<section class="flex flex-col gap-y-2">
+		<h1 class="text-4xl font-bold">Jack Weilage</h1>
+		<ul class="flex gap-x-4">
+			<li class="flex gap-x-2">
+				<a href="mailto:jack@weilage.dev" class="flex gap-x-2 font-bold">
+					<Mail /> jack@weilage.dev
+				</a>
+			</li>
+			<li>
+				<a
+					href="https://github.com/jack-weilage"
+					class="flex gap-x-2 font-bold"
+				>
+					<Github /> @jack-weilage
+				</a>
+			</li>
+			<li>
+				<a
+					href="https://www.linkedin.com/in/jack-weilage/"
+					class="flex gap-x-2 font-bold"><LinkedIn /> jack-weilage</a
+				>
+			</li>
+		</ul>
+		<p>
+			I am a web developer with a love for elegant, performant solutions. By
+			combining effective communication skills and a modern understanding of web
+			standards, I build simple, light, and accessible websites.
+		</p>
+	</section>
+	<Section title="Projects">
+		<Experience location="whatcom.live" href="https://whatcom.live">
+			<li>
+				Built and deployed a website displaying realtime data related to events
+				in and around Whatcom County.
+			</li>
+			<li>
+				Identified a need for more comprehensive developer tooling for Mapbox in
+				Svelte, and created
+				<a
+					href="https://github.com/jack-weilage/svelte-mapbox"
+					class="font-bold">svelte-mapbox</a
+				> as a thin, ergonomic wrapper around mapbox-gl-js.
+			</li>
+			<li>
+				Source code and more details can be found on my GitHub at <a
+					href="https://github.com/jack-weilage/whatcom-live"
+					class="font-bold">github.com/jack-weilage/whatcom-live</a
+				>.
+			</li>
 		</Experience>
-		<Experience id={id++} position="Sole Developer" start="2022/09/24">
-			<a slot="heading" href="https://github.com/jack-weilage/vite-image">
-				vite-image
-			</a>
-
-			Built a performant, easy-to-use image optimization plugin for
-			<a href="https://vitejs.dev"> vitejs</a>. The plugin is fully commented,
-			with local and CI testing, automated Github/NPM releases, comprehensive
-			TypeScript definitions, and compatibility for both CommonJS and ESM
-			modules.
-		</Experience>
-		<Experience id={id++} position="Sole Developer" start="2023/09/15">
-			<a slot="heading" href="https://github.com/jack-weilage/chronosis"
-				>Chronosis</a
-			>
-
-			Created the smallest and fastest date manipulation library: Chronosis.
-			Although it's less than 1kb when gzipped, it has just as many features as
-			<a href="https://day.js.org">dayjs</a>. Documention can be found at
-			<a href="https://chronosis.js.org">chronosis.js.org</a> and via Intellisense.
-		</Experience>
-	</Section>
-	<Section>
-		<h2 slot="title">
-			<GraduationCap />
-			Education
-		</h2>
-		<Experience id={id++} start="2019/08/01" end="2023/06/01">
-			<a slot="heading" href="https://bellingham.bellinghamschools.org">
-				Bellingham High School
-			</a>
-
-			Used every free moment to study web development and computer science. When
-			in-class options were exhausted, self-studied using online resources,
-			learning via documentation and constant practice.
-		</Experience>
-		<Experience id={id++} start="2023/09/19">
-			<a slot="heading" href="https://whatcom.edu">Whatcom Community College</a>
-
-			Currently working towards the AAS-T Cybersecurity degree.
+		<Experience location="Chronosis" href="https://chronosis.js.org">
+			<li>
+				Designed and built the smallest and fastest date manipulation library in
+				JavaScript. Chronosis weighs in at under 1kb, while performing almost
+				all tasks faster than any other library (even date-fns!).
+			</li>
+			<li>
+				Source code can be found on my GitHub at <a
+					href="https://github.com/jack-weilage/chronosis"
+					class="font-bold">github.com/jack-weilage/chronosis</a
+				>
+				and documentation can be found at
+				<a href="https://chronosis.js.org" class="font-bold">chronosis.js.org</a
+				>.
+			</li>
 		</Experience>
 	</Section>
-	<Section grid>
-		<h2 slot="title">
-			<Brain />
-			Knowledge
-		</h2>
-		<Knowledge>
-			<span slot="heading">Scripting</span>
-
-			Extremely confident with JavaScript and TypeScript. Experienced in making
-			small, modular components.
-		</Knowledge>
-		<Knowledge>
-			<span slot="heading">Styling</span>
-
-			Weaves cutting-edge CSS (via <a href="https://postcss.org">PostCSS</a>)
-			with the latest HTML standards to create beautiful, minimal designs.
-		</Knowledge>
-		<Knowledge>
-			<span slot="heading">Markup</span>
-
-			Writes accessible HTML, comfortable with component-based languages like
-			React and Svelte.
-		</Knowledge>
-		<Knowledge>
-			<span slot="heading">Platforms</span>
-
-			Comfortable working in Windows and Linux, in both GUI and CLI.
-		</Knowledge>
+	<Section title="Education">
+		<Experience
+			location="Bellingham High School"
+			start={new Date('2019/08/01')}
+			end={new Date('2023/06/01')}
+		>
+			<li>
+				Attended all computer science and programming courses available.
+				Self-studied using online resources, documentation and hands-on practice
+				when in-class options were exhausted.
+			</li>
+			<li>
+				Created an actionable list of concerns relating to the Bellimham School
+				District's websites through a month of deep analysis and investigation
+				as a senior. The list, containing accessibility, performance, and
+				internationalization issues, was presented to the CTO and assistant
+				director of Educational Technology, recieving high praise.
+			</li>
+		</Experience>
+		<Experience
+			location="Whatcom Community College"
+			start={new Date('2023/09/19')}
+		>
+			<li>
+				Currently attending classes full-time, working towards an AAS-T
+				Cybersecurity degree.
+			</li>
+			<li>
+				Planning to transfer to Western Washington University via the
+				Cybersecurity Transfer program.
+			</li>
+		</Experience>
 	</Section>
 </main>
-
-<style lang="postcss">
-	/* TODO: Try to include some scroll snapping. */
-	main {
-		max-width: 45rem;
-
-		margin: calc(2.5rem + 6vw) auto 2rem;
-		padding: 2rem;
-
-		@media print {
-			max-width: 100%;
-
-			margin: 0;
-			padding: 0;
-		}
-		& a {
-			font-weight: 700;
-			color: var(--color--text-bold);
-		}
-	}
-</style>
