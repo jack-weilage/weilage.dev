@@ -8,7 +8,7 @@
 </script>
 
 <div class="break-inside-avoid">
-	<div class="flex items-center justify-between gap-x-4">
+	<div class="flex justify-between gap-x-4 max-md:flex-col md:items-center">
 		<h3 class="text-xl font-bold">
 			{#if href}
 				<a {href}>{location}</a>

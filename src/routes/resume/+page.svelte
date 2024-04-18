@@ -17,7 +17,7 @@
 <main class="mx-auto flex max-w-3xl flex-col gap-y-8 p-4">
 	<section class="flex flex-col gap-y-2">
 		<h1 class="text-4xl font-bold">Jack Weilage</h1>
-		<ul class="flex gap-x-4">
+		<ul class="flex flex-wrap gap-x-4 gap-y-1 max-md:justify-center">
 			<li class="flex gap-x-2">
 				<a href="mailto:jack@weilage.dev" class="flex gap-x-2 font-bold">
 					<Mail /> jack@weilage.dev
