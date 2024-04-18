@@ -2,9 +2,11 @@
 	import '../app.css'
 
 	import { inject } from '@vercel/analytics'
+	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit'
 	import { page } from '$app/stores'
 
 	inject()
+	injectSpeedInsights()
 </script>
 
 {#if !['/', '/resume/'].includes($page.url.pathname)}
