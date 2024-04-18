@@ -12,7 +12,13 @@
 
 	import Section from './Section.svelte'
 	import Experience from './Experience.svelte'
+	import SEO from '$lib/components/SEO.svelte'
 </script>
+
+<SEO
+	title="Jack Weilage - Resume"
+	description="A static, printable resume page for Jack Weilage"
+/>
 
 <main class="mx-auto flex max-w-3xl flex-col gap-y-8 p-4">
 	<section class="flex flex-col gap-y-2">
