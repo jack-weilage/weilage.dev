@@ -7,10 +7,11 @@
 	inject()
 </script>
 
-{#if $page.url.pathname !== '/'}
-	<header class="sticky top-0 bg-white p-2 dark:bg-black">
-		<div class="flex items-center gap-x-2">
+{#if !['/', '/resume/'].includes($page.url.pathname)}
+	<header class="sticky top-0 bg-white px-6 py-2 dark:bg-black print:hidden">
+		<div class="flex items-center justify-between gap-x-2">
 			<a href="/" class="p-2 text-lg font-bold">Jack Weilage</a>
+			<a href="/resume/" class="p-2 text-lg font-bold">Resume</a>
 			<!-- {#each $page.url.href.split('/').slice(2, -2) as part, i} -->
 			<!-- 	{#if part.startsWith('weilage') || part.startsWith('localhost')} -->
 			<!-- 		<a href="/" class="text-lg font-bold">Jack Weilage</a> -->
