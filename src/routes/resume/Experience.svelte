@@ -16,7 +16,9 @@
 				{location}
 			{/if}
 			{#if position}
-				- {position}
+				<span class="font-light">
+					- {position}
+				</span>
 			{/if}
 		</h3>
 		{#if start}

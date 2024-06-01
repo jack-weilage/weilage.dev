@@ -52,6 +52,52 @@
 			standards, I build simple, light, and accessible websites.
 		</p>
 	</section>
+	<Section title="Experience">
+		<Experience
+			location="Bellingham Public Schools"
+			position="Substitute Paraeducator"
+			start={new Date('2024/05/16')}
+		>
+			<li>
+				Acted as a data entry specialist, indexing and validating ~10,000
+				employee records.
+			</li>
+		</Experience>
+	</Section>
+
+	<Section title="Education">
+		<Experience
+			location="Bellingham High School"
+			start={new Date('2019/08/01')}
+			end={new Date('2023/06/01')}
+		>
+			<li>
+				Attended all computer science and programming courses available.
+				Self-studied using online resources, documentation and hands-on practice
+				when in-class options were exhausted.
+			</li>
+			<li>
+				Created an actionable list of concerns relating to the Bellingham School
+				District's websites through a month of deep analysis and investigation
+				as a senior. The list, containing accessibility, performance, and
+				internationalization issues, was presented to the CTO and assistant
+				director of Educational Technology, recieving high praise.
+			</li>
+		</Experience>
+		<Experience
+			location="Whatcom Community College"
+			start={new Date('2023/09/19')}
+		>
+			<li>
+				Currently attending classes full-time, working towards an AAS-T
+				Cybersecurity degree.
+			</li>
+			<li>
+				Planning to transfer to Western Washington University via the
+				Cybersecurity Transfer program.
+			</li>
+		</Experience>
+	</Section>
 	<Section title="Projects">
 		<Experience location="whatcom.live" href="https://whatcom.live">
 			<li>
@@ -87,39 +133,6 @@
 				and documentation can be found at
 				<a href="https://chronosis.js.org" class="font-bold">chronosis.js.org</a
 				>.
-			</li>
-		</Experience>
-	</Section>
-	<Section title="Education">
-		<Experience
-			location="Bellingham High School"
-			start={new Date('2019/08/01')}
-			end={new Date('2023/06/01')}
-		>
-			<li>
-				Attended all computer science and programming courses available.
-				Self-studied using online resources, documentation and hands-on practice
-				when in-class options were exhausted.
-			</li>
-			<li>
-				Created an actionable list of concerns relating to the Bellimham School
-				District's websites through a month of deep analysis and investigation
-				as a senior. The list, containing accessibility, performance, and
-				internationalization issues, was presented to the CTO and assistant
-				director of Educational Technology, recieving high praise.
-			</li>
-		</Experience>
-		<Experience
-			location="Whatcom Community College"
-			start={new Date('2023/09/19')}
-		>
-			<li>
-				Currently attending classes full-time, working towards an AAS-T
-				Cybersecurity degree.
-			</li>
-			<li>
-				Planning to transfer to Western Washington University via the
-				Cybersecurity Transfer program.
 			</li>
 		</Experience>
 	</Section>
