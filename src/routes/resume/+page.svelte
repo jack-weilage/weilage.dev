@@ -81,7 +81,7 @@
 				District's websites through a month of deep analysis and investigation
 				as a senior. The list, containing accessibility, performance, and
 				internationalization issues, was presented to the CTO and assistant
-				director of Educational Technology, recieving high praise.
+				director of Educational Technology, receiving high praise.
 			</li>
 		</Experience>
 		<Experience
