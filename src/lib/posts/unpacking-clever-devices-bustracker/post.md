@@ -1,6 +1,6 @@
 ---
 title: "Unpacking Clever Devices' BusTracker"
-description: test
+description: BusTracker provides an interesting target for analysis and research
 
 uploaded_at: 2024-09-02 11:45
 published: true
